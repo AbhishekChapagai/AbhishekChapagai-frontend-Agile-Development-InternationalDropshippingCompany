@@ -30,14 +30,14 @@ class Register extends Component {
                                     <div className="row g-2">
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
-                                                <input type="email" className="form-control" id="floatingInputFirst" placeholder="John" />
+                                                <input type="text" className="form-control" id="floatingInputFirst" placeholder="John" />
                                                 <label htmlFor="floatingInputFirst">First Name</label>
                                             </div>
                                         </div>
 
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
-                                                <input type="email" className="form-control" id="floatingInputLast" placeholder="Smith" />
+                                                <input type="text" className="form-control" id="floatingInputLast" placeholder="Smith" />
                                                 <label htmlFor="floatingInputLast">Last Name</label>
                                             </div>
                                         </div>

@@ -18,13 +18,13 @@ h2 {
     font-weight: 700;
 }
 
-/* Register css */
-.Register {
+/* Register and Login css */
+.Register, .Login {
     background-color: blue;
     display: flex;
 }
 
-.r_left_side {
+.r_left_side, .l_left_side {
     background-color: #fff;
     position: relative;
     flex: 1 1 0 ;
@@ -34,7 +34,7 @@ h2 {
     width: 60%;
 }
 
-.r_left_top {
+.r_left_top, .l_left_top {
     background-color: #fff;
     flex: 1 1 0;
     display: flex;
@@ -43,13 +43,13 @@ h2 {
     padding: 24px;
 }
 
-.r_left_logo {
+.r_left_logo, .l_left_logo {
     color: #92d3ec;
     font-size: 24px;
     font-weight: 800;
 }
 
-.r_left_form {
+.r_left_form, .l_left_form {
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@ h2 {
     height: 55px;
 }
 
-.r_left_bottom {
+.r_left_bottom, .l_left_bottom {
     width: 100%;
     /* margin: 24px auto 0; */
     min-height: 60px;
@@ -76,7 +76,7 @@ h2 {
     font-weight: 500;
 }
 
-.r_right_side {
+.r_right_side, .l_right_side {
     background-color: #92d3ec;
     /* height: 100%; */
     width: 40%;
@@ -91,7 +91,7 @@ h2 {
 
 /* media-query */
 @media only screen and (min-width: 1200px){
-    .Register {
+    .Register{
         height: 100vh;
     }
 
@@ -100,15 +100,21 @@ h2 {
     } */
 
     
-    .r_left_form{
+    .r_left_form, .l_left_form{
         width: 450px;
         margin-top: 30px;
         align-self: center;
     }
 }
 
+@media only screen and (min-width: 800px){
+    .Login{
+        height: 100vh;
+    }
+}
+
 @media only screen and (max-width: 1200px){
-    .r_left_form{
+    .r_left_form, .l_left_form{
         width: 450px;
         margin-top: 30px;
         align-self: center;
@@ -116,18 +122,18 @@ h2 {
 }
 
 @media only screen and (max-width: 992px) {
-    .r_left_form{
+    .r_left_form, .l_left_form{
         width: 90%;
     }
 }
 
 
 @media only screen and (max-width: 768px){
-    .r_right_side {
+    .r_right_side, .l_right_side {
         display: none;
     }
 
-    .r_left_form{
+    .r_left_form, .l_left_form{
         width: 90%;
         margin-top: 20px;
         align-self: center;
@@ -135,7 +141,7 @@ h2 {
 }
 
 @media only screen and (max-width: 600px){
-    .r_left_form{
+    .r_left_form, .l_left_form{
         width: 100%;
         margin-top: 10px;
     }
