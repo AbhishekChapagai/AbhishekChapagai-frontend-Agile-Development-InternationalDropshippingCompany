@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { Container, Row } from "react-bootstrap";
 import './LoginRegister.css';
 
 class Register extends Component {
@@ -23,12 +22,28 @@ class Register extends Component {
                         <div className="r_left_form">
                             <div className="r_heading">
                                 <h2> Join Dhuwani </h2>
-                                <p> Moto </p>
+                                {/* <p> Moto </p> */}
                             </div>
 
                             <div className="r_form">
                                 <form>
-                                    <div className="form-floating mb-3">
+                                    <div className="row g-2">
+                                        <div className="col-md">
+                                            <div className="form-floating mb-2">
+                                                <input type="email" className="form-control" id="floatingInputFirst" placeholder="John" />
+                                                <label htmlFor="floatingInputFirst">First Name</label>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md">
+                                            <div className="form-floating mb-2">
+                                                <input type="email" className="form-control" id="floatingInputLast" placeholder="Smith" />
+                                                <label htmlFor="floatingInputLast">Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="form-floating mb-2">
                                         <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
                                         <label htmlFor="floatingInput">Email address</label>
                                     </div>
@@ -41,7 +56,7 @@ class Register extends Component {
                                     <li>8 characters minimum </li>
                                     <li> One number, One Symbol </li>
 
-                                    <button type="submit" className="btn primary_color btn-md btn-block">Register</button>
+                                    <button type="submit" className="btn btn_primary_color btn-md btn-block">Register</button>
 
                                 </form>
 
@@ -60,7 +75,7 @@ class Register extends Component {
 
                     {/* bottom container */}
                     <div className="r_left_bottom">
-                        <span> &copy; 2021 Dhuwani  </span>
+                        <span> &copy; 2021 Dhuwani | Kathmandu, Nepal</span>
                     </div>
                 </div>
 
