@@ -37,7 +37,7 @@ class Login extends Component {
                                         <label htmlFor="floatingPassword">Password</label>
                                     </div>
 
-                                    <button type="submit" className="btn btn_primary_color btn-md btn-block mb-2">Login</button>
+                                    <button type="submit" className="btn btn_primary_color btn-md btn-block mb-2">SignIn</button>
 
                                 </form>
 

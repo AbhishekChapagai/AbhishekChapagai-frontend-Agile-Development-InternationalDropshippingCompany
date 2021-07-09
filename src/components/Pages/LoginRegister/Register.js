@@ -56,7 +56,7 @@ class Register extends Component {
                                     <li>8 characters minimum </li>
                                     <li> One number, One Symbol </li>
 
-                                    <button type="submit" className="btn btn_primary_color btn-md btn-block">Register</button>
+                                    <button type="submit" className="btn btn_primary_color btn-md btn-block">SignUp</button>
 
                                 </form>
 
