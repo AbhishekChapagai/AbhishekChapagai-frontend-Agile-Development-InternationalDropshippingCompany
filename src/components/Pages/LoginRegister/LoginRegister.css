@@ -1,9 +1,30 @@
-.Register {
-    background-color: red;
+.btn {
+    width: 100%;
+}
+
+.btn_primary_color {
+    /* background-color: #2d00fb; */
+    background-color: #92d3ec;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn_primary_color:hover {
+    color: #fff;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Register and Login css */
+.Register, .Login {
+    background-color: blue;
     display: flex;
 }
 
-.r_left_side {
+.r_left_side, .l_left_side {
     background-color: #fff;
     position: relative;
     flex: 1 1 0 ;
@@ -13,7 +34,7 @@
     width: 60%;
 }
 
-.r_left_top {
+.r_left_top, .l_left_top {
     background-color: #fff;
     flex: 1 1 0;
     display: flex;
@@ -22,35 +43,30 @@
     padding: 24px;
 }
 
-.r_left_logo {
+.r_left_logo, .l_left_logo {
     color: #92d3ec;
     font-size: 24px;
     font-weight: 800;
 }
 
-.r_left_form {
+.r_left_form, .l_left_form {
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
-
+    font-size: 14px;
 }
 
-.btn {
+.form-floating .form-control {
+    /* border: 1px solid #92d3ec; */
+    height: 55px;
+}
+
+.r_left_bottom, .l_left_bottom {
     width: 100%;
-}
-
-.primary_color {
-    /* background-color: #2d00fb; */
-    background-color: #92d3ec;
-    color: #fff;
-}
-
-.r_left_bottom {
-    width: 100%;
-    margin: 24px auto 0;
-    min-height: 72px;
+    /* margin: 24px auto 0; */
+    min-height: 60px;
     padding-left: 32px;
     background-color: #f6f6f9;
     display: flex;
@@ -60,36 +76,73 @@
     font-weight: 500;
 }
 
-.r_right_side {
-    display: flex;
+.r_right_side, .l_right_side {
     background-color: #92d3ec;
-    height: 100%;
+    /* height: 100%; */
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+    font-size: 20px;
+    font-weight: 600;
 }
 
-@media only screen and (min-width: 769px){
-    .Register {
+
+/* media-query */
+@media only screen and (min-width: 1200px){
+    .Register{
         height: 100vh;
     }
 
-    .r_right_side img {
+    /* .r_right_side img {
         width: 50%;
-    }
+    } */
+
     
-    .r_left_form{
-        width: 440px;
-        margin-top: 40px;
+    .r_left_form, .l_left_form{
+        width: 450px;
+        margin-top: 30px;
         align-self: center;
     }
 }
 
-@media only screen and (max-width: 769px){
-    .r_right_side {
+@media only screen and (min-width: 800px){
+    .Login{
+        height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .r_left_form, .l_left_form{
+        width: 450px;
+        margin-top: 30px;
+        align-self: center;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .r_left_form, .l_left_form{
+        width: 90%;
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    .r_right_side, .l_right_side {
         display: none;
     }
-    
-   
+
+    .r_left_form, .l_left_form{
+        width: 90%;
+        margin-top: 20px;
+        align-self: center;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .r_left_form, .l_left_form{
+        width: 100%;
+        margin-top: 10px;
+    }
 }
