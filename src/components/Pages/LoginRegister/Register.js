@@ -1,7 +1,40 @@
 import { Component } from "react";
 import './LoginRegister.css';
+import axios from "axios";
 
 class Register extends Component {
+    state = {
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+    }
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
+
+    }
+
+    submitData = (e) => {
+        e.preventDefault();
+        // data.append('firstname', this.state.firstname)
+        // data.append('lastname', this.state.lastname)
+        // data.append('email', this.state.email)
+        // data.append('password', this.state.password)
+
+        axios.post("http://localhost:90/user/signup", this.state)
+            .then((response) => {
+                console.log(response);
+                console.log(this.state);
+                // window.location.href = "/signin"
+            })
+            .catch((err) => {
+                console.log(err.response);
+            })
+    }
+
     render() {
         return (
             <div className="Register">
@@ -30,33 +63,38 @@ class Register extends Component {
                                     <div className="row g-2">
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
-                                                <input type="text" className="form-control" id="floatingInputFirst" placeholder="John" />
+                                                <input type="text" className="form-control" id="floatingInputFirst" placeholder="Jhon" name="firstname" value={this.state.firstname}
+                                                    onChange={this.changeHandler} />
                                                 <label htmlFor="floatingInputFirst">First Name</label>
                                             </div>
                                         </div>
 
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
-                                                <input type="text" className="form-control" id="floatingInputLast" placeholder="Smith" />
+                                                <input type="text" className="form-control" id="floatingInputLast" placeholder="Smith" name="lastname" value={this.state.lastname}
+                                                    onChange={this.changeHandler} />
                                                 <label htmlFor="floatingInputLast">Last Name</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="form-floating mb-2">
-                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@gmail.com" name="email" value={this.state.email}
+                                            onChange={this.changeHandler} />
                                         <label htmlFor="floatingInput">Email address</label>
                                     </div>
 
                                     <div className="form-floating">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+                                        <input type="password" className="form-control" id="floatingPassword" placeholder="password1!" name="password" value={this.state.password}
+                                            onChange={this.changeHandler} />
                                         <label htmlFor="floatingPassword">Password</label>
                                     </div>
 
                                     <li>8 characters minimum </li>
                                     <li> One number, One Symbol </li>
 
-                                    <button type="submit" className="btn btn_primary_color btn-md btn-block">SignUp</button>
+                                    <button type="submit" className="btn btn_primary_color btn-md btn-block" onClick={this.submitData}>SignUp</button>
+
 
                                 </form>
 

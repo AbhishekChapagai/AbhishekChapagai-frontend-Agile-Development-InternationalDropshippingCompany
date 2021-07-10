@@ -1,7 +1,41 @@
 import { Component } from "react";
 import './LoginRegister.css';
+import axios from "axios";
 
 class Login extends Component {
+    state = {
+        email: "",
+        password: "",
+    }
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        }
+
+        )
+    }
+
+    submitLogin = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:90/user/login", this.state)
+            .then((response) => {
+                console.log(response);
+                this.setState({
+                    success: response.data.success
+
+
+                })
+
+
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
+
+
+
     render() {
         return (
             <div className="Login">
@@ -28,16 +62,17 @@ class Login extends Component {
                             <div className="l_form">
                                 <form>
                                     <div className="form-floating mb-2">
-                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" value={this.state.email} onChange={this.changeHandler} />
                                         <label htmlFor="floatingInput">Email address</label>
                                     </div>
 
                                     <div className="form-floating mb-2">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler} />
                                         <label htmlFor="floatingPassword">Password</label>
                                     </div>
 
-                                    <button type="submit" className="btn btn_primary_color btn-md btn-block mb-2">SignIn</button>
+                                    <button type="submit" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>SignIn</button>
+
 
                                 </form>
 
