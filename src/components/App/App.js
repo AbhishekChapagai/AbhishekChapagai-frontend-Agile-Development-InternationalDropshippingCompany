@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom"; // wrap
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // wrap
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Login from "../Pages/LoginRegister/Login";
