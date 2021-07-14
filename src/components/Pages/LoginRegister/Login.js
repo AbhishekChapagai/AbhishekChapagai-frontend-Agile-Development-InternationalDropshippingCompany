@@ -62,16 +62,20 @@ class Login extends Component {
                             <div className="l_form">
                                 <form>
                                     <div className="form-floating mb-2">
-                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" value={this.state.email} onChange={this.changeHandler} />
-                                        <label htmlFor="floatingInput">Email address</label>
+                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" 
+                                        data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
+                                        <label id="email" htmlFor="floatingInput">Email address</label>
+                                        {this.state.email && !(/\S+@\S+\.\S+/).test(this.state.email) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
+
                                     </div>
 
                                     <div className="form-floating mb-2">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" value={this.state.password} onChange={this.changeHandler} />
-                                        <label htmlFor="floatingPassword">Password</label>
+                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" 
+                                        data-testid="password-input" value={this.state.password} onChange={this.changeHandler} />
+                                        <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 
-                                    <button type="submit" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>SignIn</button>
+                                    <button type="submit" id="register-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>SignIn</button>
 
 
                                 </form>

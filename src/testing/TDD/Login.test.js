@@ -1,17 +1,84 @@
 import { render, screen } from "@testing-library/react";
 import Login from '../../components/Pages/LoginRegister/Login';
+import React from 'react';
+import userEvent from '@testing-library/user-event';
 
-it('should have a email, password and signup button', ()=>{
-    render(<Login/>);
+import { shallow } from 'enzyme';
+
+describe('render the views of registration page', () => {
+
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallow(<Login />)
+    })
+    test("render the title of registration page", () => {
+        expect(wrapper.find('h2').text()).toContain('Login into Dhuwani')
+
+        // const {getByText} = render(<Register/>);
+        // const linkElement = getByText('Join Dhuwani');
+        // expect(linkElement).toBeInTheDocument();
+    });
+
+    test('render the Email label of registration form', () => {
+        expect(wrapper.find("#email").text()).toBe("Email address");
+    })
+
+    test('render the Password label of registration form', () => {
+        expect(wrapper.find("#password").text()).toBe("Password");
+    })
+
+    test('render the Button label of registration form', () => {
+        expect(wrapper.find("#register-btn").text()).toBe("SignIn");
+    })
+
+    test('render email input', () => {
+        render(<Login />)
+        const inputEL = screen.getByTestId("email-input");
+        expect(inputEL).toBeInTheDocument();
+        expect(inputEL).toHaveAttribute('type', 'email');
+    });
+
+    test('pass valid email to test email input field', () => {
+        render(<Login />);
+     
+        const inputEL = screen.getByTestId("email-input");
+        userEvent.type(inputEL, "test@gmail.com");
+     
+        expect(screen.getByTestId("email-input")).toHaveValue("test@gmail.com");
+        expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
+      });
+
+      test('pass invalid email to test input value', () => {
+        render(<Login />);
+     
+        const inputEL = screen.getByTestId("email-input");
+        userEvent.type(inputEL, "test");
+     
+        expect(screen.getByTestId("email-input")).toHaveValue("test");
+        expect(screen.queryByTestId("error-msg")).toBeInTheDocument();
+        expect(screen.queryByTestId("error-msg").textContent).toEqual("Please enter a valid email.");
+      });
+
+    test('render password input', () => {
+        render(<Login />);
+        const inputPW = screen.getByTestId("password-input");
+        expect(inputPW).toBeInTheDocument();
+        expect(inputPW).toHaveAttribute('type', 'password');
+    });
+
+});
+
+// it('should have a email, password and signup button', ()=>{
+//     render(<Login/>);
 
     
-    const emailField = screen.getByText(/Email address/i);
-    const passwordField = screen.getByText(/Password/i);
-    const submitButton = screen.getByText(/SignIn/i);
+//     const emailField = screen.getByText(/Email address/i);
+//     const passwordField = screen.getByText(/Password/i);
+//     const submitButton = screen.getByText(/SignIn/i);
 
 
-    expect(emailField).toBeInTheDocument();
-    expect(passwordField).toBeInTheDocument();
-    expect(submitButton).toBeInTheDocument();
-})
+//     expect(emailField).toBeInTheDocument();
+//     expect(passwordField).toBeInTheDocument();
+//     expect(submitButton).toBeInTheDocument();
+// })
 

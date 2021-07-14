@@ -64,36 +64,38 @@ class Register extends Component {
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
                                                 <input type="text" className="form-control" id="floatingInputFirst" placeholder="Jhon" name="firstname" value={this.state.firstname}
-                                                    onChange={this.changeHandler} />
-                                                <label htmlFor="floatingInputFirst">First Name</label>
+                                                    data-testid="firstname-input" onChange={this.changeHandler} />
+                                                <label id="firstname" htmlFor="floatingInputFirst">First Name</label>
                                             </div>
                                         </div>
 
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
                                                 <input type="text" className="form-control" id="floatingInputLast" placeholder="Smith" name="lastname" value={this.state.lastname}
-                                                    onChange={this.changeHandler} />
-                                                <label htmlFor="floatingInputLast">Last Name</label>
+                                                    data-testid="lastname-input" onChange={this.changeHandler} />
+                                                <label id="lastname" htmlFor="floatingInputLast">Last Name</label>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="form-floating mb-2">
                                         <input type="email" className="form-control" id="floatingInput" placeholder="name@gmail.com" name="email" value={this.state.email}
-                                            onChange={this.changeHandler} />
-                                        <label htmlFor="floatingInput">Email address</label>
+                                            data-testid="email-input" onChange={this.changeHandler} />
+                                        <label id="email" htmlFor="floatingInput">Email address</label>
+                                        {this.state.email && !(/\S+@\S+\.\S+/).test(this.state.email) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
+
                                     </div>
 
                                     <div className="form-floating">
                                         <input type="password" className="form-control" id="floatingPassword" placeholder="password1!" name="password" value={this.state.password}
-                                            onChange={this.changeHandler} />
-                                        <label htmlFor="floatingPassword">Password</label>
+                                           data-testid="password-input" onChange={this.changeHandler} />
+                                        <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 
                                     <li>8 characters minimum </li>
                                     <li> One number, One Symbol </li>
 
-                                    <button type="submit" className="btn btn_primary_color btn-md btn-block" onClick={this.submitData}>SignUp</button>
+                                    <button type="submit" id="login-btn" className="btn btn_primary_color btn-md btn-block" onClick={this.submitData}>SignUp</button>
 
 
                                 </form>
