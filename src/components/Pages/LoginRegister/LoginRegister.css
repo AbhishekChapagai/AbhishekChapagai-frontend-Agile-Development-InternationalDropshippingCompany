@@ -146,3 +146,14 @@ h2 {
         margin-top: 10px;
     }
 }
+
+@media only screen and (orientation: portrait) {
+    html, body, #root, .App, .Login, .Register {
+        height: 100%;
+    }
+
+    .l_left_form {
+        display: flex;
+        justify-content: center;
+    }
+}
