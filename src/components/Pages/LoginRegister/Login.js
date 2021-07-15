@@ -11,9 +11,7 @@ class Login extends Component {
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        }
-
-        )
+        })
     }
 
     submitLogin = (e) => {
@@ -23,18 +21,12 @@ class Login extends Component {
                 console.log(response);
                 this.setState({
                     success: response.data.success
-
-
                 })
-
-
             })
             .catch((err) => {
                 console.log(err.response)
             })
     }
-
-
 
     render() {
         return (
@@ -55,27 +47,27 @@ class Login extends Component {
                         {/* form */}
                         <div className="l_left_form">
                             <div className="l_heading">
-                                <h2 className="mb-3"> Login into Dhuwani</h2>
+                                <h2 className="mb-3"> Login to Dhuwani</h2>
                                 {/* <p> Moto </p> */}
                             </div>
 
                             <div className="l_form">
                                 <form>
                                     <div className="form-floating mb-2">
-                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" 
-                                        data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
+                                        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email"
+                                            data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
                                         <label id="email" htmlFor="floatingInput">Email address</label>
                                         {this.state.email && !(/\S+@\S+\.\S+/).test(this.state.email) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
 
                                     </div>
 
                                     <div className="form-floating mb-2">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password" 
-                                        data-testid="password-input" value={this.state.password} onChange={this.changeHandler} />
+                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password"
+                                            data-testid="password-input" value={this.state.password} onChange={this.changeHandler} />
                                         <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 
-                                    <button type="submit" id="register-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>SignIn</button>
+                                    <button type="submit" id="register-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>Login</button>
 
 
                                 </form>

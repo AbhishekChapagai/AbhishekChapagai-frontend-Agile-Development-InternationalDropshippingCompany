@@ -88,14 +88,14 @@ class Register extends Component {
 
                                     <div className="form-floating">
                                         <input type="password" className="form-control" id="floatingPassword" placeholder="password1!" name="password" value={this.state.password}
-                                           data-testid="password-input" onChange={this.changeHandler} />
+                                            data-testid="password-input" onChange={this.changeHandler} />
                                         <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 
                                     <li>8 characters minimum </li>
                                     <li> One number, One Symbol </li>
 
-                                    <button type="submit" id="login-btn" className="btn btn_primary_color btn-md btn-block" onClick={this.submitData}>SignUp</button>
+                                    <button type="submit" id="login-btn" className="btn btn_primary_color btn-md btn-block" onClick={this.submitData}>Register</button>
 
 
                                 </form>
