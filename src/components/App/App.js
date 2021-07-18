@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "../Pages/LoginRegister/Login";
 import Landing from "../Pages/LandingPage/landing"
 import Register from "../Pages/LoginRegister/Register";
+import Gadgets from "../Pages/ProductBrowsing/Gadgets";
+import Cosmetics from "../Pages/ProductBrowsing/Cosmetics";
 import Nav from "../Header/Header";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/gadgets" component={Gadgets} />
+          <Route exact path="/cosmetics" component={Cosmetics} />
           <Route exact path="/nav" component={Nav} />
         </Switch>
       </div>
