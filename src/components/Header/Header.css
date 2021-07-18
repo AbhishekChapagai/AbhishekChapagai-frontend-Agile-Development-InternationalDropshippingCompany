@@ -1,96 +1,83 @@
-.Header {
-    padding: 20px;
-    background-color: green;
+.btn_p_c {
+    background-color: #1c96c5;
+    color: #fff;
 }
 
-/* .header_container{
-    display: flex;
-} */
+.btn_p_c:hover {
+    color: #fff;
+}
 
-.nav_logo {
-    font-size: 24px;
+/* p_bg_c = primary background color */
+.p_bg_c{
+    background-color: #1c96c5;
+}
+
+/* primary text color */
+.primary_text_color{
+    color: #1c96c5;
+}
+
+/*--------------------- ProfileMenu --------------------- */
+button {
+    border: none;
+}
+
+.profile-menu {
+    display: flex;
+    justify-self: center;
+}
+
+.rc-menu-button {
+    background-color: #fff;
+    color: #1c96c5;
+}
+
+
+/*--------------------- Header --------------------- */
+.Header {
+    box-shadow: 0 15px 10px -15px #1111112b;
+    /* position: fixed; */
+    /* width: 100%; */
+    z-index: 999;
+}
+
+.active {
+    /* border-bottom: 4px solid #1c96c5 ; */
+}
+
+nav.navbar.navbar-expand-lg.navbar-light {
+    background-color: #fff;
+}
+
+.navbar-light .navbar-brand {
+    color: #1c96c5;
     font-weight: 800;
 }
 
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 10px;
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: #1c96c5;
 }
 
-
-.nav_links {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    width: auto;
+/* to change the bootstrap default toggler icon and color ---- hamburger icon */
+.navbar-light .navbar-toggler-icon{
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(28, 150, 197, 1)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-
-.nav_link_li {
-    display: flex;
+.navbar-light .navbar-toggler {
+    color: rgba(28, 150, 197, 1);
+    border-color: rgba(28, 150, 197, 1);
 }
 
-
-.nav_right_side {
-    display: flex;
+.navbar-light .navbar-nav .nav-link {
+    color: #1c96c5;
+    font-weight: 700;
 }
 
-.btn_login {
-    margin-right: 10px;
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #1c96c5;
 }
 
-/* mobile nav */
-.nav_mobile_hamburger{
-    width: 40px;
-    height: 30px;
-    position: absolute;
-    transform: translate(-50%);
-    cursor: pointer;
-    /* border: 1px solid #fff; */
-}
-
-.line {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 14%;
-    background-color: #fff;
-    border-radius: 4px;
-    transform-origin: center;
-    transition: 0.3s all linear;
-}
-
-.line0{
-    top: 0;
-}
-
-.line1{
-    width: 80%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.line2{
-    top: 100%;
-    transform: translateY(-100%);
-}
-
-.iconClick .line0 {
-    top: 50%;
-    transform: translate(0, -50%) rotate(45deg);
-}
-
-
-.iconClick .line2 {
-    top: 50%;
-    transform: translate(0, -50%) rotate(-45deg);
-}
-
-@media only screen and (max-width: 600px){
-    .h_right_side {
-        display: none       ;
-    }
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: #1c96c5;
 }

@@ -1,57 +1,57 @@
+import { Menu, MenuButton, MenuDivider, MenuItem, SubMenu } from "@szhsin/react-menu";
+import '@szhsin/react-menu/dist/index.css';
+
+import React, { useState } from "react";
 import { Component } from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 import './Header.css';
+import ProfileMenu from './ProfileMenu';
 
 class Header extends Component {
+  render() {
+    return (
+      <div className="Header">
+        <Navbar collapseOnSelect expand="sm">
+          <Container>
+            <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-    icon = () => {
-        const icon = document.querySelector(".nav_mobile_hamburger");
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <LinkContainer extact to="/">
+                  <Nav.Link>Home</Nav.Link>
+                </LinkContainer>
+                <NavDropdown title="Product" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/product/cosmetic">
+                    Cosmetic
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="/product/gadget">
+                    Gadget
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                </NavDropdown>
+                <LinkContainer extact to="/about">
+                  <Nav.Link>About</Nav.Link>
+                </LinkContainer>
+              </Nav>
 
-        icon.classList.toggle("iconClick");
-    }
-
-    render() {
-        return (
-            <div className="Header primary_text_color">
-
-                <div className="container d-flex align-items-center">
-
-
-                    {/* left side of navbar */}
-                    <div className="nav_logo">
-                        {/* <div className="nav_mobile_hamburger">
-                            <span class="line line0"> </span>
-                            <span class="line line1"> </span>
-                            <span class="line line2"> </span>
-                        </div> */}
-
-                        <span>
-                            Dhuwani
-                        </span>
-                    </div>
+              <Nav>
+                <Link extact to="/login">
+                  <button type="submit" className="btn btn_p_c">  Login </button>
+                </Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
 
 
-
-                    <nav>
-                        {/*  left side of navbar */}
-                        <div className="nav_left_side">
-                            Product
-                            {/* <ul className="nav_links">
-                            <li className="nav_link_li"> 1 </li>
-                            <li className="nav_link_li"> 2</li>
-                            <li className="nav_link_li"> 3 </li>
-                        </ul> */}
-                        </div>
-
-                        {/*  right side of navbar */}
-                        <div className="nav_right_side">
-                            <button type="submit" className="btn_login btn btn-primary " > Login </button>
-                            {/* <button type="submit" className="btn_register btn btn-primary " > Register </button> */}
-                        </div>
-                    </nav>
-                </div>
-            </div >
-        )
-    }
+      </div >
+    )
+  }
 }
+
 
 export default Header;
