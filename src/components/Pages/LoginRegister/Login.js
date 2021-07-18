@@ -41,7 +41,7 @@ class Login extends Component {
                         {/* logo */}
                         <div className="l_left_logo">
                             {/* <img src={Logo} alt="logo" /> */}
-                            <span>Dhuwani</span>
+                            <span> <i class="fas fa-paper-plane"></i> Dhuwani</span>
                         </div>
 
                         {/* form */}
