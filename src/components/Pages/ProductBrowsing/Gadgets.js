@@ -38,7 +38,7 @@ class gadgets extends Component {
                 <h2>Let's Browse Gadgets</h2>
 
                 <div className="FlippyCardAlign">
-                    <div className="App">
+                    <div className="Application">
                         <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-around', 'flex-wrap': 'wrap' }}>{
                             this.state.gadgets.map((g) => {
                                 return (
