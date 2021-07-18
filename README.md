@@ -2,8 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Live Server || Demo of Applications.
-Click link below for demo of website.
+## Live Server || Website Demo.
+Click the link below for demo of website. \
 Link: https://dhuwani.netlify.app/
 
 ## Available Scripts
