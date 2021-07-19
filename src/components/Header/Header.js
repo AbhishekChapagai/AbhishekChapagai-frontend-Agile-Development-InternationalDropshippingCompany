@@ -24,17 +24,16 @@ class Header extends Component {
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
                 <NavDropdown title="Product" id="collasible-nav-dropdown">
-                  <NavDropdown.Item href="/product/cosmetic">
+                  <NavDropdown.Item href="/product/cosmetics">
                     Cosmetic
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="/product/gadget">
+                  <NavDropdown.Item href="/product/gadgets">
                     Gadget
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>
                 <LinkContainer extact to="/about">
-                  <Nav.Link>About</Nav.Link>
+                  <Nav.Link>Test Nav</Nav.Link>
                 </LinkContainer>
               </Nav>
 
