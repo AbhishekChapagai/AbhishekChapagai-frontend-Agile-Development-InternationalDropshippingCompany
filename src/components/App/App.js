@@ -9,21 +9,47 @@ import Register from "../Pages/LoginRegister/Register";
 import Gadgets from "../Pages/ProductBrowsing/Gadgets";
 import Cosmetics from "../Pages/ProductBrowsing/Cosmetics";
 import Nav from "../Header/Header";
+import TestPage from '../Header/About';
+import Header from '../Header/Header';
 
 function App() {
+
+  // it allows to have different component in the different pages. Like login page without navbar.
+  // login page without navbar and footer component.
+  const LoginContainer = () => (
+    <div className="">
+      <Route exact path="/login" component={Login} />
+    </div>
+  )
+
+  const RegisterContainer = () => (
+    <div className="">
+      <Route exact path="/register" component={Register} />
+    </div>
+  )
+
+  // Pages with Header/navbar and footer component.
+  const DefaultContainer = () => (
+    <div>
+      <Header />
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/about" component={TestPage} />
+      <Route exact path="/product/gadgets" component={Gadgets} />
+      <Route exact path="/product/cosmetics" component={Cosmetics} />
+    </div>
+  )
+
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/gadgets" component={Gadgets} />
-          <Route exact path="/cosmetics" component={Cosmetics} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/nav" component={Nav} />
+          <Route component={DefaultContainer} />
         </Switch>
       </div>
-    </Router>
+    </Router >
   );
 }
 
