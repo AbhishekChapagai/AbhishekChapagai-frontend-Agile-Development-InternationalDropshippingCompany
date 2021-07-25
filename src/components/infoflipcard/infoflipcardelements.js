@@ -4,9 +4,9 @@ import Flippy, { FrontSide, BackSide } from '../infoflipcard';
 import '../App/App.css';
 
 export const FlippyStyle = {
-    width: '200px',
-    height: '300px',
-    textAlign: 'center',
+    width: '300px',
+    height: '390px',
+    textAlign: 'left',
     color: '#FFF',
     fontFamily: 'sans-serif',
     fontSize: '30px',
@@ -17,7 +17,7 @@ export const DefaultCardContents = ({ children }) => (
     <React.Fragment>
         <FrontSide
             style={{
-                backgroundColor: '#1c96c5',
+                backgroundColor: '#fff',
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection: 'column'
@@ -30,10 +30,11 @@ export const DefaultCardContents = ({ children }) => (
 
             <span
                 style={{
-                    fontSize: '12px',
-                    position: 'absolute',
+                    fontSize: '14px',
+                    position: 'initial',
                     bottom: '10px',
-                    width: '100%'
+                    width: '100%',
+                    height:'100%'
                 }}>
                 {children}<br />
 
@@ -113,7 +114,7 @@ class Flipinfo extends Component {
     render() {
         return (
             <div className="App">
-                <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-around', 'flex-wrap': 'wrap' }}>
+                <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-between', 'flex-wrap': 'wrap' }}>
                     <Flippy
                         ref={(r) => this.flippyHorizontal = r}
                         flipOnClick={false}
