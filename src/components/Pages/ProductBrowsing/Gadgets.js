@@ -12,14 +12,14 @@ class gadgets extends Component {
 
     state = {
         gadgets: [],
-        config: {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        }
+        // config: {
+        //     headers: {
+        //         authorization: `Bearer ${localStorage.getItem('token')}`
+        //     }
+        // }
     }
     componentDidMount() {
-        axios.get("http://localhost:90/gadget/showall", this.state)
+        axios.get("http://localhost:90/gadget/showall",)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -39,7 +39,7 @@ class gadgets extends Component {
 
                 <div className="FlippyCardAlign">
                     <div className="Application">
-                        <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-around', 'flex-wrap': 'wrap' }}>{
+                        <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-around', 'flexWrap': 'wrap' }}>{
                             this.state.gadgets.map((g) => {
                                 return (
                                     <div>
@@ -50,12 +50,10 @@ class gadgets extends Component {
                                         >
                                             <DefaultCardContents>
                                                 <FrontSide>
-
-                                                    {/* <p><img src={"http://localhost:90/images/upload/" + p.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p> */}
+                                                    <p><img src={"http://localhost:90/assets/image/gadget/" + g.gadgetimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
 
                                                     Brand: {g.gadgetname} <br /> Price: {g.gadgetprice}<br />
-                                                    {/* <button type="button">View Product</button> */}
-
+                                                    <button type="button">View Product</button>
                                                 </FrontSide>
 
                                             </DefaultCardContents>
@@ -68,31 +66,20 @@ class gadgets extends Component {
                                                     {/* <p>{p.userId}</p> */}
                                                 </div>
                                             </BackSide>
-
                                         </Flippy>
-
                                     </div>
-
-
                                 )
                             })
-
                         }
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-
         </>
         return (
             items
         )
     }
-
 }
 
 export default gadgets;
