@@ -138,10 +138,9 @@
 
 .FlippyCardAlign {
    margin-top: 100px;
-   margin-left: 250px;
-   margin-right: 250px;
+   margin-left: 200px;
+   margin-right: 200px;
    margin-bottom: 10px;
-   align-items: center;
 }
 
 .FlippyCardBGColor{
@@ -190,4 +189,8 @@
 
  .backside h6{
     color:greenyellow;
+ }
+
+ .detailsbtn{
+    margin-bottom: 20px;
  }
