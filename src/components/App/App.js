@@ -37,6 +37,10 @@ function App() {
       <Route exact path="/about" component={TestPage} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
+      <Route exact path="/product/gadget/laptopdetails" component={Laptopdetails} />
+      <Route exact path="/product/gadget/cameradetails" component={Cameradetails} />
+
+
     </div>
   )
 

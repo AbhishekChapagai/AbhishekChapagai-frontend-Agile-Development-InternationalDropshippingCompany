@@ -39,7 +39,7 @@ class cosmetics extends Component {
 
                 <div className="FlippyCardAlign">
                     <div className="App">
-                        <div style={{ display: 'flex', flex: '1 0 200px', justifyContent: 'space-around', 'flex-wrap': 'wrap' }}>{
+                        <div style={{ display: 'flex', flex: '1 0 500px', justifyContent: 'space-between', 'flex-wrap': 'wrap' }}>{
                             this.state.cosmetic.map((c) => {
                                 return (
                                     <div>
@@ -53,7 +53,7 @@ class cosmetics extends Component {
 
                                                     <p><img src={"http://localhost:90/assets/image/cosmetic" + c.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
 
-                                                    Brand: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
+                                                    Cosmetic: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
                                                     {/* <button type="button">View Product</button> */}
 
                                                 </FrontSide>
@@ -71,6 +71,8 @@ class cosmetics extends Component {
 
                                         </Flippy>
 
+                                    <button className="detailsbtn" type='submit'>View details</button>
+                                    <hr/>
                                     </div>
 
 
