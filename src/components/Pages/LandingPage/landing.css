@@ -1,109 +1,205 @@
 /* Cosmetic category CSS */
 .displayCosmetic{
     width: 100%;
-    height: auto;
-    background-color: #f7f7f7;
-    padding: 70px;
+    height: 58vh;
+    padding: 20px;
     justify-content: center;
     align-items: center;
+    background-color: #f7f7f7;
 }
 .showCosmetic{
-    width: 90%;
-    height: 50vh;
-    margin-left: 70px;
-    margin-top: 50px;
-    background-color: white;
-    display: flex;
-}
+    width: 100%;
+    height: 65.2vh;
+    /* margin-top: 40px; */
+    background-color: #f7f7f7;
+    }
 .cosmeticBand{
     width: 100%;
-    height: 50px;
+    height: 65px;
+    background-color: #f7f7f7;
     padding: 10px;
     text-align: center;   
-    display: flex;
 }
-.showCosmetic p{
+.txtCosmetic{
     font-size: 19px;
+    word-spacing: 5px;
+    font-weight: bolder;
+    float: left;
     font-family: 'Roboto', sans-serif;
-    
-} 
+}
+.txtProduct{
+    font-size: 19px;
+    font-weight: bolder;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+    color: #1c96c5;
+}
 .viewMore{
     height: 3.5vh;
     width: 7%;
     background-color: #1c96c5;
     text-align: center;
-    border-radius: 5px;
     color: white;
-    margin-left: 1050px;
-    font-family: 'Roboto', sans-serif;;
+    padding: 2px;
+    float: right;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
 }
-.cosmetic{
-    width: 20%;
+
+.viewMore:hover{
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+.mainCatCosmetic{
+    background-color: white;    
+    width: 100%;
+    height: 45.5vh;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cosmeticCat{
+    width: 200px;
+    height: 37.1vh;
+}
+.cosmeticCat:hover{
+    transform: translateY(-3.5px);
+    transition: 0.2s;
+    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+}
+.catCosmeticImage{
+    width: 100%;
+    height: 60%;
+    align-items: center;
+    background-size: 10px 20px;
+
+}
+.catCosmeticImage img{
+    width: 100%;
+    height: 100%;
+}
+.CosmeticNameCategory{
+    height: 113px;
+    background-color: white;
     padding: 10px;
-    background-color: blue;
 }
+.CosmeticName{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.CosmeticPrice{
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
 /* Gadget category CSS */
 .displayGadget{
     width: 100%;
-    height: auto;
-    background-color: #f7f7f7;
-    padding: 70px;
+    height: 58vh;
+    padding: 20px;
     justify-content: center;
     align-items: center;
+    background-color: #f7f7f7;
 }
 .showGadget{
-    width: 90%;
-    height: 50vh;
-    margin-left: 70px;
-    margin-top: 50px;
-    background-color: white;
-    display: flex;
-}
+    width: 100%;
+    height: 65.2vh;
+    /* margin-top: 40px; */
+    background-color: #f7f7f7;
+    }
 .gadgetBand{
     width: 100%;
-    height: 50px;
+    height: 65px;
+    background-color: #f7f7f7;
     padding: 10px;
     text-align: center;   
-    display: flex;
 }
-.showGadget p{
-    font-size: 19px;
-    font-family: 'Roboto', sans-serif;
-    
-} 
 
-/* .LandingPage{
-    height: auto;
-    width: 100%;
-    background-color: #f7f7f7;
-    padding: 100px;
-}
-.CosmeticSection{
-    width: 100%;
-    height: 50vh;
-    background-color: white;
-    padding: 20px;
-    display: flex;
-}
-.CosmeticBand{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.CosmeticCategory{
-    font-size: 18px;
+
+.txtGadget{
+    font-size: 19px;
+    word-spacing: 5px;
+    font-weight: bolder;
+    float: left;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
 }
-.CatCosButton{
+.txtGProduct{
+    font-size: 19px;
+    font-weight: bolder;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+    /* color: #1c96c5; */
+}
+.viewMoreGadget{
     height: 3.5vh;
     width: 7%;
     background-color: #1c96c5;
-    margin-left: 1020px;
     text-align: center;
-    border-radius: 5px;
     color: white;
+    padding: 2px;
+    float: right;
+    font-size: 15px;
+    border-radius: 5px;
     font-family: 'Roboto', sans-serif;
-} */
+}
+
+.viewMoreGadget:hover{
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+.mainCatGadget{
+    background-color: white;    
+    width: 100%;
+    height: 45.5vh;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gadgetCat{
+    width: 200px;
+    height: 37.1vh;
+}
+.gadgetCat:hover{
+    transform: translateY(-3.5px);
+    transition: 0.2s;
+    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+}
+.catGadgetImage{
+    width: 100%;
+    height: 60%;
+    align-items: center;
+    background-size: 10px 20px;
+
+}
+.catGadgetImage img{
+    width: 100%;
+    height: 100%;
+}
+.GadgetNameCategory{
+    height: 113px;
+    background-color: white;
+    padding: 10px;
+}
+.GadgetName{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.GadgetPrice{
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+}
+

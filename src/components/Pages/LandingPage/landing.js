@@ -5,35 +5,62 @@ import Video from '../../../assets/images/landing.mp4';
 import './landing.css';
 
 
-class landing extends Component {
+class LandingComponent extends Component {
 
-    state = {
-        cosmetic: [],
-        gadget: [],
-        config: {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        },
-    }
+    // state = {
+    //     cosmetic: [],
+    //     gadget: [],
+    //     config: {
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('token')}`
+    //         }
+    //     },
+    // }
 
-    componentDidMount() {
-        axios.get("http://localhost:90/cosmetic/five", this.state)
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    cosmetic: response.data.data
-                })
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }
+    // componentDidMount() {
+    //     axios.get("http://localhost:90/cosmetic/six", this.state)
+    //         .then((response) => {
+    //             console.log(response)
+    //             this.setState({
+    //                 cosmetic: response.data.data
+    //             })
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.response)
+    //         })
+
+    //     // axios.get("http://localhost:90/gadget/six", this.state)
+    //     // .then((response) => {
+    //     //     console.log(response)
+    //     //     this.setState({
+    //     //         cosmetic: response.data.data
+    //     //     })
+    //     // })
+    //     // .catch((err) => {
+    //     //     console.log(err.response)
+    //     // })
+    // }
+
+    // Gadget link
+
+    // componentDidMount() {
+    //     axios.get("http://localhost:90/gadget/six", this.state)
+    //         .then((response) => {
+    //             console.log(response)
+    //             this.setState({
+    //                 cosmetic: response.data.data
+    //             })
+    //         })
+    //         .catch((err) => {
+    //             console.log(err.response)
+    //         })
+    // }
 
     render() {
 
         return (
             <>
+
                 <LandingContainer>
                     <LandingBg>
                         <ImageBg autoPlay loop muted
@@ -48,63 +75,88 @@ class landing extends Component {
                 </LandingContainer>
 
                 {/* COSMETIC CATEGORY */}
-                <div className="displayCosmetic">
+
+                {/* <div className="displayCosmetic">
                     <div className="showCosmetic">
                         <div className="cosmeticBand">
-                            <p>Cosmetics</p>
+                            <p className="txtCosmetic">Cosmetic</p>
+                            <p className="txtProduct"> Products</p>
                             <div className="viewMore">View more </div>
                         </div>
-                        {
-                            this.state.cosmetic.map((c) => {
-                                return (
-                                    <div className="cosmetic">
-                                        <p><img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" /></p>
-                                        <p className="CosmeticName">Name: &nbsp;
-                                            {
-                                                c.cosmeticname
-                                            }
-                                        </p>
-                                        <p>
-                                            {/* <Link to={"/vehicleDetails/" + product._id}> <button className="btnView" >DETAILS</button></Link> */}
-                                        </p>
-                                    </div>
-                                )
-                            })
-                        }
+                        <div className="mainCatCosmetic">
+                            {
+                                this.state.cosmetic.map((c) => {
+                                    return (
+
+                                        <div className="cosmeticCat">
+                                            <div className="catCosmeticImage">
+                                                <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
+                                            </div>
+                                            <div className="CosmeticNameCategory">
+                                                <p className="CosmeticName">&nbsp;
+                                                    {
+                                                        c.cosmeticname
+                                                    }<br></br>
+
+                                                </p>
+                                                <p className="CosmeticPrice">&nbsp;Rs&nbsp;
+                                                    {
+                                                        c.cosmeticprice
+                                                    }
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    )
+                                })
+                            }
+                        </div>
 
                     </div>
-                </div>
+                </div> */}
 
                 {/* GADGET CATEGORY */}
 
-                <div class="displayGadget">
-                    <div class="showGadget">
+                {/* <div className="displayGadget">
+                    <div className="showGAdget">
                         <div className="gadgetBand">
-                            <p>Gadgets</p>
-                            <div className="viewMore">View more </div>
+                            <p className="txtGadget">Gadget</p>
+                            <p className="txtGProduct"> Products</p>
+                            <div className="viewMoreGadget">View more </div>
                         </div>
-                        {
-                            this.state.cosmetic.map((g) => {
-                                return (
-                                    <div class="product">
-                                        <p><img src={"http://localhost:90/assets/image/cosmetic/" + g.gadgetimage} alt="img" /></p>
-                                        <p>Name: &nbsp;
-                                            {
-                                                g.gadgetname
-                                            }
-                                        </p>
-                                        <p>
-                                            {/* <Link to={"/vehicleDetails/" + product._id}> <button className="btnView" >DETAILS</button></Link> */}
-                                        </p>
-                                    </div>
-                                )
-                            })
-                        }
+                        <div className="mainCatGadget">
+                            {
+                                this.state.gadget.map((c) => {
+                                    return (
+
+                                        <div className="gadgetCat">
+                                            <div className="catGadgetImage">
+                                                <img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} alt="img" />
+                                            </div>
+                                            <div className="GadgetNameCategory">
+                                                <p className="GadgetName">&nbsp;
+                                                    {
+                                                        c.gadgetname
+                                                    }<br></br>
+
+                                                </p>
+                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                                                    {
+                                                        c.gadgetprice
+                                                    }
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    )
+                                })
+                            }
+                        </div>
 
                     </div>
-                </div>
-
-
+                </div> */}
 
             </>
         )
@@ -112,4 +164,4 @@ class landing extends Component {
 
 }
 
-export default landing
+export default LandingComponent
