@@ -11,7 +11,6 @@ import Cosmetics from "../Pages/ProductBrowsing/Cosmetics";
 import Nav from "../Header/Header";
 import TestPage from '../Header/About';
 import Header from '../Header/Header';
-import Home from '../Pages';
 
 function App() {
 
@@ -33,7 +32,7 @@ function App() {
   const DefaultContainer = () => (
     <div>
       <Header />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Landing} />
       <Route exact path="/about" component={TestPage} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
