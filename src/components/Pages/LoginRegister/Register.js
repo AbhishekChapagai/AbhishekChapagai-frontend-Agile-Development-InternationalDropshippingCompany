@@ -1,6 +1,7 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Register extends Component {
     state = {
@@ -48,7 +49,11 @@ class Register extends Component {
                         {/* logo */}
                         <div className="r_left_logo">
                             {/* <img src={Logo} alt="logo" /> */}
-                            <span> <i class="fas fa-paper-plane"></i> Dhuwani</span>
+                            <span>
+                                <Link className="logoLink" exact to="/">
+                                    <i class="fas fa-paper-plane"></i> Dhuwani
+                                </Link>
+                            </span>
                         </div>
 
                         {/* form */}
@@ -59,7 +64,7 @@ class Register extends Component {
                             </div>
 
                             <div className="r_form">
-                                <form>
+                                <form id="registerForm">
                                     <div className="row g-2">
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
