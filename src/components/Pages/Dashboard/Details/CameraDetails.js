@@ -2,7 +2,6 @@ import axios from "axios";
 import { Component } from "react";
 import './Details.css';
 
-
 class CameraDetails extends Component {
     state = { 
         id: this.props.match.params.id,

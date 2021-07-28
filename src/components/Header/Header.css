@@ -1,9 +1,11 @@
 .btn_p_c {
     background-color: #1c96c5;
     color: #fff;
+    font-weight: 600;
 }
 
 .btn_p_c:hover {
+    background-color: #075d80;
     color: #fff;
 }
 
@@ -32,17 +34,31 @@ button {
     color: #1c96c5;
 }
 
+.rc-menu__item {
+    color: #1c96c5;
+    padding: 0.6rem 1rem;
+}
+
+.rc-menu__item:hover {
+    background-color: #eff2f5;
+    color: #075d80;
+}
+
 
 /*--------------------- Header --------------------- */
 .Header {
     box-shadow: 0 15px 10px -15px #1111112b;
-    /* position: fixed; */
-    /* width: 100%; */
     z-index: 999;
 }
 
+.navbar {
+    /* padding-top: 0;
+    padding-bottom: 0; */
+}
+
 .active {
-    /* border-bottom: 4px solid #1c96c5 ; */
+    font-weight: 700!important;
+    border-bottom: 4px solid #1c96c5 ;
 }
 
 nav.navbar.navbar-expand-lg.navbar-light {
@@ -52,11 +68,21 @@ nav.navbar.navbar-expand-lg.navbar-light {
 .navbar-light .navbar-brand {
     color: #1c96c5;
     font-weight: 800;
+    font-size: 24px;
 }
 
+.nav-link {
+    font-size: 16px
+}
+
+.nav-link:hover{
+    background-color: #eff2f5;
+    border-radius: 10px;
+    align-items: center;
+}
 
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
-    color: #1c96c5;
+    color: #075d80;
 }
 
 /* to change the bootstrap default toggler icon and color ---- hamburger icon */
@@ -71,7 +97,7 @@ nav.navbar.navbar-expand-lg.navbar-light {
 
 .navbar-light .navbar-nav .nav-link {
     color: #1c96c5;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
@@ -80,4 +106,68 @@ nav.navbar.navbar-expand-lg.navbar-light {
 
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
     color: #1c96c5;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #075d80;
+}
+
+/* Dropdown */
+.dropdown-item {
+    color: #1c96c5;
+    font-weight: 700;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #1c96c5;
+    background-color: #fff;
+}
+
+a.dropdown-item:hover{
+    display: flex;
+    color: #075d80;
+    background-color: #eff2f5;
+    padding: 10px;
+}
+
+.nav_profile_link {
+    display: flex;
+    align-items: center;
+    border: 2px solid #1c96c5;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.nav_profile_icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.nav_profile_detatil {
+    font-size: 12px;
+}
+
+.nav_profile {
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+
+.nav_profile span {
+    color: #1c96c5;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ------------------------------- */
+@media only screen and (max-width: 576px){
+    .mobile_hidden {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 576px){
+    .mobile_show {
+        display: none;
+    }
 }

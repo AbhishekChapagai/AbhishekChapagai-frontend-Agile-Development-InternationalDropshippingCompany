@@ -51,7 +51,7 @@ class cosmetics extends Component {
                                             <DefaultCardContents>
                                                 <FrontSide>
 
-                                                    <p><img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} style={{ maxWidth: '100%', maxHeight: '100%', objectFit:'cover'}} alt="img" /></p>
+                                                    <p><img src={"http://localhost:90/assets/image/cosmetic" + c.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
 
                                                     Cosmetic: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
                                                     {/* <button type="button">View Product</button> */}
@@ -96,5 +96,4 @@ class cosmetics extends Component {
     }
 
 }
-
 export default cosmetics;

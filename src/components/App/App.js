@@ -13,7 +13,7 @@ import TestPage from '../Header/About';
 import Header from '../Header/Header';
 import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
 import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
-
+import Home from '../Pages';
 
 function App() {
 
@@ -35,14 +35,12 @@ function App() {
   const DefaultContainer = () => (
     <div>
       <Header />
-      <Route exact path="/" component={Landing} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/about" component={TestPage} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
-
-
     </div>
   )
 
