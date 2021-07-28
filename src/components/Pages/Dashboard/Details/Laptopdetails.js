@@ -1,9 +1,9 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
-import Image1 from '../../../../assets/images/download.jpg';
-import Image2 from '../../../../assets/images/img2.jpg';
-import Image3 from '../../../../assets/images/img.png';
+// import Image1 from '../../../../assets/images/download.jpg';
+// import Image2 from '../../../../assets/images/img2.jpg';
+// import Image3 from '../../../../assets/images/img.png';
 
 class LaptopDetails extends Component {
     state = {
@@ -39,13 +39,13 @@ class LaptopDetails extends Component {
 
                                             <div class="preview-pic tab-content">
                                                 <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget" + l.gadgetimage} /></div>
-                                                <div class="tab-pane" id="pic-2"><img src={Image2} /></div>
-                                                <div class="tab-pane" id="pic-3"><img src={Image3} /></div>
+                                                {/* <div class="tab-pane" id="pic-2"><img src={Image2} /></div> */}
+                                                {/* <div class="tab-pane" id="pic-3"><img src={Image3} /></div> */}
                                             </div>
                                             <ul class="preview-thumbnail nav nav-tabs">
-                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={Image1} /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={Image2} /></a></li>
-                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={Image3} /></a></li>
+                                                {/* <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={Image1} /></a></li> */}
+                                                {/* <li><a data-target="#pic-2" data-toggle="tab"><img src={Image2} /></a></li> */}
+                                                {/* <li><a data-target="#pic-3" data-toggle="tab"><img src={Image3} /></a></li> */}
                                             </ul>
 
                                         </div>

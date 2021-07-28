@@ -11,9 +11,9 @@ import Cosmetics from "../Pages/ProductBrowsing/Cosmetics";
 import Nav from "../Header/Header";
 import TestPage from '../Header/About';
 import Header from '../Header/Header';
-import Laptopdetails from '../Pages/Dashboard/Details/Laptopdetails';
-import Cameradetails from '../Pages/Dashboard/Details/CameraDetails';
-
+import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
+import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
+import Home from '../Pages';
 function App() {
 
   // it allows to have different component in the different pages. Like login page without navbar.
@@ -34,12 +34,12 @@ function App() {
   const DefaultContainer = () => (
     <div>
       <Header />
-      <Route exact path="/" component={Landing} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/about" component={TestPage} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
-      <Route exact path="/product/gadget/laptopdetails" component={Laptopdetails} />
-      <Route exact path="/product/gadget/cameradetails" component={Cameradetails} />
+      <Route exact path="/product/gadget/laptopdetails" component={LaptopDetails} />
+      <Route exact path="/product/gadget/cameradetails" component={CameraDetails} />
 
 
     </div>
