@@ -1,21 +1,17 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
-import Image1 from '../../../../assets/images/download.jpg';
-import Image2 from '../../../../assets/images/img2.jpg';
-import Image3 from '../../../../assets/images/img.png';
+
+
 
 class LaptopDetails extends Component {
     state = {
+        id: this.props.match.params.id,
         gadgets: [],
-        config: {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        }
+
     }
     componentDidMount() {
-        axios.get(`http://localhost:90/gadget/one/:id`, this.state)
+        axios.get(`http://localhost:90/gadget/one/` + this.state.id)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -38,14 +34,14 @@ class LaptopDetails extends Component {
                                         <div class="preview col-md-6">
 
                                             <div class="preview-pic tab-content">
-                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget" + l.gadgetimage} /></div>
-                                                <div class="tab-pane" id="pic-2"><img src={Image2} /></div>
-                                                <div class="tab-pane" id="pic-3"><img src={Image3} /></div>
+                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
+                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
+                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
                                             </div>
                                             <ul class="preview-thumbnail nav nav-tabs">
-                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={Image1} /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={Image2} /></a></li>
-                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={Image3} /></a></li>
+                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
+                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
+                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
                                             </ul>
 
                                         </div>
@@ -89,7 +85,6 @@ class LaptopDetails extends Component {
                                 <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 </a>
                             </div>
-
                             <div class="container product-details">
                                 <a class="spec-title"> Additional Specification</a>
                                 <div class="row product-row">
@@ -200,6 +195,8 @@ class LaptopDetails extends Component {
 
 
                             </div>
+
+
                         </div>
                     )
                 })

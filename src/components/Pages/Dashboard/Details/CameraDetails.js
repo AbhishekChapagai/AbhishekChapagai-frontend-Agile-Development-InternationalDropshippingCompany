@@ -1,34 +1,53 @@
+import axios from "axios";
 import { Component } from "react";
 import './Details.css';
-import Image1 from '../../../../assets/images/download.jpg';
-import Image2 from '../../../../assets/images/img2.jpg';
-import Image3 from '../../../../assets/images/img.png';
+
 
 class CameraDetails extends Component {
+    state = { 
+        id: this.props.match.params.id,
+        gadgets: [],
+        
+    }
+    componentDidMount() {
+        axios.get(`http://localhost:90/gadget/one/` + this.state.id )
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    gadgets: response.data.data
+                })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
     render() {
+        var description = <>
+            <div class="container">{
+                this.state.gadgets.map((c) => {
         return (
 
-            <div class="container">
+            <div>
                 <div class="card">
                     <div class="container-fliud">
                         <div class="wrapper row">
                             <div class="preview col-md-6">
 
                                 <div class="preview-pic tab-content">
-                                    <div class="tab-pane active" id="pic-1"><img src={Image1} /></div>
-                                    <div class="tab-pane" id="pic-2"><img src={Image2} /></div>
-                                    <div class="tab-pane" id="pic-3"><img src={Image3} /></div>
+                                    <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></div>
+                                    <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></div>
+                                    <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></div>
                                 </div>
                                 <ul class="preview-thumbnail nav nav-tabs">
-                                    <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={Image1} /></a></li>
-                                    <li><a data-target="#pic-2" data-toggle="tab"><img src={Image2} /></a></li>
-                                    <li><a data-target="#pic-3" data-toggle="tab"><img src={Image3} /></a></li>
+                                    <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></a></li>
+                                    <li><a data-target="#pic-2" data-toggle="tab"><img src={"htagtp://localhost:90/assets/image/gadget/" + c.gadgetimage} /></a></li>
+                                    <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></a></li>
                                 </ul>
 
                             </div>
 
                             <div class="details col-md-6">
-                                <h3 class="product-title">men's shoes fashion</h3>
+                                <h3 class="product-title">{c.gadgetname}</h3>
                                 <div class="rating">
                                     <div class="stars">
                                         <span class="fa fa-star checked"></span>
@@ -47,7 +66,7 @@ class CameraDetails extends Component {
                                     </div>
                                 </div>
 
-                                <h4 class="price">current price: <span>$180</span></h4>
+                                <h4 class="price">current price: <span>${c.gadgetprice}</span></h4>
                                 <div class="action">
                                     <button class="add-to-cart  btn-default" type="button">add to cart</button>
                                     <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
@@ -61,13 +80,7 @@ class CameraDetails extends Component {
                 <div id="module" class="container additional-des">
                     <h3>Summary</h3>
                     <p class="collapse" id="collapseExample" aria-expanded="false">
-                        Acer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels.
-                        It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.
-
-                        Graphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes
-                        with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.
-
-                        As of 24th July 2021, Acer Aspire price in India starts at Rs. 79,979.
+                    {c.gaadgetdescription}
                     </p>
                     <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     </a>
@@ -87,11 +100,11 @@ class CameraDetails extends Component {
                             <div class="col">Camera Weight  :</div>
                         </div>
                         <div class="col ">
-                            <div class="col ">DSLR</div>
-                            <div class="col">24.1 MP</div>
-                            <div class="col">Camera, Battery, Charger, Interface Cable, Lens</div>
-                            <div class="col">101.3 x 129 x 77.6 mm</div>
-                            <div class="col">475 grams</div>
+                            <div class="col ">{c.camera.cameraType}</div>
+                            <div class="col">{c.camera.cameraResolution}</div>
+                            <div class="col">{c.camera.cameraSalesPackage}</div>
+                            <div class="col">{c.camera.cameraDimensions}</div>
+                            <div class="col">{c.camera.cameraWeight}</div>
                         </div>
                     </div>
                     <div class="row product-row">
@@ -103,8 +116,8 @@ class CameraDetails extends Component {
                             <div class="col">Lens Focal Length  :</div>
                         </div>
                         <div class="col">
-                            <div class="col">Canon EF Mount</div>
-                            <div class="col">18 - 55 mm</div>
+                            <div class="col">{c.camera.cameraLensType}</div>
+                            <div class="col">{c.camera.cameraLensFocalLength}</div>
                         </div>
                     </div>
                     <div class="row product-row">
@@ -117,9 +130,9 @@ class CameraDetails extends Component {
                             <div class="col">Sensor Size  :</div>
                         </div>
                         <div class="col">
-                            <div class="col">CMOS</div>
-                            <div class="col">APS-C</div>
-                            <div class="col">22.3 x 14.9 mm</div>
+                            <div class="col">{c.camera.cameraSensorType}</div>
+                            <div class="col">{c.camera.cameraSensorFormat}</div>
+                            <div class="col">{c.camera.cameraSensorSize}</div>
                         </div>
                     </div>
                     <div class="row product-row">
@@ -134,9 +147,9 @@ class CameraDetails extends Component {
 
                         </div>
                         <div class="col">
-                            <div class="col">3inch</div>
-                            <div class="col">LCD</div>
-                            <div class="col">920000dots</div>
+                            <div class="col">{c.camera.cameraScreenSize}</div>
+                            <div class="col">{c.camera.cameraDisplayType}</div>
+                            <div class="col">{c.camera.cameraDisplayResolution}</div>
 
                         </div>
                     </div>
@@ -150,8 +163,8 @@ class CameraDetails extends Component {
 
                         </div>
                         <div class="col">
-                            <div class="col">SD, SDHC, SDXC</div>
-                            <div class="col">NFC, Wi-Fi</div>
+                            <div class="col">{c.camera.cameraMemoryCardType}</div>
+                            <div class="col">{c.camera.cameraConnectivity}</div>
 
                         </div>
                     </div>
@@ -168,14 +181,12 @@ class CameraDetails extends Component {
                             <div class="col">Video Resolution Details  :</div>
                         </div>
                         <div class="col">
-                            <div class="col">MOV</div>
-                            <div class="col">No</div>
-                            <div class="col">EXIF, DCF, RAW, JPEG, DPOF</div>
-                            <div class="col">Linear PCM</div>
-                            <div class="col">480p, 720p, 1080p</div>
-                            <div class="col">1080p Frame rate : 24, 25, 30
-                                720p Frame rate : 60
-                                VGA Frame rate : 30</div>
+                            <div class="col">{c.camera.cameraConnectivity}</div>
+                            <div class="col">{c.camera.cameraHDRSupport}</div>
+                            <div class="col">{c.camera.cameraImageFormats}</div>
+                            <div class="col">{c.camera.cameraSupportedAudioFormats}</div>
+                            <div class="col">{c.camera.cameraVideoResolution}</div>
+                            <div class="col">{c.camera.cameraVideoResolutionDetails}</div>
                         </div>
                     </div>
                     <div class="row product-row">
@@ -189,9 +200,9 @@ class CameraDetails extends Component {
                             
                         </div>
                         <div class="col">
-                            <div class="col">Li-ion Battery</div>
-                            <div class="col">860mAh</div>
-                            <div class="col">410Shots</div>
+                            <div class="col">{c.camera.cameraBatteryType}</div>
+                            <div class="col">{c.camera.cameraBatteryCapacity}</div>
+                            <div class="col">{c.camera.cameraNoOfShots}</div>
                             
                         </div>
                     </div>
@@ -208,11 +219,11 @@ class CameraDetails extends Component {
                             
                         </div>
                         <div class="col">
-                            <div class="col">Built-in Microphone</div>
-                            <div class="col">Yes</div>
-                            <div class="col">Yes</div>
-                            <div class="col">USB 2.0</div>
-                            <div class="col">Yes</div>
+                            <div class="col">{c.camera.cameraMicrophone}</div>
+                            <div class="col">{c.camera.cameraTripodSocket}</div>
+                            <div class="col">{c.camera.cameraHeadphoneJack}</div>
+                            <div class="col">{c.camera.cameraUSBConnectivity}</div>
+                            <div class="col">{c.camera.cameraPictBridgeSupport}</div>
                             
                         </div>
                     </div>
@@ -220,15 +231,22 @@ class CameraDetails extends Component {
 
                 </div>
 
+                </div>
+                    )
+                })
+            }
+
             </div>
 
+        </>
 
 
 
 
 
-
-        )
+return (
+    description
+)
     }
 }
 

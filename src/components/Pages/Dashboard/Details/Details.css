@@ -236,8 +236,8 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   margin-top: 20px;
-  border: 0.01em groove black;
-  box-shadow: 10px 10px 10px 10px #f7f7f7;
+  border: 0.1px solid black;
+  box-shadow: 5px 5px 5px 5px #f7f7f7;
 }
 
 #module #collapseExample.collapse:not(.show) {
@@ -252,8 +252,10 @@ body {
 
 #module a.collapsed:after {
   content: '+ Show More';
+  color: black;
 }
 
 #module a:not(.collapsed):after {
   content: '- Show Less';
+  color: black;
 }
