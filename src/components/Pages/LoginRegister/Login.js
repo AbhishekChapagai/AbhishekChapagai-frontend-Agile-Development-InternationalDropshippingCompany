@@ -1,6 +1,7 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
     state = {
@@ -41,7 +42,11 @@ class Login extends Component {
                         {/* logo */}
                         <div className="l_left_logo">
                             {/* <img src={Logo} alt="logo" /> */}
-                            <span> <i class="fas fa-paper-plane"></i> Dhuwani</span>
+                            <Link className="logoLink" exact to="/">
+                                <span>
+                                    <i class="fas fa-paper-plane"></i> Dhuwani
+                                </span>
+                            </Link>
                         </div>
 
                         {/* form */}
@@ -52,7 +57,7 @@ class Login extends Component {
                             </div>
 
                             <div className="l_form">
-                                <form>
+                                <form id="loginForm">
                                     <div className="form-floating mb-2">
                                         <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email"
                                             data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
