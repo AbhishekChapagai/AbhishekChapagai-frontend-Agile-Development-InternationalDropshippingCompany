@@ -2,6 +2,8 @@ import axios from "axios";
 import { Component } from "react";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
+import {Link} from "react-router-dom";
+
 //FlipCard
 // import Flippy, { FrontSide, BackSide } from "../components/infoflipcard";
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
@@ -67,6 +69,11 @@ class gadgets extends Component {
                                                 </div>
                                             </BackSide>
                                         </Flippy>
+                                        {
+                                            g.gadgettype==="Laptop"? (<Link to={"/product/gadget/laptopdetails/" + g._id}><button className="detailsbtn" type='submit'>View details</button></Link>):
+                                            (<Link to={"/product/gadget/cameradetails/" + g._id}><button className="detailsbtn" type='submit'>View details</button></Link>)
+                                        }
+                                        
                                     </div>
                                 )
                             })
