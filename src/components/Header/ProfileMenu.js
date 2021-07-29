@@ -11,7 +11,7 @@ function ProfileMenu() {
     const [position, setPosition] = useState('anchor');
     const [viewScroll, setViewScroll] = useState('auto');
 
-    const menus = [<i className="fas fa-user"></i>].map(direction => (
+    const menus = [<span>  <i className="fas fa-user"></i> </span>].map(direction => (
         < Menu menuButton={< MenuButton > {direction}</MenuButton >}
             key={direction} direction={direction}
             align={align} position={position} viewScroll={viewScroll}
@@ -24,7 +24,9 @@ function ProfileMenu() {
                 ? 12 : 0}>
 
             {
-                ['Profile', <i className="fas fa-shopping-cart"> Add To Cart</i>, 'Logout']
+                [<i className="fas fa-user" > Profile</i>,
+                <i className="fas fa-shopping-cart "> Cart</i>,
+                <i className="fas fa-sign-out-alt"> Logout</i>]
                     .map(profileM => <MenuItem key={profileM}>{profileM}</MenuItem>)
             }
         </Menu >
