@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import CosmeticCategory from './LandingPage/cosmetic'
-import GadgetCategory from './LandingPage/gadget'
+import LaptopCategory from './LandingPage/laptop'
 import LandingComponent from './LandingPage/landing'
+import CameraCategory from './LandingPage/camera'
 
 
 
@@ -9,9 +10,10 @@ const Home = () => {
 
     return (
         <>
-            <LandingComponent/>
-            <CosmeticCategory/>
-            <GadgetCategory/>
+            <LandingComponent />
+            <CosmeticCategory />
+            <LaptopCategory />
+            {/* <CameraCategory/> */}
         </>
     )
 }

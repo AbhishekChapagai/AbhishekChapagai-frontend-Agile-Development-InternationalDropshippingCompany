@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import axios from "axios";
-// import { LandingContainer, LandingBg, ImageBg, LandingContent, LandingH1, LandingP } from './LandingElement'
-// import Video from '../../../assets/images/landing.mp4';
 import './landing.css';
 
 
-class GadgetCategory extends Component {
+class LaptopCategory extends Component {
 
     state = {
         gadget: [],
@@ -39,9 +37,9 @@ class GadgetCategory extends Component {
                 {/* GADGET CATEGORY */}
 
                 <div className="displayGadget">
-                    <div className="showGAdget">
+                    <div className="showGadget">
                         <div className="gadgetBand">
-                            <p className="txtGadget">Laptops & Cameras</p>
+                            <p className="txtGadget">Laptops</p>
                             {/* <p className="txtGProduct"> Products</p> */}
                             <div className="viewMoreGadget">View more </div>
                         </div>
@@ -84,4 +82,4 @@ class GadgetCategory extends Component {
 
 }
 
-export default GadgetCategory
+export default LaptopCategory

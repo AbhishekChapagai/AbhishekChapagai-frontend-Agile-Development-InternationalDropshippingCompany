@@ -11,7 +11,6 @@
    
     width: 100%;
     height: 65.2vh;
-    /* margin-top: 40px; */
     background-color: #f7f7f7;
     }
 .cosmeticBand{
@@ -19,8 +18,7 @@
     height: 65px;
     background-color: #f7f7f7;
     padding: 10px;
-    text-align: center;   
-    display: flex;
+    text-align: center;  
 }
 .txtCosmetic{
     font-size: 19px;
@@ -30,14 +28,6 @@
     font-family: 'Roboto', sans-serif;
     
 } 
-.txtProduct{
-    font-size: 19px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-    margin-left: 10px;
-    color: #1c96c5;
-}
 .viewMore{
     height: 3.5vh;
     width: 7%;
@@ -117,7 +107,6 @@
 .showGadget{
     width: 100%;
     height: 65.2vh;
-    /* margin-top: 40px; */
     background-color: #f7f7f7;
     }
 .gadgetBand{
@@ -134,13 +123,6 @@
     font-weight: bolder;
     float: left;
     font-family: 'Roboto', sans-serif;
-}
-.txtGProduct{
-    font-size: 19px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-    
 } 
 .viewMoreGadget{
     height: 3.5vh;
@@ -179,15 +161,14 @@
 }
 .catGadgetImage{
     width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
     height: 60%;
     align-items: center;
     background-size: 10px 20px;
-
 }
-
+.catGadgetImage img{
+    width: 100%;
+    height: 100%;
+}
 .GadgetNameCategory{
     height: 113px;
     background-color: white;
@@ -205,3 +186,95 @@
     font-family: 'Roboto', sans-serif;
 } 
 
+
+/* camera category CSS */
+.displayCamera{
+    width: 100%;
+    height: 58vh;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+.showCamera{
+    width: 100%;
+    height: 65.2vh;
+    background-color: #f7f7f7;
+    }
+.cameraBand{
+    width: 100%;
+    height: 65px;
+    background-color: #f7f7f7;
+    padding: 10px;
+    text-align: center;   
+}
+
+.txtCamera{
+    font-size: 19px;
+    word-spacing: 5px;
+    font-weight: bolder;
+    float: left;
+    font-family: 'Roboto', sans-serif;
+}
+.viewMoreCamera{
+    height: 3.5vh;
+    width: 7%;
+    background-color: #1c96c5;
+    text-align: center;
+    color: white;
+    padding: 2px;
+    float: right;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.viewMoreCamera:hover{
+    transform: translateY(-5px);
+    transition: 0.5s;
+}
+.mainCatCamera{
+    background-color: white;    
+    width: 100%;
+    height: 45.5vh;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cameraCat{
+    width: 200px;
+    height: 37.1vh;
+}
+.cameraCat:hover{
+    transform: translateY(-3.5px);
+    transition: 0.2s;
+    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+}
+.catCameraImage{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    height: 60%;
+    align-items: center;
+    background-size: 10px 20px;
+
+}
+
+.CameraNameCategory{
+    height: 113px;
+    background-color: white;
+    padding: 10px;
+}
+.CameraName{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.CameraPrice{
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+} 
