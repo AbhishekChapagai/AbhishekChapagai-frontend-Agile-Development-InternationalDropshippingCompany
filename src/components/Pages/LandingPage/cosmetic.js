@@ -15,7 +15,7 @@ class CosmeticCategory extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/cosmetic/six", this.state)
+        axios.get("http://localhost:90/cosmetic/five", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -37,7 +37,7 @@ class CosmeticCategory extends Component {
                         <div className="cosmeticBand">
                             <p className="txtCosmetic">Health & Beauty</p>
                             {/* <p className="txtProduct"> Products</p> */}
-                            <div className="viewMore">View more </div>
+                            <div className="viewMore">View more&nbsp;<i class="fas fa-angle-double-right"></i></div>
                         </div>
                         <div className="mainCatCosmetic">
                             {
@@ -55,12 +55,15 @@ class CosmeticCategory extends Component {
                                                     }<br></br>
 
                                                 </p>
+
                                                 <p className="CosmeticPrice">&nbsp;Rs&nbsp;
                                                     {
                                                         c.cosmeticprice
                                                     }
 
                                                 </p>
+
+                                                <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
                                             </div>
                                         </div>
 

@@ -15,7 +15,7 @@ class LaptopCategory extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/gadget/six", this.state)
+        axios.get("http://localhost:90/gadget/five", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
