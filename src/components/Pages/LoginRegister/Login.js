@@ -1,7 +1,9 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
+toast.configure();
 
 class Login extends Component {
     state = {
@@ -20,16 +22,36 @@ class Login extends Component {
         axios.post("http://localhost:90/user/login", this.state)
             .then((response) => {
                 console.log(response);
+                console.log(response.data.token);
                 this.setState({
                     success: response.data.success
                 })
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("userType", response.data.userType);
             })
             .catch((err) => {
                 console.log(err.response)
+                this.setState({
+                    success: err.response.data.success
+                })
+
+                toast.error('Invalid Email or Password!!!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     }
 
     render() {
+        if (this.state.success === true) {
+            return <Redirect to="/auth" />
+        }
+
         return (
             <div className="Login">
                 {/* left side  */}
