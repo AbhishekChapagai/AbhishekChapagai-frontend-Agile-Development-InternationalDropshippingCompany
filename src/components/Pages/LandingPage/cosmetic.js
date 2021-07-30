@@ -35,7 +35,7 @@ class CosmeticCategory extends Component {
                 <div className="displayCosmetic">
                     <div className="showCosmetic">
                         <div className="cosmeticBand">
-                            <p className="txtCosmetic">Health & Beauty</p>
+                            <p className="txtCosmetic">Cosmetics</p>
                             {/* <p className="txtProduct"> Products</p> */}
                             <div className="viewMore">View more&nbsp;<i class="fas fa-angle-double-right"></i></div>
                         </div>
