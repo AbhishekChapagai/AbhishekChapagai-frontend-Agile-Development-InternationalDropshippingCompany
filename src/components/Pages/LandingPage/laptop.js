@@ -66,6 +66,7 @@ class LaptopCategory extends Component {
 
                                                 </p>
                                                 <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
+
                                             </div>
                                         </div>
 
