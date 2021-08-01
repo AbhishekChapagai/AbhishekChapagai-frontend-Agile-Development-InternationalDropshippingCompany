@@ -28,7 +28,7 @@ class NavProfile extends Component {
     render() {
         return (
             <div className="NavProfile">
-                <Avatar src={"http://localhost:90/image/userImg/" + this.state.img} />
+                <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
                 <span className="nav_name"> {this.state.firstName} </span>
             </div>
         )
