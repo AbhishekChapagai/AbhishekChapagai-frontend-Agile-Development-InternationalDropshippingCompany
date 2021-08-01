@@ -55,7 +55,7 @@ class Header extends Component {
                   <Nav.Link>
                     <div className="nav_profile_link">
                       <div className="nav_profile_icon">
-                        <Avatar src={"http://localhost:90/image/userImg/" + this.state.img} />
+                        <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
                       </div>
 
                       <div className="nav_profile_detatil">

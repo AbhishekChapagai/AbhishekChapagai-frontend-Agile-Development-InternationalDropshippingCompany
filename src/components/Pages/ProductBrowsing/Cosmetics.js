@@ -2,7 +2,7 @@ import axios from "axios";
 import { Component } from "react";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
 import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
@@ -11,7 +11,7 @@ class cosmetics extends Component {
 
     state = {
         cosmetics: [],
-        
+
     }
     componentDidMount() {
         axios.get("http://localhost:90/cosmetic/showall", this.state)
@@ -46,7 +46,7 @@ class cosmetics extends Component {
                                             <DefaultCardContents>
                                                 <FrontSide>
 
-                                                    <p><img src={"http://localhost:90/image/cosmetic/" + c.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
+                                                    <p><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
 
                                                     Cosmetic: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
                                                     {/* <button type="button">View Product</button> */}
@@ -57,7 +57,7 @@ class cosmetics extends Component {
 
                                             <BackSide>
                                                 <div className="backside">
-                                                    <h5>Type:</h5> <p>{c.cosmetictype}</p>
+                                                    <h5>Type:</h5> <p>{c.cosmetictype}  </p>
                                                     <h5>Description:</h5>
                                                     <p> {c.cosmeticdescription}</p>
                                                     {/* <p>{p.userId}</p> */}
@@ -66,12 +66,12 @@ class cosmetics extends Component {
 
                                         </Flippy>
                                         {
-                                            c.cosmetictype==="Men"? (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>):
-                                            (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>)
+                                            c.cosmetictype === "Men" ? (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>) :
+                                                (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>)
                                         }
 
-                                    
-                                    <hr/>
+
+                                        <hr />
                                     </div>
 
 
