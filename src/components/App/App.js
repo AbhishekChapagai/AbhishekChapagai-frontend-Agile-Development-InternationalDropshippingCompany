@@ -11,6 +11,7 @@ import TestPage from '../Header/About';
 import Header from '../Header/Header';
 import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
 import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
+import CosmeticDetails from '../Pages/Dashboard/Details/CosmeticDetails';
 import Home from '../Pages';
 import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,7 +48,9 @@ function App() {
       <Route exact path="/product/cosmetics" component={Cosmetics} />
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
+      <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
     </>
+
   )
 
   return (
