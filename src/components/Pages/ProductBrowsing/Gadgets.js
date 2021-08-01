@@ -4,21 +4,14 @@ import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
 import {Link} from "react-router-dom";
 
-//FlipCard
-// import Flippy, { FrontSide, BackSide } from "../components/infoflipcard";
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
-// import { FlippyStyle, DefaultCardContents } from '../components/infoflipcard/infoflipcardelements'
 import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
 
 class gadgets extends Component {
 
     state = {
         gadgets: [],
-        // config: {
-        //     headers: {
-        //         authorization: `Bearer ${localStorage.getItem('token')}`
-        //     }
-        // }
+       
     }
     componentDidMount() {
         axios.get("http://localhost:90/gadget/showall",)
@@ -52,7 +45,7 @@ class gadgets extends Component {
                                         >
                                             <DefaultCardContents>
                                                 <FrontSide>
-                                                    <p><img src={"http://localhost:90/assets/image/gadget/" + g.gadgetimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
+                                                    <p><img src={"http://localhost:90/image/gadget/" + g.gadgetimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
 
                                                     Brand: {g.gadgetname} <br /> Price: {g.gadgetprice}<br />
                                                     <button type="button">View Product</button>
