@@ -2,28 +2,23 @@ import axios from "axios";
 import { Component } from "react";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
-//FlipCard
-// import Flippy, { FrontSide, BackSide } from "../components/infoflipcard";
+import {Link} from "react-router-dom";
+
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
-// import { FlippyStyle, DefaultCardContents } from '../components/infoflipcard/infoflipcardelements'
 import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
 
 class cosmetics extends Component {
 
     state = {
-        cosmetic: [],
-        config: {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        }
+        cosmetics: [],
+        
     }
     componentDidMount() {
         axios.get("http://localhost:90/cosmetic/showall", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
-                    cosmetic: response.data.data
+                    cosmetics: response.data.data
                 })
             })
             .catch((err) => {
@@ -40,7 +35,7 @@ class cosmetics extends Component {
                 <div className="FlippyCardAlign">
                     <div className="App">
                         <div style={{ display: 'flex', flex: '1 0 500px', justifyContent: 'space-between', 'flex-wrap': 'wrap' }}>{
-                            this.state.cosmetic.map((c) => {
+                            this.state.cosmetics.map((c) => {
                                 return (
                                     <div>
                                         <Flippy
@@ -51,7 +46,7 @@ class cosmetics extends Component {
                                             <DefaultCardContents>
                                                 <FrontSide>
 
-                                                    <p><img src={"http://localhost:90/assets/image/cosmetic" + c.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
+                                                    <p><img src={"http://localhost:90/image/cosmetic/" + c.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
 
                                                     Cosmetic: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
                                                     {/* <button type="button">View Product</button> */}
@@ -70,8 +65,12 @@ class cosmetics extends Component {
                                             </BackSide>
 
                                         </Flippy>
+                                        {
+                                            c.cosmetictype==="Men"? (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>):
+                                            (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>)
+                                        }
 
-                                    <button className="detailsbtn" type='submit'>View details</button>
+                                    
                                     <hr/>
                                     </div>
 
