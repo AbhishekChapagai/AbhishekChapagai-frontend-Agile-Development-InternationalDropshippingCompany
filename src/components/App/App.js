@@ -14,6 +14,7 @@ import Header from '../Header/Header';
 import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
 import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
 import Home from '../Pages';
+import request from '../Pages/ProductRequesting/RequestProduct';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
       <Header />
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={TestPage} />
+      <Route exact path="/request" component={request} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
