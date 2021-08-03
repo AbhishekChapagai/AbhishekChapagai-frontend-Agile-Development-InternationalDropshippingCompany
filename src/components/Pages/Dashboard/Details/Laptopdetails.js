@@ -3,8 +3,14 @@ import { Component } from "react";
 import './Details.css';
 
 class LaptopDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.Addtocart = this.Addtocart.bind(this);
+      }
     state = {
+        userid: localStorage.getItem("userid"),
         id: this.props.match.params.id,
+        quantity: "",
         gadgets: [],
 
     }
@@ -18,6 +24,18 @@ class LaptopDetails extends Component {
             })
             .catch((err) => {
                 console.log(err.response)
+            })
+    }
+    Addtocart(){
+        const data={userid: this.state.userid, productid:this.state.id, quantity:this.state.quantity}
+        axios.post(`http://localhost:90/gadgetcart/insert/` , data )
+        
+            .then((response) => {
+                console.log("successful")
+                
+            })
+            .catch((err) => {
+                console.log(err)
             })
     }
     render() {
@@ -59,14 +77,14 @@ class LaptopDetails extends Component {
                                                 <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
                                                     <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                                                    <input value="1" />
+                                                    <input value={this.state.quantity}  onChange={e=>{this.setState({quantity:e.target.value})}} />
                                                     <div class="btn-plus"><i class="bi bi-plus"></i></div>
                                                 </div>
                                             </div>
 
                                             <h4 class="price">current price: <span>${l.gadgetprice}</span></h4>
                                             <div class="action">
-                                                <button class="add-to-cart  btn-default" type="button">add to cart</button>
+                                                <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
                                                 <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
                                             </div>
                                         </div>
