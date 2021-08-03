@@ -4,7 +4,9 @@ import './Details.css';
 
 class CameraDetails extends Component {
     state = { 
+        userid: localStorage.getItem("userid"),
         id: this.props.match.params.id,
+        quantity: "",
         gadgets: [],
         
     }
@@ -20,6 +22,22 @@ class CameraDetails extends Component {
                 console.log(err.response)
             })
     }
+    Addtocart(){
+        const data={userid: this.state.userid, productid:this.state.id, quantity:this.state.quantity}
+        axios.post(`http://localhost:90/gadgetcart/insert/` )
+        
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    gadgets: response.data.data
+                })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
+
+
     render() {
         var description = <>
             <div class="container">{
@@ -60,14 +78,14 @@ class CameraDetails extends Component {
                                     <h6 class="title-attr"><small>Quantity</small></h6>
                                     <div>
                                         <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                                        <input value="1" />
+                                        <input value={this.state.quantity}  onChange={e=>{this.setState({quantity:e.target.value})}}  />
                                         <div class="btn-plus"><i class="bi bi-plus"></i></div>
                                     </div>
                                 </div>
 
                                 <h4 class="price">current price: <span>${c.gadgetprice}</span></h4>
                                 <div class="action">
-                                    <button class="add-to-cart  btn-default" type="button">add to cart</button>
+                                    <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart} >add to cart</button>
                                     <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
                                 </div>
                             </div>
@@ -99,7 +117,7 @@ class CameraDetails extends Component {
                             <div class="col">Camera Weight  :</div>
                         </div>
                         <div class="col ">
-                            <div class="col ">{c.camera.cameraType}</div>
+                            <div class="col "></div>
                             <div class="col">{c.camera.cameraResolution}</div>
                             <div class="col">{c.camera.cameraSalesPackage}</div>
                             <div class="col">{c.camera.cameraDimensions}</div>
