@@ -1,12 +1,14 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+import { toast } from "react-toastify";
+toast.configure();
 
 class CameraDetails extends Component {
     state = { 
         userid: localStorage.getItem("userid"),
         id: this.props.match.params.id,
-        quantity: "",
+        quantity: "1",
         gadgets: [],
         
     }
@@ -31,6 +33,16 @@ class CameraDetails extends Component {
                 this.setState({
                     gadgets: response.data.data
                 })
+
+                toast.success('Product added to cart!', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
             .catch((err) => {
                 console.log(err.response)

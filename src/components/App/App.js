@@ -47,7 +47,7 @@ function App() {
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
       <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
-      <Route exact path="/mycart" component={cart} />
+      <Route exact path="/cart" component={cart} />
     </>
 
   )
