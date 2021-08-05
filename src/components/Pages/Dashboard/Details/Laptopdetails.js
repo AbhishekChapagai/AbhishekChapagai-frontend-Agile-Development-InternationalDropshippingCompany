@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+import { toast } from "react-toastify";
+toast.configure();
 
 class LaptopDetails extends Component {
     constructor(props) {
@@ -10,7 +12,9 @@ class LaptopDetails extends Component {
     state = {
         userid: localStorage.getItem("userid"),
         id: this.props.match.params.id,
-        quantity: "",
+        quantity: "1",
+        gadgetname:"",
+        gadgetprice:"",
         gadgets: [],
 
     }
@@ -28,10 +32,20 @@ class LaptopDetails extends Component {
     }
     Addtocart(){
         const data={userid: this.state.userid, productid:this.state.id, quantity:this.state.quantity}
-        axios.post(`http://localhost:90/gadgetcart/insert/` , data )
+        axios.post(`http://localhost:90/gadgetcart/insert/` , this.state )
         
             .then((response) => {
                 console.log("successful")
+
+                toast.success('Product added to cart!', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
                 
             })
             .catch((err) => {
@@ -63,7 +77,7 @@ class LaptopDetails extends Component {
                                         </div>
 
                                         <div class="details col-md-6">
-                                            <h3 class="product-title">{l.gadgetname}</h3>
+                                            <h3 class="product-title"  value={this.state.gadgetname=l.gadgetname}  onChange={e=>{this.setState({gadgetname:e.target.value})}}>{l.gadgetname}</h3>
                                             <div class="rating">
                                                 <div class="stars">
                                                     <span class="fa fa-star checked"></span>
@@ -82,7 +96,7 @@ class LaptopDetails extends Component {
                                                 </div>
                                             </div>
 
-                                            <h4 class="price">current price: <span>${l.gadgetprice}</span></h4>
+                                            <h4 class="price" value={this.state.gadgetprice=l.gadgetprice}  onChange={e=>{this.setState({gadgetprice:e.target.value})}}>current price: <span>${l.gadgetprice}</span></h4>
                                             <div class="action">
                                                 <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
                                                 <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
