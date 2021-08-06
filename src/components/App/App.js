@@ -13,7 +13,8 @@ import CosmeticDetails from '../Pages/Dashboard/Details/CosmeticDetails';
 import Home from '../Pages';
 import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
-import cart from '../Pages/Dashboard/cart/Cart';
+import Cart from '../Pages/Dashboard/cart/Cart';
+import VerifyEmail from '../Pages/LoginRegister/VerifyEmail';
 
 function App() {
 
@@ -28,6 +29,12 @@ function App() {
   const RegisterContainer = () => (
     <>
       <Route exact path="/register" component={Register} />
+    </>
+  )
+
+  const VerifyEmailContainer = () => (
+    <>
+      <Route exact path="/register/email/verify" component={VerifyEmail} />
     </>
   )
 
@@ -47,7 +54,7 @@ function App() {
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
       <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
-      <Route exact path="/cart" component={cart} />
+      <Route exact path="/cart" component={Cart} />
     </>
 
   )
@@ -58,6 +65,7 @@ function App() {
         <Switch>
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
+          <Route exact path="/register/email/verify" component={VerifyEmailContainer} />
           <Route exact path="/auth" component={AuthContainer} />
           <Route component={DefaultContainer} />
         </Switch>

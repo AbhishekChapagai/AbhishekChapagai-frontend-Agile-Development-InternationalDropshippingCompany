@@ -9,6 +9,13 @@ class Login extends Component {
     state = {
         email: "",
         password: "",
+        passwordHidden: true
+    }
+
+    toggleShow = this.toggleShow.bind(this);
+
+    toggleShow() {
+        this.setState({ passwordHidden: !this.state.passwordHidden });
     }
 
     changeHandler = (e) => {
@@ -41,7 +48,7 @@ class Login extends Component {
                 })
 
                 toast.error('Invalid Email or Password!!!', {
-                    position: "top-center",
+                    position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: true,
@@ -93,9 +100,13 @@ class Login extends Component {
 
                                     </div>
 
-                                    <div className="form-floating mb-2">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password"
+                                    <div className="form-floating mb-2 input_right_icon">
+                                        <input type={this.state.passwordHidden ? 'password' : 'text'} className="form-control form_control_input" id="floatingPassword" placeholder="Password" name="password"
                                             data-testid="password-input" value={this.state.password} onChange={this.changeHandler} />
+                                        <i id="input_form_right_icon" className="form_right_icon"
+                                            onClick={this.toggleShow}>
+                                            {this.state.passwordHidden ? < i className="fas fa-eye-slash icon_change"></i> : < i className="fas fa-eye icon_change"></i>}
+                                        </i>
                                         <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 
