@@ -28,70 +28,52 @@ class cosmetics extends Component {
 
 
     render() {
-        var items = <>
-            <div>
-                <h2>Let's Browse Cosmetics</h2>
-
-                <div className="FlippyCardAlign">
-                    <div className="App">
-                        <div style={{ display: 'flex', flex: '1 0 500px', justifyContent: 'space-between', 'flex-wrap': 'wrap' }}>{
-                            this.state.cosmetics.map((c) => {
-                                return (
-                                    <div>
-                                        <Flippy
-                                            ref={(r) => this.flippyHorizontal = r}
-                                            flipOnClick={true}
-                                            style={FlippyStyle}
-                                        >
-                                            <DefaultCardContents>
-                                                <FrontSide>
-
-                                                    <p><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
-
-                                                    Cosmetic: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
-                                                    {/* <button type="button">View Product</button> */}
-
-                                                </FrontSide>
-
-                                            </DefaultCardContents>
-
-                                            <BackSide>
-                                                <div className="backside">
-                                                    <h5>Type:</h5> <p>{c.cosmetictype}  </p>
-                                                    <h5>Description:</h5>
-                                                    <p> {c.cosmeticdescription}</p>
-                                                    {/* <p>{p.userId}</p> */}
-                                                </div>
-                                            </BackSide>
-
-                                        </Flippy>
-                                        {
-                                            c.cosmetictype === "Men" ? (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>) :
-                                                (<Link to={"/product/cosmetic/cosmeticdetails/" + c._id}><button className="detailsbtn" type='submit'>View details</button></Link>)
-                                        }
-
-
-                                        <hr />
-                                    </div>
-
-
-                                )
-                            })
-
-                        }
+        return(
+            <>
+            <div className="displayCosmetic">
+                    <div className="showCosmetic">
+                        <div className="cosmeticBand">
+                            <p className="txtCosmetic">Cosmetics</p>
+                            {/* <p className="txtProduct"> Products</p> */}
                         </div>
+                        <div className="mainCatCosmetic">
+                            {
+                                this.state.cosmetics.map((c) => {
+                                    return (
+
+                                        <div className="cosmeticCat">
+                                            <div className="catCosmeticImage">
+                                                <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
+                                            </div>
+                                            <div className="CosmeticNameCategory">
+                                                <p className="CosmeticName">&nbsp;
+                                                    {
+                                                        c.cosmeticname
+                                                    }<br></br>
+
+                                                </p>
+
+                                                <p className="CosmeticPrice">&nbsp;Rs&nbsp;
+                                                    {
+                                                        c.cosmeticprice
+                                                    }
+
+                                                </p>
+
+                                                <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
+                                            </div>
+                                        </div>
+
+                                    )
+                                })
+                            }
+                        </div>
+
                     </div>
                 </div>
-
-
-
-            </div>
-
-
-        </>
-        return (
-            items
+            </>
         )
+        
     }
 
 }
