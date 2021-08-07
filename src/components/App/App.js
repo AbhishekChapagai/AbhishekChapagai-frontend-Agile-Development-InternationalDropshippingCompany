@@ -14,6 +14,8 @@ import Home from '../Pages';
 import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
 import cart from '../Pages/Dashboard/cart/Cart';
+import Profile from '../Pages/Dashboard/UserProfile/userProfile';
+import Address from '../Pages/Dashboard/UserProfile/address';
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
       <Header />
       <Route exact path="/" component={Home} />
       <Route exact path="/product/gadgets" component={Gadgets} />
+      <Route exact path="/user/profile" component={Profile} />
+      <Route exact path="/user/address" component={Address} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
