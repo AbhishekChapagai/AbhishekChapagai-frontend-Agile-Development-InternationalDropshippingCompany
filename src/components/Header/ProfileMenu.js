@@ -31,7 +31,7 @@ function ProfileMenu() {
                     ? 12 : 0}>
 
                 {
-                    [<Link exact to="/profile" className="profile_link"> <i className="fas fa-user" > Profile</i> </Link>,
+                    [<Link exact to="/user/profile" className="profile_link"> <i className="fas fa-user" > Profile</i> </Link>,
                     <Link exact to="/cart" className="profile_link" ><i className="fas fa-shopping-cart "> Cart</i> </Link>,
                     <i className="fas fa-sign-out-alt" onClick={logout}> Logout</i>]
                         .map(profileM => <MenuItem key={profileM}>{profileM}</MenuItem>)
