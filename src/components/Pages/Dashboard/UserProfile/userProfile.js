@@ -1,10 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component, state } from 'react'
 import axios from "axios";
 import './userProfile.css'
 import { Link } from 'react-router-dom'
 
 
 class Profile extends Component {
+
+    state={
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        config: {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }
+    }
+    componentDidMount() {
+        const id = localStorage.getItem("userid");
+        console.log(id)
+        axios.get('http://localhost:90/user/profile/' + id)
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    firstname: response.data.firstname,
+                    lastname: response.data.lastname,
+                    email: response.data.email,
+                    phone: response.data.phone,
+                })
+            })
+    }
 
     render() {
         return (
@@ -37,23 +63,23 @@ class Profile extends Component {
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <div class="card-block">
-                                                                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">MY PROFILE</h5>
+                                                                <h5 class="m-b-20 p-b-5 b-b-default f-w-600">My profile</h5>
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600">Firstname</p>
-                                                                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                                                                        <p class="m-b-10">Firstname</p>
+                                                                        <p class="text-muted">{this.state.firstname}</p>
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600">Lastname</p>
-                                                                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                                                                        <p class="m-b-10">Lastname</p>
+                                                                        <p class="text-muted">{this.state.lastname}</p>
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600">Email</p>
-                                                                        <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                                                                        <p class="m-b-10">Email</p>
+                                                                        <p class="text-muted">{this.state.email}</p>
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600">Phone</p>
-                                                                        <h6 class="text-muted f-w-400">98979989898</h6>
+                                                                        <p class="m-b-10">Phone</p>
+                                                                        <p class="text-muted">{this.state.phone}</p>
                                                                     </div>
                                                                     <div class="col-sm-4">
                                                                         <br></br>
