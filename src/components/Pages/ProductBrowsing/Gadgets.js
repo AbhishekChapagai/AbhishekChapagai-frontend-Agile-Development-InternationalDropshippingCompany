@@ -28,9 +28,10 @@ class gadgets extends Component {
 
 
     render() {
-        
         return (
             <>
+
+
 
                 {/* GADGET CATEGORY */}
 
