@@ -89,7 +89,7 @@ class Items extends Component {
           <div>
             <div className="items-info">
               <div className="product-img">
-                <img src={cart.gadgetimage} alt="tp" />
+                <img src={"http://localhost:90/gadget/" + cart.gadgetimage} alt="tp" />
               </div>
 
               <div className="title">

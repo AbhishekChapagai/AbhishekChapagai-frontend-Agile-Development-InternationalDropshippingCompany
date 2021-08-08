@@ -32,7 +32,7 @@ class LaptopDetails extends Component {
     }
     Addtocart(){
         const data={userid: this.state.userid, productid:this.state.id, quantity:this.state.quantity}
-        axios.post(`http://localhost:90/gadgetcart/insert/` , this.state )
+        axios.post(`http://localhost:90/gadgetcart/insert/` , data )
         
             .then((response) => {
                 console.log("successful")
@@ -64,14 +64,14 @@ class LaptopDetails extends Component {
                                         <div class="preview col-md-6">
 
                                             <div class="preview-pic tab-content">
-                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
-                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
-                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
+                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
+                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
+                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
                                             </div>
                                             <ul class="preview-thumbnail nav nav-tabs">
-                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
-                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
+                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage"/></a></li>
                                             </ul>
 
                                         </div>
@@ -112,7 +112,7 @@ class LaptopDetails extends Component {
                                 <p class="collapse" id="collapseExample" aria-expanded="false">
                                     {l.gaadgetdescription}
                                 </p>
-                                <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                <a class= "showmore" role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 </a>
                             </div>
                             <div class="container product-details">
