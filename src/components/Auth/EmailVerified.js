@@ -46,7 +46,7 @@ class EmailVerified extends Component {
                         <h1 className="error_heading">  404 - PAGE NOT FOUND</h1>
                         <p className="error_msg">The link is either broken or no longer active. Failed to verify the email address.</p>
                         <Link exact to="/login">
-                            <button className="btn btn_error_color" type='submit'> Back to Homepage </button>
+                            <button className="btn btn_error" type='submit'> Login </button>
                         </Link>
                     </div>
                 </div>

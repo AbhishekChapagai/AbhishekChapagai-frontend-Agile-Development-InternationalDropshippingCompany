@@ -1,17 +1,25 @@
 .VerifyEmail {
-    height: 100vh;
-    background-color:blue;
-    color: #fff;
+    height: 100%;
+    text-align: justify;
+    margin: 10px;
 }
 
 .verify_container{
-    width: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 10px;
+    border: 1px solid #1c96c5;
+}
+
+.email_msg {
+    font-size: 16px;
+}
+
+.btn_send_verification {
+    width: auto;
+    margin: 10px;
 }
 
 /* --------------------- Email Verified --------------------- */
@@ -71,19 +79,20 @@
 }
 
 
-.btn_error_color {
+.btn_error {
     /* background-color: #2d00fb; */
     background-color: #fff;
     font-weight: 800;
     border-radius: 30px;
     padding: 10px;
+    min-width: 100px;
 }
 
-.btn_error_color:hover, .btn_success:hover {
+.btn_error:hover, .btn_success:hover {
     background-color: #bec1c4;
 }
 
-.btn_error_color, .btn_error_color:hover {
+.btn_error, .btn_error:hover {
     color: rgb(156, 10, 10);
 }
 
