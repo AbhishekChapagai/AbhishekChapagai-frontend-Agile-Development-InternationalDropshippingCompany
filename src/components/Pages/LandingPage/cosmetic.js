@@ -44,9 +44,10 @@ class CosmeticCategory extends Component {
                                 this.state.cosmetic.map((c) => {
                                     return (
 
-                                        <div className="cosmeticCat">
+                                         <a href={"/product/cosmetic/cosmeticdetails/" + c._id} className="cosmeticCat"> 
+                                            {/* <a href={"/product/cosmetic/cosmeticdetails/" + c._id}> */}
                                             <div className="catCosmeticImage">
-                                                <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
+                                                <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
                                             </div>
                                             <div className="CosmeticNameCategory">
                                                 <p className="CosmeticName">&nbsp;
@@ -65,7 +66,8 @@ class CosmeticCategory extends Component {
 
                                                 <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
                                             </div>
-                                        </div>
+                                            {/* </a> */}
+                                        </a>
 
                                     )
                                 })
