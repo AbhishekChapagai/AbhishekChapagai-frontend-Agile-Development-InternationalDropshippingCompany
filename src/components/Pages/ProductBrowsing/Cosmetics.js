@@ -43,9 +43,9 @@ class cosmetics extends Component {
 
                                         <div className="cosmeticsCat">
                                             {
-                                                c.cosmetictype === "Men" ? (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
+                                                (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
                                                     <div className="catCosmeticsImage">
-                                                        <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
+                                                        <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
                                                     </div>
                                                     <div className="COsmeticsNameCategory">
                                                         <p className="CosmeticsName">&nbsp;
@@ -61,25 +61,8 @@ class cosmetics extends Component {
 
                                                         </p>
 
-                                                    </div></a>) :
-                                                 (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}><div className="catCosmeticsImage">
-                                                        <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
-                                                    </div>
-                                                        <div className="CosmeticsNameCategory">
-                                                            <p className="CosmeticsName">&nbsp;
-                                                                {
-                                                                    c.cosmeticname
-                                                                }<br></br>
-
-                                                            </p>
-                                                            <p className="CosmeticsPrice">&nbsp;Rs&nbsp;
-                                                                {
-                                                                    c.cosmeticprice
-                                                                }
-
-                                                            </p>
-
-                                                        </div></a>)
+                                                    </div></a>) 
+                                                 
                                             }
                                             <div className="cosmeticsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
                                         </div>
