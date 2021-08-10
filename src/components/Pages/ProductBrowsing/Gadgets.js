@@ -49,7 +49,7 @@ class gadgets extends Component {
                                         {
                                             g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
                                                 <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/assets/image/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
                                                 <div className="GadgetNameCategory">
                                                     <p className="GadgetName">&nbsp;
@@ -67,7 +67,7 @@ class gadgets extends Component {
                                         
                                                 </div></a>) :
                                                 (<a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetImage">
-                                                    <img src={"http://localhost:90/assets/image/gadget/" + g.gadgetimage} alt="img" />
+                                                    <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                                 </div>
                                                     <div className="GadgetNameCategory">
                                                         <p className="GadgetName">&nbsp;

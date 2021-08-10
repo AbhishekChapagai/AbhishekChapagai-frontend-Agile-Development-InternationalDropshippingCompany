@@ -50,7 +50,7 @@ class LaptopCategory extends Component {
 
                                         <div className="gadgetCat">
                                             <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/assets/image/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
                                             <div className="GadgetNameCategory">
                                                 <p className="GadgetName">&nbsp;

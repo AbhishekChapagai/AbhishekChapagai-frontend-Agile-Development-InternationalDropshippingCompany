@@ -1,39 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { Component } from "react";
-import { CartContext } from "./Cart";
-
-// const Items = ({ id, title, description, price, img, quantity }) => {
-//   const { removeItem, increment, decrement } = useContext(CartContext);
-//   return (
-//     <>
-//       <div className="items-info">
-//         <div className="product-img">
-//           <img src={img} alt="tp" />
-//         </div>
-
-//         <div className="title">
-//           <h2>{title}</h2>
-//           <p>{description}</p>
-//         </div>
-//         <div className="add-minus-quantity">
-//           <i className="fas fa-minus minus" onClick={() => decrement(id)}></i>
-//           <input type="text" placeholder={quantity} disabled />
-//           <i className="fas fa-plus add" onClick={() => increment(id)}></i>
-//         </div>
-//         <div className="price">
-//           <h3>{price}</h3>
-//         </div>
-//         <div className="remove-item">
-//           <i
-//             className="fas fa-trash-alt remove"
-//             onClick={() => removeItem(id)}></i>
-//         </div>
-//       </div>
-//       <hr />
-//     </>
-//   );
-// };
 
 class Items extends Component {
 
@@ -74,13 +41,13 @@ class Items extends Component {
     window.location.reload(false);
   }
 
-  itemPlus = () => {
-    this.setState({ quantity: this.state.gadgetcart.quantity + 1 });
-  }
+  // itemPlus = () => {
+  //   this.setState({ quantity: this.state.gadgetcart.quantity + 1 });
+  // }
 
-  itemMinus = () => {
-    this.setState({ quantity: this.state.gadgetcart.quantity - 1 });
-  }
+  // itemMinus = () => {
+  //   this.setState({ quantity: this.state.gadgetcart.quantity - 1 });
+  // }
 
   render() {
     var items = <>{
@@ -89,7 +56,7 @@ class Items extends Component {
           <div>
             <div className="items-info">
               <div className="product-img">
-                <img src={"http://localhost:90/gadget/" + cart.gadgetimage} alt="tp" />
+              <img src={"http://localhost:90/gadget/" + cart.gadgetimage} alt="img" />
               </div>
 
               <div className="title">
@@ -97,9 +64,9 @@ class Items extends Component {
                 <p>{cart.gadgetname}</p>
               </div>
               <div className="add-minus-quantity">
-                <i className="fas fa-minus minus" onClick={this.itemMinus}></i>
+                <i className="fas fa-minus minus" onClick={"this.itemMinus"}></i>
                 <input type="text" placeholder={cart.quantity} value={this.state.quantity} onChange={this.changeHandler} disabled />
-                <button className="fas fa-plus add" onClick={this.itemPlus}></button>
+                <button className="fas fa-plus add" onClick={"this.itemPlus"}></button>
                 
               </div>
               <div className="item-price">

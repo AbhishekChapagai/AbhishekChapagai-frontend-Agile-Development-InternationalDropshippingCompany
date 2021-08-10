@@ -46,7 +46,7 @@ class CosmeticCategory extends Component {
 
                                         <div className="cosmeticCat">
                                             <div className="catCosmeticImage">
-                                                <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
+                                                <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
                                             </div>
                                             <div className="CosmeticNameCategory">
                                                 <p className="CosmeticName">&nbsp;

@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import Items from "./Items";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import { CartContext } from "./Cart";
 import axios from "axios";
 import { Component } from "react";
+import "./cart.css";
 
-
-  // cosumer
   class ContextCart extends Component {
 
     state = {
@@ -29,7 +27,7 @@ import { Component } from "react";
     }
 
     removeItem = () => {
-      axios.delete('http://localhost:90/delete/mycart')
+      axios.delete('http://localhost:90/remove/mycart')
         .then((response) => {
           console.log(response)
         })
@@ -51,7 +49,7 @@ import { Component } from "react";
             <section className="main-cart-section">
 
               <p className="total-items">
-                you have <span className="total-items-count">{this.state.gadgetcart.length} </span>
+                You have <span className="total-items-count">{this.state.gadgetcart.length} </span>
                 item in shopping cart
               </p>
 

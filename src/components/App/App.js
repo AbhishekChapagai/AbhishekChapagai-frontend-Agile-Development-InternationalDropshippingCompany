@@ -13,10 +13,9 @@ import CosmeticDetails from '../Pages/Dashboard/Details/CosmeticDetails';
 import Home from '../Pages';
 import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
-import cart from '../Pages/Dashboard/cart/Cart';
 import Profile from '../Pages/Dashboard/UserProfile/userProfile';
 import Address from '../Pages/Dashboard/UserProfile/address';
-import Cart from '../Pages/Dashboard/cart/Cart';
+import Cart from '../Pages/Dashboard/cart/ContextCart';
 import VerifyEmail from '../Pages/LoginRegister/VerifyEmail';
 
 function App() {
