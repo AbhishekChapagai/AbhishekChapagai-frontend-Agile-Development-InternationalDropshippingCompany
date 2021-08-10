@@ -26,6 +26,7 @@ class Login extends Component {
 
     submitLogin = (e) => {
         e.preventDefault();
+        localStorage.clear();
         axios.post("http://localhost:90/user/login", this.state)
             .then((response) => {
                 console.log(response);
