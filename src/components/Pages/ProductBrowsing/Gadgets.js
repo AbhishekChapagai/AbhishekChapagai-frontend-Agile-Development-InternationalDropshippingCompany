@@ -46,6 +46,7 @@ class gadgets extends Component {
                             {
                                 this.state.gadgets.map((g) => {
                                     return (
+
                                         <div className="gadgetsCat">
                                             {
                                                 g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
@@ -54,6 +55,7 @@ class gadgets extends Component {
                                                     </div>
                                                     <div className="GadgetsNameCategory">
                                                         <p className="GadgetsName">&nbsp;
+
                                                             {
                                                                 g.gadgetname
                                                             }<br></br>

@@ -31,7 +31,7 @@ class LaptopDetails extends Component {
             })
     }
     Addtocart(){
-        const data={userid: this.state.userid, productid:this.state.id, quantity:this.state.quantity}
+        const data={userid: this.state.userid, productid:this.state.id, quantity:this.state.quantity, gadgetname:this.state.gadgetname, gadgetprice:this.state.gadgetprice}
         axios.post(`http://localhost:90/gadgetcart/insert/` , data )
         
             .then((response) => {
