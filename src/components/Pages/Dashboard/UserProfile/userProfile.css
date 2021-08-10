@@ -2,6 +2,12 @@
 /* SIDEBAR */
 .mainUser{
     width: 100%;
+    background-color: #ededed;
+}
+.helloUser{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
 }
 .manageAccount{
     font-size: 14px;
@@ -19,9 +25,9 @@
     display: block;
     color: #999999;
     padding: 5px;
+    text-align: center !important;
     text-decoration: none !important;
   }
-   
   .sidebar a.active {
     text-decoration: none;
     color: #1c96c5;
@@ -66,9 +72,23 @@
 .card {
     width: 100%;
     background-color: white;
-    border-radius: 5px;    
 }
+.profileRow{
+    margin-bottom: 35px;
+}
+.profileRow2{
+    margin-bottom: 100px;
+}
+.profileCard{
+    margin-top: 10px;
+    box-shadow: 0 0 0 0 white;
+    padding: 30px;
+}
+.addressCard{
+    margin-top: 10px;
+    box-shadow: 0 0 0 0 white;
 
+}
 .m-r-0 {
     margin-right: 0px
 }
@@ -77,18 +97,25 @@
     margin-left: 0px
 }
 
-.user-card-full .user-profile {
-    border-radius: 5px 0 0 5px
+.user-card-full .user-profile img{
+    border-radius: 0%;
+    height: 100%;
 }
 
-.bg-c-lite-green {
-    background: linear-gradient(to right, #ee5a6f, #f29263)
-}
 
 .user-profile {
-    padding: 20px 0
+    padding: 20px 0;
 }
-
+.btnChangePhoto{
+    text-align: center;
+    padding: 5px;
+    background-color: #ff5555;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 2px;
+    cursor: pointer
+}
 .card-block {
     padding: 1.25rem
 }
@@ -118,11 +145,6 @@ h6 {
 .card-block {
     padding: 1.25rem
 }
-
-.b-b-default {
-    border-bottom: 1px solid #e0e0e0
-}
-
 .m-b-20 {
     margin-bottom: 20px
 }
@@ -142,7 +164,6 @@ h6 {
     font-family: 'Roboto', sans-serif; 
 }
 .m-b-6 {
-    /* width: 60%; */
     text-align: center;
     padding: 5px;
     background-color: #1c96c5;
@@ -151,6 +172,20 @@ h6 {
     font-family: 'Roboto', sans-serif;
     border-radius: 2px;
     cursor: pointer
+}
+.buttonSaveChanges{
+    text-align: center;
+    padding: 12px;
+    height: 50px;
+    background-color: #ff5555;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 597;
+    font-size: 15px;
+    letter-spacing: .5px;
+    border-radius: 2px;
+    cursor: pointer;
 }
 .m-b-9 {
     color: #757575;
@@ -177,11 +212,13 @@ h6 {
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
-
-.b-b-default {
-    border-bottom: 1px solid #e0e0e0
+.changePhoto{
+    background-color: #1c96c5;
+    margin-left: 20px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
 }
-
 .f-w-600 {
     font-weight: 600
 }

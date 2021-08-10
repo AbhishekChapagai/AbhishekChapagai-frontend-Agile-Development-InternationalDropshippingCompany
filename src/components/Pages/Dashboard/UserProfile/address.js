@@ -4,6 +4,32 @@ import './userProfile.css'
 import { Link } from 'react-router-dom'
 
 class Address extends Component {
+    state={
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        config: {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }
+    }
+    componentDidMount() {
+        axios.get("http://localhost:90/user/token/decode", this.state.config)
+          .then((response) => {
+            const data = response.data
+            this.setState({
+              firstName: data.firstName,
+              lastName: data.lastName,
+              email: data.email,
+              phone: data.phone,
+              img: data.img
+            })
+          }).catch((err) => {
+            console.log(err);
+          })
+      }
 
     render() {
         return (
@@ -13,6 +39,7 @@ class Address extends Component {
                         <div className="row">
                             <div className="sidebarCat col-xl-2 col-lg-2 col-md-3 col-sm-12">
                                 <div class="sidebar">
+                                <p className="helloUser">Hello, {this.state.firstName}</p>
                                     <p className="manageAccount">Manage your account</p>
                                     <Link to="/user/profile"><a>My Profile</a></Link>
                                     <Link to="/user/address"><a class="active">My Address</a></Link>
@@ -26,7 +53,7 @@ class Address extends Component {
                                         <div class="row container d-flex justify-content-center">
 
                                             <div class="col-12">
-                                                <div class="card user-card-full">
+                                                <div class="card user-card-full addressCard">
                                                     <div class="row m-l-0 m-r-0">
                                                     
                                                         <div class="col-sm-12">
