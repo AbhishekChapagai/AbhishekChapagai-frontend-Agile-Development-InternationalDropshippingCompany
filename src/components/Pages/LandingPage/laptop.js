@@ -41,16 +41,16 @@ class LaptopCategory extends Component {
                         <div className="gadgetBand">
                             <p className="txtGadget">Laptops</p>
                             {/* <p className="txtGProduct"> Products</p> */}
-                            <div className="viewMoreGadget">View more </div>
+                            <div className="viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div>
                         </div>
                         <div className="mainCatGadget">
                             {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <div className="gadgetCat">
+                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="gadgetCat">
                                             <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/assets/image/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
                                             <div className="GadgetNameCategory">
                                                 <p className="GadgetName">&nbsp;
@@ -65,8 +65,10 @@ class LaptopCategory extends Component {
                                                     }
 
                                                 </p>
+                                                <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
+
                                             </div>
-                                        </div>
+                                        </a>
 
                                     )
                                 })

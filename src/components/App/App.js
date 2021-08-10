@@ -1,49 +1,80 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // wrap
+
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
 import Login from "../Pages/LoginRegister/Login";
-import Landing from "../Pages/LandingPage/landing"
 import Register from "../Pages/LoginRegister/Register";
 import Gadgets from "../Pages/ProductBrowsing/Gadgets";
 import Cosmetics from "../Pages/ProductBrowsing/Cosmetics";
-import Nav from "../Header/Header";
-import TestPage from '../Header/About';
 import Header from '../Header/Header';
 import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
 import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
+import CosmeticDetails from '../Pages/Dashboard/Details/CosmeticDetails';
 import Home from '../Pages';
-import request from '../Pages/ProductRequesting/RequestProduct';
+import ProductRequest from '../Pages/ProductRequesting/RequestProduct';
+import Auth from '../Auth/Auth'
+import 'react-toastify/dist/ReactToastify.css';
+import Profile from '../Pages/Dashboard/UserProfile/userProfile';
+import Address from '../Pages/Dashboard/UserProfile/address';
+import EditProfile from '../Pages/Dashboard/UserProfile/profileEdit';
+import Cart from '../Pages/Dashboard/cart/ContextCart';
+import VerifyEmail from '../Auth/VerifyEmail';
+import EmailVerified from '../Auth/EmailVerified';
+
 
 function App() {
 
   // it allows to have different component in the different pages. Like login page without navbar.
   // login page without navbar and footer component.
   const LoginContainer = () => (
-    <div className="">
+    <>
       <Route exact path="/login" component={Login} />
-    </div>
+    </>
   )
 
   const RegisterContainer = () => (
-    <div className="">
+    <>
       <Route exact path="/register" component={Register} />
-    </div>
+    </>
   )
+
+  const AuthContainer = () => (
+    <>
+      <Route exact path="/auth" component={Auth} />
+    </>
+  )
+
+  const VerifyEmailContainer = () => (
+    <>
+      <Header />
+      <Route exact path="/register/email/verify" component={VerifyEmail} />
+    </>
+  )
+
+  const EmailVerifiedContainer = () => (
+    <>
+      <Route exact path="/register/email/verify/:token" component={EmailVerified} />
+    </>
+  )
+
 
   // Pages with Header/navbar and footer component.
   const DefaultContainer = () => (
-    <div>
+    <>
       <Header />
       <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={TestPage} />
-      <Route exact path="/request" component={request} />
+      <Route exact path="/request" component={ProductRequest} />
       <Route exact path="/product/gadgets" component={Gadgets} />
+      <Route exact path="/user/profile" component={Profile} />
+      <Route exact path="/user/address" component={Address} />
+      <Route exact path="/user/edit" component={EditProfile} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
-    </div>
+      <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
+      <Route exact path="/cart" component={Cart} />
+    </>
+
   )
 
   return (
@@ -52,7 +83,9 @@ function App() {
         <Switch>
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
-          <Route exact path="/nav" component={Nav} />
+          <Route exact path="/register/email/verify" component={VerifyEmailContainer} />
+          <Route exact path="/auth" component={AuthContainer} />
+          <Route exact path="/register/email/verify/:token" component={EmailVerifiedContainer} />
           <Route component={DefaultContainer} />
         </Switch>
       </div>

@@ -1,7 +1,9 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
+toast.configure();
 
 class Register extends Component {
     state = {
@@ -9,6 +11,13 @@ class Register extends Component {
         lastname: "",
         email: "",
         password: "",
+        passwordHidden: true
+    }
+
+    toggleShow = this.toggleShow.bind(this);
+
+    toggleShow() {
+        this.setState({ passwordHidden: !this.state.passwordHidden });
     }
 
     changeHandler = (e) => {
@@ -20,23 +29,47 @@ class Register extends Component {
 
     submitData = (e) => {
         e.preventDefault();
-        // data.append('firstname', this.state.firstname)
-        // data.append('lastname', this.state.lastname)
-        // data.append('email', this.state.email)
-        // data.append('password', this.state.password)
-
         axios.post("http://localhost:90/user/signup", this.state)
             .then((response) => {
-                console.log(response);
-                console.log(this.state);
-                // window.location.href = "/signin"
+                console.log(response.data.success);
+                this.setState({
+                    success: response.data.success
+                })
+
+                toast.success('Register Success.', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
             .catch((err) => {
                 console.log(err.response);
+
+                this.setState({
+                    success: err.response.data.success
+                })
+
+                toast.error('Register Failed!!!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     }
 
     render() {
+        if (this.state.success == true) {
+            return <Redirect to="/login" />
+        }
+
         return (
             <div className="Register">
                 {/* left side  */}
@@ -91,9 +124,14 @@ class Register extends Component {
 
                                     </div>
 
-                                    <div className="form-floating">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="password1!" name="password" value={this.state.password}
+                                    <div className="form-floating input_right_icon">
+                                        <input type={this.state.passwordHidden ? 'password' : 'text'} className="form-control form_control_input" id="floatingPassword" placeholder="password1!" name="password" value={this.state.password}
                                             data-testid="password-input" onChange={this.changeHandler} />
+                                        <i id="input_form_right_icon_login" className="form_right_icon"
+                                            onClick={this.toggleShow}>
+                                            {this.state.passwordHidden ? < i className="fas fa-eye-slash icon_change"></i> : < i className="fas fa-eye icon_change"></i>}
+                                        </i>
+
                                         <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 

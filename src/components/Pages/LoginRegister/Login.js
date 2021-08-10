@@ -1,12 +1,21 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
+toast.configure();
 
 class Login extends Component {
     state = {
         email: "",
         password: "",
+        passwordHidden: true
+    }
+
+    toggleShow = this.toggleShow.bind(this);
+
+    toggleShow() {
+        this.setState({ passwordHidden: !this.state.passwordHidden });
     }
 
     changeHandler = (e) => {
@@ -17,19 +26,46 @@ class Login extends Component {
 
     submitLogin = (e) => {
         e.preventDefault();
+        localStorage.clear();
         axios.post("http://localhost:90/user/login", this.state)
             .then((response) => {
                 console.log(response);
+                console.log(response.data.token);
                 this.setState({
                     success: response.data.success
+
                 })
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("userType", response.data.userType);
+                localStorage.setItem("userid", response.data.userid);
+                localStorage.setItem("verified", response.data.verified);
+
+                console.log(response.data.userid)
+
             })
             .catch((err) => {
                 console.log(err.response)
+                this.setState({
+                    success: err.response.data.success
+                })
+
+                toast.error('Invalid Email or Password!!!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     }
 
     render() {
+        if (this.state.success === true) {
+            window.location.href = "/auth"
+        }
+
         return (
             <div className="Login">
                 {/* left side  */}
@@ -66,9 +102,13 @@ class Login extends Component {
 
                                     </div>
 
-                                    <div className="form-floating mb-2">
-                                        <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password"
+                                    <div className="form-floating mb-2 input_right_icon">
+                                        <input type={this.state.passwordHidden ? 'password' : 'text'} className="form-control form_control_input" id="floatingPassword" placeholder="Password" name="password"
                                             data-testid="password-input" value={this.state.password} onChange={this.changeHandler} />
+                                        <i id="input_form_right_icon" className="form_right_icon"
+                                            onClick={this.toggleShow}>
+                                            {this.state.passwordHidden ? < i className="fas fa-eye-slash icon_change"></i> : < i className="fas fa-eye icon_change"></i>}
+                                        </i>
                                         <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 

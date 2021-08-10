@@ -1,15 +1,25 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+import { toast } from "react-toastify";
+toast.configure();
 
 class CameraDetails extends Component {
-    state = { 
+    constructor(props) {
+        super(props);
+        this.Addtocart = this.Addtocart.bind(this);
+    }
+    state = {
+        userid: localStorage.getItem("userid"),
         id: this.props.match.params.id,
+        quantity: "1",
+        productname: "",
+        productprice: "",
         gadgets: [],
-        
+
     }
     componentDidMount() {
-        axios.get(`http://localhost:90/gadget/one/` + this.state.id )
+        axios.get(`http://localhost:90/gadget/one/` + this.state.id)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -20,217 +30,257 @@ class CameraDetails extends Component {
                 console.log(err.response)
             })
     }
+    Addtocart() {
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity }
+        axios.post(`http://localhost:90/gadgetcart/insert/`, data)
+
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    gadgets: response.data.data
+                })
+
+                toast.success('Product added to cart!', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
+
+    itemPlus = () => {
+        this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
+    }
+
+    itemMinus = () => {
+        const minus = this.state.quantity;
+
+        if (minus > 1) {
+            this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+        }
+        else {
+            alert("Can't add product less than quantity 1!")
+        }
+    }
+
     render() {
         var description = <>
-            <div class="container">{
+            <div className="container">{
                 this.state.gadgets.map((c) => {
-        return (
+                    return (
 
-            <div>
-                <div class="card">
-                    <div class="container-fliud">
-                        <div class="wrapper row">
-                            <div class="preview col-md-6">
+                        <div>
+                            <div className="card">
+                                <div className="container-fliud">
+                                    <div className="wrapper row">
+                                        <div className="preview col-md-6">
 
-                                <div class="preview-pic tab-content">
-                                    <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></div>
-                                    <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></div>
-                                    <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></div>
+                                            <div className="preview-pic tab-content">
+                                                <div className="tab-pane active" id="pic-1"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
+                                                <div className="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
+                                                <div className="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
+                                            </div>
+                                            <ul className="preview-thumbnail nav nav-tabs">
+                                                <li className="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"htagtp://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
+                                            </ul>
+
+                                        </div>
+
+                                        <div className="details col-md-6">
+                                            <h3 class="product-title" value={this.state.productname = c.gadgetname} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
+                                            <div className="rating">
+                                                <div className="stars">
+                                                    <span className="fa fa-star checked"></span>
+                                                    <span className="fa fa-star checked"></span>
+                                                    <span className="fa fa-star checked"></span>
+                                                    <span className="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
+                                                </div>
+                                            </div>
+                                            <div className="section" >
+                                                <h6 className="title-attr"><small>Quantity</small></h6>
+                                                <div>
+                                                    <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
+                                                    <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} />
+                                                    <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus">+</button></div>
+                                                </div>
+                                            </div>
+
+                                            <h4 class="price" value={this.state.productprice = c.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>${c.gadgetprice}</span></h4>
+                                            <div className="action">
+                                                <button className="add-to-cart  btn-default" type="button" onClick={this.Addtocart} >add to cart</button>
+                                                <button className="like btn-default" type="button"><span className="fa fa-heart"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <ul class="preview-thumbnail nav nav-tabs">
-                                    <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></a></li>
-                                    <li><a data-target="#pic-2" data-toggle="tab"><img src={"htagtp://localhost:90/assets/image/gadget/" + c.gadgetimage} /></a></li>
-                                    <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + c.gadgetimage} /></a></li>
-                                </ul>
+                            </div>
+
+                            <div id="module" className="container additional-des">
+                                <h3>Summary</h3>
+                                <p className="collapse" id="collapseExample" aria-expanded="false">
+                                    {c.gaadgetdescription}
+                                </p>
+                                <a role="button" className="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                </a>
+                            </div>
+
+                            <div className="container product-details">
+                                <a className="spec-title"> Additional Specification</a>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head">General </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col ">Type  :</div>
+                                        <div className="col">Camera Resolution  :</div>
+                                        <div className="col">Sales Package  :</div>
+                                        <div className="col">Dimensions (WxHxD)  :</div>
+                                        <div className="col">Camera Weight  :</div>
+                                    </div>
+                                    <div className="col ">
+                                        <div className="col "></div>
+                                        <div className="col">{c.cameraResolution}</div>
+                                        <div className="col">{c.cameraSalesPackage}</div>
+                                        <div className="col">{c.cameraDimensions}</div>
+                                        <div className="col">{c.cameraWeight}</div>
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head"> Lens   </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col">Lens Type  :</div>
+                                        <div className="col">Lens Focal Length  :</div>
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraLensType}</div>
+                                        <div className="col">{c.cameraLensFocalLength}</div>
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head"> Sensor    </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col">Sensor Type  :</div>
+                                        <div className="col">Sensor Format  :</div>
+                                        <div className="col">Sensor Size  :</div>
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraSensorType}</div>
+                                        <div className="col">{c.cameraSensorFormat}</div>
+                                        <div className="col">{c.cameraSensorSize}</div>
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head">   Display    </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col">Screen Size  :</div>
+                                        <div className="col">Display Type  :</div>
+                                        <div className="col">Display Resolution (dots)  :</div>
+
+
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraScreenSize}</div>
+                                        <div className="col">{c.cameraDisplayType}</div>
+                                        <div className="col">{c.cameraDisplayResolution}</div>
+
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head">  Connectivity and Storage </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col ">Memory Card Type  :</div>
+                                        <div className="col">Connectivity  :</div>
+
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraMemoryCardType}</div>
+                                        <div className="col">{c.cameraConnectivity}</div>
+
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head">  Image and Video Details</a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col">Video Formats  :</div>
+                                        <div className="col">HDR Support  :</div>
+                                        <div className="col">Image Formats  :</div>
+                                        <div className="col">Supported Audio Formats  :</div>
+                                        <div className="col">Video Resolution  :</div>
+                                        <div className="col">Video Resolution Details  :</div>
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraConnectivity}</div>
+                                        <div className="col">{c.cameraHDRSupport}</div>
+                                        <div className="col">{c.cameraImageFormats}</div>
+                                        <div className="col">{c.cameraSupportedAudioFormats}</div>
+                                        <div className="col">{c.cameraVideoResolution}</div>
+                                        <div className="col">{c.cameraVideoResolutionDetails}</div>
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head">Power </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col">Battery Type  :</div>
+                                        <div className="col">Battery Capacity  :</div>
+                                        <div className="col">No. Of Shots  :</div>
+
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraBatteryType}</div>
+                                        <div className="col">{c.cameraBatteryCapacity}</div>
+                                        <div className="col">{c.cameraNoOfShots}</div>
+
+                                    </div>
+                                </div>
+                                <div className="row product-row">
+                                    <div className="col">
+                                        <a className="spec-head">Input/Output   </a>
+                                    </div>
+                                    <div className="col product-col">
+                                        <div className="col">Microphone  :</div>
+                                        <div className="col">Tripod Socket  :</div>
+                                        <div className="col">3.5mm Headphone Jack  :</div>
+                                        <div className="col">USB Connectivity :</div>
+                                        <div className="col">PictBridge Support  :</div>
+
+                                    </div>
+                                    <div className="col">
+                                        <div className="col">{c.cameraMicrophone}</div>
+                                        <div className="col">{c.cameraTripodSocket}</div>
+                                        <div className="col">{c.cameraHeadphoneJack}</div>
+                                        <div className="col">{c.cameraUSBConnectivity}</div>
+                                        <div className="col">{c.cameraPictBridgeSupport}</div>
+
+                                    </div>
+                                </div>
+
 
                             </div>
 
-                            <div class="details col-md-6">
-                                <h3 class="product-title">{c.gadgetname}</h3>
-                                <div class="rating">
-                                    <div class="stars">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-                                <div class="section" >
-                                    <h6 class="title-attr"><small>Quantity</small></h6>
-                                    <div>
-                                        <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                                        <input value="1" />
-                                        <div class="btn-plus"><i class="bi bi-plus"></i></div>
-                                    </div>
-                                </div>
-
-                                <h4 class="price">current price: <span>${c.gadgetprice}</span></h4>
-                                <div class="action">
-                                    <button class="add-to-cart  btn-default" type="button">add to cart</button>
-                                    <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
-                                </div>
-                            </div>
                         </div>
-
-                    </div>
-                </div>
-
-                <div id="module" class="container additional-des">
-                    <h3>Summary</h3>
-                    <p class="collapse" id="collapseExample" aria-expanded="false">
-                    {c.gaadgetdescription}
-                    </p>
-                    <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    </a>
-                </div>
-
-                <div class="container product-details">
-                    <a class="spec-title"> Additional Specification</a>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head">General </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col ">Type  :</div>
-                            <div class="col">Camera Resolution  :</div>
-                            <div class="col">Sales Package  :</div>
-                            <div class="col">Dimensions (WxHxD)  :</div>
-                            <div class="col">Camera Weight  :</div>
-                        </div>
-                        <div class="col ">
-                            <div class="col ">{c.camera.cameraType}</div>
-                            <div class="col">{c.camera.cameraResolution}</div>
-                            <div class="col">{c.camera.cameraSalesPackage}</div>
-                            <div class="col">{c.camera.cameraDimensions}</div>
-                            <div class="col">{c.camera.cameraWeight}</div>
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head"> Lens   </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col">Lens Type  :</div>
-                            <div class="col">Lens Focal Length  :</div>
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraLensType}</div>
-                            <div class="col">{c.camera.cameraLensFocalLength}</div>
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head"> Sensor    </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col">Sensor Type  :</div>
-                            <div class="col">Sensor Format  :</div>
-                            <div class="col">Sensor Size  :</div>
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraSensorType}</div>
-                            <div class="col">{c.camera.cameraSensorFormat}</div>
-                            <div class="col">{c.camera.cameraSensorSize}</div>
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head">   Display    </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col">Screen Size  :</div>
-                            <div class="col">Display Type  :</div>
-                            <div class="col">Display Resolution (dots)  :</div>
-
-
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraScreenSize}</div>
-                            <div class="col">{c.camera.cameraDisplayType}</div>
-                            <div class="col">{c.camera.cameraDisplayResolution}</div>
-
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head">  Connectivity and Storage </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col ">Memory Card Type  :</div>
-                            <div class="col">Connectivity  :</div>
-
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraMemoryCardType}</div>
-                            <div class="col">{c.camera.cameraConnectivity}</div>
-
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head">  Image and Video Details</a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col">Video Formats  :</div>
-                            <div class="col">HDR Support  :</div>
-                            <div class="col">Image Formats  :</div>
-                            <div class="col">Supported Audio Formats  :</div>
-                            <div class="col">Video Resolution  :</div>
-                            <div class="col">Video Resolution Details  :</div>
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraConnectivity}</div>
-                            <div class="col">{c.camera.cameraHDRSupport}</div>
-                            <div class="col">{c.camera.cameraImageFormats}</div>
-                            <div class="col">{c.camera.cameraSupportedAudioFormats}</div>
-                            <div class="col">{c.camera.cameraVideoResolution}</div>
-                            <div class="col">{c.camera.cameraVideoResolutionDetails}</div>
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head">Power </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col">Battery Type  :</div>
-                            <div class="col">Battery Capacity  :</div>
-                            <div class="col">No. Of Shots  :</div>
-                            
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraBatteryType}</div>
-                            <div class="col">{c.camera.cameraBatteryCapacity}</div>
-                            <div class="col">{c.camera.cameraNoOfShots}</div>
-                            
-                        </div>
-                    </div>
-                    <div class="row product-row">
-                        <div class="col">
-                            <a class="spec-head">Input/Output   </a>
-                        </div>
-                        <div class="col product-col">
-                            <div class="col">Microphone  :</div>
-                            <div class="col">Tripod Socket  :</div>
-                            <div class="col">3.5mm Headphone Jack  :</div>
-                            <div class="col">USB Connectivity :</div>
-                            <div class="col">PictBridge Support  :</div>
-                            
-                        </div>
-                        <div class="col">
-                            <div class="col">{c.camera.cameraMicrophone}</div>
-                            <div class="col">{c.camera.cameraTripodSocket}</div>
-                            <div class="col">{c.camera.cameraHeadphoneJack}</div>
-                            <div class="col">{c.camera.cameraUSBConnectivity}</div>
-                            <div class="col">{c.camera.cameraPictBridgeSupport}</div>
-                            
-                        </div>
-                    </div>
-
-
-                </div>
-
-                </div>
                     )
                 })
             }
@@ -243,9 +293,9 @@ class CameraDetails extends Component {
 
 
 
-return (
-    description
-)
+        return (
+            description
+        )
     }
 }
 

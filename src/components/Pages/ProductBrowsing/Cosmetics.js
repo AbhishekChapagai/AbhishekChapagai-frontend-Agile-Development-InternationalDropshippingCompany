@@ -2,28 +2,23 @@ import axios from "axios";
 import { Component } from "react";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
-//FlipCard
-// import Flippy, { FrontSide, BackSide } from "../components/infoflipcard";
+import { Link } from "react-router-dom";
+
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
-// import { FlippyStyle, DefaultCardContents } from '../components/infoflipcard/infoflipcardelements'
 import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
 
 class cosmetics extends Component {
 
     state = {
-        cosmetic: [],
-        config: {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-        }
+        cosmetics: [],
+
     }
     componentDidMount() {
         axios.get("http://localhost:90/cosmetic/showall", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
-                    cosmetic: response.data.data
+                    cosmetics: response.data.data
                 })
             })
             .catch((err) => {
@@ -33,66 +28,56 @@ class cosmetics extends Component {
 
 
     render() {
-        var items = <>
-            <div>
-                <h2>Let's Browse Cosmetics</h2>
-
-                <div className="FlippyCardAlign">
-                    <div className="App">
-                        <div style={{ display: 'flex', flex: '1 0 500px', justifyContent: 'space-between', 'flex-wrap': 'wrap' }}>{
-                            this.state.cosmetic.map((c) => {
-                                return (
-                                    <div>
-                                        <Flippy
-                                            ref={(r) => this.flippyHorizontal = r}
-                                            flipOnClick={true}
-                                            style={FlippyStyle}
-                                        >
-                                            <DefaultCardContents>
-                                                <FrontSide>
-
-                                                    <p><img src={"http://localhost:90/assets/image/cosmetic" + c.productimage} style={{ maxWidth: '100%', maxHeight: '100%' }} alt="img" /></p>
-
-                                                    Cosmetic: {c.cosmeticname} <br /> Price: {c.cosmeticprice}<br />
-                                                    {/* <button type="button">View Product</button> */}
-
-                                                </FrontSide>
-
-                                            </DefaultCardContents>
-
-                                            <BackSide>
-                                                <div className="backside">
-                                                    <h5>Type:</h5> <p>{c.cosmetictype}</p>
-                                                    <h5>Description:</h5>
-                                                    <p> {c.cosmeticdescription}</p>
-                                                    {/* <p>{p.userId}</p> */}
-                                                </div>
-                                            </BackSide>
-
-                                        </Flippy>
-
-                                    <button className="detailsbtn" type='submit'>View details</button>
-                                    <hr/>
-                                    </div>
-
-
-                                )
-                            })
-
-                        }
+        return (
+            <>
+                <div className="displayCosmetics">
+                    <div className="showCosmetics">
+                        <div className="cosmeticsBand">
+                            <p className="txtCosmetics">Cosmetics</p>
+                            {/* <p className="txtProduct"> Products</p> */}
                         </div>
+                        <div className="mainCatCosmetics">
+                            {
+                                this.state.cosmetics.map((c) => {
+                                    return (
+
+                                        <div className="cosmeticsCat">
+                                            {
+                                                (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
+                                                    <div className="catCosmeticsImage">
+                                                        <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
+                                                    </div>
+                                                    <div className="COsmeticsNameCategory">
+                                                        <p className="CosmeticsName">&nbsp;
+                                                            {
+                                                                c.cosmeticname
+                                                            }<br></br>
+
+                                                        </p>
+                                                        <p className="CosmeticsPrice">&nbsp;Rs&nbsp;
+                                                            {
+                                                                c.cosmeticprice
+                                                            }
+
+                                                        </p>
+
+                                                    </div></a>) 
+                                                 
+                                            }
+                                            <div className="cosmeticsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
+                                        </div>
+
+
+                                    )
+                                })
+                            }
+                        </div>
+
                     </div>
                 </div>
-
-
-
-            </div>
-
-
-        </>
-        return (
-            items
+            </>
         )
+
     }
 
 }

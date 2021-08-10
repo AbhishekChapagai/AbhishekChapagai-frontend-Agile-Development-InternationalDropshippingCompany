@@ -1,10 +1,20 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+import { toast } from "react-toastify";
+toast.configure();
 
 class LaptopDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.Addtocart = this.Addtocart.bind(this);
+    }
     state = {
+        userid: localStorage.getItem("userid"),
         id: this.props.match.params.id,
+        quantity: "1",
+        productname: "",
+        productprice: "",
         gadgets: [],
 
     }
@@ -20,6 +30,44 @@ class LaptopDetails extends Component {
                 console.log(err.response)
             })
     }
+    Addtocart() {
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice }
+        axios.post(`http://localhost:90/gadgetcart/insert/`, data)
+
+            .then((response) => {
+                console.log("successful")
+
+                toast.success('Product added to cart!', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    itemPlus = () => {
+        this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
+    }
+
+    itemMinus = () => {
+        const minus = this.state.quantity;
+
+        if (minus > 1) {
+            this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+        }
+        else {
+            alert("Can't add product less than quantity 1!")
+        }
+    }
+
     render() {
         var description = <>
             <div class="container">{
@@ -32,20 +80,20 @@ class LaptopDetails extends Component {
                                         <div class="preview col-md-6">
 
                                             <div class="preview-pic tab-content">
-                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
-                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
-                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></div>
+                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
+                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
+                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
                                             </div>
                                             <ul class="preview-thumbnail nav nav-tabs">
-                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
-                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/assets/image/gadget/" + l.gadgetimage} /></a></li>
+                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
                                             </ul>
 
                                         </div>
 
                                         <div class="details col-md-6">
-                                            <h3 class="product-title">{l.gadgetname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = l.gadgetname} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
                                             <div class="rating">
                                                 <div class="stars">
                                                     <span class="fa fa-star checked"></span>
@@ -58,15 +106,15 @@ class LaptopDetails extends Component {
                                             <div class="section" >
                                                 <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
-                                                    <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                                                    <input value="1" />
-                                                    <div class="btn-plus"><i class="bi bi-plus"></i></div>
+                                                    <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
+                                                    <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} />
+                                                    <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus">+</button></div>
                                                 </div>
                                             </div>
 
-                                            <h4 class="price">current price: <span>${l.gadgetprice}</span></h4>
+                                            <h4 class="price" value={this.state.productprice = l.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>${l.gadgetprice}</span></h4>
                                             <div class="action">
-                                                <button class="add-to-cart  btn-default" type="button">add to cart</button>
+                                                <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
                                                 <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
                                             </div>
                                         </div>
@@ -80,7 +128,7 @@ class LaptopDetails extends Component {
                                 <p class="collapse" id="collapseExample" aria-expanded="false">
                                     {l.gaadgetdescription}
                                 </p>
-                                <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                <a class="showmore" role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 </a>
                             </div>
                             <div class="container product-details">
