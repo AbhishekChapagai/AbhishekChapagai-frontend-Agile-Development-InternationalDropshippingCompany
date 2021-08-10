@@ -28,41 +28,45 @@ class cosmetics extends Component {
 
 
     render() {
-        return(
+        return (
             <>
-            <div className="displayCosmetic">
-                    <div className="showCosmetic">
-                        <div className="cosmeticBand">
-                            <p className="txtCosmetic">Cosmetics</p>
+                <div className="displayCosmetics">
+                    <div className="showCosmetics">
+                        <div className="cosmeticsBand">
+                            <p className="txtCosmetics">Cosmetics</p>
                             {/* <p className="txtProduct"> Products</p> */}
                         </div>
-                        <div className="mainCatCosmetic">
+                        <div className="mainCatCosmetics">
                             {
                                 this.state.cosmetics.map((c) => {
                                     return (
 
-                                        <div className="cosmeticCat">
-                                            <div className="catCosmeticImage">
-                                                <img src={"http://localhost:90/assets/image/cosmetic/" + c.cosmeticimage} alt="img" />
-                                            </div>
-                                            <div className="CosmeticNameCategory">
-                                                <p className="CosmeticName">&nbsp;
-                                                    {
-                                                        c.cosmeticname
-                                                    }<br></br>
+                                        <div className="cosmeticsCat">
+                                            {
+                                                (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
+                                                    <div className="catCosmeticsImage">
+                                                        <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
+                                                    </div>
+                                                    <div className="COsmeticsNameCategory">
+                                                        <p className="CosmeticsName">&nbsp;
+                                                            {
+                                                                c.cosmeticname
+                                                            }<br></br>
 
-                                                </p>
+                                                        </p>
+                                                        <p className="CosmeticsPrice">&nbsp;Rs&nbsp;
+                                                            {
+                                                                c.cosmeticprice
+                                                            }
 
-                                                <p className="CosmeticPrice">&nbsp;Rs&nbsp;
-                                                    {
-                                                        c.cosmeticprice
-                                                    }
+                                                        </p>
 
-                                                </p>
-
-                                                <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-                                            </div>
+                                                    </div></a>) 
+                                                 
+                                            }
+                                            <div className="cosmeticsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
                                         </div>
+
 
                                     )
                                 })
@@ -73,7 +77,7 @@ class cosmetics extends Component {
                 </div>
             </>
         )
-        
+
     }
 
 }

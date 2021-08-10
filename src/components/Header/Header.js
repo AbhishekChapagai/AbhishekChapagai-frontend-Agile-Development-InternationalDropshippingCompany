@@ -43,75 +43,119 @@ class Header extends Component {
 
   render() {
     if (localStorage.getItem('userType') === 'User') {
-      var navbar = <>
-        <Navbar collapseOnSelect expand="sm">
-          <Container>
-            <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      if (localStorage.getItem('verified') === 'true') {
+        var navbar = <>
+          <Navbar collapseOnSelect expand="sm">
+            <Container>
+              <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto mb-1">
-                <LinkContainer exact to="/profile" className="mobile_show">
-                  <Nav.Link>
-                    <div className="nav_profile_link">
-                      <div className="nav_profile_icon">
-                        <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
+              <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto mb-1">
+                  <LinkContainer exact to="/profile" className="mobile_show">
+                    <Nav.Link>
+                      <div className="nav_profile_link">
+                        <div className="nav_profile_icon">
+                          <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
+                        </div>
+
+                        <div className="nav_profile_detatil">
+                          <span className="mobile_profile nav_name_mob"> {this.state.firstName} {this.state.lastName} </span>
+                          <br />
+                          <span className="mobile_profile"> See your Profile </span>
+                        </div>
                       </div>
+                    </Nav.Link>
+                  </LinkContainer>
 
-                      <div className="nav_profile_detatil">
-                        <span className="mobile_profile nav_name_mob"> {this.state.firstName} {this.state.lastName} </span>
-                        <br />
-                        <span className="mobile_profile"> See your Profile </span>
+                  <LinkContainer exact to="/">
+                    <Nav.Link>Home</Nav.Link>
+                  </LinkContainer>
+
+                  <LinkContainer to="/product" >
+                    <NavDropdown title="Product" id="collasible-nav-dropdown">
+                      <LinkContainer exact to="/product/cosmetics">
+                        <NavDropdown.Item >
+                          Cosmetic
+                        </NavDropdown.Item>
+                      </LinkContainer>
+
+                      <LinkContainer exact to="/product/gadgets">
+                        <NavDropdown.Item>
+                          Gadget
+                        </NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
+                  </LinkContainer>
+
+                  <LinkContainer exact to="/request">
+                    <Nav.Link>Request Product</Nav.Link>
+                  </LinkContainer>
+
+
+
+                  <LinkContainer exact to="/cart" className="mobile_show">
+                    <Nav.Link>Cart</Nav.Link>
+                  </LinkContainer>
+                </Nav>
+
+                <Nav>
+                  <div className="mobile_hidden nav_profile">
+                    <ProfileMenu />
+                  </div>
+
+                  <Link>
+                    <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i class="fas fa-sign-out-alt"></i>  Logout </button>
+                  </Link>
+                </Nav>
+              </Navbar.Collapse>
+
+            </Container>
+          </Navbar>
+        </>
+      }
+      else {
+        navbar = <>
+          <Navbar collapseOnSelect expand="sm">
+            <Container>
+              <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+              <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto mb-1">
+                  <LinkContainer exact to="/profile" className="mobile_show">
+                    <Nav.Link>
+                      <div className="nav_profile_link">
+                        <div className="nav_profile_icon">
+                          <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
+                        </div>
+
+                        <div className="nav_profile_detatil">
+                          <span className="mobile_profile nav_name_mob"> {this.state.firstName} {this.state.lastName} </span>
+                          <br />
+                          <span className="mobile_profile"> See your Profile </span>
+                        </div>
                       </div>
-                    </div>
-                  </Nav.Link>
-                </LinkContainer>
+                    </Nav.Link>
+                  </LinkContainer>
 
-                <LinkContainer exact to="/">
-                  <Nav.Link>Home</Nav.Link>
-                </LinkContainer>
+                </Nav>
 
-                <LinkContainer to="/product" >
-                  <NavDropdown title="Product" id="collasible-nav-dropdown">
-                    <LinkContainer exact to="/product/cosmetics">
-                      <NavDropdown.Item >
-                        Cosmetic
-                      </NavDropdown.Item>
-                    </LinkContainer>
+                <Nav>
+                  <div className="mobile_hidden nav_profile">
+                    <ProfileMenu />
+                  </div>
 
-                    <LinkContainer exact to="/product/gadgets">
-                      <NavDropdown.Item>
-                        Gadget
-                      </NavDropdown.Item>
-                    </LinkContainer>
-                  </NavDropdown>
-                </LinkContainer>
+                  <Link>
+                    <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i class="fas fa-sign-out-alt"></i>  Logout </button>
+                  </Link>
+                </Nav>
+              </Navbar.Collapse>
 
-                <LinkContainer exact to="/request">
-                  <Nav.Link>Request Product</Nav.Link>
-                </LinkContainer>
-
-
-
-                <LinkContainer exact to="/cart" className="mobile_show">
-                  <Nav.Link>Cart</Nav.Link>
-                </LinkContainer>
-              </Nav>
-
-              <Nav>
-                <div className="mobile_hidden nav_profile">
-                  <ProfileMenu />
-                </div>
-
-                <Link>
-                  <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i class="fas fa-sign-out-alt"></i>  Logout </button>
-                </Link>
-              </Nav>
-            </Navbar.Collapse>
-
-          </Container>
-        </Navbar>
-      </>
+            </Container>
+          </Navbar>
+        </>
+      }
     }
     else if (localStorage.getItem('userType') === 'Admin') {
       navbar = <>

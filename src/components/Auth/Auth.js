@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { Redirect } from "react-router-dom";
+import VerifyEmail from "./VerifyEmail";
 
 class Auth extends Component {
     state = {
@@ -9,21 +11,34 @@ class Auth extends Component {
 
     render() {
         if (localStorage.getItem('token')) {
-            if (localStorage.getItem('userType') === 'User') {
-                window.location.href = "/"
-            }
-            else if (localStorage.getItem('userType') === 'Admin') {
-                window.location.href = "/"
-            }
-            else if (localStorage.getItem('userType') === '') {
-                window.location.href = "/"
-            }
-            else {
-                window.location.href = "/"
+            // email verification
+            if (localStorage.getItem('verified')) {
+
+                if (localStorage.getItem('verified') === 'true') {
+                    // user type
+                    if (localStorage.getItem('userType')) {
+                        if (localStorage.getItem('userType') === 'User') {
+                            return window.location.href = "/"
+                        }
+                        else if (localStorage.getItem('userType') === 'Admin') {
+                            return window.location.href = "/"
+                        }
+                        else {
+                            return 'Invalid access.'
+                        }
+                    }
+                    else {
+                        return "Please contact to Support Team. Thank You."
+                    }
+
+                }
+                else {
+                    return <Redirect to='register/email/verify' />
+                }
             }
         }
         else {
-            window.location.href = "/auth"
+            return "Invalid Access. Please try again"
         }
 
         return (

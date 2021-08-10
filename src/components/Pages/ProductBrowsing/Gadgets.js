@@ -2,6 +2,7 @@ import axios from "axios";
 import { Component } from "react";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
+import '../ProductBrowsing/ProductBrowsing.css'
 import { Link } from "react-router-dom";
 
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
@@ -35,61 +36,65 @@ class gadgets extends Component {
 
                 {/* GADGET CATEGORY */}
 
-                <div className="displayGadget">
-                    <div className="showGadget">
-                        <div className="gadgetBand">
-                            <p className="txtGadget">Laptops</p>
+                <div className="displayGadgets">
+                    <div className="showGadgets">
+                        <div className="gadgetsBand">
+                            <p className="txtGadgets">Laptops</p>
                             {/* <p className="txtGProduct"> Products</p> */}
                         </div>
-                        <div className="mainCatGadget">
+                        <div className="mainCatGadgets">
                             {
                                 this.state.gadgets.map((g) => {
                                     return (
-                                        <div  className="gadgetCat">
-                                        {
-                                            g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
-                                                <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
-                                            </div>
-                                                <div className="GadgetNameCategory">
-                                                    <p className="GadgetName">&nbsp;
-                                                        {
-                                                            g.gadgetname
-                                                        }<br></br>
-                                        
-                                                    </p>
-                                                    <p className="GadgetPrice">&nbsp;Rs&nbsp;
-                                                        {
-                                                            g.gadgetprice
-                                                        }
-                                        
-                                                    </p>
-                                        
-                                                </div></a>) :
-                                                (<a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetImage">
-                                                    <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
-                                                </div>
-                                                    <div className="GadgetNameCategory">
-                                                        <p className="GadgetName">&nbsp;
+
+                                        <div className="gadgetsCat">
+                                            {
+                                                g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
+                                                    <div className="catGadgetsImage">
+                                                        <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                    </div>
+                                                    <div className="GadgetsNameCategory">
+                                                        <p className="GadgetsName">&nbsp;
+
                                                             {
                                                                 g.gadgetname
                                                             }<br></br>
-                                        
+
                                                         </p>
-                                                        <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                                                        <p className="GadgetsPrice">&nbsp;Rs&nbsp;
                                                             {
                                                                 g.gadgetprice
                                                             }
-                                        
+
                                                         </p>
-                                        
-                                                    </div></a>)
-                                        }
+
+                                                    </div></a>) :
+                                                    (<a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
+                                                        <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                    </div>
+                                                        <div className="GadgetsNameCategory">
+                                                            <p className="GadgetsName">&nbsp;
+                                                                {
+                                                                    g.gadgetname
+                                                                }<br></br>
+
+                                                            </p>
+                                                            <p className="GadgetsPrice">&nbsp;Rs&nbsp;
+                                                                {
+                                                                    g.gadgetprice
+                                                                }
+
+                                                            </p>
+
+                                                        </div></a>)
+                                            }
+                                            <div className="gadgetsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
                                         </div>
 
                                     )
                                 })
                             }
+
                         </div>
 
                     </div>
