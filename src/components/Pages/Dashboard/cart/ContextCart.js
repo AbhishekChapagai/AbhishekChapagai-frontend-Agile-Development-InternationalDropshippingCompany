@@ -40,8 +40,8 @@ import "./cart.css";
     }
     render() {
 
-      const totalamount = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt(item.quantity * item.gadgetprice),0)
-      const totalamounttax = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt((item.quantity * item.gadgetprice) + (this.state.tax/100) * item.gadgetprice , 0),0)
+      const totalamount = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt(item.quantity * item.productprice),0)
+      const totalamounttax = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt((item.quantity * item.productprice) + (this.state.tax/100) * item.productprice , 0),0)
 
       if (this.state.gadgetcart.length === 0) {
         var cartContext = <>

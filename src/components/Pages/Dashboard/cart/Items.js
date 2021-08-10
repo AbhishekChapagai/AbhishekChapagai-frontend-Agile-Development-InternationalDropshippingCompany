@@ -42,11 +42,11 @@ class Items extends Component {
   }
 
   // itemPlus = () => {
-  //   this.setState({ quantity: this.state.gadgetcart.quantity + 1 });
+  //   this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
   // }
 
   // itemMinus = () => {
-  //   this.setState({ quantity: this.state.gadgetcart.quantity - 1 });
+  //   this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
   // }
 
   render() {
@@ -56,21 +56,21 @@ class Items extends Component {
           <div>
             <div className="items-info">
               <div className="product-img">
-              <img src={"http://localhost:90/gadget/" + cart.gadgetimage} alt="img" />
+                <img src={"http://localhost:90/gadget/" + cart.gadgetimage} alt="img" />
               </div>
 
               <div className="title">
-                <h2>{cart.gadgetname}</h2>
-                <p>{cart.gadgetname}</p>
+                <h2>{cart.productname}</h2>
+                <p>{cart.productname}</p>
               </div>
               <div className="add-minus-quantity">
-                <i className="fas fa-minus minus" onClick={"this.itemMinus"}></i>
-                <input type="text" placeholder={cart.quantity} value={this.state.quantity} onChange={this.changeHandler} disabled />
-                <button className="fas fa-plus add" onClick={"this.itemPlus"}></button>
-                
+                <button className="fas fa-minus minus" onClick={this.itemMinus}></button>
+                <input type="text" value={cart.quantity} onChange={this.changeHandler} disabled />
+                <button className="fas fa-plus add" onClick={this.itemPlus}></button>
+
               </div>
               <div className="item-price">
-                <h3>nrs. {cart.gadgetprice * cart.quantity}/-</h3>
+                <h3>nrs. {cart.productprice * cart.quantity}/-</h3>
               </div>
               <div className="remove-item" >
                 <i
