@@ -36,7 +36,7 @@ class Register extends Component {
                     success: response.data.success
                 })
 
-                toast.success('Register Success. Check your email to verify your email address.', {
+                toast.success('Register Success.', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,

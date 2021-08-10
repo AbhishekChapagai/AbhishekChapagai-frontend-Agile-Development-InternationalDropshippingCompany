@@ -37,6 +37,7 @@ class Login extends Component {
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("userType", response.data.userType);
                 localStorage.setItem("userid", response.data.userid);
+                localStorage.setItem("verified", response.data.verified);
 
                 console.log(response.data.userid)
 
@@ -61,7 +62,7 @@ class Login extends Component {
 
     render() {
         if (this.state.success === true) {
-            return <Redirect to="/auth" />
+            window.location.href = "/auth"
         }
 
         return (

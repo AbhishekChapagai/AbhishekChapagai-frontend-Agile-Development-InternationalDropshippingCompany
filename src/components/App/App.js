@@ -13,12 +13,14 @@ import CosmeticDetails from '../Pages/Dashboard/Details/CosmeticDetails';
 import Home from '../Pages';
 import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
-import cart from '../Pages/Dashboard/cart/Cart';
 import Profile from '../Pages/Dashboard/UserProfile/userProfile';
 import Address from '../Pages/Dashboard/UserProfile/address';
 import EditProfile from '../Pages/Dashboard/UserProfile/profileEdit';
 import Cart from '../Pages/Dashboard/cart/Cart';
 import VerifyEmail from '../Pages/LoginRegister/VerifyEmail';
+import Cart from '../Pages/Dashboard/cart/ContextCart';
+import VerifyEmail from '../Auth/VerifyEmail';
+import EmailVerified from '../Auth/EmailVerified';
 
 
 function App() {
@@ -37,17 +39,25 @@ function App() {
     </>
   )
 
-  const VerifyEmailContainer = () => (
-    <>
-      <Route exact path="/register/email/verify" component={VerifyEmail} />
-    </>
-  )
-
   const AuthContainer = () => (
     <>
       <Route exact path="/auth" component={Auth} />
     </>
   )
+
+  const VerifyEmailContainer = () => (
+    <>
+      <Header />
+      <Route exact path="/register/email/verify" component={VerifyEmail} />
+    </>
+  )
+
+  const EmailVerifiedContainer = () => (
+    <>
+      <Route exact path="/register/email/verify/:token" component={EmailVerified} />
+    </>
+  )
+
 
   // Pages with Header/navbar and footer component.
   const DefaultContainer = () => (
@@ -75,6 +85,7 @@ function App() {
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/register/email/verify" component={VerifyEmailContainer} />
           <Route exact path="/auth" component={AuthContainer} />
+          <Route exact path="/register/email/verify/:token" component={EmailVerifiedContainer} />
           <Route component={DefaultContainer} />
         </Switch>
       </div>

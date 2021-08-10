@@ -90,6 +90,7 @@ body {
 
   .price{
     margin-top: 20px;
+    /* margin-right: 128px; */
   }
   
   .checked, .price span {
@@ -139,7 +140,7 @@ body {
 
       .btn-minus{
         cursor:pointer;
-        font-size:7px;
+        font-size:15px;
         display:flex;
         align-items:center;
         padding:5px;
@@ -151,7 +152,7 @@ body {
 
 
 .btn-plus{cursor:pointer;
-  font-size:7px;
+  font-size:15px;
   display:flex;
   align-items:center;
   padding:5px;
@@ -160,6 +161,10 @@ body {
   border:1px solid gray;
   border-radius:2px;
   border-left:0;}
+  
+  .bi {
+    color: black;
+  }
 
   .attr,.attr2{cursor:pointer;
     margin-right:5px;
@@ -169,7 +174,12 @@ body {
     border:1px solid gray;
     border-radius:2px;}
 
-  .attr.active,.attr2.active{ border:1px solid orange;}
+  .attr.active,.attr2.active{ 
+    border:1px solid orange;}
+
+  .active{
+    border: 0px solid white !important;
+  }
 
   div.section > div {
     width:100%;
@@ -210,33 +220,39 @@ body {
   .spec-title{
     font-size: 30px;
     font-weight: bold;
+    text-decoration: none !important;
+    color: black !important;
     
   }
   .spec-head{
     font-size: 20px;
     font-weight: 750;
+    text-decoration: none !important;
+    color: black !important;
   }
   .product-details{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-top: 20px; 
     margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,.125);
     box-shadow: 5px 5px 5px 5px #f7f7f7;
+    
   }
   .product-row{
-    border-top : 1px solid black;
+    border-top : 0.1px solid rgb(0,0,0,.125);
     
      
   }
  
 .product-col{
-  border-left: 1px solid black;
+  border-left: 0.1px solid rgb(0,0,0,.125);
   font-weight: 500; 
 } 
 #module {
   font-size: 1rem;
   line-height: 1.5;
   margin-top: 20px;
-  border: 0.1px solid black;
+  border: 1px solid rgba(0,0,0,.125);
   box-shadow: 5px 5px 5px 5px #f7f7f7;
 }
 
@@ -258,4 +274,8 @@ body {
 #module a:not(.collapsed):after {
   content: '- Show Less';
   color: black;
+}
+.showmore{
+  text-decoration: none !important;
+
 }

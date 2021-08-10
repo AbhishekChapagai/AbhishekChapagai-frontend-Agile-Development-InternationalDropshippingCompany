@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import Items from "./Items";
 import { Scrollbars } from "react-custom-scrollbars-2";
-import { CartContext } from "./Cart";
 import axios from "axios";
 import { Component } from "react";
+import "./cart.css";
 
-
-  // cosumer
   class ContextCart extends Component {
 
     state = {
@@ -29,7 +27,7 @@ import { Component } from "react";
     }
 
     removeItem = () => {
-      axios.delete('http://localhost:90/delete/mycart')
+      axios.delete('http://localhost:90/remove/mycart')
         .then((response) => {
           console.log(response)
         })
@@ -42,8 +40,8 @@ import { Component } from "react";
     }
     render() {
 
-      const totalamount = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt(item.quantity * item.gadgetprice),0)
-      const totalamounttax = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt((item.quantity * item.gadgetprice) + (this.state.tax/100) * item.gadgetprice , 0),0)
+      const totalamount = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt(item.quantity * item.productprice),0)
+      const totalamounttax = this.state.gadgetcart.reduce((totalamount, item)=>totalamount + parseInt((item.quantity * item.productprice) + (this.state.tax/100) * item.productprice , 0),0)
 
       if (this.state.gadgetcart.length === 0) {
         var cartContext = <>
@@ -51,7 +49,7 @@ import { Component } from "react";
             <section className="main-cart-section">
 
               <p className="total-items">
-                you have <span className="total-items-count">{this.state.gadgetcart.length} </span>
+                You have <span className="total-items-count">{this.state.gadgetcart.length} </span>
                 item in shopping cart
               </p>
 
