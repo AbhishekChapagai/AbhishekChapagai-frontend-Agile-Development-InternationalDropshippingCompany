@@ -21,6 +21,38 @@ h2 {
     font-weight: 700;
 }
 
+/* input field with icon */
+.input_right_icon {
+    display: flex;
+}
+
+.input_right_icon .form_control_input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form_right_icon {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid #ced4da;
+    border-left: none;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+    color: #1c96c5
+}
+
+.form_right_icon:hover {
+    background-color: #eff2f5;
+    color: #075d80
+}
+
+.icon_change {
+    font-size: 20px;
+}
+
 /* Register and Login css */
 .Register, .Login {
     background-color: blue;
