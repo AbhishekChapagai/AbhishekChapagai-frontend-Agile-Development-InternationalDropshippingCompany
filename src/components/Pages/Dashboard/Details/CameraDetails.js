@@ -60,7 +60,14 @@ class CameraDetails extends Component {
     }
 
     itemMinus = () => {
-        this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+        const minus = this.state.quantity;
+
+        if (minus > 1) {
+            this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+        }
+        else {
+            alert("Can't add product less than quantity 1!")
+        }
     }
 
     render() {
