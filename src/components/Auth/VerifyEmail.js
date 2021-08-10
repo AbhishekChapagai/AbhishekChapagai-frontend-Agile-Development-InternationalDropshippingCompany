@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 import './style.css';
+toast.configure();
+
 
 class VerifyEmail extends Component {
     state = {
@@ -17,11 +20,32 @@ class VerifyEmail extends Component {
                 this.setState({
                     success: response.data.success
                 })
+
+                toast.success('Verification email sent.', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
             .catch((err) => {
                 console.log(err.response);
+
+                toast.error('Failed to sent email.', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     }
+
     render() {
         return (
             <div className="VerifyEmail" >
