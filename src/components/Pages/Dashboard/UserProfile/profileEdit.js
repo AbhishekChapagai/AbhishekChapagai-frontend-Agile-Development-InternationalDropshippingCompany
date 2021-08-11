@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import './profileEdit.css'
 
 class EditProfile extends Component {
-    constructor(){
+    constructor() {
         super()
-        this.state={
+        this.state = {
             firstname: '',
             lastname: '',
             email: '',
-            phone:'',
+            phone: '',
             img: '',
             userId: '',
             config: {
@@ -21,20 +21,24 @@ class EditProfile extends Component {
         };
         this.submitUpdate = this.submitUpdate.bind(this)
     }
+
     componentWillMount() {
         this.getuserdata();
         console.log(this.state.headers)
     }
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     fileHandler = (e) => {
         this.setState({
-            [e.target.img]: e.target.file
+            img: e.target.files[0]
         })
     }
+
     getuserdata = () => {
         axios.get("http://localhost:90/user/token/decode", this.state.config)
             .then((response) => {
@@ -45,7 +49,6 @@ class EditProfile extends Component {
                     email: data.email,
                     phone: data.phone,
                     userId: data.userId
-                    
                 })
             }).catch((err) => {
                 console.log(err);
@@ -55,12 +58,14 @@ class EditProfile extends Component {
     submitUpdate = (e) => {
         e.preventDefault();
         const data = new FormData()
+
         data.append('firstname', this.state.firstname)
         data.append('lastname', this.state.lastname)
         data.append('email', this.state.email)
         data.append('phone', this.state.phone)
         data.append('img', this.state.img)
-        axios.put(`http://localhost:90/user/update/${this.state.userId}`, data, this.state.config)
+
+        axios.put(`http://localhost:90/user/profile/update/${this.state.userId}`, data, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("user updated successfully");
@@ -99,25 +104,26 @@ class EditProfile extends Component {
                                                                 <div className="row profileRow">
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Firstname</p>
-                                                                        <input id="form_name" type="text" name="firstname"  class="form-control"  value={this.state.firstname} onChange={this.changeHandler}/>
+                                                                        <input id="form_name" type="text" name="firstname" class="form-control" value={this.state.firstname} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Lastname</p>
-                                                                        <input id="form_name" type="text" name="lastname" class="form-control"  value={this.state.lastname} onChange={this.changeHandler}/>
+                                                                        <input id="form_name" type="text" name="lastname" class="form-control" value={this.state.lastname} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Email</p>
-                                                                        <input id="form_name" type="text" name="email" class="form-control"  value={this.state.email} onChange={this.changeHandler}/>
+                                                                        <input id="form_name" type="text" name="email" class="form-control" value={this.state.email} onChange={this.changeHandler} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="row profileRow2">
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Phone number</p>
-                                                                        <input id="form_name" type="text" name="phone" class="form-control"  value={this.state.phone} onChange={this.changeHandler}/>
+                                                                        <input id="form_name" type="text" name="phone" class="form-control" value={this.state.phone} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
-                                                                        <p className="m-b-10">Phone number</p>
-                                                                        <input id="form_name" type="file" name="img" class="form-control" value={this.state.img} onChange={this.fileHandler}/>
+                                                                        <p className="m-b-10">Profile Picture</p>
+                                                                        <input id="form_name" type="file" name="img" class="form-control" onChange={this.fileHandler} />
+                                                                        <label> </label>
                                                                     </div>
 
                                                                 </div>
@@ -127,8 +133,6 @@ class EditProfile extends Component {
 
                                                                     </div>
                                                                 </div>
-
-
                                                             </div>
                                                         </div>
                                                     </div>
