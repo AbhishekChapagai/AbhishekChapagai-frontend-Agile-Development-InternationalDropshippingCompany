@@ -66,7 +66,7 @@ class Register extends Component {
     }
 
     render() {
-        if (this.state.success == true) {
+        if (this.state.success === true) {
             return <Redirect to="/login" />
         }
 

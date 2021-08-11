@@ -88,7 +88,7 @@ class Header extends Component {
                     </NavDropdown>
                   </LinkContainer>
 
-                  <LinkContainer exact to="/request">
+                  <LinkContainer exact to="/product/request">
                     <Nav.Link>Request Product</Nav.Link>
                   </LinkContainer>
 
