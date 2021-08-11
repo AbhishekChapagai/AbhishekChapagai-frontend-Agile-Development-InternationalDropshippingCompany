@@ -11,7 +11,7 @@ import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
 import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
 import CosmeticDetails from '../Pages/Dashboard/Details/CosmeticDetails';
 import Home from '../Pages';
-import ProductRequest from '../Pages/ProductRequesting/RequestProduct';
+import ProductRequest from '../Pages/Dashboard/ProductRequesting/RequestProduct';
 import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
 import Profile from '../Pages/Dashboard/UserProfile/userProfile';
@@ -63,7 +63,7 @@ function App() {
     <>
       <Header />
       <Route exact path="/" component={Home} />
-      <Route exact path="/request" component={ProductRequest} />
+      <Route exact path="/product/request" component={ProductRequest} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/user/profile" component={Profile} />
       <Route exact path="/user/address" component={Address} />

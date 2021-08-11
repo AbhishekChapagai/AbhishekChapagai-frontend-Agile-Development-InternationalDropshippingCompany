@@ -138,6 +138,21 @@ h2 {
     font-weight: 600;
 }
 
+.l_form_forgot {
+    text-align: end;
+}
+
+.l_link {
+    color: #1c96c5;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+.l_link:hover {
+    color: #075d80;
+    text-decoration: underline;
+}
+
 
 /* media-query */
 @media only screen and (min-width: 1200px){

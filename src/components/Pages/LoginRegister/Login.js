@@ -112,13 +112,17 @@ class Login extends Component {
                                         <label id="password" htmlFor="floatingPassword">Password</label>
                                     </div>
 
+                                    <p className="l_form_forgot">
+                                        <a className="l_link" href="/forgot"> Forgot Password?</a>
+                                    </p>
+
                                     <button type="submit" id="register-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>Login</button>
-
-
                                 </form>
 
+
+
                                 <p className="l_form_login">
-                                    No account? <a href="/register"> Join Dhuwani</a>
+                                    No account? <a className="l_link" href="/register"> Join Dhuwani</a>
                                 </p>
                             </div>
 
