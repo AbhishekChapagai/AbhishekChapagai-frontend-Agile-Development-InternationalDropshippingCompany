@@ -148,7 +148,7 @@ class Register extends Component {
                                 </p>
 
                                 <p className="r_form_login">
-                                    Already have an account? <a href="/login"> Log in </a>
+                                    Already have an account? <a className="l_link" href="/login"> Log in </a>
                                 </p>
                             </div>
 
