@@ -10,10 +10,15 @@ import "./cart.css";
     state = {
       gadgetcart: [],
       tax:10,
+      config: {
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    }
     }
 
     componentDidMount() {
-      axios.get(`http://localhost:90/mycart/showall`)
+      axios.get(`http://localhost:90/mycart/showall`, this.state.config)
         .then((response) => {
           console.log(response)
           this.setState({

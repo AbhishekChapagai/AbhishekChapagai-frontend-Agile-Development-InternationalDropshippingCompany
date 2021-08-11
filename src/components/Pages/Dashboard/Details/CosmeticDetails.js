@@ -51,6 +51,16 @@ class CosmeticDetails extends Component {
             })
             .catch((err) => {
                 console.log(err)
+
+                toast.error('Product already exist in cart!', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     }
 
@@ -109,7 +119,7 @@ class CosmeticDetails extends Component {
                                                 <h6 className="title-attr"><small>Quantity</small></h6>
                                                 <div>
                                                     <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
-                                                    <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} />
+                                                    <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
                                                     <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus">+</button></div>
                                                 </div>
                                             </div>

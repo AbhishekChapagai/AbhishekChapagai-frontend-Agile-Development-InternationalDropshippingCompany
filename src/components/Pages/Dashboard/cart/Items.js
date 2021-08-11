@@ -7,10 +7,15 @@ class Items extends Component {
 
   state = {
     gadgetcart: [],
+    config: {
+      headers: {
+          'authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+  }
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:90/mycart/showall`)
+    axios.get(`http://localhost:90/mycart/showall`, this.state.config)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -50,13 +55,14 @@ class Items extends Component {
   // }
 
   render() {
+    if (localStorage.getItem('token') ){
     var items = <>{
       this.state.gadgetcart.map((cart) => {
         return (
           <div>
             <div className="items-info">
               <div className="product-img">
-                <img src={"http://localhost:90/gadget/" + cart.gadgetimage} alt="img" />
+                <img src={"http://localhost:90/gadget/" + cart.productimage} alt="img" />
               </div>
 
               <div className="title">
@@ -85,6 +91,7 @@ class Items extends Component {
     }
 
     </>
+  }
 
     return (items);
   }
