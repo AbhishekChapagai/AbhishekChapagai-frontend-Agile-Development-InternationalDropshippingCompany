@@ -116,9 +116,11 @@ class LaptopDetails extends Component {
                                             <div class="section" >
                                                 <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
+
                                                     <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
                                                     <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus">+</button></div>
+
                                                 </div>
                                             </div>
 
