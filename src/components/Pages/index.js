@@ -11,12 +11,13 @@ import Gadget from './LandingPage/gadgetAD'
 const Home = () => {
 
     return (
-        <>
+        <>  <div className="LandingBody ">
             <LandingComponent />
             <CosmeticCategory />
             <Gadget/>
             <LaptopCategory />
-            {/* <CameraCategory/> */}
+            <CameraCategory/>
+            </div>
         </>
     )
 }
