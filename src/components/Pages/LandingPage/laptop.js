@@ -35,20 +35,19 @@ class LaptopCategory extends Component {
             <>
 
                 {/* GADGET CATEGORY */}
-
-                <div className="displayGadget">
-                    <div className="showGadget">
-                        <div className="gadgetBand">
-                            <p className="txtGadget">Laptops</p>
+                <div className="container displayGadget">
+                    <div className="container showGadget">
+                        <div className="container gadgetBand">
+                            <p className="col-sm-12 txtGadget">Popular laptops right now</p>
                             {/* <p className="txtGProduct"> Products</p> */}
-                            <div className="viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div>
+                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
                         </div>
-                        <div className="mainCatGadget">
+                        <div className="row mainCatGadget col-sm-12">
                             {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="gadgetCat">
+                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
                                             <div className="catGadgetImage">
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
@@ -59,14 +58,18 @@ class LaptopCategory extends Component {
                                                     }<br></br>
 
                                                 </p>
+                                                <p className="GadgetType">&nbsp;
+                                                    {
+                                                        g.gadgettype
+                                                    }<br></br>
+
+                                                </p>
                                                 <p className="GadgetPrice">&nbsp;Rs&nbsp;
                                                     {
                                                         g.gadgetprice
                                                     }
 
                                                 </p>
-                                                <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-
                                             </div>
                                         </a>
 

@@ -31,15 +31,14 @@ class CosmeticCategory extends Component {
 
         return (
             <>
-
-                <div className="displayCosmetic">
-                    <div className="showCosmetic">
-                        <div className="cosmeticBand">
-                            <p className="txtCosmetic">Cosmetics</p>
-                            {/* <p className="txtProduct"> Products</p> */}
-                            <div className="viewMore">View more&nbsp;<i class="fas fa-angle-double-right"></i></div>
+                
+                <div className="container displayCosmetic">
+                    <div className="container showCosmetic">
+                        <div className="row cosmeticBand">
+                            <p className="col-sm-12 txtCosmetic">Popular cosmetics right now</p>
+                            {/* <div className="col-sm-6 viewMore">View more&nbsp;<i class="fas fa-angle-double-right"></i></div> */}
                         </div>
-                        <div className="mainCatCosmetic">
+                        <div className="row mainCatCosmetic col-sm-12">
                             {
                                 this.state.cosmetic.map((c) => {
                                     return (
@@ -56,15 +55,21 @@ class CosmeticCategory extends Component {
                                                     }<br></br>
 
                                                 </p>
+                                                <p className="CosmeticType">&nbsp;
+                                                    {
+                                                        c.cosmetictype
+                                                    }
 
-                                                <p className="CosmeticPrice">&nbsp;Rs&nbsp;
+                                                </p>
+                                                <p className="CosmeticPrice">NPR&nbsp;
                                                     {
                                                         c.cosmeticprice
                                                     }
 
                                                 </p>
+                                                
 
-                                                <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
+                                                {/* <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div> */}
                                             </div>
                                             {/* </a> */}
                                         </a>
@@ -76,7 +81,7 @@ class CosmeticCategory extends Component {
 
                     </div>
                 </div>
-
+              
             </>
         )
     }

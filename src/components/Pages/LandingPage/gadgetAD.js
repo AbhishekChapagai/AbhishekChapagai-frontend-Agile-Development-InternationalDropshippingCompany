@@ -9,7 +9,7 @@ class Gadget extends Component {
 
         return (
             <>
-                <div className="GadgetContainer">
+                <div className="container GadgetContainer">
                     <div className="GadgetImage">
                         <img src={gadgetad} type="image/png"/>
                            </div> 

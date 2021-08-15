@@ -6,7 +6,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 0 30px;
-height: 70vh;
+height: 80vh;
 position: relative;
 z-index: 1;
 
@@ -17,8 +17,8 @@ z-index: 1;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, 
-    rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(114,14,207,0.3) 0%, 
+    rgba(114,14,207,0.3) 100%), linear-gradient(180deg, rgba(114,14,207,0.3) 0%, transparent 100%);
     z-index: 2;
 `
 
@@ -33,7 +33,7 @@ height: 100%;
 overflow: hidden;
 `
 
-export const ImageBg = styled.video`
+export const ImageBg = styled.img`
 width: 100%;
 height: 100%;
 -o-object-fit: cover;
@@ -52,8 +52,10 @@ align-items: center;
 
 export const LandingH1 = styled.h1`
 color: #fff;
-font-size: 68px;
+font-size: 80px;
 text-align: center;
+font-family: 'Roboto', sans-serif;
+
 
 @media scren and (max-width: 768px){
     font-size: 40px;
@@ -65,11 +67,11 @@ text-align: center;
 `
 
 export const LandingP = styled.p`
-margin-top: 24px;
+margin-top: 18px;
 color: #fff;
 font-weight: 200;
 
-font-size: 24px;
+font-size: 20px;
 text-align: center;
 max-width: 600px;
 
