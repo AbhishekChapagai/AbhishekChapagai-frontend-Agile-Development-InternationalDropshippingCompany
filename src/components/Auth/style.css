@@ -3,6 +3,7 @@
     height: 100%;
     text-align: justify;
     margin: 10px;
+    font-family: "Inter", sans-serif;
 }
 
 .verify_container{
@@ -27,6 +28,7 @@
 /* --------------------- Email Verified --------------------- */
 .EmailVerification {
     height: 100vh;
+    font-family: "Inter", sans-serif;
 }
 
 .custom_container{
