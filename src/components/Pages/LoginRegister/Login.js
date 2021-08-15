@@ -27,7 +27,7 @@ class Login extends Component {
     submitLogin = (e) => {
         e.preventDefault();
         localStorage.clear();
-        axios.post("http://localhost:90/user/login", this.state)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, this.state)
             .then((response) => {
                 console.log(response);
                 console.log(response.data.token);
@@ -113,7 +113,7 @@ class Login extends Component {
                                     </div>
 
                                     <p className="l_form_forgot">
-                                        <a className="l_link" href="/forgot"> Forgot Password?</a>
+                                        <a className="l_link" href="/login/forgot/password"> Forgot Password?</a>
                                     </p>
 
                                     <button type="submit" id="register-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>Login</button>
