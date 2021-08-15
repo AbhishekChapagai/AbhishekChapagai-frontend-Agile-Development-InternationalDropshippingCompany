@@ -57,6 +57,7 @@ h2 {
 .Register, .Login {
     background-color: blue;
     display: flex;
+    font-family: "Inter", sans-serif;
 }
 
 .r_left_side, .l_left_side, .r_left_top, .l_left_top {
