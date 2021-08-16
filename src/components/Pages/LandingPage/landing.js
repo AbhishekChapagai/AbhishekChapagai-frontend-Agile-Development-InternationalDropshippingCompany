@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import { LandingContainer, LandingBg, ImageBg, LandingContent, LandingH1, LandingP } from './LandingElement'
-import Video from '../../../assets/images/landing.mp4';
+import Video from '../../../assets/images/land1.jpg';
 import './landing.css';
 
 

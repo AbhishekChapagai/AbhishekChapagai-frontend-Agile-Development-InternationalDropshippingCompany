@@ -20,7 +20,9 @@ import EditProfile from '../Pages/Dashboard/UserProfile/profileEdit';
 import Cart from '../Pages/Dashboard/cart/ContextCart';
 import VerifyEmail from '../Auth/VerifyEmail';
 import EmailVerified from '../Auth/EmailVerified';
+import ForgotPassword from '../Pages/LoginRegister/ForgotPassword'
 
+require('dotenv').config();
 
 function App() {
 
@@ -57,6 +59,12 @@ function App() {
     </>
   )
 
+  const ForgotContainer = () => (
+    <>
+      <Route exact path="/login/forgot/password" component={ForgotPassword} />
+    </>
+  )
+
 
   // Pages with Header/navbar and footer component.
   const DefaultContainer = () => (
@@ -84,6 +92,7 @@ function App() {
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/register/email/verify" component={VerifyEmailContainer} />
+          <Route exact path="/login/forgot/password" component={ForgotContainer} />
           <Route exact path="/auth" component={AuthContainer} />
           <Route exact path="/register/email/verify/:token" component={EmailVerifiedContainer} />
           <Route component={DefaultContainer} />

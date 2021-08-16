@@ -1,84 +1,90 @@
-// import React, { Component } from 'react'
-// import axios from "axios";
-// import './landing.css';
+import React, { Component } from 'react'
+import axios from "axios";
+import './landing.css';
 
 
-// class CameraCategory extends Component {
+class CameraCategory extends Component {
 
-//     state = {
-//         camera: [],
-//         config: {
-//             headers: {
-//                 authorization: `Bearer ${localStorage.getItem('token')}`
-//             }
-//         },
-//     }
+    state = {
+        gadget: [],
+        config: {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        },
+    }
 
-//     componentDidMount() {
-//         axios.get("http://localhost:90/camera/six", this.state)
-//             .then((response) => {
-//                 console.log(response)
-//                 this.setState({
-//                     camera: response.data.data
-//                 })
-//             })
-//             .catch((err) => {
-//                 console.log(err.response)
-//             })
+    componentDidMount() {
+        axios.get("http://localhost:90/camera/five", this.state)
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    gadget: response.data.data
+                })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
 
-//     }
+    }
 
 
-//     render() {
+    render() {
 
-//         return (
-//             <>
+        return (
+            <>
 
-//                 {/* CAMERA CATEGORY */}
+                {/* CAMERA CATEGORY */}
+                <div className="container displayGadget">
+                    <div className="container showGadget">
+                        <div className="container gadgetBand">
+                            <p className="col-sm-12 txtGadget">Popular laptops right now</p>
+                            {/* <p className="txtGProduct"> Products</p> */}
+                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
+                        </div>
+                        <div className="row mainCatGadget col-sm-12">
+                            {
+                                this.state.gadget.map((g) => {
+                                    return (
 
-//                 <div className="displayCamera">
-//                     <div className="showGadget">
-//                         <div className="cameraBand">
-//                             <p className="txtCamera">Laptops</p>
-//                             <div className="viewMoreCamera">View more </div>
-//                         </div>
-//                         <div className="mainCatCamera">
-//                             {
-//                                 this.state.gadget.map((ca) => {
-//                                     return (
+                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
+                                            <div className="catGadgetImage">
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                            </div>
+                                            <div className="GadgetNameCategory">
+                                                <p className="GadgetName">&nbsp;
+                                                    {
+                                                        g.gadgetname
+                                                    }<br></br>
 
-//                                         <div className="cameraCat">
-//                                             <div className="catCameraImage">
-//                                                 <img src={"http://localhost:90/assets/image/gadget/" + ca.gadgetimage} alt="img" />
-//                                             </div>
-//                                             <div className="CameraNameCategory">
-//                                                 <p className="CameraName">&nbsp;
-//                                                     {
-//                                                         ca.gadgetname
-//                                                     }<br></br>
+                                                </p>
+                                                <p className="GadgetType">&nbsp;
+                                                    {
+                                                        g.gadgettype
+                                                    }<br></br>
 
-//                                                 </p>
-//                                                 <p className="CameraPrice">&nbsp;Rs&nbsp;
-//                                                     {
-//                                                         ca.gadgetprice
-//                                                     }
+                                                </p>
+                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                                                    {
+                                                        g.gadgetprice
+                                                    }
 
-//                                                 </p>
-//                                             </div>
-//                                         </div>
+                                                </p>
+                                            </div>
+                                        </a>
 
-//                                     )
-//                                 })
-//                             }
-//                         </div>
+                                    )
+                                })
+                            }
+                        </div>
 
-//                     </div>
-//                 </div>
+                    </div>
+                </div>
 
-//             </>
-//         )
-//     }
+            </>
+        )
+    }
 
-// }
+}
 
-// export default CameraCategory
+export default CameraCategory
