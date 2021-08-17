@@ -35,8 +35,9 @@ class CosmeticCategory extends Component {
                 <div className="container displayCosmetic">
                     <div className="container showCosmetic">
                         <div className="row cosmeticBand">
-                            <p className="col-sm-12 txtCosmetic">Popular cosmetics right now</p>
-                            {/* <div className="col-sm-6 viewMore">View more&nbsp;<i class="fas fa-angle-double-right"></i></div> */}
+                            <p className="col-9 col-sm-11 txtCosmetic">Popular cosmetics</p>
+                            <p className="col-3 col-sm-1 viewMore">View More</p>
+                           
                         </div>
                         <div className="row mainCatCosmetic col-sm-12">
                             {
@@ -57,7 +58,7 @@ class CosmeticCategory extends Component {
                                                 </p>
                                                 <p className="CosmeticType">&nbsp;
                                                     {
-                                                        c.cosmetictype
+                                                        c.cosmeticdescription
                                                     }
 
                                                 </p>
