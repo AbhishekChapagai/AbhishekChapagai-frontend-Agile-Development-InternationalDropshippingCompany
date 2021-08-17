@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
+// import { Slide } from 'react-slideshow-image';
+// import 'react-slideshow-image/dist/styles.css'
 import Questions from './Question';
 import { toast } from "react-toastify";
 
@@ -10,11 +10,11 @@ toast.configure();
 
 
 
-const slideImages = [
-    '{"http://localhost:90/gadget/" + gadgetimge}',
-    'images/slide_3.jpg',
-    'images/slide_4.jpg'
-];
+// const slideImages = [
+//     '{"http://localhost:90/gadget/" + gadgetimge}',
+//     'images/slide_3.jpg',
+//     'images/slide_4.jpg'
+// ];
 class LaptopDetails extends Component {
     constructor(props) {
         super(props);

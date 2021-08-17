@@ -80,7 +80,7 @@ class Questions extends Component {
 
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="user d-flex flex-row align-items-center"> <i class="fab fa-autoprefixer"></i>
-                                                    <span> <small class="font-weight-bold ques">{a.answer}</small></span> </div>
+                                                    <span> <small class="font-weight-bold ques">{q.answer}</small></span> </div>
                                             </div>
                                             <div className="question_border">
                                                 <small class="username_ques "></small>
