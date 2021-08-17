@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+import Questions from './Question';
 import { toast } from "react-toastify";
 toast.configure();
 
@@ -17,7 +18,6 @@ class CameraDetails extends Component {
         productprice: "",
         producttype:"",
         gadgets: [],
-
     }
     componentDidMount() {
         axios.get(`http://localhost:90/gadget/one/` + this.state.id)
@@ -98,9 +98,10 @@ class CameraDetails extends Component {
                                                 <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
                                                 <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
                                             </div>
-                                            <ul class="preview-thumbnail nav nav-tabs">
-                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
+
+                                            <ul className="preview-thumbnail nav nav-tabs">
+                                                <li className="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
+                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"htagtp://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
                                             </ul>
 
@@ -297,7 +298,7 @@ class CameraDetails extends Component {
             }
 
             </div>
-
+            <Questions dataFromParent={this.state.id}> </Questions>
         </>
 
 

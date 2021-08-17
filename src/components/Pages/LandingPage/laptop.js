@@ -37,9 +37,9 @@ class LaptopCategory extends Component {
                 {/* GADGET CATEGORY */}
                 <div className="container displayGadget">
                     <div className="container showGadget">
-                        <div className="container gadgetBand">
-                            <p className="col-sm-12 txtGadget">Popular laptops right now</p>
-                            {/* <p className="txtGProduct"> Products</p> */}
+                        <div className="row gadgetBand">
+                            <p className="col-9 col-sm-11 txtGadget">Popular laptops</p>
+                            <p className="col-3 col-sm-1 viewMore">View More</p>
                             {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
                         </div>
                         <div className="row mainCatGadget col-sm-12">

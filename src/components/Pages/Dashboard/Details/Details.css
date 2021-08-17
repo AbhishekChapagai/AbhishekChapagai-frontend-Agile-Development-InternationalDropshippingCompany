@@ -177,7 +177,7 @@ body {
   .attr.active,.attr2.active{ 
     border:1px solid orange;}
 
-  .active{
+  .img-active{
     border: 0px solid white !important;
   }
 
@@ -279,3 +279,28 @@ body {
   text-decoration: none !important;
 
 }
+.btn-minus.quan-plus-minus:hover{
+color: #1c96c5;
+font-size: 100px;
+}
+.btn-plus.quan-plus-minus:hover{
+  color: #1c96c5;
+  font-size: 100px;
+  }
+
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 350px;
+  }
+  
+  .each-slide span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+  }
+
+   

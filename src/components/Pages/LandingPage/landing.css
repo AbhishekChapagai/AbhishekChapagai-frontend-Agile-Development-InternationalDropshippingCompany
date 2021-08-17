@@ -1,3 +1,72 @@
+/* Landing Information */
+.infoLanding{
+     margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;    
+}
+.displayInformation{
+    padding: 10px;
+    width: auto;
+    border:1px solid #e0e0e0;
+    border-radius: 25px;
+}
+.infoOne{
+    border-right: 1px solid #e0e0e0;
+    font-family: 'Lato', sans-serif;
+}
+.infoOne p {
+    font-family: corbel;
+}
+.infoOne img{
+    width:120px;
+    height: 70px;
+}
+@media screen and (max-width: 480px) {
+    .infoOne img {
+        width:70px;
+        height: 30px;
+    }
+    .infoOne p {
+        font-size: 10px;
+    }
+  }
+  .infoTwo{
+    border-right: 1px solid #e0e0e0;
+    font-family: 'Lato', sans-serif;
+}
+.infoTwo p {
+    font-family: corbel;
+}
+.infoTwo img{
+    width:110px;
+    height: 80px;
+}
+
+@media screen and (max-width: 480px) {
+    .infoTwo img {
+        width:50px;
+        height: 35px;
+    }
+    .infoTwo p {
+        font-size: 10px;
+    }
+  }
+  .infoThree{
+    font-family: corbel;
+}
+.infoThree img{
+    width:90px;
+    height: 80px;
+}
+@media screen and (max-width: 480px) {
+    .infoThree img {
+        width:50px;
+        height: 35px;
+    }
+    .infoThree p {
+        font-size: 10px;
+    }
+  }
 /* Cosmetic category CSS */
 .displayCosmetic{
     width: auto;
@@ -9,10 +78,9 @@
     }
 .cosmeticBand{
     padding: 5px;  
-    text-align: center; 
 }
 .txtCosmetic{
-    font-size: 35px;
+    font-size: 26px;
     word-spacing: 5px;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
@@ -20,11 +88,11 @@
 } 
 .viewMore{
     height: 4.5vh;
-    float: right;
-    text-align: right;
+    text-align: center;
+    font-weight: bold;
     color: grey;
-    padding: 5px;
-    font-size: 15px;
+    padding: 12px;
+    font-size: 12px;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
@@ -38,7 +106,7 @@
     padding: 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .cosmeticCat{    
@@ -47,10 +115,7 @@
     text-decoration: none;
 }
 .cosmeticCat:hover{
-    /* transform: translateY(-3.5px);
-    transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3); */
-    color: #ff5050;
+    border: 1px solid white;
 }
 .catCosmeticImage{
     width: 100%;
@@ -123,23 +188,22 @@
 
 }
 .gadgetBand{
-    padding: 20px;
-    text-align: center;   
+    padding: 5px;
 }
 
 .txtGadget{
-    font-size: 35px;
+    font-size: 26px;
     word-spacing: 5px;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
 } 
 .viewMoreGadget{
     height: 4.5vh;
-    text-align: right;
+    text-align: center;
     color: gray;
-    padding: 5px;
-    float: right;
-    font-size: 15px;
+    padding: 15px;
+    font-size: 12px;
+    /* letter-spacing: 1px; */
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
@@ -149,22 +213,21 @@
 }
 .mainCatGadget{
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .gadgetCat{
     width: 230px;
     height: 40.1vh;
     text-decoration: none;
+    /* border: 1px solid #e0dfdc; */
+    border-radius: 5px;
 }
 .gadgetCat:hover{
-    /* transform: translateY(-3.5px);
-    transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3); */
-    color: #ff5050;
+    border: 1px solid white;
 }
 .catGadgetImage{
     width: 100%;

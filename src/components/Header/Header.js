@@ -23,7 +23,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:90/user/token/decode", this.state.config)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/token/decode`, this.state.config)
       .then((response) => {
         const data = response.data
         this.setState({
@@ -56,7 +56,7 @@ class Header extends Component {
                     <Nav.Link>
                       <div className="nav_profile_link">
                         <div className="nav_profile_icon">
-                          <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
+                          <Avatar src={`${process.env.REACT_APP_BACKEND_URL}/userImg/` + this.state.img} />
                         </div>
 
                         <div className="nav_profile_detatil">
@@ -127,7 +127,7 @@ class Header extends Component {
                     <Nav.Link>
                       <div className="nav_profile_link">
                         <div className="nav_profile_icon">
-                          <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
+                          <Avatar src={`${process.env.REACT_APP_BACKEND_URL}/userImg/` + this.state.img} />
                         </div>
 
                         <div className="nav_profile_detatil">

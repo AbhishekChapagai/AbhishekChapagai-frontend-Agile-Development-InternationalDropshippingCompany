@@ -29,7 +29,7 @@ class Register extends Component {
 
     submitData = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:90/user/signup", this.state)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/signup`, this.state)
             .then((response) => {
                 console.log(response.data.success);
                 this.setState({

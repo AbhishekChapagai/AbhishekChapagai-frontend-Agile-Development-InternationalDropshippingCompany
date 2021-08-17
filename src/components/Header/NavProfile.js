@@ -13,7 +13,7 @@ class NavProfile extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/user/token/decode", this.state.config)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/token/decode`, this.state.config)
             .then((response) => {
                 const data = response.data
                 this.setState({
@@ -28,7 +28,7 @@ class NavProfile extends Component {
     render() {
         return (
             <div className="NavProfile">
-                <Avatar src={"http://localhost:90/userImg/" + this.state.img} />
+                <Avatar src={`${process.env.REACT_APP_BACKEND_URL}/userImg/` + this.state.img} />
                 <span className="nav_name"> {this.state.firstName} </span>
             </div>
         )
