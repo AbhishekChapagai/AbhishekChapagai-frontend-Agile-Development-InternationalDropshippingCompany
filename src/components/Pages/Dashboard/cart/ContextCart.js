@@ -31,8 +31,8 @@ import "./cart.css";
       console.log(this.state.gadgetcart.length)
     }
 
-    removeItem = () => {
-      axios.delete('http://localhost:90/remove/mycart')
+    removeItem = (id) => {
+      axios.delete('http://localhost:90/remove/mycart', this.state.config)
         .then((response) => {
           console.log(response)
         })

@@ -26,6 +26,7 @@ class LaptopDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
+        producttype:"",
         gadgets: [],
 
     }
@@ -43,7 +44,7 @@ class LaptopDetails extends Component {
             })
     }
     Addtocart() {
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice }
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice,  producttype: this.state.producttype }
         axios.post(`http://localhost:90/gadgetcart/insert/`, data)
 
             .then((response) => {
@@ -118,7 +119,7 @@ class LaptopDetails extends Component {
 
 
                                         <div class="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = l.gadgetname} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = l.gadgetname}{...this.state.producttype=l.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
                                             <div class="rating">
                                                 <div class="stars">
                                                     <span class="fa fa-star checked"></span>
