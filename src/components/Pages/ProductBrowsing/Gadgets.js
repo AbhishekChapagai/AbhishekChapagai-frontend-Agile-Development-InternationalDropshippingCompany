@@ -64,7 +64,7 @@ class gadgets extends Component {
                                                     </p>
 
                                                 </div></a>) :
-                                                (<a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
+                                                <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
                                                     <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                                 </div>
                                                     <div className="GadgetsNameCategory">
@@ -81,7 +81,7 @@ class gadgets extends Component {
 
                                                         </p>
 
-                                                    </div></a>)
+                                                    </div></a>
                                         }
                                         <div className="gadgetsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
                                     </div>
