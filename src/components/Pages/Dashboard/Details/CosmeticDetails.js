@@ -2,7 +2,6 @@ import axios from "axios";
 import { Component } from "react";
 import './Details.css';
 import { toast } from "react-toastify";
-import { Alert } from "bootstrap";
 toast.configure();
 
 class CosmeticDetails extends Component {
@@ -16,6 +15,7 @@ class CosmeticDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
+        producttype:"",
         cosmetics: [],
 
     }
@@ -32,7 +32,7 @@ class CosmeticDetails extends Component {
             })
     }
     Addtocart() {
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice }
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
         axios.post(`http://localhost:90/cosmeticcart/insert/`, data)
 
             .then((response) => {
@@ -75,7 +75,7 @@ class CosmeticDetails extends Component {
             this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
         }
         else {
-            alert("Can't add product less than quantity 1!")
+            alert("Can't add product with quantity less than 1!")
         }
     }
 
@@ -105,7 +105,7 @@ class CosmeticDetails extends Component {
                                         </div>
 
                                         <div className="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname}{...this.state.producttype=c.cosmetictype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
                                             <div className="rating">
                                                 <div className="stars">
                                                     <span className="fa fa-star checked"></span>
