@@ -96,8 +96,10 @@ class Register extends Component {
                                 {/* <p> Moto </p> */}
                             </div>
 
-                            <div className="r_form">
-                                <form id="registerForm">
+
+                            <div className="r_form" >
+                                <form id="RegForm">
+
                                     <div className="row g-2">
                                         <div className="col-md">
                                             <div className="form-floating mb-2">

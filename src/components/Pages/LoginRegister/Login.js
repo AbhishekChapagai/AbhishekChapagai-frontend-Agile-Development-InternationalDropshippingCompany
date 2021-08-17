@@ -92,8 +92,9 @@ class Login extends Component {
                                 {/* <p> Moto </p> */}
                             </div>
 
-                            <div className="l_form">
-                                <form id="loginForm">
+                            <div className="l_form" >
+                                <form id="LoginForm">
+
                                     <div className="form-floating mb-2">
                                         <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email"
                                             data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
