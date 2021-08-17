@@ -2,6 +2,7 @@ import axios from "axios";
 import { Component } from "react";
 import './Details.css';
 import { toast } from "react-toastify";
+import Questions from './Question';
 import { Alert } from "bootstrap";
 toast.configure();
 
@@ -92,12 +93,12 @@ class CosmeticDetails extends Component {
                                         <div className="preview col-md-6">
 
                                             <div className="preview-pic tab-content">
-                                                <div className="tab-pane active" id="pic-1"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
+                                                <div className="tab-pane active img-active " id="pic-1"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
                                                 <div className="tab-pane" id="pic-2"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
                                                 <div className="tab-pane" id="pic-3"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
                                             </div>
                                             <ul className="preview-thumbnail nav nav-tabs">
-                                                <li className="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
+                                                <li className="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
                                             </ul>
@@ -155,7 +156,7 @@ class CosmeticDetails extends Component {
             }
 
             </div>
-
+            <Questions dataFromParent={this.state.id}> </Questions>
         </>
 
 
