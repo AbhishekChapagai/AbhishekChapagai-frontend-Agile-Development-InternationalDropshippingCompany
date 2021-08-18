@@ -3,9 +3,12 @@ import { Component } from "react";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
 import '../ProductBrowsing/ProductBrowsing.css'
+// import { price, gadgettype } from "./CheckBox/Data";
 import { Link } from "react-router-dom";
 import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
 import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
+import { Checkbox } from "@material-ui/core";
+import CheckBox from "./CheckBox";
 
 class gadgets extends Component {
 
@@ -29,13 +32,29 @@ class gadgets extends Component {
 
     render() {
         return (
-            < div className="displayGadgets" >
+            // < div className="displayGadgets" >
                 <div className="showGadgets">
+                     {/* Filter  */}
+
+            {/* <Row gutter={[16, 16]}>
+                <Col lg={12} xs={24} >
+                    <CheckBox
+                        list={gadgettype}
+                        handleFilters={filters => handleFilters(filters, "continents")}
+                    />
+                </Col>
+                <Col lg={12} xs={24}>
+                    <RadioBox
+                        list={price}
+                        handleFilters={filters => handleFilters(filters, "price")}
+                    />
+                </Col>
+            </Row>
                     <div className="gadgetsBand">
                         <p className="txtGadgets">Laptops</p>
 
                         {/* <p className="txtGProduct"> Products</p> */}
-                    </div>
+                    {/* </div>  */}
                     <div className="mainCatGadgets">
                         {
                             this.state.gadgets.map((g) => {
@@ -93,7 +112,7 @@ class gadgets extends Component {
                     </div>
 
                 </div>
-            </div>
+            // </div>
 
 
         )
