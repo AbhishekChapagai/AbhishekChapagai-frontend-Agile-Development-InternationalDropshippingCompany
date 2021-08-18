@@ -71,7 +71,7 @@ function App() {
     <>
       <Header />
       <Route exact path="/" component={Home} />
-      <Route exact path="/product/request" component={ProductRequest} />
+      <Route exact path="/user/product/request" component={ProductRequest} />
       <Route exact path="/product/gadgets" component={Gadgets} />
       <Route exact path="/user/profile" component={Profile} />
       <Route exact path="/user/address" component={Address} />
