@@ -18,6 +18,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    
+
+
+ <link rel="stylesheet" href="<NODE_MODULES_FOLDER>/react-responsive-carousel/lib/styles/carousel.min.css"/>
 
 
 
@@ -40,27 +44,7 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <script>
-    $(document).ready(function () {
-      //-- Click on QUANTITY
-      $(".btn-minus").on("click", function () {
-        var now = $(".section > div > input").val();
-        if ($.isNumeric(now)) {
-          if (parseInt(now) - 1 > 0) { now--; }
-          $(".section > div > input").val(now);
-        } else {
-          $(".section > div > input").val("1");
-        }
-      })
-      $(".btn-plus").on("click", function () {
-        var now = $(".section > div > input").val();
-        if ($.isNumeric(now)) {
-          $(".section > div > input").val(parseInt(now) + 1);
-        } else {
-          $(".section > div > input").val("1");
-        }
-      })
-    })</script>
+  
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -72,5 +56,6 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 </body>
+
 
 </html>

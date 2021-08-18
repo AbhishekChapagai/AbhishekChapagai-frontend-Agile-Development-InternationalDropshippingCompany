@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+import Questions from './Question';
 import { toast } from "react-toastify";
 toast.configure();
 
@@ -15,8 +16,8 @@ class CameraDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
+        producttype:"",
         gadgets: [],
-
     }
     componentDidMount() {
         axios.get(`http://localhost:90/gadget/one/` + this.state.id)
@@ -31,7 +32,7 @@ class CameraDetails extends Component {
             })
     }
     Addtocart() {
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity,  productname: this.state.productname, productprice: this.state.productprice }
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity,  productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
         axios.post(`http://localhost:90/gadgetcart/insert/`, data)
 
             .then((response) => {
@@ -87,37 +88,38 @@ class CameraDetails extends Component {
                     return (
 
                         <div>
-                            <div className="card">
-                                <div className="container-fliud">
-                                    <div className="wrapper row">
-                                        <div className="preview col-md-6">
+                           <div class="card">
+                                <div class="container-fliud">
+                                    <div class="wrapper row">
+                                        <div class="preview col-md-6">
 
-                                            <div className="preview-pic tab-content">
-                                                <div className="tab-pane active" id="pic-1"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
-                                                <div className="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
-                                                <div className="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
+                                            <div class="preview-pic tab-content">
+                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
+                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
+                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
                                             </div>
+
                                             <ul className="preview-thumbnail nav nav-tabs">
-                                                <li className="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
+                                                <li className="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-2" data-toggle="tab"><img src={"htagtp://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
                                             </ul>
 
                                         </div>
 
-                                        <div className="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.gadgetname} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
-                                            <div className="rating">
-                                                <div className="stars">
-                                                    <span className="fa fa-star checked"></span>
-                                                    <span className="fa fa-star checked"></span>
-                                                    <span className="fa fa-star checked"></span>
-                                                    <span className="fa fa-star"></span>
-                                                    <span className="fa fa-star"></span>
+                                        <div class="details col-md-6">
+                                            <h3 class="product-title" value={this.state.productname = c.gadgetname}{...this.state.producttype=c.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
+                                            <div class="rating">
+                                                <div class="stars">
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
                                                 </div>
                                             </div>
-                                            <div className="section" >
-                                                <h6 className="title-attr"><small>Quantity</small></h6>
+                                            <div class="section" >
+                                                <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
                                                     <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
@@ -126,9 +128,9 @@ class CameraDetails extends Component {
                                             </div>
 
                                             <h4 class="price" value={this.state.productprice = c.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>${c.gadgetprice}</span></h4>
-                                            <div className="action">
-                                                <button className="add-to-cart  btn-default" type="button" onClick={this.Addtocart} >add to cart</button>
-                                                <button className="like btn-default" type="button"><span className="fa fa-heart"></span></button>
+                                            <div class="action">
+                                                <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
+                                                <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -296,7 +298,7 @@ class CameraDetails extends Component {
             }
 
             </div>
-
+            <Questions dataFromParent={this.state.id}> </Questions>
         </>
 
 

@@ -6,12 +6,13 @@ class Items extends Component {
 
 
   state = {
+    quantity: 1,
     gadgetcart: [],
     config: {
       headers: {
-          'authorization': `Bearer ${localStorage.getItem('token')}`
+        'authorization': `Bearer ${localStorage.getItem('token')}`
       }
-  }
+    }
   }
 
   componentDidMount() {
@@ -46,52 +47,60 @@ class Items extends Component {
     window.location.reload(false);
   }
 
-  // itemPlus = () => {
-  //   this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
-  // }
+  itemPlus = () => {
+    this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
+  }
 
-  // itemMinus = () => {
-  //   this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
-  // }
+  itemMinus = () => {
+    const minus = this.state.quantity;
+
+    if (minus > 1) {
+      this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+    }
+    else {
+      {alert("remove product!")}
+    }
+  }
 
   render() {
-    if (localStorage.getItem('token') ){
-    var items = <>{
-      this.state.gadgetcart.map((cart) => {
-        return (
-          <div>
-            <div className="items-info">
-              <div className="product-img">
-                <img src={"http://localhost:90/gadget/" + cart.productimage} alt="img" />
-              </div>
+    if (localStorage.getItem('token')) {
+      var items = <>{
+        this.state.gadgetcart.map((cart) => {
+          return (
+            <div>
+              <div className="items-info">
+                <div className="product-img">
+                  <img src={"http://localhost:90/gadget/" + cart.productimage} alt="img" />
+                </div>
 
-              <div className="title">
-                <h2>{cart.productname}</h2>
-                <p>{cart.productname}</p>
-              </div>
-              <div className="add-minus-quantity">
-                <button className="fas fa-minus minus" onClick={this.itemMinus}></button>
-                <input type="text" value={cart.quantity} onChange={this.changeHandler} disabled />
-                <button className="fas fa-plus add" onClick={this.itemPlus}></button>
+                <div className="title">
+                  <h2><a href={"/product/cosmetic/cosmeticdetails/" + cart.productid}>{cart.productname}</a></h2>
+                  <p>{cart.producttype}</p>
+                </div>
 
+                <div className="add-minus-quantity">
+                  <button className="fas fa-minus minus" onClick={this.itemMinus}></button>
+                  <input type="text" value={this.state.quantity = cart.quantity} onChange={this.changeHandler} disabled />
+                  <button className="fas fa-plus add" onClick={this.itemPlus}></button>
+
+                </div>
+                <div className="item-price">
+                  <h3>nrs. {cart.productprice * cart.quantity}/-</h3>
+                </div>
+                <div className="remove-item" >
+                  <i
+                    className="fas fa-trash-alt remove" onClick={this.removeItem.bind(this, cart._id)}
+                  ></i>
+                </div>
               </div>
-              <div className="item-price">
-                <h3>nrs. {cart.productprice * cart.quantity}/-</h3>
-              </div>
-              <div className="remove-item" >
-                <i
-                  className="fas fa-trash-alt remove" onClick={this.removeItem.bind(this, cart._id)}
-                ></i>
-              </div>
+              <hr />
             </div>
-            <hr />
-          </div>
-        )
-      })
-    }
+          )
+        })
+      }
 
-    </>
-  }
+      </>
+    }
 
     return (items);
   }

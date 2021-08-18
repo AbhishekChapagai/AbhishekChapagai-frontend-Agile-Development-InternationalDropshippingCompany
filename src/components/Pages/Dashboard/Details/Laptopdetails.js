@@ -1,9 +1,20 @@
 import axios from "axios";
 import { Component } from "react";
 import './Details.css';
+// import { Slide } from 'react-slideshow-image';
+// import 'react-slideshow-image/dist/styles.css'
+import Questions from './Question';
 import { toast } from "react-toastify";
+
 toast.configure();
 
+
+
+// const slideImages = [
+//     '{"http://localhost:90/gadget/" + gadgetimge}',
+//     'images/slide_3.jpg',
+//     'images/slide_4.jpg'
+// ];
 class LaptopDetails extends Component {
     constructor(props) {
         super(props);
@@ -15,9 +26,11 @@ class LaptopDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
+        producttype:"",
         gadgets: [],
 
     }
+
     componentDidMount() {
         axios.get(`http://localhost:90/gadget/one/` + this.state.id)
             .then((response) => {
@@ -31,7 +44,7 @@ class LaptopDetails extends Component {
             })
     }
     Addtocart() {
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice }
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice,  producttype: this.state.producttype }
         axios.post(`http://localhost:90/gadgetcart/insert/`, data)
 
             .then((response) => {
@@ -78,6 +91,7 @@ class LaptopDetails extends Component {
         }
     }
 
+
     render() {
         var description = <>
             <div class="container">{
@@ -95,15 +109,17 @@ class LaptopDetails extends Component {
                                                 <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></div>
                                             </div>
                                             <ul class="preview-thumbnail nav nav-tabs">
-                                                <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
+                                                <li class="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + l.gadgetimage} alt="productimage" /></a></li>
                                             </ul>
 
                                         </div>
+                                        
+
 
                                         <div class="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = l.gadgetname} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = l.gadgetname}{...this.state.producttype=l.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
                                             <div class="rating">
                                                 <div class="stars">
                                                     <span class="fa fa-star checked"></span>
@@ -116,9 +132,11 @@ class LaptopDetails extends Component {
                                             <div class="section" >
                                                 <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
-                                                    <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
+
+                                                    <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus"><i class="fas fa-minus"></i></button></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                    <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus">+</button></div>
+                                                    <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus"><i class="fas fa-plus quantity-plus"></i></button></div>
+
                                                 </div>
                                             </div>
 
@@ -260,6 +278,8 @@ class LaptopDetails extends Component {
 
             </div>
 
+            <Questions dataFromParent={this.state.id}> </Questions>
+
         </>
         return (
             description
@@ -272,6 +292,7 @@ class LaptopDetails extends Component {
 
     }
 }
+
 
 
 export default LaptopDetails;

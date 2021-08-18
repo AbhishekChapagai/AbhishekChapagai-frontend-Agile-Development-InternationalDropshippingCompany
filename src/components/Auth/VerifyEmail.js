@@ -14,7 +14,7 @@ class VerifyEmail extends Component {
 
     send_mail = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:90/login/send/validation-mail", this.state, this.state.config)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/login/send/validation-mail`, this.state, this.state.config)
             .then((response) => {
                 console.log(response);
                 this.setState({

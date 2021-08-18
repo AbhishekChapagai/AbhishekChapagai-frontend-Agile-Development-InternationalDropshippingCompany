@@ -2,7 +2,7 @@ import axios from "axios";
 import { Component } from "react";
 import './Details.css';
 import { toast } from "react-toastify";
-import { Alert } from "bootstrap";
+import Questions from './Question';
 toast.configure();
 
 class CosmeticDetails extends Component {
@@ -16,6 +16,7 @@ class CosmeticDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
+        producttype:"",
         cosmetics: [],
 
     }
@@ -32,7 +33,7 @@ class CosmeticDetails extends Component {
             })
     }
     Addtocart() {
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice }
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
         axios.post(`http://localhost:90/cosmeticcart/insert/`, data)
 
             .then((response) => {
@@ -75,7 +76,7 @@ class CosmeticDetails extends Component {
             this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
         }
         else {
-            alert("Can't add product less than quantity 1!")
+            alert("Can't add product with quantity less than 1!")
         }
     }
 
@@ -92,12 +93,12 @@ class CosmeticDetails extends Component {
                                         <div className="preview col-md-6">
 
                                             <div className="preview-pic tab-content">
-                                                <div className="tab-pane active" id="pic-1"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
+                                                <div className="tab-pane active img-active " id="pic-1"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
                                                 <div className="tab-pane" id="pic-2"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
                                                 <div className="tab-pane" id="pic-3"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
                                             </div>
                                             <ul className="preview-thumbnail nav nav-tabs">
-                                                <li className="active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
+                                                <li className="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
                                                 <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
                                             </ul>
@@ -105,7 +106,7 @@ class CosmeticDetails extends Component {
                                         </div>
 
                                         <div className="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname}{...this.state.producttype=c.cosmetictype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
                                             <div className="rating">
                                                 <div className="stars">
                                                     <span className="fa fa-star checked"></span>
@@ -155,7 +156,7 @@ class CosmeticDetails extends Component {
             }
 
             </div>
-
+            <Questions dataFromParent={this.state.id}> </Questions>
         </>
 
 

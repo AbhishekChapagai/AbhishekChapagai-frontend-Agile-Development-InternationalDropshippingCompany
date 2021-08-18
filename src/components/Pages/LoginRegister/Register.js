@@ -29,7 +29,7 @@ class Register extends Component {
 
     submitData = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:90/user/signup", this.state)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/signup`, this.state)
             .then((response) => {
                 console.log(response.data.success);
                 this.setState({
@@ -96,8 +96,10 @@ class Register extends Component {
                                 {/* <p> Moto </p> */}
                             </div>
 
-                            <div className="r_form">
-                                <form id="registerForm">
+
+                            <div className="r_form" >
+                                <form id="RegForm">
+
                                     <div className="row g-2">
                                         <div className="col-md">
                                             <div className="form-floating mb-2">
