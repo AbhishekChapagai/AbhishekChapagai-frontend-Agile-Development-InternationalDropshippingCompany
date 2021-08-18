@@ -30,7 +30,7 @@ class cosmetics extends Component {
     render() {
         return (
             <>
-                <div className="displayCosmetics">
+                {/* <div className="displayCosmetics"> */}
                     <div className="showCosmetics">
                         <div className="cosmeticsBand">
                             <p className="txtCosmetics">Cosmetics</p>
@@ -74,7 +74,7 @@ class cosmetics extends Component {
                         </div>
 
                     </div>
-                </div>
+                {/* </div> */}
             </>
         )
 
