@@ -10,7 +10,7 @@ class EmailVerified extends Component {
     componentDidMount() {
         const token = this.props.match.params.token;
 
-        axios.put(`http://localhost:90/user/email/verify/${token}`)
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/user/email/verify/${token}`)
             .then((response) => {
                 console.log(response);
                 this.setState({
