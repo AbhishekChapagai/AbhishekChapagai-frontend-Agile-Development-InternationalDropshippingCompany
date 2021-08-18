@@ -33,7 +33,6 @@ class cosmetics extends Component {
                 {/* <div className="displayCosmetics"> */}
                     <div className="showCosmetics">
                         <div className="cosmeticsBand">
-                            <p className="txtCosmetics">Cosmetics</p>
                             {/* <p className="txtProduct"> Products</p> */}
                         </div>
                         <div className="mainCatCosmetics">
