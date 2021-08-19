@@ -384,12 +384,12 @@
 .brandContainer{
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: white;
 }
 .showBrands{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 .rowBrands{
     padding: 10px;
@@ -400,7 +400,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .lenovo{
     width: 120px;
     cursor: pointer;
