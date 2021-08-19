@@ -47,20 +47,20 @@ class Items extends Component {
     window.location.reload(false);
   }
 
-  itemPlus = () => {
-    this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
-  }
+  // itemPlus = () => {
+  //   this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
+  // }
 
-  itemMinus = () => {
-    const minus = this.state.quantity;
+  // itemMinus = () => {
+  //   const minus = this.state.quantity;
 
-    if (minus > 1) {
-      this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
-    }
-    else {
-      {alert("remove product!")}
-    }
-  }
+  //   if (minus > 1) {
+  //     this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+  //   }
+  //   else {
+  //     {alert("remove product!")}
+  //   }
+  // }
 
   render() {
     if (localStorage.getItem('token')) {
@@ -79,9 +79,9 @@ class Items extends Component {
                 </div>
 
                 <div className="add-minus-quantity">
-                  <button className="fas fa-minus minus" onClick={this.itemMinus}></button>
-                  <input type="text" value={this.state.quantity = cart.quantity} onChange={this.changeHandler} disabled />
-                  <button className="fas fa-plus add" onClick={this.itemPlus}></button>
+                  {/* <button className="fas fa-minus minus" onClick={this.itemMinus}></button> */}
+                 Qty: <input type="text" value= {this.state.quantity = cart.quantity} onChange={this.changeHandler} disabled />
+                  {/* <button className="fas fa-plus add" onClick={this.itemPlus}></button> */}
 
                 </div>
                 <div className="item-price">
@@ -89,7 +89,7 @@ class Items extends Component {
                 </div>
                 <div className="remove-item" >
                   <i
-                    className="fas fa-trash-alt remove" onClick={this.removeItem.bind(this, cart._id)}
+                    className="fas fa-trash-alt remove" style={{cursor:'pointer'}} onClick={this.removeItem.bind(this, cart._id)}
                   ></i>
                 </div>
               </div>
