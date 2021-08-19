@@ -71,6 +71,7 @@
 .displayCosmetic{
     width: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .showCosmetic{
     background-color: white;
@@ -78,6 +79,7 @@
     }
 .cosmeticBand{
     padding: 5px;  
+    border-bottom: 1px solid #e0e0e0;
 }
 .txtCosmetic{
     font-size: 26px;
@@ -122,7 +124,9 @@
     height: 60%;
     align-items: center;
     background-size: 10px 20px;
-
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
 }
 
 .catCosmeticImage img{
@@ -131,7 +135,11 @@
     cursor: pointer;
 }
 .CosmeticNameCategory{
-    height: 120px;  
+    height: 120px;
+    padding: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
 }
 .CosmeticName{
 
@@ -181,6 +189,7 @@
 .displayGadget{
     width: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .showGadget{
     background-color: white;
@@ -189,6 +198,7 @@
 }
 .gadgetBand{
     padding: 5px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .txtGadget{
@@ -223,7 +233,6 @@
     width: 230px;
     height: 40.1vh;
     text-decoration: none;
-    /* border: 1px solid #e0dfdc; */
     border-radius: 5px;
 }
 .gadgetCat:hover{
@@ -234,6 +243,9 @@
     height: 60%;
     align-items: center;
     background-size: 10px 20px;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
 }
 .catGadgetImage img{
     width: 100%;
@@ -242,6 +254,10 @@
 }
 .GadgetNameCategory{
     height: 120px;
+    padding: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
 }
 .GadgetName{
     font-size: 16px;
@@ -265,95 +281,6 @@
     font-family: 'Lato', sans-serif;
     cursor: pointer;
 } 
-
-
-/* camera category CSS */
-/* .displayCamera{
-    width: 100%;
-    height: 58vh;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: #f7f7f7;
-}
-.showCamera{
-    width: 100%;
-    height: 65.2vh;
-    background-color: #f7f7f7;
-    }
-.cameraBand{
-    width: 100%;
-    height: 65px;
-    background-color: #f7f7f7;
-    padding: 10px;
-    text-align: center;   
-}
-
-.txtCamera{
-    font-size: 19px;
-    word-spacing: 5px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-}
-.viewMoreCamera{
-    height: 3.5vh;
-    width: 7%;
-    background-color: #1c96c5;
-    text-align: center;
-    color: white;
-    padding: 2px;
-    float: right;
-    font-size: 15px;
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.viewMoreCamera:hover{
-    transform: translateY(-5px);
-    transition: 0.5s;
-}
-.mainCatCamera{
-    background-color: white;    
-    width: 100%;
-    height: 45.5vh;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.cameraCat{
-    width: 200px;
-    height: 37.1vh;
-}
-.cameraCat:hover{
-    transform: translateY(-3.5px);
-    transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
-}
-.catCameraImage{
-    width: 100%;
-    height: 60%;
-    align-items: center;
-    background-size: 10px 20px;
-}
-.catGadgetImage img{
-    width: 100%;
-    height: 100%;
-}
-
-.GadgetName{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-}
-.GadgetPrice{
-    text-align: center;
-    font-size: 13px;
-    font-family: 'Roboto', sans-serif;
-} 
-
 
 /* camera category CSS */
 .displayCamera{
@@ -452,4 +379,57 @@
     width: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+/* Gadgets by brand */
+.brandContainer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+.showBrands{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rowBrands{
+    padding: 10px;
+}
+.colBrands{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lenovo{
+    width: 120px;
+    cursor: pointer;
+}
+.dell{
+    cursor: pointer;
+}
+.msi{
+    padding: 5px;
+    cursor: pointer;
+}
+.arous{
+    cursor: pointer;
+}
+.acer{
+    cursor: pointer;
+}
+.asus{
+    cursor: pointer;
+}
+.hp{
+    cursor: pointer;
+}
+.razer{
+    cursor: pointer;
+}
+.apple{
+    cursor: pointer;
+}
+.microsoft{
+    cursor: pointer;
 }
