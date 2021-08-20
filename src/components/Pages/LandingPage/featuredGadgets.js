@@ -51,8 +51,8 @@ class Featured extends Component {
                             <p className="col-3 col-sm-1 viewMore">View More</p>
                             {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
                         </div>
-                        {/* <div className="row mainCatGadget col-sm-12"> */}
-                        <Slider {...settings}>
+                        <div className="row mainCatGadget col-sm-12">
+                        {/* <Slider {...settings}> */}
                             {
                                 this.state.gadget.map((g) => {
                                     return (
@@ -86,8 +86,8 @@ class Featured extends Component {
                                     )
                                 })
                             }
-                        {/* </div> */}
-                        </Slider>
+                        </div>
+                        {/* </Slider> */}
                     </div>
                 </div>
 
