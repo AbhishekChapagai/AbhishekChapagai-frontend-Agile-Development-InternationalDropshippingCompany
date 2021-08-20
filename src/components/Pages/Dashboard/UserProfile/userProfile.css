@@ -64,15 +64,6 @@
 .padding {
     padding: 1rem !important
 }
-
-.user-card-full {
-    overflow: hidden
-}
-
-.card {
-    width: 100%;
-    background-color: white;
-}
 .profileRow{
     margin-bottom: 35px;
 }
