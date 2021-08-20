@@ -1,4 +1,6 @@
-/* Slick arrow */
+
+
+  /* Slick arrow */
 .slick-arrow{
     background-color: #e0e0e0;
     height: 80px;
@@ -18,75 +20,6 @@
 .slick-arrow:focus{
     background-color: #969696;
 }
-/* Landing Information */
-.infoLanding{
-     margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;    
-}
-.displayInformation{
-    padding: 10px;
-    width: auto;
-    border:1px solid #e0e0e0;
-    border-radius: 25px;
-}
-.infoOne{
-    border-right: 1px solid #e0e0e0;
-    font-family: 'Lato', sans-serif;
-}
-.infoOne p {
-    font-family: corbel;
-}
-.infoOne img{
-    width:120px;
-    height: 70px;
-}
-@media screen and (max-width: 480px) {
-    .infoOne img {
-        width:70px;
-        height: 30px;
-    }
-    .infoOne p {
-        font-size: 10px;
-    }
-  }
-  .infoTwo{
-    border-right: 1px solid #e0e0e0;
-    font-family: 'Lato', sans-serif;
-}
-.infoTwo p {
-    font-family: corbel;
-}
-.infoTwo img{
-    width:110px;
-    height: 80px;
-}
-
-@media screen and (max-width: 480px) {
-    .infoTwo img {
-        width:50px;
-        height: 35px;
-    }
-    .infoTwo p {
-        font-size: 10px;
-    }
-  }
-  .infoThree{
-    font-family: corbel;
-}
-.infoThree img{
-    width:90px;
-    height: 80px;
-}
-@media screen and (max-width: 480px) {
-    .infoThree img {
-        width:50px;
-        height: 35px;
-    }
-    .infoThree p {
-        font-size: 10px;
-    }
-  }
 /* Cosmetic category CSS */
 .displayCosmetic{
     width: auto;

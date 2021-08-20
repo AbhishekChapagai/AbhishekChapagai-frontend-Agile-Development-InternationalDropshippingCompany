@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import { LandingContainer, LandingBg, ImageBg, LandingContent, LandingH1, LandingP } from './LandingElement'
+import { LandingContainer, LandingBg, ImageBg, LandingContent, LandingH1, LandingP, LandingInfo, InfoP } from './LandingElement'
 import Video from '../../../assets/images/land1.jpg';
 import './landing.css';
 
@@ -22,8 +22,9 @@ class landing extends Component {
                         <LandingP>PRODUCTS INTERNATIONALLY HERE ON DHUWANI !</LandingP>
                         <LandingP>COSMETICS | LAPTOPS | CAMERAS</LandingP>
                     </LandingContent>
+                    
                 </LandingContainer>
-
+                
             </>
         )
     }

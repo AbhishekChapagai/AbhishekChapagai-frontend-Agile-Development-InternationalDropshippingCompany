@@ -57,12 +57,13 @@ text-align: center;
 font-family: 'Roboto', sans-serif;
 
 
-@media scren and (max-width: 768px){
+@media screen and (max-width: 768px){
     font-size: 40px;
 }
 
-@media scren and (max-width: 480){
-    font-size: 32px;
+@media screen and (max-width: 480px){
+    font-size: 35px;
+    font-weight: bold;
 }
 `
 
@@ -70,16 +71,15 @@ export const LandingP = styled.p`
 margin-top: 18px;
 color: #fff;
 font-weight: 200;
-
 font-size: 20px;
 text-align: center;
 max-width: 600px;
 
-@media scren and (max-width: 768px){
+@media screen and (max-width: 768px){
     font-size: 24px;
 }
 
-@media scren and (max-width: 480){
-    font-size: 18px;
+@media screen and (max-width: 480px){
+    font-size: 16px;
 }
 `
