@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import './landing.css';
 
 
@@ -30,6 +33,76 @@ class CameraCategory extends Component {
 
 
     render() {
+        const settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1265,
+                  settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1201,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1080,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 1000,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 640,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+
+        };
 
         return (
             <>
@@ -40,15 +113,14 @@ class CameraCategory extends Component {
                         <div className="row gadgetBand">
                             <p className="col-9 col-sm-11 txtGadget">Browse Cameras</p>
                             <p className="col-3 col-sm-1 viewMore">View More</p>
-                            {/* <p className="txtGProduct"> Products</p> */}
-                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
+    
                         </div>
-                        <div className="row mainCatGadget col-sm-12">
+                        <Slider {...settings} className="mainCatGadget">
                             {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
+                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
                                             <div className="catGadgetImage">
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
@@ -77,7 +149,7 @@ class CameraCategory extends Component {
                                     )
                                 })
                             }
-                        </div>
+                        </Slider>
 
                     </div>
                 </div>

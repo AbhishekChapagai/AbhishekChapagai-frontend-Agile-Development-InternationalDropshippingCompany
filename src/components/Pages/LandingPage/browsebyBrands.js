@@ -22,34 +22,34 @@ class Brands extends Component {
                 <div className="container brandContainer">
                     <div className="container showBrands"></div>
                     <div className="row rowBrands">
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-2 col-sm-1 colBrands">
                             <img src={dell} className="dell"/>
                         </div>
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-3 col-sm-1 colBrands">
                         <img src={msi} className="msi"/>
                         </div>
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-2 col-sm-1 colBrands">
                         <img src={arous} className="arous"/>
                         </div>
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-3 col-sm-1 colBrands">
                         <img src={acer} className="acer"/>
                         </div>
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-2 col-sm-1 colBrands">
                         <img src={asus} className="asus"/>
                         </div>
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-2 col-sm-1 colBrands">
                         <img src={hp} className="hp"/>
                         </div>
-                        <div className="col-sm-2 colBrands">
+                        <div className="col-3 col-sm-2 colBrands">
                         <img src={lenovo} className="lenovo"/>
                         </div>  
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-2 col-sm-1 colBrands">
                         <img src={razer} className="razer"/>
                         </div>
-                        <div className="col-sm-1 colBrands">
+                        <div className="col-2 col-sm-1 colBrands">
                         <img src={apple} className="apple"/>
                         </div>
-                        <div className="col-sm-2 colBrands">
+                        <div className="col-3 col-sm-2 colBrands">
                         <img src={microsoft} className="microsoft"/>
                         </div>
                     </div>

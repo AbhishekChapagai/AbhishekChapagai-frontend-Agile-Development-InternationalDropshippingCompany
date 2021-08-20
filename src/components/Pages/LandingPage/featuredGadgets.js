@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import './landing.css';
 
 
@@ -30,6 +33,12 @@ class Featured extends Component {
 
 
     render() {
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 1};
 
         return (
             <>
@@ -42,7 +51,8 @@ class Featured extends Component {
                             <p className="col-3 col-sm-1 viewMore">View More</p>
                             {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
                         </div>
-                        <div className="row mainCatGadget col-sm-12">
+                        {/* <div className="row mainCatGadget col-sm-12"> */}
+                        <Slider {...settings}>
                             {
                                 this.state.gadget.map((g) => {
                                     return (
@@ -76,8 +86,8 @@ class Featured extends Component {
                                     )
                                 })
                             }
-                        </div>
-
+                        {/* </div> */}
+                        </Slider>
                     </div>
                 </div>
 
