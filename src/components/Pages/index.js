@@ -7,6 +7,7 @@ import Gadget from './LandingPage/gadgetAD'
 import Footer from '../Footer/Footer'
 import Featured from './LandingPage/featuredGadgets'
 import Brands from './LandingPage/browsebyBrands'
+import LandingAD from './LandingPage/landingAD'
 
 
 
@@ -16,7 +17,8 @@ const Home = () => {
     return (
         <>  <div className="LandingBody" style={{backgroundColor: '#f2f2f2'}} >
             
-            <LandingComponent />
+            {/* <LandingComponent /> */}
+            <LandingAD/>
             <CosmeticCategory />
             <Gadget/>
             <LaptopCategory />

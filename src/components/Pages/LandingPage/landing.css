@@ -1,5 +1,12 @@
-
-
+/* LandingAD */
+.imagead1{
+    width: 100%;
+    height: 50vh;
+}
+.imagead1 img{
+    width: 100%;
+    height: 50vh;
+}
   /* Slick arrow */
 .slick-arrow{
     background-color: #e0e0e0;
@@ -16,29 +23,34 @@
 }
 .slick-arrow:active{
     background-color: #969696;
+    color: white;
 }
 .slick-arrow:focus{
     background-color: #969696;
 }
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
 /* Cosmetic category CSS */
 .displayCosmetic{
     width: auto;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
 }
 .showCosmetic{
     background-color: white;
     border-radius: 3px;
+    border: 1px solid #e0e0e0;
     }
 .cosmeticBand{
     padding: 5px;  
-    border-bottom: 1px solid #e0e0e0;
 }
 .txtCosmetic{
-    font-size: 26px;
+    font-size: 24px;
     word-spacing: 5px;
-    font-weight: bold;
-    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
     
 } 
 .viewMore{
@@ -54,7 +66,7 @@
 }
 
 .viewMore:hover{
-    color: #1c96c5;
+    color: black;
 }
 .mainCatCosmetic{
     width: 100%;
@@ -70,13 +82,11 @@
     margin-top: 5px;
 }
 .cosmeticCat:hover{
-    opacity: 0.9;
+    opacity: 0.7;
 }
 .catCosmeticImage{
     width: 100%;
     height: 60%;
-    align-items: center;
-    background-size: 10px 20px;
 }
 
 .catCosmeticImage img{
@@ -87,6 +97,7 @@
 .CosmeticNameCategory{
     height: 110px;
     padding: 5px;
+    text-align: center;
 }
 .CosmeticName{
 
@@ -140,17 +151,16 @@
 .showGadget{
     background-color: white;
     border-radius: 3px;
-
+    border: 1px solid #e0e0e0;
 }
 .gadgetBand{
     padding: 5px;
-    border-bottom: 1px solid #e0e0e0;
 }
 
 .txtGadget{
     font-size: 26px;
     word-spacing: 5px;
-    font-weight: bold;
+    font-weight: 800;
     font-family: 'Lato', sans-serif;
 } 
 .viewMoreGadget{
@@ -181,16 +191,13 @@
     
 }
 .gadgetCat:hover{
-    opacity: 0.9;
+    opacity: 0.7;
 }
 .catGadgetImage{
     width: 100%;
     height: 60%;
     align-items: center;
     background-size: 10px 20px;
-    /* border-top: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-right: 1px solid #e0e0e0; */
 }
 .catGadgetImage img{
     width: 100%;
@@ -200,9 +207,7 @@
 .GadgetNameCategory{
     height: 110px;
     padding: 5px;
-    /* border-bottom: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-right: 1px solid #e0e0e0; */
+    text-align: center;
 }
 .GadgetName{
     font-size: 16px;

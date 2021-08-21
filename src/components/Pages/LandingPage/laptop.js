@@ -7,7 +7,7 @@ import './landing.css';
 
 
 class LaptopCategory extends Component {
-
+  
     state = {
         gadget: [],
         config: {
@@ -80,6 +80,15 @@ class LaptopCategory extends Component {
                   breakpoint: 1000,
                   settings: {
                     slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 785,
+                  settings: {
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: false
