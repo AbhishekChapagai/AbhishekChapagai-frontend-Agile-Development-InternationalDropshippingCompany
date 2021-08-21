@@ -6,8 +6,8 @@ import Slider from "react-slick";
 import './landing.css';
 
 
-class LaptopCategory extends Component {
-  
+class Featured extends Component {
+
     state = {
         gadget: [],
         config: {
@@ -18,7 +18,7 @@ class LaptopCategory extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/gadget/five", this.state)
+        axios.get("http://localhost:90/gadget/featured", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -34,84 +34,11 @@ class LaptopCategory extends Component {
 
     render() {
         const settings = {
-            dots: false,
-            infinite: false,
+            dots: true,
+            infinite: true,
             speed: 500,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                  breakpoint: 1265,
-                  settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                  }
-                },
-                {
-                  breakpoint: 1201,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                  }
-                },
-                {
-                  breakpoint: 1080,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                  }
-                },
-                {
-                  breakpoint: 1024,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                  }
-                },
-                {
-                  breakpoint: 1000,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                  }
-                },
-                {
-                  breakpoint: 785,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                  }
-                },
-                {
-                  breakpoint: 640,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                  }
-                }
-              ]
-
-        };
+            slidesToShow: 2,
+            slidesToScroll: 1};
 
         return (
             <>
@@ -120,16 +47,17 @@ class LaptopCategory extends Component {
                 <div className="container displayGadget">
                     <div className="container showGadget">
                         <div className="row gadgetBand">
-                            <p className="col-9 col-sm-11 txtGadget">Browse Laptops</p>
+                            <p className="col-9 col-sm-11 txtGadget">Featured laptops</p>
                             <p className="col-3 col-sm-1 viewMore">View More</p>
                             {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
                         </div>
-                        <Slider {...settings} className="mainCatGadget">
+                        <div className="row mainCatGadget col-sm-12">
+                        {/* <Slider {...settings}> */}
                             {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
+                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
                                             <div className="catGadgetImage">
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
@@ -158,8 +86,8 @@ class LaptopCategory extends Component {
                                     )
                                 })
                             }
-                        {/* </div> */}
-                        </Slider>
+                        </div>
+                        {/* </Slider> */}
                     </div>
                 </div>
 
@@ -169,4 +97,4 @@ class LaptopCategory extends Component {
 
 }
 
-export default LaptopCategory
+export default Featured

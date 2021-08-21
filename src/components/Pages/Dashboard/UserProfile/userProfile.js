@@ -2,6 +2,7 @@ import React, { Component, state } from 'react'
 import axios from "axios";
 import './userProfile.css'
 import { Link } from 'react-router-dom'
+import { Avatar } from '@material-ui/core';
 
 
 class Profile extends Component {
@@ -58,7 +59,10 @@ class Profile extends Component {
                                                     <div className="row m-l-0 m-r-0">
 
                                                         <div className="col-sm-4 bg-c-lite-green user-profile">
-                                                            <img src={"http://localhost:90/userImg/" + this.state.img} className="img-radius" alt="User-Profile-Image" />
+                                                        <Avatar src={`${process.env.REACT_APP_BACKEND_URL}/userImg/` + this.state.img} />
+
+
+                                                            {/* <img src={"http://localhost:90/userImg/" + this.state.img} className="img-radius" alt="User-Profile-Image" /> */}
 
                                                         </div>
 
