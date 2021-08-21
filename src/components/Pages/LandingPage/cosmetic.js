@@ -36,7 +36,6 @@ class CosmeticCategory extends Component {
             infinite: false,
             speed: 500,
             slidesToShow: 5,
-            slidesToShow: 5,
             slidesToScroll: 1,
             responsive: [
                 {
@@ -61,6 +60,15 @@ class CosmeticCategory extends Component {
                   breakpoint: 1080,
                   settings: {
                     slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 785,
+                  settings: {
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: false
