@@ -16,7 +16,7 @@ class LandingAD extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/landing/show", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/landing/show`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -32,7 +32,7 @@ class LandingAD extends Component {
     render() {
         var settings = {
             arrows: false,
-            dots: false,
+            dots: true,
             infinite: true,
             speed: 500,
             slidesToShow: 1,
@@ -47,14 +47,10 @@ class LandingAD extends Component {
                 <Slider {...settings}>
                 {
                                 this.state.landingAD.map((l) => {
-                                    return (
-
-    
+                                    return (    
                                             <div className="imagead1">
-                                                <img src={"http://localhost:90/landingAD/" + l.landingimage} alt="img" />
+                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/landingAD/` + l.landingimage} alt="img" />
                                             </div>
-                                
-
                                     )
                                 })
                             }
