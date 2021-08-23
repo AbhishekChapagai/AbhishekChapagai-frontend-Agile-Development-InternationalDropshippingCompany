@@ -45,7 +45,7 @@ class LaptopDetails extends Component {
     }
     Addtocart() {
         const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice,  producttype: this.state.producttype }
-        axios.post(`http://localhost:90/gadgetcart/insert/`, data)
+        axios.post(`http://localhost:90/mycart/insert/`, data)
 
             .then((response) => {
                 console.log("successful")
@@ -87,7 +87,7 @@ class LaptopDetails extends Component {
             this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
         }
         else {
-            alert("Can't add product less than quantity 1!")
+            alert("Minimum quantity reached!")
         }
     }
 
@@ -133,9 +133,9 @@ class LaptopDetails extends Component {
                                                 <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
 
-                                                    <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus"><i class="fas fa-minus"></i></button></div>
+                                                    <div className="btn-minus" onClick={this.itemMinus}><i className="glyphicon glyphicon-minus"></i><i class="fas fa-minus"></i></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                    <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus"><i class="fas fa-plus quantity-plus"></i></button></div>
+                                                    <div className="btn-plus" onClick={this.itemPlus}>< i className="bi bi-plus"></i><i class="fas fa-plus quantity-plus"></i></div>
 
                                                 </div>
                                             </div>
