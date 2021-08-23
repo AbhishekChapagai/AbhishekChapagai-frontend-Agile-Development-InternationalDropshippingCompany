@@ -45,7 +45,7 @@ class Items extends Component {
       this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
     }
     else {
-      { alert("remove product!") }
+      { alert("minimum quantity reached!!") }
     }
   }
 
