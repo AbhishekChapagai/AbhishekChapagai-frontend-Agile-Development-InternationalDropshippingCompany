@@ -34,11 +34,84 @@ class Featured extends Component {
 
     render() {
         const settings = {
-            dots: true,
-            infinite: true,
+            dots: false,
+            infinite: false,
             speed: 500,
-            slidesToShow: 2,
-            slidesToScroll: 1};
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1265,
+                  settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1201,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1080,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 1000,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 785,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 640,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+
+        };
 
         return (
             <>
@@ -51,8 +124,8 @@ class Featured extends Component {
                             <p className="col-3 col-sm-1 viewMore">View More</p>
                             {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
                         </div>
-                        <div className="row mainCatGadget col-sm-12">
-                        {/* <Slider {...settings}> */}
+                        {/* <div className="row mainCatGadget col-sm-12"> */}
+                        <Slider {...settings} className="mainCatGadget">
                             {
                                 this.state.gadget.map((g) => {
                                     return (
@@ -62,18 +135,13 @@ class Featured extends Component {
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
                                             <div className="GadgetNameCategory">
-                                                <p className="GadgetName">&nbsp;
+                                                <p className="GadgetName">
                                                     {
                                                         g.gadgetname
-                                                    }<br></br>
+                                                    } {g.laptop.laptopModel} / {g.laptop.laptopRam} RAM / {g.laptop.laptopSize} / {g.laptop.laptopGraphic}/ {g.laptop.laptopProcessor} <br></br>
 
                                                 </p>
-                                                <p className="GadgetType">&nbsp;
-                                                    {
-                                                        g.gadgetdescription
-                                                    }<br></br>
-
-                                                </p>
+                                                <p className="ratingGadget">RATING</p>
                                                 <p className="GadgetPrice">&nbsp;Rs&nbsp;
                                                     {
                                                         g.gadgetprice
@@ -86,8 +154,8 @@ class Featured extends Component {
                                     )
                                 })
                             }
-                        </div>
-                        {/* </Slider> */}
+                        {/* </div> */}
+                        </Slider>
                     </div>
                 </div>
 
