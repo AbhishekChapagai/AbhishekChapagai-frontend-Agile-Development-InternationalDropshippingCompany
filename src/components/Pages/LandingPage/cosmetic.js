@@ -35,7 +35,7 @@ class CosmeticCategory extends Component {
             dots: false,
             infinite: false,
             speed: 500,
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [
                 {
@@ -143,10 +143,11 @@ class CosmeticCategory extends Component {
                                                 </p>
                                                 <p className="CosmeticType">&nbsp;
                                                     {
-                                                        c.cosmeticmodel
+                                                        c.cosmetictype
                                                     }
 
                                                 </p>
+                                                <p className="cosmeticRating">RATING</p>
                                                 <p className="CosmeticPrice">NPR&nbsp;
                                                     {
                                                         c.cosmeticprice

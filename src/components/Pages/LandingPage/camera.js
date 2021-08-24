@@ -117,36 +117,32 @@ class CameraCategory extends Component {
             <>
 
                 {/* CAMERA CATEGORY */}
-                <div className="container displayGadget">
-                    <div className="container showGadget">
-                        <div className="row gadgetBand">
-                            <p className="col-9 col-sm-11 txtGadget">Browse Cameras</p>
+                <div className="container displayCamera">
+                    <div className="container showCamera">
+                        <div className="row cameraBand">
+                            <p className="col-9 col-sm-11 txtCamera">Browse Cameras</p>
                             <p className="col-3 col-sm-1 viewMore">View More</p>
     
                         </div>
-                        <Slider {...settings} className="mainCatGadget">
+                        <Slider {...settings} className="mainCatCamera">
                             {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <a href ={"/product/gadget/cameradetails/" + g._id} className="col-6 gadgetCat">
+                                        <a href ={"/product/gadget/cameradetails/" + g._id} className="col-6 cameraCat">
                                             <div className="catGadgetImage">
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
-                                            <div className="GadgetNameCategory">
-                                                <p className="GadgetName">&nbsp;
+                                            <div className="CameraNameCategory">
+                                                <p className="CameraName">&nbsp;
                                                     {
                                                         g.gadgetname
-                                                    }<br></br>
+                                                    } {g.camera.cameraModel} / {g.camera.cameraType} / {g.camera.cameraResolution}/ {g.camera.cameraSensorType} / {g.camera.cameraConnectivity} / {g.camera.cameraBatteryCapacity}<br></br>
 
                                                 </p>
-                                                <p className="GadgetType">&nbsp;
-                                                    {
-                                                        g.gadgetdescription
-                                                    }<br></br>
-
-                                                </p>
-                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                              
+                                                <p className="ratingCamera">RATING</p>
+                                                <p className="CameraPrice">&nbsp;Rs&nbsp;
                                                     {
                                                         g.gadgetprice
                                                     }
