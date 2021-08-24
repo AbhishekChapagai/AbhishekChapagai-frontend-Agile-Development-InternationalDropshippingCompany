@@ -37,7 +37,7 @@ class CameraCategory extends Component {
             dots: false,
             infinite: false,
             speed: 500,
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [
                 {
@@ -129,7 +129,7 @@ class CameraCategory extends Component {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
+                                        <a href ={"/product/gadget/cameradetails/" + g._id} className="col-6 gadgetCat">
                                             <div className="catGadgetImage">
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>

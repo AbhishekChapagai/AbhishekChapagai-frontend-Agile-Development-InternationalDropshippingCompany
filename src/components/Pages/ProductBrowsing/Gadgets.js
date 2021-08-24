@@ -89,7 +89,7 @@ class gadgets extends Component {
                                                     <div className="GadgetsNameCategory">
                                                         <p className="GadgetsName">&nbsp;
                                                             {
-                                                                g.gadgetname
+                                                                g.gadgetname 
                                                             }<br></br>
 
                                                         </p>

@@ -8,6 +8,7 @@ import Footer from '../Footer/Footer'
 import Featured from './LandingPage/featuredGadgets'
 import Brands from './LandingPage/browsebyBrands'
 import LandingAD from './LandingPage/landingAD'
+import Men from './LandingPage/forMen'
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
             {/* <LandingComponent /> */}
             <LandingAD/>
             <CosmeticCategory />
+            <Men/>
             <Gadget/>
             <LaptopCategory />
             <Brands/>

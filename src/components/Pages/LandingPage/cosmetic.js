@@ -18,7 +18,7 @@ class CosmeticCategory extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/cosmetic/five", this.state)
+        axios.get("http://localhost:90/cosmetic/women", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -117,7 +117,7 @@ class CosmeticCategory extends Component {
                 <div className="container displayCosmetic">
                     <div className="container showCosmetic">
                         <div className="row cosmeticBand">
-                            <p className="col-9 col-sm-11 txtCosmetic">Browse cosmetics</p>
+                            <p className="col-9 col-sm-11 txtCosmetic">For Women</p>
                             <p className="col-3 col-sm-1 viewMore">View More</p>
                            
                         </div>
@@ -136,12 +136,14 @@ class CosmeticCategory extends Component {
                                                 <p className="CosmeticName">&nbsp;
                                                     {
                                                         c.cosmeticname
-                                                    }<br></br>
+                                                    }  {
+                                                      c.cosmeticmodel
+                                                  }<br></br>
 
                                                 </p>
                                                 <p className="CosmeticType">&nbsp;
                                                     {
-                                                        c.cosmeticdescription
+                                                        c.cosmeticmodel
                                                     }
 
                                                 </p>

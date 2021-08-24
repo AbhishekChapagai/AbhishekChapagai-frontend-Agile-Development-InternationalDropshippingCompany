@@ -213,7 +213,7 @@ class LaptopDetails extends Component {
 
                                     </div>
                                     <div class="col">
-                                        <div class="col">{l.laptopRam}</div>
+                                        <div class="col">{l.laptop.laptopRam}</div>
 
                                     </div>
                                 </div>
