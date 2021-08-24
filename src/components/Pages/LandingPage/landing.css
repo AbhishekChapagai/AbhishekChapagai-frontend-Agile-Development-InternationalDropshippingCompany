@@ -74,15 +74,15 @@
 }
 
 .cosmeticCat{    
-    width: 237px !important;
-    height: 45.1vh;
+    width: 280px !important;
+    height: 50.1vh;
     text-decoration: none;
-    margin-right: 5px;
-    margin-left: 5px;
     margin-top: 5px;
 }
 .cosmeticCat:hover{
     opacity: 0.7;
+    transition: 0.4s;
+    transform: translateY(-5px);
 }
 .catCosmeticImage{
     width: 100%;
@@ -103,7 +103,6 @@
 
     font-size: 16px;
     color: black;
-    font-weight: bold;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
     margin-bottom: 0px;
@@ -115,11 +114,15 @@
     color: black;
     margin-bottom: 10px;
 }
+.cosmeticRating{
+    margin-top: 25px;
+}
 .CosmeticPrice{
     font-size: 18px;
     color: black;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
+    margin-top: -15px;
     cursor: pointer;
 }
 
@@ -232,99 +235,91 @@
 
 /* camera category CSS */
 .displayCamera{
-    width: 100%;
-    height: 58vh;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: #f7f7f7;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .showCamera{
-    width: 100%;
-    height: 65.2vh;
-    background-color: #f7f7f7;
-    }
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #e0e0e0;
+}
 .cameraBand{
-    width: 100%;
-    height: 65px;
-    background-color: #f7f7f7;
-    padding: 10px;
-    text-align: center;   
+    padding: 5px;
 }
 
 .txtCamera{
-    font-size: 19px;
+    font-size: 26px;
     word-spacing: 5px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-}
+    font-weight: 800;
+    font-family: 'Lato', sans-serif;
+} 
 .viewMoreCamera{
-    height: 3.5vh;
-    width: 7%;
-    background-color: #1c96c5;
+    height: 4.5vh;
     text-align: center;
-    color: white;
-    padding: 2px;
-    float: right;
-    font-size: 15px;
-    border-radius: 5px;
+    color: gray;
+    padding: 15px;
+    font-size: 12px;
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 
 .viewMoreCamera:hover{
-    transform: translateY(-5px);
-    transition: 0.5s;
+    color: #1c96c5;
 }
 .mainCatCamera{
-    background-color: blue;    
     width: 100%;
-    height: 45.5vh;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
+    padding: 15px;
 }
 
 .cameraCat{
-    width: 230px;
-    height: 45.1vh;
+    width: 280px !important;
+    height: 60.1vh;
     text-decoration: none;
     margin-top: 5px;
-    background-color: #ff5050;
+    
 }
 .cameraCat:hover{
-    transform: translateY(-3.5px);
-    transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+    opacity: 0.7;
+    transition: 0.4s;
+    transform: translateY(-5px);
 }
 .catCameraImage{
     width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
     height: 60%;
-    align-items: center;
     background-size: 10px 20px;
-
 }
-
+.catCameraImage img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
 .CameraNameCategory{
-    height: 113px;
-    background-color: white;
-    padding: 10px;
+    padding: 5px;
+    text-align: center;
 }
 .CameraName{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 12vh;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+.CameraName:hover{
+    color: #1c96c5;
+}
+.ratingCamera{
+    margin-top: 20px;
 }
 .CameraPrice{
-    text-align: center;
-    font-size: 13px;
-    font-family: 'Roboto', sans-serif;
-}  */
-
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-top: -15px;   
+} 
 /* Gadget AD */
 .GadgetContainer{
     width: auto;
