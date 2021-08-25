@@ -6,10 +6,10 @@ import Slider from "react-slick";
 import './landing.css';
 
 
-class LaptopCategory extends Component {
-  
+class Men extends Component {
+
     state = {
-        gadget: [],
+        cosmetic: [],
         config: {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
@@ -18,19 +18,17 @@ class LaptopCategory extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/gadget/five", this.state)
+        axios.get("http://localhost:90/cosmetic/men", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
-                    gadget: response.data.data
+                    cosmetic: response.data.data
                 })
             })
             .catch((err) => {
                 console.log(err.response)
             })
-
     }
-
 
     render() {
         const settings = {
@@ -68,6 +66,15 @@ class LaptopCategory extends Component {
                   }
                 },
                 {
+                  breakpoint: 785,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
                   breakpoint: 1024,
                   settings: {
                     slidesToShow: 3,
@@ -80,15 +87,6 @@ class LaptopCategory extends Component {
                   breakpoint: 1000,
                   settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                  }
-                },
-                {
-                  breakpoint: 785,
-                  settings: {
-                    slidesToShow: 1,
                     slidesToScroll: 1,
                     infinite: true,
                     dots: false
@@ -115,53 +113,66 @@ class LaptopCategory extends Component {
 
         return (
             <>
-
-                {/* GADGET CATEGORY */}
-                <div className="container displayGadget">
-                    <div className="container showGadget">
-                        <div className="row gadgetBand">
-                            <p className="col-9 col-sm-11 txtGadget">Browse Laptops</p>
+                
+                <div className="container displayCosmetic">
+                    <div className="container showCosmetic">
+                        <div className="row cosmeticBand">
+                            <p className="col-9 col-sm-11 txtCosmetic">For Men</p>
                             <p className="col-3 col-sm-1 viewMore">View More</p>
-                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
+                           
                         </div>
-                        <Slider {...settings} className="mainCatGadget">
+                        <Slider {...settings} className="mainCatCosmetic">
+                        {/* <div className="row mainCatCosmetic col-sm-12"> */}
                             {
-                                this.state.gadget.map((g) => {
+                                this.state.cosmetic.map((c) => {
                                     return (
 
-                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
-                                            <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                         <a href={"/product/cosmetic/cosmeticdetails/" + c._id} className="col-6 cosmeticCat"> 
+                                            {/* <a href={"/product/cosmetic/cosmeticdetails/" + c._id}> */}
+                                            <div className="catCosmeticImage">
+                                                <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
                                             </div>
-                                            <div className="GadgetNameCategory">
-                                                <p className="GadgetName">
+                                            <div className="CosmeticNameCategory">
+                                                <p className="CosmeticName">&nbsp;
                                                     {
-                                                        g.gadgetname
-                                                    } {g.laptop.laptopModel} / {g.laptop.laptopRam} RAM / {g.laptop.laptopSize} / {g.laptop.laptopGraphic}/ {g.laptop.laptopProcessor} <br></br>
+                                                        c.cosmeticname
+                                                    }  {
+                                                      c.cosmeticmodel
+                                                  }<br></br>
 
                                                 </p>
-                                                <p className="ratingGadget">RATING</p>
-                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                                                <p className="CosmeticType">&nbsp;
                                                     {
-                                                        g.gadgetprice
+                                                        c.cosmetictype
                                                     }
 
                                                 </p>
+                                                <p className="cosmeticRating">RATING</p>
+                                                <p className="CosmeticPrice">NPR&nbsp;
+                                                    {
+                                                        c.cosmeticprice
+                                                    }
+
+                                                </p>
+                                                
+
+                                                {/* <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div> */}
                                             </div>
+                                            {/* </a> */}
                                         </a>
 
                                     )
                                 })
                             }
-                        {/* </div> */}
                         </Slider>
+                        {/* </div> */}
                     </div>
                 </div>
-
+              
             </>
         )
     }
 
 }
 
-export default LaptopCategory
+export default Men

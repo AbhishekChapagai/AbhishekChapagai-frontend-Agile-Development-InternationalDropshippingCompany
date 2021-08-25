@@ -1,89 +1,56 @@
-/* Landing Information */
-.infoLanding{
-     margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;    
+/* LandingAD */
+.imagead1{
+    width: 100%;
+    height: 65vh;
 }
-.displayInformation{
-    padding: 10px;
-    width: auto;
-    border:1px solid #e0e0e0;
-    border-radius: 25px;
+.imagead1 img{
+    width: 100%;
+    height: 65vh;
 }
-.infoOne{
-    border-right: 1px solid #e0e0e0;
-    font-family: 'Lato', sans-serif;
-}
-.infoOne p {
-    font-family: corbel;
-}
-.infoOne img{
-    width:120px;
-    height: 70px;
-}
-@media screen and (max-width: 480px) {
-    .infoOne img {
-        width:70px;
-        height: 30px;
-    }
-    .infoOne p {
-        font-size: 10px;
-    }
-  }
-  .infoTwo{
-    border-right: 1px solid #e0e0e0;
-    font-family: 'Lato', sans-serif;
-}
-.infoTwo p {
-    font-family: corbel;
-}
-.infoTwo img{
-    width:110px;
+  /* Slick arrow */
+.slick-arrow{
+    background-color: #e0e0e0;
     height: 80px;
+    width: 35px;
+    border-radius: 10px;
+    display: block;
 }
-
-@media screen and (max-width: 480px) {
-    .infoTwo img {
-        width:50px;
-        height: 35px;
-    }
-    .infoTwo p {
-        font-size: 10px;
-    }
-  }
-  .infoThree{
-    font-family: corbel;
-}
-.infoThree img{
-    width:90px;
+.slick-arrow:hover{
+    background-color: #c7c7c7;
     height: 80px;
+    width: 35px;
+    border-radius: 10px;
 }
-@media screen and (max-width: 480px) {
-    .infoThree img {
-        width:50px;
-        height: 35px;
-    }
-    .infoThree p {
-        font-size: 10px;
-    }
-  }
+.slick-arrow:active{
+    background-color: #969696;
+    color: white;
+}
+.slick-arrow:focus{
+    background-color: #969696;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
 /* Cosmetic category CSS */
 .displayCosmetic{
     width: auto;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 .showCosmetic{
     background-color: white;
     border-radius: 3px;
+    border: 1px solid #e0e0e0;
     }
 .cosmeticBand{
     padding: 5px;  
 }
 .txtCosmetic{
-    font-size: 26px;
+    font-size: 24px;
     word-spacing: 5px;
-    font-weight: bold;
-    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
     
 } 
 .viewMore{
@@ -99,30 +66,27 @@
 }
 
 .viewMore:hover{
-    color: #1c96c5;
+    color: black;
 }
 .mainCatCosmetic{
     width: 100%;
     padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .cosmeticCat{    
-    width: 230px;
-    height: 40.1vh;
+    width: 280px !important;
+    height: 50.1vh;
     text-decoration: none;
+    margin-top: 5px;
 }
 .cosmeticCat:hover{
-    border: 1px solid white;
+    opacity: 0.7;
+    transition: 0.4s;
+    transform: translateY(-5px);
 }
 .catCosmeticImage{
     width: 100%;
     height: 60%;
-    align-items: center;
-    background-size: 10px 20px;
-
 }
 
 .catCosmeticImage img{
@@ -131,30 +95,34 @@
     cursor: pointer;
 }
 .CosmeticNameCategory{
-    height: 120px;  
+    height: 110px;
+    padding: 5px;
+    text-align: center;
 }
 .CosmeticName{
 
     font-size: 16px;
     color: black;
-    font-weight: bold;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
     margin-bottom: 0px;
 }
 .CosmeticType{
-    /* text-align: center; */
     font-size: 13px;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
     color: black;
     margin-bottom: 10px;
 }
+.cosmeticRating{
+    margin-top: 25px;
+}
 .CosmeticPrice{
     font-size: 18px;
     color: black;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
+    margin-top: -15px;
     cursor: pointer;
 }
 
@@ -181,11 +149,12 @@
 .displayGadget{
     width: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .showGadget{
     background-color: white;
     border-radius: 3px;
-
+    border: 1px solid #e0e0e0;
 }
 .gadgetBand{
     padding: 5px;
@@ -194,7 +163,7 @@
 .txtGadget{
     font-size: 26px;
     word-spacing: 5px;
-    font-weight: bold;
+    font-weight: 800;
     font-family: 'Lato', sans-serif;
 } 
 .viewMoreGadget{
@@ -203,7 +172,6 @@
     color: gray;
     padding: 15px;
     font-size: 12px;
-    /* letter-spacing: 1px; */
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
@@ -213,26 +181,24 @@
 }
 .mainCatGadget{
     width: 100%;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 15px;
 }
 
 .gadgetCat{
-    width: 230px;
-    height: 40.1vh;
+    width: 280px !important;
+    height: 60.1vh;
     text-decoration: none;
-    /* border: 1px solid #e0dfdc; */
-    border-radius: 5px;
+    margin-top: 5px;
+    
 }
 .gadgetCat:hover{
-    border: 1px solid white;
+    opacity: 0.7;
+    transition: 0.4s;
+    transform: translateY(-5px);
 }
 .catGadgetImage{
     width: 100%;
     height: 60%;
-    align-items: center;
     background-size: 10px 20px;
 }
 .catGadgetImage img{
@@ -241,22 +207,22 @@
     cursor: pointer;
 }
 .GadgetNameCategory{
-    height: 120px;
+    padding: 5px;
+    text-align: center;
 }
 .GadgetName{
     font-size: 16px;
+    height: 12vh;
     color: black;
-    font-weight: bold;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
     margin-bottom: 0px;
 }
-.GadgetType{
-    font-size: 13px;
-    font-family: 'Lato', sans-serif;
-    cursor: pointer;
-    color: black;
-    margin-bottom: 10px;
+.GadgetName:hover{
+    color: #1c96c5;
+}
+.ratingGadget{
+    margin-top: 20px;
 }
 .GadgetPrice{
     font-size: 18px;
@@ -264,192 +230,151 @@
     font-weight: bold;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
+    margin-top: -15px;   
 } 
-
-
-/* camera category CSS */
-/* .displayCamera{
-    width: 100%;
-    height: 58vh;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: #f7f7f7;
-}
-.showCamera{
-    width: 100%;
-    height: 65.2vh;
-    background-color: #f7f7f7;
-    }
-.cameraBand{
-    width: 100%;
-    height: 65px;
-    background-color: #f7f7f7;
-    padding: 10px;
-    text-align: center;   
-}
-
-.txtCamera{
-    font-size: 19px;
-    word-spacing: 5px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-}
-.viewMoreCamera{
-    height: 3.5vh;
-    width: 7%;
-    background-color: #1c96c5;
-    text-align: center;
-    color: white;
-    padding: 2px;
-    float: right;
-    font-size: 15px;
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.viewMoreCamera:hover{
-    transform: translateY(-5px);
-    transition: 0.5s;
-}
-.mainCatCamera{
-    background-color: white;    
-    width: 100%;
-    height: 45.5vh;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.cameraCat{
-    width: 200px;
-    height: 37.1vh;
-}
-.cameraCat:hover{
-    transform: translateY(-3.5px);
-    transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
-}
-.catCameraImage{
-    width: 100%;
-    height: 60%;
-    align-items: center;
-    background-size: 10px 20px;
-}
-.catGadgetImage img{
-    width: 100%;
-    height: 100%;
-}
-
-.GadgetName{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-}
-.GadgetPrice{
-    text-align: center;
-    font-size: 13px;
-    font-family: 'Roboto', sans-serif;
-} 
-
 
 /* camera category CSS */
 .displayCamera{
-    width: 100%;
-    height: 58vh;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: #f7f7f7;
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .showCamera{
-    width: 100%;
-    height: 65.2vh;
-    background-color: #f7f7f7;
-    }
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #e0e0e0;
+}
 .cameraBand{
-    width: 100%;
-    height: 65px;
-    background-color: #f7f7f7;
-    padding: 10px;
-    text-align: center;   
+    padding: 5px;
 }
 
 .txtCamera{
-    font-size: 19px;
+    font-size: 26px;
     word-spacing: 5px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-}
+    font-weight: 800;
+    font-family: 'Lato', sans-serif;
+} 
 .viewMoreCamera{
-    height: 3.5vh;
-    width: 7%;
-    background-color: #1c96c5;
+    height: 4.5vh;
     text-align: center;
-    color: white;
-    padding: 2px;
-    float: right;
-    font-size: 15px;
-    border-radius: 5px;
+    color: gray;
+    padding: 15px;
+    font-size: 12px;
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 
 .viewMoreCamera:hover{
-    transform: translateY(-5px);
-    transition: 0.5s;
+    color: #1c96c5;
 }
 .mainCatCamera{
-    background-color: white;    
     width: 100%;
-    height: 45.5vh;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
+    padding: 15px;
 }
 
 .cameraCat{
-    width: 200px;
-    height: 37.1vh;
+    width: 280px !important;
+    height: 60.1vh;
+    text-decoration: none;
+    margin-top: 5px;
+    
 }
 .cameraCat:hover{
-    transform: translateY(-3.5px);
-    transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+    opacity: 0.7;
+    transition: 0.4s;
+    transform: translateY(-5px);
 }
 .catCameraImage{
     width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
     height: 60%;
-    align-items: center;
     background-size: 10px 20px;
-
 }
-
+.catCameraImage img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
 .CameraNameCategory{
-    height: 113px;
-    background-color: white;
-    padding: 10px;
+    padding: 5px;
+    text-align: center;
 }
 .CameraName{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 12vh;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+.CameraName:hover{
+    color: #1c96c5;
+}
+.ratingCamera{
+    margin-top: 20px;
 }
 .CameraPrice{
-    text-align: center;
-    font-size: 13px;
-    font-family: 'Roboto', sans-serif;
-}  */
-
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-top: -15px;   
+} 
 /* Gadget AD */
 .GadgetContainer{
     width: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+/* Gadgets by brand */
+.brandContainer{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.showBrands{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.rowBrands{
+    padding: 10px;
+}
+.colBrands{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lenovo{
+    width: 120px;
+    cursor: pointer;
+}
+.dell{
+    cursor: pointer;
+}
+.msi{
+    padding: 5px;
+    cursor: pointer;
+}
+.arous{
+    cursor: pointer;
+}
+.acer{
+    cursor: pointer;
+}
+.asus{
+    cursor: pointer;
+}
+.hp{
+    cursor: pointer;
+}
+.razer{
+    cursor: pointer;
+}
+.apple{
+    cursor: pointer;
+}
+.microsoft{
+    cursor: pointer;
 }

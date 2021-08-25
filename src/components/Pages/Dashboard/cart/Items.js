@@ -1,32 +1,17 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { Component } from "react";
+import CartList from "./CartList";
 
 class Items extends Component {
 
-
   state = {
-    quantity: 1,
     gadgetcart: [],
     config: {
       headers: {
         'authorization': `Bearer ${localStorage.getItem('token')}`
       }
     }
-  }
-
-  componentDidMount() {
-    axios.get(`http://localhost:90/mycart/showall`, this.state.config)
-      .then((response) => {
-        console.log(response)
-        this.setState({
-          gadgetcart: response.data.data
-        })
-      })
-      .catch((err) => {
-        console.log(err.response)
-      })
-    console.log(this.state.gadgetcart.length)
   }
 
   changeHandler = (e) => {
@@ -47,8 +32,10 @@ class Items extends Component {
     window.location.reload(false);
   }
 
-  itemPlus = () => {
-    this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
+  itemPlus = (i) => {
+    this.setState({
+      quantity: parseInt(this.state.quantity) + parseInt(1)
+    })
   }
 
   itemMinus = () => {
@@ -58,8 +45,22 @@ class Items extends Component {
       this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
     }
     else {
-      {alert("remove product!")}
+      { alert("minimum quantity reached!!") }
     }
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:90/mycart/showall`, this.state.config)
+      .then((response) => {
+        console.log(response)
+        this.setState({
+          gadgetcart: response.data.data
+        })
+      })
+      .catch((err) => {
+        console.log(err.response)
+      })
+
   }
 
   render() {
@@ -68,37 +69,11 @@ class Items extends Component {
         this.state.gadgetcart.map((cart) => {
           return (
             <div>
-              <div className="items-info">
-                <div className="product-img">
-                  <img src={"http://localhost:90/gadget/" + cart.productimage} alt="img" />
-                </div>
-
-                <div className="title">
-                  <h2><a href={"/product/cosmetic/cosmeticdetails/" + cart.productid}>{cart.productname}</a></h2>
-                  <p>{cart.producttype}</p>
-                </div>
-
-                <div className="add-minus-quantity">
-                  <button className="fas fa-minus minus" onClick={this.itemMinus}></button>
-                  <input type="text" value={this.state.quantity = cart.quantity} onChange={this.changeHandler} disabled />
-                  <button className="fas fa-plus add" onClick={this.itemPlus}></button>
-
-                </div>
-                <div className="item-price">
-                  <h3>nrs. {cart.productprice * cart.quantity}/-</h3>
-                </div>
-                <div className="remove-item" >
-                  <i
-                    className="fas fa-trash-alt remove" onClick={this.removeItem.bind(this, cart._id)}
-                  ></i>
-                </div>
-              </div>
-              <hr />
-            </div>
+              <CartList cart={cart} removeItem={this.removeItem} />
+            </div >
           )
         })
       }
-
       </>
     }
 

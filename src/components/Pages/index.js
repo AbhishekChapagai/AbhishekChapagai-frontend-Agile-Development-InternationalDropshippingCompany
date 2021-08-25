@@ -4,8 +4,11 @@ import LaptopCategory from './LandingPage/laptop'
 import LandingComponent from './LandingPage/landing'
 import CameraCategory from './LandingPage/camera'
 import Gadget from './LandingPage/gadgetAD'
-import InformationLanding from './LandingPage/landingInfo'
 import Footer from '../Footer/Footer'
+import Featured from './LandingPage/featuredGadgets'
+import Brands from './LandingPage/browsebyBrands'
+import LandingAD from './LandingPage/landingAD'
+import Men from './LandingPage/forMen'
 
 
 
@@ -13,13 +16,16 @@ import Footer from '../Footer/Footer'
 const Home = () => {
 
     return (
-        <>  <div className="LandingBody ">
+        <>  <div className="LandingBody" style={{backgroundColor: '#f2f2f2'}} >
             
-            <LandingComponent />
-            <InformationLanding/>
+            {/* <LandingComponent /> */}
+            <LandingAD/>
             <CosmeticCategory />
+            <Men/>
             <Gadget/>
             <LaptopCategory />
+            <Brands/>
+            <Featured/>
             <CameraCategory/>
             <Footer/>
             </div>

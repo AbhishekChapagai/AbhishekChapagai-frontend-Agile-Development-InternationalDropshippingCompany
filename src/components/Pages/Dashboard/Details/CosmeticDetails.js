@@ -34,7 +34,7 @@ class CosmeticDetails extends Component {
     }
     Addtocart() {
         const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
-        axios.post(`http://localhost:90/cosmeticcart/insert/`, data)
+        axios.post(`http://localhost:90/mycart/insert/`, data)
 
             .then((response) => {
                 console.log("successful")
@@ -53,7 +53,7 @@ class CosmeticDetails extends Component {
             .catch((err) => {
                 console.log(err)
 
-                toast.error('Product already exist in cart!', {
+                toast.warning('Product already exist in cart!', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -76,7 +76,7 @@ class CosmeticDetails extends Component {
             this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
         }
         else {
-            alert("Can't add product with quantity less than 1!")
+            alert("Minimum quantity reached!")
         }
     }
 
@@ -119,9 +119,9 @@ class CosmeticDetails extends Component {
                                             <div className="section" >
                                                 <h6 className="title-attr"><small>Quantity</small></h6>
                                                 <div>
-                                                    <div className="btn-minus" onClick={this.itemMinus}><button className="glyphicon glyphicon-minus">-</button></div>
+                                                    <div className="btn-minus" onClick={this.itemMinus}><i class="fas fa-minus"></i></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                    <div className="btn-plus" onClick={this.itemPlus}><button className="bi bi-plus">+</button></div>
+                                                    <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
                                                 </div>
                                             </div>
 

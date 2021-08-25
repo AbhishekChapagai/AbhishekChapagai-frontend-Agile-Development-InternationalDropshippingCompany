@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import './landing.css';
 
 
@@ -30,42 +33,116 @@ class CameraCategory extends Component {
 
 
     render() {
+        const settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1265,
+                  settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1201,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1080,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 1000,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 785,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 640,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+
+        };
 
         return (
             <>
 
                 {/* CAMERA CATEGORY */}
-                <div className="container displayGadget">
-                    <div className="container showGadget">
-                        <div className="row gadgetBand">
-                            <p className="col-9 col-sm-11 txtGadget">Popular cameras</p>
+                <div className="container displayCamera">
+                    <div className="container showCamera">
+                        <div className="row cameraBand">
+                            <p className="col-9 col-sm-11 txtCamera">Browse Cameras</p>
                             <p className="col-3 col-sm-1 viewMore">View More</p>
-                            {/* <p className="txtGProduct"> Products</p> */}
-                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
+    
                         </div>
-                        <div className="row mainCatGadget col-sm-12">
+                        <Slider {...settings} className="mainCatCamera">
                             {
                                 this.state.gadget.map((g) => {
                                     return (
 
-                                        <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
+                                        <a href ={"/product/gadget/cameradetails/" + g._id} className="col-6 cameraCat">
                                             <div className="catGadgetImage">
                                                 <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
                                             </div>
-                                            <div className="GadgetNameCategory">
-                                                <p className="GadgetName">&nbsp;
+                                            <div className="CameraNameCategory">
+                                                <p className="CameraName">&nbsp;
                                                     {
                                                         g.gadgetname
-                                                    }<br></br>
+                                                    } {g.camera.cameraModel} / {g.camera.cameraType} / {g.camera.cameraResolution}/ {g.camera.cameraSensorType} / {g.camera.cameraConnectivity} / {g.camera.cameraBatteryCapacity}<br></br>
 
                                                 </p>
-                                                <p className="GadgetType">&nbsp;
-                                                    {
-                                                        g.gadgetdescription
-                                                    }<br></br>
-
-                                                </p>
-                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                              
+                                                <p className="ratingCamera">RATING</p>
+                                                <p className="CameraPrice">&nbsp;Rs&nbsp;
                                                     {
                                                         g.gadgetprice
                                                     }
@@ -77,7 +154,7 @@ class CameraCategory extends Component {
                                     )
                                 })
                             }
-                        </div>
+                        </Slider>
 
                     </div>
                 </div>

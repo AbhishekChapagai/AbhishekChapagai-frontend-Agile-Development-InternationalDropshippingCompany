@@ -22,8 +22,8 @@
   height: 430px;
   background: linear-gradient(
     103.49deg,
-    #d6cfcf -28.13%,
-    rgba(242, 247, 255, 0.5) 116.84%
+    #e4f0f2 -40.13%,
+    #00bee8 130.84%
   );
   box-shadow: rgba(0, 0, 0, 0.08) 0rem 0.4rem 1.2rem;
   border-radius: 0.5rem;
@@ -204,6 +204,10 @@
 /* hover effects  */
 .fa-trash-alt {
   color: #ed4848;
+}
+
+.fa-edit{
+  color: #008c09;
 }
 
 .fa-plus:hover {

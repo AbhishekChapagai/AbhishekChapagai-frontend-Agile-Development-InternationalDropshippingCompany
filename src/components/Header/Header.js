@@ -45,14 +45,14 @@ class Header extends Component {
     if (localStorage.getItem('userType') === 'User') {
       if (localStorage.getItem('verified') === 'true') {
         var navbar = <>
-          <Navbar collapseOnSelect expand="sm">
+          <Navbar collapseOnSelect expand="md">
             <Container>
               <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto mb-1">
-                  <LinkContainer exact to="/profile" className="mobile_show">
+                  <LinkContainer exact to="/user/profile" className="mobile_show">
                     <Nav.Link>
                       <div className="nav_profile_link">
                         <div className="nav_profile_icon">
@@ -92,14 +92,18 @@ class Header extends Component {
                     <Nav.Link>Request Product</Nav.Link>
                   </LinkContainer>
 
-
-
                   <LinkContainer exact to="/cart" className="mobile_show">
                     <Nav.Link>Cart</Nav.Link>
                   </LinkContainer>
                 </Nav>
 
                 <Nav>
+
+                  <div className="search_container">
+                    <input className="search_input" type="text" placeholder="Search" />
+                    <i className="fas fa-search search_icon_nav"></i>
+                  </div>
+
                   <div className="mobile_hidden nav_profile">
                     <ProfileMenu />
                   </div>
@@ -164,7 +168,7 @@ class Header extends Component {
     }
     else {
       navbar = <>
-        <Navbar collapseOnSelect expand="sm">
+        <Navbar collapseOnSelect expand="md">
           <Container>
             <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -190,9 +194,18 @@ class Header extends Component {
                     </LinkContainer>
                   </NavDropdown>
                 </LinkContainer>
+
+                <LinkContainer exact to="/about">
+                  <Nav.Link>About</Nav.Link>
+                </LinkContainer>
               </Nav>
 
               <Nav>
+                <div className="search_container">
+                  <input className="search_input" type="text" placeholder="Search" />
+                  <i className="fas fa-search search_icon_nav"></i>
+                </div>
+
                 <Link exact to="/login">
                   <button type="submit" className="btn btn_p_c"><i class="fas fa-sign-in-alt"></i>  Login </button>
                 </Link>

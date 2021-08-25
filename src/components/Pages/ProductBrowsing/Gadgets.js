@@ -103,10 +103,21 @@ class gadgets extends Component {
 
                                                     </p>
 
-                                                </div></a>
-                                    }
-                                    <div className="gadgetsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-                                </div>
+                                                </div></a>) :
+                                                <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
+                                                    <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                </div>
+                                                    <div className="GadgetsNameCategory">
+                                                        <p className="GadgetsName">&nbsp;
+                                                            {
+                                                                g.gadgetname 
+                                                            }<br></br>
+
+                                                        </p>
+                                                        <p className="GadgetsPrice">&nbsp;Rs&nbsp;
+                                                            {
+                                                                g.gadgetprice
+                                                            }
 
                             )
                         })
