@@ -47,7 +47,8 @@ class Profile extends Component {
                                     <p className="manageAccount">Manage your account</p>
                                     <Link to="/user/profile"><a className="active">My Profile</a></Link>
                                     <Link to="/user/address"><a href="#address" className="sidebara">My Address</a></Link>
-                                    <Link><a href="#order" className="sidebara">My Order</a></Link>
+                                    <Link to="/user/myorder"><a className="sidebara">My Order</a></Link>
+                                   
                                 </div>
                             </div>
                             <div className="cardSection col-xl-10 col-lg-10 col-md-9 col-sm-12 ">

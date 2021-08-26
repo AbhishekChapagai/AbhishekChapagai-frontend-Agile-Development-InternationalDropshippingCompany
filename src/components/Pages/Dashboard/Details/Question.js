@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from 'react';
 import './Question.css';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
 class Questions extends Component {
     state = {
@@ -8,7 +9,10 @@ class Questions extends Component {
         firstName: '',
         lastName: '',
         askQuestion: '',
-        questions: []
+        questions: [],
+        config: {
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        }
 
     }
     changeHandler = (e) => {
@@ -21,10 +25,12 @@ class Questions extends Component {
 
         e.preventDefault();
         const question_data = { productId: this.state.productId, firstName: this.state.firstName, lastName: this.state.lastName, askQuestion: this.state.askQuestion }
-        axios.post("http://localhost:90/question/ask", question_data)
+        axios.post("http://localhost:90/question/ask", question_data, this.state.config)
             .then((response) => {
+                window.location.href = ""
                 this.setState({
                     success: response.data.success
+
                 })
             })
             .catch((err) => {
@@ -67,28 +73,42 @@ class Questions extends Component {
 
                             </div>
                             <div class="card question-card p-3">
+                                <p>Other User Questions</p>
                                 {this.state.questions.map((q) => {
                                     return (
                                         <>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="user d-flex flex-row align-items-center"> <i class="fas fa-question-circle"></i>
-                                                    <span> <small class=" ques">{q.askQuestion}</small></span> </div>
-                                            </div>
-                                            <div >
-                                                <small class=" username_ques"> {q.firstName}</small>
-                                            </div>
+                                            {q.answer ?
+                                                <>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="user d-flex flex-row align-items-center"> {<i class="fas fa-question-circle"></i>}
+                                                            <span> <small class=" ques">{q.askQuestion}</small></span> </div>
+                                                    </div>
+                                                    <div >
+                                                        <small class=" username_ques"> {q.firstName}{q.lastName}</small>
+                                                    </div>
 
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="user d-flex flex-row align-items-center"> <i class="fab fa-autoprefixer"></i>
-                                                    <span> <small class="font-weight-bold ques">{q.answer}</small></span> </div>
-                                            </div>
-                                            <div className="question_border">
-                                                <small class="username_ques "></small>
-                                            </div>
-
-
-
-
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="user d-flex flex-row align-items-center"> <i class="fab fa-autoprefixer"></i>
+                                                            <span> <small class="font-weight-bold ques">{q.answer}</small></span> </div>
+                                                    </div>
+                                                    <div className="question_border">
+                                                        <small class="username_ques "></small>
+                                                    </div>
+                                                </>
+                                                :
+                                                <>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="user d-flex flex-row align-items-center"> <i class="fas fa-question-circle"></i>
+                                                            <span> <small class=" ques">{q.askQuestion}</small></span> </div>
+                                                    </div>
+                                                    <div >
+                                                        <small class=" username_ques"> {q.firstName} {q.lastName}</small>
+                                                    </div>
+                                                    <div className="question_border">
+                                                        
+                                                    </div>
+                                                </>
+                                            }
                                         </>
                                     )
                                 })}
@@ -101,7 +121,9 @@ class Questions extends Component {
 
         </>
 
-        return (Questions)
+        return (
+            Questions
+        )
     }
 }
 export default Questions;
