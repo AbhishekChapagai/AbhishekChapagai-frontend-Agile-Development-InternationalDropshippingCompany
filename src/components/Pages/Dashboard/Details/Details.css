@@ -1,7 +1,9 @@
 
 /*****************globals*************/
 body {
-    overflow-x: hidden; }
+    overflow-x: hidden; 
+  /* background-color:rgb(242, 242, 242); */
+  }
   
   img {
     max-width: 100%; }
@@ -52,7 +54,7 @@ body {
       -webkit-animation-duration: .3s;
               animation-duration: .3s; }
   
-  .card {
+  .details-card {
     margin-top: 50px;
     background: #fff;
     padding: 3em;
@@ -118,17 +120,25 @@ body {
       margin-left: 20px; }
   
   .add-to-cart, .like {
-    background: #1c96c5;
+    background-color: #1c96c5;
+    color: #fff;
+    font-weight: 600;
     padding: 1.2em 1.5em;
     text-transform: UPPERCASE;
     font-weight: bold;
     margin-right: 20px;
-    /* color: #fff; */
     -webkit-transition: background .3s ease;
             transition: background .3s ease; }
-    .add-to-cart:hover, .like:hover {
-      background: #1c96c5;
-      color: #fff; }
+    .add-to-cart:hover  {
+      background-color: #075d80;
+      color: #fff;
+  } 
+  .like:hover{
+    color: red;
+  }
+  .wishlist{
+    font-size: 20px;
+  }
   
   .not-available {
     text-align: center;
@@ -191,7 +201,25 @@ body {
     max-width:18%;
     text-align:center;}
   
-  
+    .image-gallery-slide .image-gallery-image{
+      height: 300px;
+    }
+    .image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+      height: 45px !important;
+    }
+     .image-gallery-play-button .image-gallery-svg{
+      height: 20px !important;
+      width: 20px !important;
+    }
+    .image-gallery-fullscreen-button .image-gallery-svg{
+      width: 0px !important;
+      height: 0px !important;
+    }
+    .image-gallery-thumbnail .image-gallery-thumbnail-image{
+      height: 70px;
+    }
+
+
   
   .tooltip-inner {
     padding: 1.3em; }
@@ -236,6 +264,7 @@ body {
     margin-bottom: 20px;
     border: 1px solid rgba(0,0,0,.125);
     box-shadow: 5px 5px 5px 5px #f7f7f7;
+    background-color: white;
     
   }
   .product-row{
@@ -253,6 +282,7 @@ body {
   line-height: 1.5;
   margin-top: 20px;
   border: 1px solid rgba(0,0,0,.125);
+  background-color: white;
   box-shadow: 5px 5px 5px 5px #f7f7f7;
 }
 
@@ -302,5 +332,7 @@ font-size: 100px;
     background: #efefef;
     text-align: center;
   }
-
+.btn-quan{
+  background-color: white;
+}
    
