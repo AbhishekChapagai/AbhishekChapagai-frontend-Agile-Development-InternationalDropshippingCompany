@@ -21,8 +21,9 @@ import MyOrder from '../Pages/Dashboard/UserProfile/MyOrder';
 import Cart from '../Pages/Dashboard/cart/ContextCart';
 import VerifyEmail from '../Auth/VerifyEmail';
 import EmailVerified from '../Auth/EmailVerified';
-import ForgotPassword from '../Pages/LoginRegister/ForgotPassword'
-import SimpleRating from '../Pages/Dashboard/Details/rating'
+import ForgotPassword from '../Pages/LoginRegister/ForgotPassword';
+import SimpleRating from '../Pages/Dashboard/Details/rating';
+import AdminDashboard from '../Pages/AdminDashboard/index';
 
 require('dotenv').config();
 
@@ -85,6 +86,7 @@ function App() {
       <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
       <Route exact path="/cart" component={Cart} />
       <Route exact path="/rating" component={SimpleRating} />
+      <Route exact path="/admin/dashboard" component={AdminDashboard} />
     </>
 
   )

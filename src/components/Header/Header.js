@@ -47,7 +47,7 @@ class Header extends Component {
         var navbar = <>
           <Navbar collapseOnSelect expand="md">
             <Container>
-              <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+              <Navbar.Brand href="/"> <i className="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
               <Navbar.Collapse id="responsive-navbar-nav">
@@ -100,7 +100,7 @@ class Header extends Component {
                 <Nav>
 
                   <div className="search_container">
-                    <input className="search_input" type="text" placeholder="Search" />
+                    <input className="search_input" type="text" placeholder="Search..." />
                     <i className="fas fa-search search_icon_nav"></i>
                   </div>
 
@@ -109,7 +109,7 @@ class Header extends Component {
                   </div>
 
                   <Link>
-                    <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i class="fas fa-sign-out-alt"></i>  Logout </button>
+                    <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i className="fas fa-sign-out-alt"></i>  Logout </button>
                   </Link>
                 </Nav>
               </Navbar.Collapse>
@@ -122,7 +122,7 @@ class Header extends Component {
         navbar = <>
           <Navbar collapseOnSelect expand="sm">
             <Container>
-              <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+              <Navbar.Brand href="/"> <i className="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
               <Navbar.Collapse id="responsive-navbar-nav">
@@ -151,7 +151,7 @@ class Header extends Component {
                   </div>
 
                   <Link>
-                    <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i class="fas fa-sign-out-alt"></i>  Logout </button>
+                    <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i className="fas fa-sign-out-alt"></i>  Logout </button>
                   </Link>
                 </Nav>
               </Navbar.Collapse>
@@ -163,14 +163,84 @@ class Header extends Component {
     }
     else if (localStorage.getItem('userType') === 'Admin') {
       navbar = <>
-        HEllo
+        <Navbar collapseOnSelect expand="md">
+          <Container>
+            <Navbar.Brand href="/admin/dashboard"> <i className="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto mb-1">
+                <LinkContainer exact to="/user/profile" className="mobile_show">
+                  <Nav.Link>
+                    <div className="nav_profile_link">
+                      <div className="nav_profile_icon">
+                        <Avatar src={`${process.env.REACT_APP_BACKEND_URL}/userImg/` + this.state.img} />
+                      </div>
+
+                      <div className="nav_profile_detatil">
+                        <span className="mobile_profile nav_name_mob"> {this.state.firstName} {this.state.lastName} </span>
+                        <br />
+                        <span className="mobile_profile"> See your Profile </span>
+                      </div>
+                    </div>
+                  </Nav.Link>
+                </LinkContainer>
+
+                <LinkContainer exact to="/admin/dashboard">
+                  <Nav.Link>Home</Nav.Link>
+                </LinkContainer>
+
+                <LinkContainer to="/product" >
+                  <NavDropdown title="Product" id="collasible-nav-dropdown">
+                    <LinkContainer exact to="/product/cosmetics">
+                      <NavDropdown.Item >
+                        Cosmetic
+                      </NavDropdown.Item>
+                    </LinkContainer>
+
+                    <LinkContainer exact to="/product/gadgets">
+                      <NavDropdown.Item>
+                        Gadget
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+                </LinkContainer>
+
+                <LinkContainer exact to="/user/product/request">
+                  <Nav.Link>Request Product</Nav.Link>
+                </LinkContainer>
+
+                <LinkContainer exact to="/cart" className="mobile_show">
+                  <Nav.Link>Cart</Nav.Link>
+                </LinkContainer>
+              </Nav>
+
+              <Nav>
+
+                <div className="search_container">
+                  <input className="search_input" type="text" placeholder="Search..." />
+                  <i className="fas fa-search search_icon_nav"></i>
+                </div>
+
+                <div className="mobile_hidden nav_profile">
+                  <ProfileMenu />
+                </div>
+
+                <Link>
+                  <button type="submit" onClick={this.logout} className="btn btn_p_c mobile_show"><i className="fas fa-sign-out-alt"></i>  Logout </button>
+                </Link>
+              </Nav>
+            </Navbar.Collapse>
+
+          </Container>
+        </Navbar>
       </>
     }
     else {
       navbar = <>
         <Navbar collapseOnSelect expand="md">
           <Container>
-            <Navbar.Brand href="/"> <i class="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
+            <Navbar.Brand href="/"> <i className="fas fa-paper-plane"></i> dhuwani</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -202,12 +272,12 @@ class Header extends Component {
 
               <Nav>
                 <div className="search_container">
-                  <input className="search_input" type="text" placeholder="Search" />
+                  <input className="search_input" type="text" placeholder="Search..." />
                   <i className="fas fa-search search_icon_nav"></i>
                 </div>
 
                 <Link exact to="/login">
-                  <button type="submit" className="btn btn_p_c"><i class="fas fa-sign-in-alt"></i>  Login </button>
+                  <button type="submit" className="btn btn_p_c"><i className="fas fa-sign-in-alt"></i>  Login </button>
                 </Link>
               </Nav>
             </Navbar.Collapse>

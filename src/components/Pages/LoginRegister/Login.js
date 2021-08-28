@@ -1,7 +1,7 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
 
@@ -78,9 +78,9 @@ class Login extends Component {
                         {/* logo */}
                         <div className="l_left_logo">
                             {/* <img src={Logo} alt="logo" /> */}
-                            <Link className="logoLink" exact to="/">
+                            <Link className="logoLink" to="/">
                                 <span>
-                                    <i class="fas fa-paper-plane"></i> Dhuwani
+                                    <i className="fas fa-paper-plane"></i> dhuwani
                                 </span>
                             </Link>
                         </div>
@@ -88,7 +88,7 @@ class Login extends Component {
                         {/* form */}
                         <div className="l_left_form">
                             <div className="l_heading">
-                                <h2 className="mb-3"> Login to Dhuwani</h2>
+                                <h2 className="mb-3"> Login to dhuwani</h2>
                                 {/* <p> Moto </p> */}
                             </div>
 
@@ -123,7 +123,7 @@ class Login extends Component {
 
 
                                 <p className="l_form_login">
-                                    No account? <a className="l_link" href="/register"> Join Dhuwani</a>
+                                    No account? <Link className="l_link" to="/register"> Join dhuwani</Link>
                                 </p>
                             </div>
 
@@ -133,7 +133,7 @@ class Login extends Component {
 
                     {/* bottom container */}
                     <div className="l_left_bottom">
-                        <span> &copy; 2021 Dhuwani | Kathmandu, Nepal</span>
+                        <span> &copy; 2021 dhuwani | Kathmandu, Nepal</span>
                     </div>
                 </div>
 

@@ -83,8 +83,8 @@ class Register extends Component {
                         <div className="r_left_logo">
                             {/* <img src={Logo} alt="logo" /> */}
                             <span>
-                                <Link className="logoLink" exact to="/">
-                                    <i class="fas fa-paper-plane"></i> Dhuwani
+                                <Link className="logoLink" to="/">
+                                    <i className="fas fa-paper-plane"></i> dhuwani
                                 </Link>
                             </span>
                         </div>
@@ -92,7 +92,7 @@ class Register extends Component {
                         {/* form */}
                         <div className="r_left_form">
                             <div className="r_heading">
-                                <h2> Join Dhuwani </h2>
+                                <h2> Join dhuwani </h2>
                                 {/* <p> Moto </p> */}
                             </div>
 
@@ -160,7 +160,7 @@ class Register extends Component {
 
                     {/* bottom container */}
                     <div className="r_left_bottom">
-                        <span> &copy; 2021 Dhuwani | Kathmandu, Nepal</span>
+                        <span> &copy; 2021 dhuwani | Kathmandu, Nepal</span>
                     </div>
                 </div>
 
