@@ -18,6 +18,7 @@ import Profile from '../Pages/Dashboard/UserProfile/userProfile';
 import Address from '../Pages/Dashboard/UserProfile/address';
 import EditProfile from '../Pages/Dashboard/UserProfile/profileEdit';
 import Cart from '../Pages/Dashboard/cart/ContextCart';
+import Checkout from '../Pages/Dashboard/cart/Checkout';
 import VerifyEmail from '../Auth/VerifyEmail';
 import EmailVerified from '../Auth/EmailVerified';
 import ForgotPassword from '../Pages/LoginRegister/ForgotPassword'
@@ -81,6 +82,7 @@ function App() {
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
       <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
       <Route exact path="/cart" component={Cart} />
+      <Route exact path="/checkout" component={Checkout} />
     </>
 
   )
