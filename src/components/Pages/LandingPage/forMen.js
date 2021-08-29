@@ -35,7 +35,7 @@ class Men extends Component {
             dots: false,
             infinite: false,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 1,
             responsive: [
                 {
@@ -116,9 +116,8 @@ class Men extends Component {
                 
                 <div className="container displayCosmetic">
                     <div className="container showCosmetic">
-                        <div className="row cosmeticBand">
-                            <p className="col-9 col-sm-11 txtCosmetic">For Men</p>
-                            <p className="col-3 col-sm-1 viewMore">View More</p>
+                        <div className="cosmeticBand">
+                        <h1 className="txtCamera"><span>For Men<strong>M</strong></span></h1>
                            
                         </div>
                         <Slider {...settings} className="mainCatCosmetic">

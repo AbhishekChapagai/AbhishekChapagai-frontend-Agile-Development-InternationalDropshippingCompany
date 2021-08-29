@@ -1,51 +1,66 @@
 /* LandingAD */
 .imagead1{
     width: 100%;
-    height: 65vh;
+    height: 92vh;
 }
 .imagead1 img{
     width: 100%;
-    height: 65vh;
+    height: 92vh;
 }
   /* Slick arrow */
 .slick-arrow{
-    background-color: #e0e0e0;
+    background-color: #e4e4e4;
     height: 80px;
     width: 35px;
-    border-radius: 10px;
-    display: block;
+    visibility: hidden;
 }
 .slick-arrow:hover{
-    background-color: #c7c7c7;
+    background-color: #e4e4e4;
     height: 80px;
     width: 35px;
-    border-radius: 10px;
+    transition: 0.3s;
 }
 .slick-arrow:active{
-    background-color: #969696;
+    background-color: #ebebeb;
     color: white;
 }
 .slick-arrow:focus{
-    background-color: #969696;
+    background-color: #d3d3d3;
+}
+.slick-prev{
+    border-radius: 0 3px 3px 0;
+    color: rgba(175, 9, 9, 0.1);
+ }
+.slick-next{
+    border-radius: 3px 0 0 3px;
 }
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  color: rgba(0, 0, 0, 1);
+}
+.slick-prev::after,
+.slick-next::after {
+  color: rgba(0, 0, 0, 1);
 }
 /* Cosmetic category CSS */
+
 .displayCosmetic{
     width: auto;
-    margin-top: 40px;
     margin-bottom: 20px;
+    margin-top: 60px;
+    /* box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1); */
+}
+.displayCosmetic:hover .slick-arrow{
+    visibility: visible;
+    transition: 0.4s;
+    
 }
 .showCosmetic{
-    background-color: white;
     border-radius: 3px;
-    border: 1px solid #e0e0e0;
     }
 .cosmeticBand{
-    padding: 5px;  
-}
+    padding: 5px;
+    text-align: center;}
 .txtCosmetic{
     font-size: 24px;
     word-spacing: 5px;
@@ -53,31 +68,25 @@
     font-family: 'Open Sans', sans-serif;
     
 } 
-.viewMore{
-    height: 4.5vh;
-    text-align: center;
-    font-weight: bold;
-    color: grey;
-    padding: 12px;
-    font-size: 12px;
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-}
 
-.viewMore:hover{
-    color: black;
-}
 .mainCatCosmetic{
     width: 100%;
     padding: 15px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+
 }
 
 .cosmeticCat{    
-    width: 280px !important;
-    height: 50.1vh;
+    width: 230px !important;
+    height: 40.1vh;
     text-decoration: none;
     margin-top: 5px;
+}
+@media screen and (max-width: 480px){
+    .cosmeticCat{    
+        width: 280px !important;
+        height: 50.1vh;
+    }
 }
 .cosmeticCat:hover{
     opacity: 0.7;
@@ -97,7 +106,7 @@
 .CosmeticNameCategory{
     height: 110px;
     padding: 5px;
-    text-align: center;
+    /* text-align: center; */
 }
 .CosmeticName{
 
@@ -107,6 +116,10 @@
     cursor: pointer;
     margin-bottom: 0px;
 }
+.CosmeticName:hover{
+
+    color: #1c96c5;
+}
 .CosmeticType{
     font-size: 13px;
     font-family: 'Lato', sans-serif;
@@ -115,7 +128,8 @@
     margin-bottom: 10px;
 }
 .cosmeticRating{
-    margin-top: 25px;
+    margin-top: 15px;
+    color: orange;
 }
 .CosmeticPrice{
     font-size: 18px;
@@ -126,39 +140,24 @@
     cursor: pointer;
 }
 
-.landingCart{
-    width: 153px;
-    height: 40px;
-    padding: 10px;
-    border-radius: 7px;
-    background-color: #ff5050;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 12px;
-    margin-top: 10%;
-    margin-left: 18%;
-}
-.landingCart:hover{
-    background-color: #f7f7f7;
-    color: #1c96c5;
-}
-
 /* Gadget category CSS */
 .displayGadget{
     width: auto;
     margin-bottom: 20px;
     margin-top: 20px;
+    /* box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1); */
+}
+.displayGadget:hover .slick-arrow{
+    visibility: visible;
+    transition: 0.4s;  
 }
 .showGadget{
-    background-color: white;
     border-radius: 3px;
-    border: 1px solid #e0e0e0;
+
 }
 .gadgetBand{
     padding: 5px;
-}
+    text-align: center;}
 
 .txtGadget{
     font-size: 26px;
@@ -166,30 +165,24 @@
     font-weight: 800;
     font-family: 'Lato', sans-serif;
 } 
-.viewMoreGadget{
-    height: 4.5vh;
-    text-align: center;
-    color: gray;
-    padding: 15px;
-    font-size: 12px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-}
 
-.viewMoreGadget:hover{
-    color: #1c96c5;
-}
 .mainCatGadget{
     width: 100%;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     padding: 15px;
 }
 
 .gadgetCat{
-    width: 280px !important;
-    height: 60.1vh;
+    width: 240px !important;
+    height: 45.1vh;
     text-decoration: none;
     margin-top: 5px;
-    
+}
+@media screen and (max-width: 480px){
+    .gadgetCat{    
+        width: 280px !important;
+        height: 50.1vh;
+    }
 }
 .gadgetCat:hover{
     opacity: 0.7;
@@ -198,8 +191,7 @@
 }
 .catGadgetImage{
     width: 100%;
-    height: 60%;
-    background-size: 10px 20px;
+    height: 50%;
 }
 .catGadgetImage img{
     width: 100%;
@@ -208,21 +200,20 @@
 }
 .GadgetNameCategory{
     padding: 5px;
-    text-align: center;
+    /* text-align: center; */
 }
 .GadgetName{
     font-size: 16px;
-    height: 12vh;
+    height: 10vh;
     color: black;
     font-family: 'Lato', sans-serif;
     cursor: pointer;
-    margin-bottom: 0px;
 }
 .GadgetName:hover{
     color: #1c96c5;
 }
 .ratingGadget{
-    margin-top: 20px;
+    color: orange;
 }
 .GadgetPrice{
     font-size: 18px;
@@ -237,47 +228,85 @@
 .displayCamera{
     width: auto;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 60px;
+    /* box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1); */
+
+}
+.displayCamera:hover .slick-arrow{
+    visibility: visible;
+    transition: 0.4s;  
 }
 .showCamera{
-    background-color: white;
     border-radius: 3px;
-    border: 1px solid #e0e0e0;
 }
 .cameraBand{
     padding: 5px;
+    text-align: center;
 }
 
 .txtCamera{
-    font-size: 26px;
-    word-spacing: 5px;
-    font-weight: 800;
-    font-family: 'Lato', sans-serif;
-} 
-.viewMoreCamera{
-    height: 4.5vh;
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: capitalize;
     text-align: center;
-    color: gray;
-    padding: 15px;
-    font-size: 12px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+}
+.txtCamera span{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+.txtCamera span::before{
+    content: '';
+    border-top: 1px solid #ddd;
+    position: absolute;
+    left:-100px;
+    top:18px;
+    width:90px;
+}
+.txtCamera span::after{
+    content: '';
+    border-top: 1px solid #ddd;
+    position: absolute;
+    right:-100px;
+    top:18px;
+    width:90px;
+}
+.txtCamera span strong{
+    color: #ddd;
+    font-size: 80px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    font-family: 'Rubik', sans-serif;
+    top: -30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
 }
 
-.viewMoreCamera:hover{
-    color: #1c96c5;
-}
 .mainCatCamera{
     width: 100%;
     padding: 15px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .cameraCat{
-    width: 280px !important;
-    height: 60.1vh;
+    width: 240px !important;
+    height: 45.1vh;
     text-decoration: none;
     margin-top: 5px;
-    
+}
+@media screen and (max-width: 480px){
+    .cameraCat{    
+        width: 280px !important;
+        height: 50.1vh;
+    }
 }
 .cameraCat:hover{
     opacity: 0.7;
@@ -286,7 +315,7 @@
 }
 .catCameraImage{
     width: 100%;
-    height: 60%;
+    height: 50%;
     background-size: 10px 20px;
 }
 .catCameraImage img{
@@ -296,7 +325,6 @@
 }
 .CameraNameCategory{
     padding: 5px;
-    text-align: center;
 }
 .CameraName{
     font-size: 16px;
@@ -310,7 +338,8 @@
     color: #1c96c5;
 }
 .ratingCamera{
-    margin-top: 20px;
+    margin-top: 15px;
+    color: orange;
 }
 .CameraPrice{
     font-size: 18px;
@@ -326,6 +355,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
 /* Gadgets by brand */
 .brandContainer{
     margin-top: 20px;
