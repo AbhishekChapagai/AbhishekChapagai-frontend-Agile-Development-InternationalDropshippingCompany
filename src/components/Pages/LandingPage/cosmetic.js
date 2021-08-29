@@ -33,9 +33,9 @@ class CosmeticCategory extends Component {
     render() {
         const settings = {
             dots: false,
-            infinite: false,
+            infinite: true,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 1,
             responsive: [
                 {
@@ -113,12 +113,10 @@ class CosmeticCategory extends Component {
 
         return (
             <>
-                
                 <div className="container displayCosmetic">
                     <div className="container showCosmetic">
-                        <div className="row cosmeticBand">
-                            <p className="col-9 col-sm-11 txtCosmetic">For Women</p>
-                            <p className="col-3 col-sm-1 viewMore">View More</p>
+                        <div className="gadgetBand">
+                        <h1 className="txtCamera"><span>For Women<strong>W</strong></span></h1>
                            
                         </div>
                         <Slider {...settings} className="mainCatCosmetic">
@@ -168,7 +166,7 @@ class CosmeticCategory extends Component {
                         {/* </div> */}
                     </div>
                 </div>
-              
+
             </>
         )
     }

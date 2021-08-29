@@ -120,10 +120,7 @@ class Featured extends Component {
                 <div className="container displayGadget">
                     <div className="container showGadget">
                         <div className="row gadgetBand">
-                            <p className="col-9 col-sm-11 txtGadget">Featured laptops</p>
-                            <p className="col-3 col-sm-1 viewMore">View More</p>
-                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
-                        </div>
+                        <h1 className="txtCamera"><span>Featured Gadgets<strong>F</strong></span></h1>                        </div>
                         {/* <div className="row mainCatGadget col-sm-12"> */}
                         <Slider {...settings} className="mainCatGadget">
                             {
@@ -132,7 +129,7 @@ class Featured extends Component {
 
                                         <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
                                             <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
                                             </div>
                                             <div className="GadgetNameCategory">
                                                 <p className="GadgetName">
