@@ -17,11 +17,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import Profile from '../Pages/Dashboard/UserProfile/userProfile';
 import Address from '../Pages/Dashboard/UserProfile/address';
 import EditProfile from '../Pages/Dashboard/UserProfile/profileEdit';
+import MyOrder from '../Pages/Dashboard/UserProfile/MyOrder';
 import Cart from '../Pages/Dashboard/cart/ContextCart';
 import Checkout from '../Pages/Dashboard/cart/Checkout';
 import VerifyEmail from '../Auth/VerifyEmail';
 import EmailVerified from '../Auth/EmailVerified';
 import ForgotPassword from '../Pages/LoginRegister/ForgotPassword'
+import SimpleRating from '../Pages/Dashboard/Details/rating'
 
 require('dotenv').config();
 
@@ -77,12 +79,15 @@ function App() {
       <Route exact path="/user/profile" component={Profile} />
       <Route exact path="/user/address" component={Address} />
       <Route exact path="/user/edit" component={EditProfile} />
+      <Route exact path="/user/myorder" component={MyOrder} />
       <Route exact path="/product/cosmetics" component={Cosmetics} />
       <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
       <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
       <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
       <Route exact path="/cart" component={Cart} />
       <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/rating" component={SimpleRating} />
+
     </>
 
   )
