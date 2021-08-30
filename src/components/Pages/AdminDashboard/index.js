@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardBox from './Card/CardBox';
 import './style.css';
+import UserTable from './User/UserTable';
 
 
 export default class index extends Component {
@@ -8,11 +9,11 @@ export default class index extends Component {
         return (
             <div className="AdminIndex">
                 <div className="container">
-                    <div className="item-card">
+                    <div className="card_box">
                         <CardBox />
                     </div>
-                    <div className="something">
-
+                    <div className="user_table">
+                        <UserTable />
                     </div>
                 </div>
             </div>
