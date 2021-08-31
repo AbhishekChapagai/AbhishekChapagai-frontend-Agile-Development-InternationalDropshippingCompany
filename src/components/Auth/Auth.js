@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Redirect } from "react-router-dom";
-import VerifyEmail from "./VerifyEmail";
 
 class Auth extends Component {
     state = {
@@ -21,7 +20,7 @@ class Auth extends Component {
                             return window.location.href = "/"
                         }
                         else if (localStorage.getItem('userType') === 'Admin') {
-                            return window.location.href = "/"
+                            return window.location.href = "/admin/dashboard"
                         }
                         else {
                             return 'Invalid access.'
