@@ -229,7 +229,10 @@
 
 .button-clear:hover{
   background-color: #c14242;
+}
 
+.button-chkout:hover {
+  background-color: #42c157;
 }
 
 /* responsive media queries  */
@@ -291,4 +294,28 @@
   .card-total button {
     margin-bottom: 3rem;
   }
+}
+
+/* check-out */
+.maincontainer{
+  margin: 20px;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+}
+
+@media  screen and (max-width: 600px) {
+  .checkout-cart-container {
+    visibility:hidden;
+    display: none;
+  }
+}
+
+.district-provision {
+  background-color: transparent;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.checkout-label{
+  padding:2px;
 }

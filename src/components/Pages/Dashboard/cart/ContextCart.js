@@ -6,7 +6,16 @@ import "./cart.css";
 
 class ContextCart extends Component {
 
+  constructor(props) {
+    super(props);
+    // this.mytotalamount = this.mytotalamount.bind(this);
+  }
+
   state = {
+    userid: localStorage.getItem("userid"),
+    // totalamount: '',
+    // totalamounttax: '',
+    // itemcount: '',
     gadgetcart: [],
     tax: 10,
     config: {
@@ -30,6 +39,12 @@ class ContextCart extends Component {
     console.log(this.state.gadgetcart.length)
   }
 
+  changeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   removeItem = (id) => {
     axios.delete('http://localhost:90/remove/mycart', this.state.config)
       .then((response) => {
@@ -40,8 +55,23 @@ class ContextCart extends Component {
       })
 
     window.location.reload(false);
-
   }
+
+  // mytotalamount() {
+  //   const data = {
+  //     userid: this.state.userid, itemcount: this.state.itemcount, totalamount: this.state.totalamount,
+  //     totalamounttax: this.state.totalamounttax
+  //   }
+  //   axios.post(`http://localhost:90/mytotalamount/insert/`, data)
+
+  //     .then((response) => {
+  //       console.log("successful")
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+
   render() {
 
     const totalamount = this.state.gadgetcart.reduce((totalamount, item) => totalamount + parseInt(item.quantity * item.productprice), 0)
@@ -52,8 +82,9 @@ class ContextCart extends Component {
         <div className="container">
           <section className="main-cart-section">
 
-            <p className="total-items">
-              You have <span className="total-items-count">{this.state.gadgetcart.length} </span>
+            <p className="total-items" onChange={this.changeHandler}>
+              You have <span className="total-items-count" >
+                {this.state.gadgetcart.length} </span>
               item in shopping cart
             </p>
 
@@ -73,7 +104,7 @@ class ContextCart extends Component {
       var cartContext = <>
         <div className="container">
           <section className="main-cart-section">
-            <p className="total-items">
+            <p className="total-items" value={this.state.itemcount = this.state.gadgetcart.length}>
               You have <span className="total-items-count">{this.state.gadgetcart.length} </span>
               item(s) in your shopping cart
             </p>
@@ -89,11 +120,12 @@ class ContextCart extends Component {
             </div>
 
             <div className="card-total">
-              <h3>cart total: <span>nrs.{totalamount}</span> &nbsp; tax:<span>{this.state.tax}%</span></h3>
-              <h3>
-                Total amount incl. tax: <span> nrs.{totalamounttax}/- </span>
+              <h3 value={this.state.totalamount = totalamount} onChange={this.changeHandler}>cart total:
+                <span >nrs.{totalamount}</span> &nbsp; tax:<span>{this.state.tax}%</span></h3>
+              <h3 value={this.state.totalamounttax = totalamounttax} onChange={this.changeHandler}>
+                Total amount incl. tax: <span > nrs.{totalamounttax}/- </span>
               </h3>
-              <button class="button">CheckOut</button>
+              <a href="/checkout"><button class="button">CheckOut</button></a>
               <button class="button-clear" onClick={this.removeItem} >Clear Cart</button>
             </div>
 

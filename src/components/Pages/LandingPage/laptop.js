@@ -37,7 +37,7 @@ class LaptopCategory extends Component {
             dots: false,
             infinite: false,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 1,
             responsive: [
                 {
@@ -119,10 +119,8 @@ class LaptopCategory extends Component {
                 {/* GADGET CATEGORY */}
                 <div className="container displayGadget">
                     <div className="container showGadget">
-                        <div className="row gadgetBand">
-                            <p className="col-9 col-sm-11 txtGadget">Browse Laptops</p>
-                            <p className="col-3 col-sm-1 viewMore">View More</p>
-                            {/* <div className="col-sm- 6 viewMoreGadget">View more&nbsp;<i class="fas fa-angle-double-right"></i> </div> */}
+                        <div className="gadgetBand">
+                        <h1 className="txtCamera"><span>Laptops<strong>L</strong></span></h1>
                         </div>
                         <Slider {...settings} className="mainCatGadget">
                             {

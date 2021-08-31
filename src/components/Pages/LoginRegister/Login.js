@@ -1,6 +1,7 @@
 import { Component } from "react";
 import './LoginRegister.css';
 import axios from "axios";
+// import test from "../../../assets/images/loginn.png"
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
