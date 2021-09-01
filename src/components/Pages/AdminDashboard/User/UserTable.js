@@ -15,7 +15,7 @@ export default function UserTable() {
                 accessor: "img",
                 Cell: ({ cell: { value } }) => (
                     <>
-                        <Avatar
+                        <Avatar className="user_table_avatar"
                             src={`${process.env.REACT_APP_BACKEND_URL}/userImg/` + value} alt={value}
                         />
                     </>

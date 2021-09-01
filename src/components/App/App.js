@@ -26,6 +26,7 @@ import ForgotPassword from '../Pages/LoginRegister/ForgotPassword';
 import SimpleRating from '../Pages/Dashboard/Details/rating';
 import AdminDashboard from '../Pages/AdminDashboard/index';
 import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
+import AddUser from '../Pages/AdminDashboard/User/AddUser';
 
 require('dotenv').config();
 
@@ -91,6 +92,7 @@ function App() {
       <Route exact path="/rating" component={SimpleRating} />
       <Route exact path="/admin/dashboard" component={AdminDashboard} />
       <Route exact path="/user/rating" component={HoverRating} />
+      <Route exact path="/admin/dashboard/user/add" component={AddUser} />
     </>
 
   )
