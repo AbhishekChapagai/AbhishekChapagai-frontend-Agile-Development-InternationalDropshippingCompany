@@ -135,7 +135,9 @@ class CameraCategory extends Component {
                                                 <p className="CameraName">&nbsp;
                                                     {
                                                         g.gadgetname
+
                                                     } {g.camera.cameraModel} / {g.camera.cameraResolution}/ {g.camera.cameraSensorType} / {g.camera.cameraConnectivity} / {g.camera.cameraBatteryCapacity}<br></br>
+
 
                                                 </p>
                               

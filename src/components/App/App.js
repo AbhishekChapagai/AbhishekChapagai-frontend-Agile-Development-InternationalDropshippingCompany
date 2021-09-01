@@ -28,6 +28,7 @@ import AdminDashboard from '../Pages/AdminDashboard/index';
 import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
 import AddUser from '../Pages/AdminDashboard/User/AddUser';
 
+
 require('dotenv').config();
 
 function App() {
@@ -93,6 +94,8 @@ function App() {
       <Route exact path="/admin/dashboard" component={AdminDashboard} />
       <Route exact path="/user/rating" component={HoverRating} />
       <Route exact path="/admin/dashboard/user/add" component={AddUser} />
+      
+
     </>
 
   )
