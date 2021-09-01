@@ -42,7 +42,6 @@ import Aorus from '../Pages/ProductBrowsing/LaptopFilter/Aorus';
 import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
 import Footer from '../Footer/Footer';
 
-
 require('dotenv').config();
 
 function App() {
@@ -122,6 +121,7 @@ function App() {
       <Route exact path="/admin/dashboard/user/add" component={AddUser} />
       <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
 
+      <Footer />
     </>
 
   )
