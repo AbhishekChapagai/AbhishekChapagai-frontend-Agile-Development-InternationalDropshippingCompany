@@ -19,11 +19,10 @@
 
 .main-cart-section .cart-items {
   width: 90%;
-  height: 430px;
   background: linear-gradient(
     103.49deg,
     #e4f0f2 -40.13%,
-    #00bee8 130.84%
+    #c2cacc 130.84%
   );
   box-shadow: rgba(0, 0, 0, 0.08) 0rem 0.4rem 1.2rem;
   border-radius: 0.5rem;
@@ -33,13 +32,12 @@
 }
 
 .cart-items hr {
-  margin: 2rem auto;
+  margin: 1rem auto;
   overflow-y: scroll;
 }
 
 .cart-items-container {
   width: 90%;
-  height: 400px;
 }
 
 .items-info {
@@ -231,10 +229,6 @@
   background-color: #c14242;
 }
 
-.button-chkout:hover {
-  background-color: #42c157;
-}
-
 /* responsive media queries  */
 
 /* @media (max-width: 968px) {
@@ -318,4 +312,24 @@
 
 .checkout-label{
   padding:2px;
+}
+
+.button-chkout {
+  background-color: #1c96c5;
+}
+
+.button-chkout:hover {
+  background-color: green;
+}
+
+.button-khalti {
+  background: url("../../../../assets/images/khalti.png");
+  background-size: 48px;
+  background-repeat: no-repeat;
+  color: #5c2b90;
+  border-color: #5c2b90;
+}
+
+.button-khalti:hover {
+  background-color: rgb(172, 59, 172);
 }

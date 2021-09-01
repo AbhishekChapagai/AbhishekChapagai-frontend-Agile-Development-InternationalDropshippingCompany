@@ -2,13 +2,15 @@ import axios from "axios";
 import { Component } from "react";
 import "./cart.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import KhaltiCheckout, { required } from "khalti-checkout-web";
+import config from "../khalticheckout/khaltiConfig"
 
 class Checkout extends Component {
     constructor() {
         super()
         this.state = {
             userid: localStorage.getItem("userid"),
-            paymentmethod: "creditcard",
+            paymentmethod: "khalti",
 
             productinfo: {
                 totalamount: "",
@@ -16,16 +18,14 @@ class Checkout extends Component {
                 itemcount: "",
                 myproduct: []
             },
-            billingaddress: {
-                billingfirstname: "",
-                billinglastname: "",
-                billingemail: "",
-                billingphone: "",
-                billingdistrict: "",
-                billingprovince: "",
-                billingaddress: "",
-                billingzip: "",
-            },
+            billingfirstname: "",
+            billinglastname: "",
+            billingemail: "",
+            billingphone: "",
+            billingdistrict: "",
+            billingprovince: "",
+            billingaddress: "",
+            billingzip: "",
             firstname: '',
             lastname: '',
             email: '',
@@ -50,6 +50,7 @@ class Checkout extends Component {
         this.mytotalamount();
         console.log(this.state.headers)
     }
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -97,79 +98,91 @@ class Checkout extends Component {
             itemcount: this.state.productinfo.itemcount,
             totalamount: this.state.productinfo.totalamount,
             totalamounttax: this.state.productinfo.totalamounttax,
-            billingfirstname: this.state.billingaddress.billingfirstname,
-            billinglastname: this.state.billingaddress.billinglastname,
-            billingemail: this.state.billingaddress.billingemail,
-            billingphone: this.state.billingaddress.billingphone,
-            billingzip: this.state.billingaddress.billingzip,
-            billingaddress: this.state.billingaddress.billingaddress,
-            billingdistrict: this.state.billingaddress.billingdistrict,
-            billingprovince: this.state.billingaddress.billingprovince,
+            billingfirstname: this.state.billingfirstname,
+            billinglastname: this.state.billinglastname,
+            billingemail: this.state.billingemail,
+            billingphone: this.state.billingphone,
+            billingzip: this.state.billingzip,
+            billingaddress: this.state.billingaddress,
+            billingdistrict: this.state.billingdistrict,
+            billingprovince: this.state.billingprovince,
             userid: this.state.userid,
             paymentmethod: this.state.paymentmethod,
-            productname: this.state.productinfo.productname
+            myproduct: this.state.gadgetcart.map(e => ({ productname: e.productname, productid: e.productid }))
         }
         axios.post(`http://localhost:90/mycheckout/insert/`, data, this.state.config)
             .then((response) => {
                 console.log(response)
-                alert("Added!")
+                alert("Checkout successfull, thank you!")
+                window.location.href = "/cart"
             })
             .catch((err) => {
                 console.log(err.response)
             })
+
+        axios.delete('http://localhost:90/remove/mycart', this.state.config)
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+
     }
 
-    chkboxChangelhandler = (e) => {
-        if (e.target.type === 'checkbox') {
-            let checkboxValue = e.target.checked ? "checked" : ""
-            this.setState({ [e.target.name]: checkboxValue })
-        }
-        else {
-            this.setState({ [e.target.name]: e.target.value })
-        }
-    }
+    // chkboxChangelhandler = (e) => {
+    //     if (e.target.type === 'checkbox') {
+    //         let checkboxValue = e.target.checked ? "checked" : ""
+    //         this.setState({ [e.target.name]: checkboxValue })
+    //     }
+    //     else {
+    //         this.setState({ [e.target.name]: e.target.value })
+    //     }
+    // }
 
     copyInfo() {
         var cb1 = document.getElementById('copyinfo');
-        var a1 = document.getElementById('FirstName');
-        var al1 = document.getElementById('FirstName2');
-        var a2 = document.getElementById('LastName');
-        var al2 = document.getElementById('LastName2');
-        var a3 = document.getElementById('Phone');
-        var al3 = document.getElementById('Phone2');
-        var v1 = document.getElementById('Email');
-        var vl1 = document.getElementById('Email2');
-        var t1 = document.getElementById('Address');
-        var tl1 = document.getElementById('Address2');
-        var c1 = document.getElementById('Zip');
-        var cl1 = document.getElementById('Zip2');
-        var d1 = document.getElementById('Provision');
-        var dl1 = document.getElementById('Provision2');
-        var e1 = document.getElementById('District');
-        var el1 = document.getElementById('District2');
+        var firstname = document.getElementById('FirstName');
+        var billingfirstname = document.getElementById('FirstName2');
+        var lastname = document.getElementById('LastName');
+        var billinglastname = document.getElementById('LastName2');
+        var phone = document.getElementById('Phone');
+        var billingphone = document.getElementById('Phone2');
+        var email = document.getElementById('Email');
+        var billingemail = document.getElementById('Email2');
+        var address = document.getElementById('Address');
+        var billingaddress = document.getElementById('Address2');
+        var zip = document.getElementById('Zip');
+        var billingzip = document.getElementById('Zip2');
+        var provision = document.getElementById('Provision');
+        var billingprovision = document.getElementById('Provision2');
+        var district = document.getElementById('District');
+        var billingdistrict = document.getElementById('District2');
 
         if (cb1.checked == true) {
-            al1.value = a1.value;
-            al2.value = a2.value;
-            al3.value = a3.value;
-            vl1.value = v1.value;
-            tl1.value = t1.value;
-            cl1.value = c1.value;
-            dl1.value = d1.value;
-            el1.value = e1.value;
+            billingfirstname.value = firstname.value;
+            billinglastname.value = lastname.value;
+            billingphone.value = phone.value;
+            billingemail.value = email.value;
+            billingaddress.value = address.value;
+            billingzip.value = zip.value;
+            billingprovision.value = provision.value;
+            billingdistrict.value = district.value;
         } else {
-            al1.value = '';
-            al2.value = '';
-            al3.value = '';
-            vl1.value = '';
-            tl1.value = '';
-            cl1.value = '';
-            dl1.value = '';
-            el1.value = '';
+            billingfirstname.value = '';
+            billinglastname.value = '';
+            billingphone.value = '';
+            billingemail.value = '';
+            billingaddress.value = '';
+            billingzip.value = '';
+            billingprovision.value = '';
+            billingdistrict.value = '';
         }
     }
 
     render() {
+
+        let checkout = new KhaltiCheckout(config);
         let { paymentmethod } = this.state
         const totalamount = this.state.gadgetcart.reduce((totalamount, item) => totalamount + parseInt(item.quantity * item.productprice), 0)
         const totalamounttax = this.state.gadgetcart.reduce((totalamount, item) => totalamount + parseInt((item.quantity * item.productprice) + (this.state.tax / 100) * item.productprice, 0), 0)
@@ -198,7 +211,7 @@ class Checkout extends Component {
                                     <div>{
                                         this.state.gadgetcart.map((pq) => {
                                             return (
-                                                <span value={this.state.productinfo.myproduct.productname = pq.productname} class="text-muted">{pq.productname}({pq.quantity})&nbsp;&nbsp;</span>
+                                                <span class="text-muted">{pq.productname}({pq.quantity})&nbsp;&nbsp;</span>
                                             );
                                         })
                                     }</div>
@@ -228,14 +241,7 @@ class Checkout extends Component {
                                     <strong class="text-success">{totalamounttax}</strong>
                                 </p>
                             </ul>
-                            <form class="card p-1">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Promo code" />
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-secondary">Redeem</button>
-                                    </div>
-                                </div>
-                            </form>
+
                         </div>
 
                         <div class="col-md-6 mb-3 ">
@@ -280,7 +286,7 @@ class Checkout extends Component {
                                 </div>
                                 <div class="row">
                                     <div class="form-floating mb-2 col-md-6 checkout-label">
-                                        <select value={this.state.billingaddress.billingdistrict = this.state.district}
+                                        <select
                                             name="district" class="custom-select d-block w-100 district-provision" id="District"
                                             className="form-select"
                                             aria-label="Floating label select example" onChange={this.changeHandler} required>
@@ -292,12 +298,12 @@ class Checkout extends Component {
                                         <label htmlFor="floatingProductType">District</label>
                                     </div>
                                     <div class="form-floating mb-2 col-md-6 checkout-label">
-                                        <select value={this.state.billingaddress.billingprovince = this.state.province}
+                                        <select
                                             className="form-select" id="Provision" name="province"
                                             aria-label="Floating label select example" onChange={this.changeHandler} required>
                                             <option value="" selected disabled hidden>select province...</option>
-                                            <option>Province 1</option>
-                                            <option>Province 2</option>
+                                            <option>Province1</option>
+                                            <option>Province2</option>
                                             <option>Bagmati</option>
                                             <option>Gandaki</option>
                                             <option>Lumbini</option>
@@ -321,7 +327,7 @@ class Checkout extends Component {
 
                     <div class="row">
                         <div class="col-md-12 order-md-1">
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" onSubmit={this.submitData} novalidate>
 
                                 <hr class="mb-4" />
                                 <div class="custom-control custom-checkbox">
@@ -339,47 +345,47 @@ class Checkout extends Component {
                                 <h4 class="mb-3"><b>Billing Address</b></h4>
                                 <div class="row">
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
-                                        <input type="text" className="form-control" id="FirstName2" placeholder="firstname" name="firstname"
-                                            value={this.state.billingaddress.billingfirstname = this.state.firstname} data-testid="firstname-input" onChange={this.changeHandler} />
+                                        <input type="text" className="form-control" id="FirstName2" placeholder="firstname" name="billingfirstname"
+                                            value={this.state.billingfirstname} data-testid="firstname-input" onChange={this.changeHandler} required />
                                         <label id="billingfirstname" htmlFor="floatingInputFirst">&nbsp;First Name*</label>
                                     </div>
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <input type="text" className="form-control" id="LastName2" placeholder="lastname" name="billinglastname"
-                                            value={this.state.billingaddress.billinglastname = this.state.lastname} data-testid="lastname-input" onChange={this.changeHandler} />
+                                            value={this.state.billinglastname} data-testid="lastname-input" onChange={this.changeHandler} required />
                                         <label id="billinglastname" htmlFor="floatingInputFirst">&nbsp;Last Name*</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <input type="text" className="form-control" id="Phone2" placeholder="phone" name="billingphone"
-                                            value={this.state.billingaddress.billingphone = this.state.phone} data-testid="phone-input" onChange={this.changeHandler} />
+                                            value={this.state.billingphone} data-testid="phone-input" onChange={this.changeHandler} required />
                                         <label id="billingphone" htmlFor="floatingInputFirst">&nbsp;Phone*</label>
                                     </div>
                                     <div className="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <input type="email" className="form-control" id="Email2" placeholder="name@gmail.com" name="billingemail"
-                                            value={this.state.billingaddress.billingemail = this.state.email}
-                                            data-testid="email2-input" onChange={this.changeHandler} />
+                                            value={this.state.billingemail}
+                                            data-testid="email2-input" onChange={this.changeHandler} required />
                                         <label id="billingemail" htmlFor="floatingInput">Email</label>
-                                        {this.state.billingaddress.billingemail && !(/\S+@\S+\.\S+/).test(this.state.billingaddress.billingemail) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
+                                        {this.state.billingemail && !(/\S+@\S+\.\S+/).test(this.state.billingaddress.billingemail) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
 
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
-                                        <input type="text" className="form-control" id="Address2" placeholder="Address" name="address"
-                                            value={this.state.billingaddress.billingaddress = this.state.address} data-testid="address-input" onChange={this.changeHandler} />
+                                        <input type="text" className="form-control" id="Address2" placeholder="Address" name="billingaddress"
+                                            value={this.state.billingaddress} data-testid="address-input" onChange={this.changeHandler} required />
                                         <label id="billingaddress" htmlFor="floatingInputFirst">&nbsp;Address*</label>
                                     </div>
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
-                                        <input type="text" className="form-control" id="Zip2" placeholder="zip code" name="zip"
-                                            maxLength="5" value={this.state.billingaddress.billingzip = this.state.zip} data-testid="firstname-input" onChange={this.changeHandler} />
+                                        <input type="text" className="form-control" id="Zip2" placeholder="zip code" name="billingzip"
+                                            maxLength="5" value={this.state.billingzip} data-testid="firstname-input" onChange={this.changeHandler} required />
                                         <label id="billingzip" htmlFor="floatingInputFirst">&nbsp;Zip code*</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-floating mb-2 col-md-6 checkout-label">
-                                        <select value={this.state.billingaddress.billingdistrict = this.state.district}
-                                            name="district" class="custom-select d-block w-100 district-provision" id="District2"
+                                        <select value={this.state.billingdistrict}
+                                            name="billingdistrict" class="custom-select d-block w-100 district-provision" id="District2"
                                             className="form-select"
                                             aria-label="Floating label select example" onChange={this.changeHandler} required>
                                             <option value="" selected disabled hidden>select district...</option>
@@ -390,12 +396,12 @@ class Checkout extends Component {
                                         <label htmlFor="floatingProductType">District</label>
                                     </div>
                                     <div class="form-floating mb-2 col-md-6 checkout-label">
-                                        <select value={this.state.billingaddress.billingprovince = this.state.province}
-                                            className="form-select" id="Provision2" name="province"
+                                        <select value={this.state.billingprovince}
+                                            className="form-select" id="Provision2" name="billingprovince"
                                             aria-label="Floating label select example" onChange={this.changeHandler} required>
                                             <option value="" selected disabled hidden>select province...</option>
-                                            <option>Province 1</option>
-                                            <option>Province 2</option>
+                                            <option>Province1</option>
+                                            <option>Province2</option>
                                             <option>Bagmati</option>
                                             <option>Gandaki</option>
                                             <option>Lumbini</option>
@@ -410,10 +416,17 @@ class Checkout extends Component {
 
                                 <hr class="mb-4" />
 
-                                <h4 class="mb-3"><b>Payment information</b></h4>
-                                <p class="mb-3"><u>Payment method</u></p>
+                                <h4 class="mb-3"><b>Payment method</b></h4>
+                                {/* <p class="mb-3"><u>Payment method</u></p> */}
                                 <div class="row">
-                                    <div class="col-md-3 mb-3"><label class="custom-control-label" for="credit">
+                                    <fieldset>
+                                        <div class="col-md-3 mb-3"><label class="custom-control-label" for="khalti">
+                                            <input id="khalti" name="paymentmethod" type="radio" class="custom-control-input"
+                                                onChange={this.changeHandler.bind(this)} checked={paymentmethod === 'khalti'}
+                                                value="khalti" />
+                                            &nbsp; Khalti</label>
+                                        </div>
+                                        {/* <div class="col-md-3 mb-3"><label class="custom-control-label" for="credit">
                                         <input id="credit" name="paymentmethod" type="radio" class="custom-control-input"
                                             onChange={this.changeHandler.bind(this)} checked={paymentmethod === 'creditcard'}
                                             value="creditcard" />
@@ -424,15 +437,16 @@ class Checkout extends Component {
                                             onChange={this.changeHandler.bind(this)} checked={paymentmethod === 'debitcard'}
                                             value="debitcard" />
                                         &nbsp; Debit card</label>
-                                    </div>
-                                    <div class="col-md-6 mb-3"><label class="custom-control-label" for="esewa">
-                                        <input id="e-sewa" name="paymentmethod" type="radio" class="custom-control-input"
-                                            onChange={this.changeHandler.bind(this)} checked={paymentmethod === 'esewa'}
-                                            value="esewa" />
-                                        &nbsp; E-sewa</label>
-                                    </div>
+                                    </div> */}
+                                        <div class="col-md-3 mb-3"><label class="custom-control-label" for="cash">
+                                            <input id="cash" name="paymentmethod" type="radio" class="custom-control-input"
+                                                onChange={this.changeHandler.bind(this)} checked={paymentmethod === 'cash'}
+                                                value="cash" />
+                                            &nbsp; Cash on Delivery</label>
+                                        </div>
+                                    </fieldset>
                                 </div>
-                                <div class="row">
+                                {/* <div class="row">
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <input type="text" className="form-control" id="floatingInputFirst" placeholder="credit card number" name="ccnumber"
                                             value={this.state.ccnumber} data-testid="ccnumber-input" onChange={this.changeHandler} />
@@ -455,9 +469,19 @@ class Checkout extends Component {
                                             maxLength="3" value={this.state.cvv} data-testid="cvv-input" onChange={this.changeHandler} />
                                         <label id="cvv" htmlFor="floatingInputFirst">&nbsp;CVV*</label>
                                     </div>
-                                </div>
+                                </div> */}
                                 <hr class="mb-4" />
-                                <button class="btn btn-primary btn-lg btn-block button-chkout" onClick={this.submitData} type="button">Continue to checkout</button>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
+                                        <button class="btn btn-primary btn-lg btn-block button-khalti" type="button" disabled={paymentmethod === "cash"}
+                                            onClick={() => { checkout.show({ amount: totalamounttax * 100 }) }}>Pay via khalti</button>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
+                                        <button class="btn btn-primary btn-lg btn-block button-chkout" type="submit"
+                                            disabled={paymentmethod === "khalti"} > Continue to checkout</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
