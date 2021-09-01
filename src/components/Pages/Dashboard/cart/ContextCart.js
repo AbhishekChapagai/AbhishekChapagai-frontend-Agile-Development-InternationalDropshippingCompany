@@ -91,7 +91,9 @@ class ContextCart extends Component {
 
             <div className="cart-items">
               <div className="cart-items-container">
-                <Scrollbars className="cart-items-container">
+                <Scrollbars autoHeight
+                  autoHeightMin={150}
+                  autoHeightMax={1000} className="cart-items-container">
                   <h1>Your cart is Empty</h1>
                   <p>Please go to product page to view and add products. Thank You!</p>
                 </Scrollbars>
@@ -111,7 +113,9 @@ class ContextCart extends Component {
 
             <div className="cart-items">
               <div className="cart-items-container">
-                <Scrollbars className="cart-items-container">
+                <Scrollbars autoHeight
+                  autoHeightMin={100}
+                  autoHeightMax={1000} className="cart-items-container">
 
                   <Items></Items>
 
