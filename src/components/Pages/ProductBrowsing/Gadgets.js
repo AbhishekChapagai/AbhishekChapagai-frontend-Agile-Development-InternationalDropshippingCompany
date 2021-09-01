@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Component } from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
 import '../ProductBrowsing/ProductBrowsing.css'
@@ -13,7 +15,7 @@ import CheckBox from "./CheckBox";
 class gadgets extends Component {
 
     state = {
-        gadgets: [],
+        gadget: [],
 
     }
     componentDidMount() {
@@ -21,7 +23,7 @@ class gadgets extends Component {
             .then((response) => {
                 console.log(response)
                 this.setState({
-                    gadgets: response.data.data
+                    gadget: response.data.data
                 })
             })
             .catch((err) => {
@@ -32,44 +34,59 @@ class gadgets extends Component {
 
     render() {
         return (
-            // < div className="displayGadgets" >
-                <div className="showGadgets">
-                     {/* Filter  */}
+            <div className="showGadgets">
+                <div className="gadgetsBand">
+                <NavDropdown title="Product Type" id="collasible-nav-dropdown">
+                      <LinkContainer exact to="/product/camera">
+                        <NavDropdown.Item >
+                          Camera
+                        </NavDropdown.Item>
+                      </LinkContainer>
 
-            {/* <Row gutter={[16, 16]}>
-                <Col lg={12} xs={24} >
-                    <CheckBox
-                        list={gadgettype}
-                        handleFilters={filters => handleFilters(filters, "continents")}
-                    />
-                </Col>
-                <Col lg={12} xs={24}>
-                    <RadioBox
-                        list={price}
-                        handleFilters={filters => handleFilters(filters, "price")}
-                    />
-                </Col>
-            </Row>
-                    <div className="gadgetsBand">
-                        <p className="txtGadgets">Laptops</p>
-
-                        {/* <p className="txtGProduct"> Products</p> */}
-                    {/* </div>  */}
-                    <div className="mainCatGadgets">
-                        {
-                            this.state.gadgets.map((g) => {
-                                return (
+                      <LinkContainer exact to="/product/laptop">
+                        <NavDropdown.Item>
+                          Laptop
+                        </NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown> 
+                </div>
 
 
-                                    <div className="gadgetsCat">
-                                        {
-                                            g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
-                                                <div className="catGadgetsImage">
-                                                    <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
-                                                </div>
+                <div className="mainCatGadgets">
+                    {
+                        this.state.gadget.map((g) => {
+                            return (
+
+
+                                <div className="gadgetsCat">
+                                    {
+                                        g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
+                                            <div className="catGadgetsImage">
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                            </div>
+                                            <div className="GadgetsNameCategory">
+                                                <p className="GadgetsName">&nbsp;
+
+                                                    {
+                                                        g.gadgetname
+                                                    }<br></br>
+
+                                                </p>
+                                                <p className="GadgetsPrice">&nbsp;Rs&nbsp;
+                                                    {
+                                                        g.gadgetprice
+                                                    }
+
+                                                </p>
+
+                                            </div></a>) :
+
+
+                                            <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                            </div>
                                                 <div className="GadgetsNameCategory">
                                                     <p className="GadgetsName">&nbsp;
-
                                                         {
                                                             g.gadgetname
                                                         }<br></br>
@@ -82,37 +99,18 @@ class gadgets extends Component {
 
                                                     </p>
 
-                                                </div></a>) :
-                                                <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
-                                                    <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
-                                                </div>
-                                                    <div className="GadgetsNameCategory">
-                                                        <p className="GadgetsName">&nbsp;
-                                                            {
-                                                                g.gadgetname 
-                                                            }<br></br>
+                                                </div></a>
 
-                                                        </p>
-                                                        <p className="GadgetsPrice">&nbsp;Rs&nbsp;
-                                                            {
-                                                                g.gadgetprice
-                                                            }
+                                    }
+                                    <div className="gadgetscart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
 
-                                                        </p>
-
-                                                    </div></a>
-                                        }
-                                        <div className="gadgetsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-                                    </div>
-
-                                )
-                            })
-                        }
-
-                    </div>
+                                </div>
+                            )
+                        })
+                    }
 
                 </div>
-            // </div>
+            </div>
 
 
         )
