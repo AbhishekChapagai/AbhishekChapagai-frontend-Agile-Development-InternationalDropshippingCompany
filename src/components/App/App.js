@@ -1,11 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // wrap
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "../Pages/LoginRegister/Login";
 import Register from "../Pages/LoginRegister/Register";
 import Gadgets from "../Pages/ProductBrowsing/Gadgets";
 import Cosmetics from "../Pages/ProductBrowsing/Cosmetics";
+import Laptop from "../Pages/ProductBrowsing/LaptopBrowsing";
+import Camera from "../Pages/ProductBrowsing/CameraBrowsing";
 import Header from '../Header/Header';
 import LaptopDetails from '../Pages/Dashboard/Details/Laptopdetails';
 import CameraDetails from '../Pages/Dashboard/Details/CameraDetails';
@@ -27,6 +28,16 @@ import SimpleRating from '../Pages/Dashboard/Details/rating';
 import AdminDashboard from '../Pages/AdminDashboard/index';
 import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
 import AddUser from '../Pages/AdminDashboard/User/AddUser';
+import Acer from '../Pages/ProductBrowsing/LaptopFilter/Acer';
+import Dell from '../Pages/ProductBrowsing/LaptopFilter/Dell';
+import Asus from '../Pages/ProductBrowsing/LaptopFilter/Asus';
+import Hp from '../Pages/ProductBrowsing/LaptopFilter/Hp';
+import Lenovo from '../Pages/ProductBrowsing/LaptopFilter/Lenovo';
+import Razer from '../Pages/ProductBrowsing/LaptopFilter/Razer';
+import Apple from '../Pages/ProductBrowsing/LaptopFilter/Apple';
+import MSI from '../Pages/ProductBrowsing/LaptopFilter/MSI';
+import Aorus from '../Pages/ProductBrowsing/LaptopFilter/Aorus';
+import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
 
 
 require('dotenv').config();
@@ -80,6 +91,18 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/user/product/request" component={ProductRequest} />
       <Route exact path="/product/gadgets" component={Gadgets} />
+      <Route exact path="/product/laptop" component={Laptop} />
+      <Route exact path="/product/camera" component={Camera} />
+      <Route exact path="/laptop/acer" component={Acer} />
+      <Route exact path="/laptop/dell" component={Dell} />
+      <Route exact path="/laptop/asus" component={Asus} />
+      <Route exact path="/laptop/hp" component={Hp} />
+      <Route exact path="/laptop/lenovo" component={Lenovo} />
+      <Route exact path="/laptop/razer" component={Razer} />
+      <Route exact path="/laptop/apple" component={Apple} />
+      <Route exact path="/laptop/msi" component={MSI} />
+      <Route exact path="/laptop/aorus" component={Aorus} />
+      <Route exact path="/laptop/microsoft" component={Microsoft} />
       <Route exact path="/user/profile" component={Profile} />
       <Route exact path="/user/address" component={Address} />
       <Route exact path="/user/edit" component={EditProfile} />
