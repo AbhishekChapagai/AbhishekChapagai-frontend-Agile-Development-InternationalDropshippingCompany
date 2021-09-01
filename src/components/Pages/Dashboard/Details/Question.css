@@ -3,7 +3,7 @@
 }
 
 .card-div {
-    height: 100px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,8 @@
 }
 
 .card-div-2 {
-    padding: 20px
+    padding: 20px;
+    margin-top: 20px;
 }
 .Question_text {
     position: relative;
@@ -42,6 +43,7 @@
 .ques {
     margin-left: 10px;
     margin-bottom: 1px;
+    color: black;
     
 }
 
@@ -49,6 +51,7 @@
   font-size: 10px;
   margin-left: 22px;  
   font-weight: bold;
+  color: gray;
 }
 .question_border{
     border-bottom: 1px solid #eff0f5;

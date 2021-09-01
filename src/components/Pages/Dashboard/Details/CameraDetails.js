@@ -2,8 +2,13 @@ import axios from "axios";
 import { Component } from "react";
 import './Details.css';
 import Questions from './Question';
+import Review from './Review';
 import { toast } from "react-toastify";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 toast.configure();
+
+const images = [];
 
 class CameraDetails extends Component {
     constructor(props) {
@@ -16,13 +21,16 @@ class CameraDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
-        producttype:"",
+        producttype: "",
         gadgets: [],
     }
     componentDidMount() {
         axios.get(`http://localhost:90/gadget/one/` + this.state.id)
             .then((response) => {
-                console.log(response.data)
+                for (var i = 0; i < response.data.data[0].gadgetImages.length; i++) {
+                    const image = response.data.data[0].gadgetImages[i].imageName
+                    images.push({ original: `${process.env.REACT_APP_BACKEND_URL}/gadget/` + image, thumbnail: `${process.env.REACT_APP_BACKEND_URL}/gadget/` + image })
+                }
                 this.setState({
                     gadgets: response.data.data
                 })
@@ -32,8 +40,10 @@ class CameraDetails extends Component {
             })
     }
     Addtocart() {
+
         const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity,  productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
         axios.post(`http://localhost:90/mycart/insert/`, data)
+
 
             .then((response) => {
                 console.log(response.data)
@@ -88,27 +98,16 @@ class CameraDetails extends Component {
                     return (
 
                         <div>
-                           <div class="card">
+                            <div class="details-card">
                                 <div class="container-fliud">
                                     <div class="wrapper row">
                                         <div class="preview col-md-6">
 
-                                            <div class="preview-pic tab-content">
-                                                <div class="tab-pane active" id="pic-1"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
-                                                <div class="tab-pane" id="pic-2"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
-                                                <div class="tab-pane" id="pic-3"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></div>
-                                            </div>
-
-                                            <ul className="preview-thumbnail nav nav-tabs">
-                                                <li className="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"htagtp://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
-                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/gadget/" + c.gadgetimage} alt="productimage" /></a></li>
-                                            </ul>
-
+                                            <ImageGallery items={images} />
                                         </div>
 
                                         <div class="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.gadgetname}{...this.state.producttype=c.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = c.gadgetname}{...this.state.producttype = c.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
                                             <div class="rating">
                                                 <div class="stars">
                                                     <span class="fa fa-star checked"></span>
@@ -121,16 +120,19 @@ class CameraDetails extends Component {
                                             <div class="section" >
                                                 <h6 class="title-attr"><small>Quantity</small></h6>
                                                 <div>
+
                                                     <div className="btn-minus" onClick={this.itemMinus}><i class="fas fa-minus"></i></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
                                                     <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
+
+                                                   
                                                 </div>
                                             </div>
 
-                                            <h4 class="price" value={this.state.productprice = c.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>${c.gadgetprice}</span></h4>
+                                            <h4 class="price" value={this.state.productprice = c.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {c.gadgetprice}</span></h4>
                                             <div class="action">
                                                 <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
-                                                <button class="like btn-default" type="button"><span class="fa fa-heart"></span></button>
+                                                <button class="like btn-default" type="button"><span class="wishlist fa fa-heart"></span></button>
                                             </div>
                                         </div>
                                     </div>

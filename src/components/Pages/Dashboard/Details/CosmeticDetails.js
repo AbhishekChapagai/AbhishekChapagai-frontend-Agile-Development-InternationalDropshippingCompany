@@ -3,7 +3,12 @@ import { Component } from "react";
 import './Details.css';
 import { toast } from "react-toastify";
 import Questions from './Question';
+import Review from './Review';
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 toast.configure();
+
+const cimages = [];
 
 class CosmeticDetails extends Component {
     constructor(props) {
@@ -16,17 +21,23 @@ class CosmeticDetails extends Component {
         quantity: "1",
         productname: "",
         productprice: "",
-        producttype:"",
+        producttype: "",
         cosmetics: [],
 
     }
     componentDidMount() {
         axios.get(`http://localhost:90/cosmetic/one/` + this.state.id)
             .then((response) => {
-                console.log(response.data)
+
+                for (var i = 0; i < response.data.data[0].cosmeticImages.length; i++) {
+                    const image = response.data.data[0].cosmeticImages[i].imageName
+                    cimages.push({ original: `${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + image, thumbnail: `${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + image })
+                }
                 this.setState({
                     cosmetics: response.data.data
                 })
+                console.log(response.data.data)
+                console.log(cimages)
             })
             .catch((err) => {
                 console.log(err.response)
@@ -87,26 +98,15 @@ class CosmeticDetails extends Component {
                     return (
 
                         <div>
-                            <div className="card">
+                            <div className="details-card">
                                 <div className="container-fliud">
                                     <div className="wrapper row">
-                                        <div className="preview col-md-6">
-
-                                            <div className="preview-pic tab-content">
-                                                <div className="tab-pane active img-active " id="pic-1"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
-                                                <div className="tab-pane" id="pic-2"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
-                                                <div className="tab-pane" id="pic-3"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></div>
-                                            </div>
-                                            <ul className="preview-thumbnail nav nav-tabs">
-                                                <li className="active img-active"><a data-target="#pic-1" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
-                                                <li><a data-target="#pic-2" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
-                                                <li><a data-target="#pic-3" data-toggle="tab"><img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="productimage" /></a></li>
-                                            </ul>
-
+                                        <div class="preview col-md-6">
+                                            <ImageGallery items={cimages} />
                                         </div>
 
                                         <div className="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname}{...this.state.producttype=c.cosmetictype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
+                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname}{...this.state.producttype = c.cosmetictype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
                                             <div className="rating">
                                                 <div className="stars">
                                                     <span className="fa fa-star checked"></span>
@@ -119,16 +119,19 @@ class CosmeticDetails extends Component {
                                             <div className="section" >
                                                 <h6 className="title-attr"><small>Quantity</small></h6>
                                                 <div>
+
                                                     <div className="btn-minus" onClick={this.itemMinus}><i class="fas fa-minus"></i></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
                                                     <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
+
+                                                 
                                                 </div>
                                             </div>
 
-                                            <h4 class="price" value={this.state.productprice = c.cosmeticprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>${c.cosmeticprice}</span></h4>
+                                            <h4 class="price" value={this.state.productprice = c.cosmeticprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {c.cosmeticprice}</span></h4>
                                             <div className="action">
                                                 <button className="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
-                                                <button className="like btn-default" type="button"><span className="fa fa-heart"></span></button>
+                                                <button className="like btn-default" type="button"><span className="wishlist fa fa-heart"></span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -157,6 +160,7 @@ class CosmeticDetails extends Component {
 
             </div>
             <Questions dataFromParent={this.state.id}> </Questions>
+
         </>
 
 

@@ -119,10 +119,8 @@ class CameraCategory extends Component {
                 {/* CAMERA CATEGORY */}
                 <div className="container displayCamera">
                     <div className="container showCamera">
-                        <div className="row cameraBand">
-                            <p className="col-9 col-sm-11 txtCamera">Browse Cameras</p>
-                            <p className="col-3 col-sm-1 viewMore">View More</p>
-    
+                        <div className="cameraBand">
+                        <h1 className="txtCamera"><span>Cameras<strong>C</strong></span></h1>
                         </div>
                         <Slider {...settings} className="mainCatCamera">
                             {
@@ -131,13 +129,15 @@ class CameraCategory extends Component {
 
                                         <a href ={"/product/gadget/cameradetails/" + g._id} className="col-6 cameraCat">
                                             <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetImages} alt="img" />
                                             </div>
                                             <div className="CameraNameCategory">
                                                 <p className="CameraName">&nbsp;
                                                     {
                                                         g.gadgetname
-                                                    } {g.camera.cameraModel} / {g.camera.cameraType} / {g.camera.cameraResolution}/ {g.camera.cameraSensorType} / {g.camera.cameraConnectivity} / {g.camera.cameraBatteryCapacity}<br></br>
+
+                                                    } {g.camera.cameraModel} / {g.camera.cameraResolution}/ {g.camera.cameraSensorType} / {g.camera.cameraConnectivity} / {g.camera.cameraBatteryCapacity}<br></br>
+
 
                                                 </p>
                               
