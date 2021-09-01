@@ -1,4 +1,5 @@
 import React from "react";
+import Scrollbars from "react-custom-scrollbars-2";
 import { Link } from "react-router-dom";
 import { useTable, useGlobalFilter, useAsyncDebounce, useFilters, useSortBy, usePagination } from 'react-table';
 import './style.css';
@@ -135,43 +136,50 @@ function Table({ columns, data }) {
 
             {/* table */}
             <div className="table_wrapper">
-                <table className="table_border" {...getTableProps()} >
-                    <thead className="table_title">
-                        {headerGroups.map((headerGroup) => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map((column) => (
-                                    <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                                        {column.render("Header")}
-                                        {/* sorting */}
-                                        <span>
-                                            &nbsp;
+                <Scrollbars
+                    autoHeight
+                    autoHeightMin={0}
+                    autoHeightMax={1000}
+                    renderThumbHorizontal={props => <div {...props} className="thumb-horizontal" />} >
+                    <table className="table_border" {...getTableProps()} >
 
-                                            {column.isSorted
-                                                ? column.isSortedDesc
-                                                    ? (<i className="fas fa-sort-down"></i>)
-                                                    : (<i className="fas fa-sort-up"></i>)
-                                                : (<i className="table_sort_icon fas fa-sort"></i>)
-                                            }
-                                        </span>
-                                    </th>
-                                ))}
-                            </tr>
-                        ))}
-                    </thead>
+                        <thead className="table_title">
+                            {headerGroups.map((headerGroup) => (
+                                <tr {...headerGroup.getHeaderGroupProps()}>
+                                    {headerGroup.headers.map((column) => (
+                                        <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                                            {column.render("Header")}
+                                            {/* sorting */}
+                                            <span>
+                                                &nbsp;
 
-                    <tbody className="table_body" {...getTableBodyProps()}>
-                        {page.map((row, i) => {
-                            prepareRow(row);
-                            return (
-                                <tr {...row.getRowProps()}>
-                                    {row.cells.map((cell) => {
-                                        return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
-                                    })}
+                                                {column.isSorted
+                                                    ? column.isSortedDesc
+                                                        ? (<i className="fas fa-sort-down"></i>)
+                                                        : (<i className="fas fa-sort-up"></i>)
+                                                    : (<i className="table_sort_icon fas fa-sort"></i>)
+                                                }
+                                            </span>
+                                        </th>
+                                    ))}
                                 </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                            ))}
+                        </thead>
+
+                        <tbody className="table_body" {...getTableBodyProps()}>
+                            {page.map((row, i) => {
+                                prepareRow(row);
+                                return (
+                                    <tr {...row.getRowProps()}>
+                                        {row.cells.map((cell) => {
+                                            return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                                        })}
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </Scrollbars>
             </div>
 
             {/* pagination section */}

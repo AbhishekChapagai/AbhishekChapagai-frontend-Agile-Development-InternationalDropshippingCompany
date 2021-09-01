@@ -10,6 +10,10 @@
     margin-bottom: 20px;
 }
 
+.user_table_avatar {
+    background-color: #1c96c5!important;
+}
+
 @media only screen and (max-width: 960px){
     .admin_card_border{
         margin-top: 10px;

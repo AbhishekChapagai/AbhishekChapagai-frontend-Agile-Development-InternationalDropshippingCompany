@@ -105,7 +105,7 @@ class Register extends Component {
                                             <div className="form-floating mb-2">
                                                 <input type="text" className="form-control" id="floatingInputFirst" placeholder="Jhon" name="firstname" value={this.state.firstname}
                                                     data-testid="firstname-input" onChange={this.changeHandler} />
-                                                <label id="firstname" htmlFor="floatingInputFirst">First Name</label>
+                                                <label id="firstname" htmlFor="floatingInputFirst">First Name *</label>
                                             </div>
                                         </div>
 
