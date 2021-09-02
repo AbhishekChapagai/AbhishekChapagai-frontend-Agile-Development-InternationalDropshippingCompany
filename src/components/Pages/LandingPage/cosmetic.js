@@ -128,7 +128,7 @@ class CosmeticCategory extends Component {
                                          <a href={"/product/cosmetic/cosmeticdetails/" + c._id} className="col-6 cosmeticCat"> 
                                             {/* <a href={"/product/cosmetic/cosmeticdetails/" + c._id}> */}
                                             <div className="catCosmeticImage">
-                                                <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
+                                                <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
                                             </div>
                                             <div className="CosmeticNameCategory">
                                                 <p className="CosmeticName">&nbsp;

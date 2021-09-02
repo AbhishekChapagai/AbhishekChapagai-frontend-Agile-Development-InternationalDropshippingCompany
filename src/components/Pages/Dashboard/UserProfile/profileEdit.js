@@ -2,6 +2,10 @@ import React, { Component, state } from 'react'
 import axios from "axios";
 import { Link } from 'react-router-dom'
 import './profileEdit.css'
+import { districts, provinces } from '../../List/AddressList';
+import Footer from '../../../Footer/Footer'
+
+
 
 class EditProfile extends Component {
     constructor() {
@@ -11,7 +15,17 @@ class EditProfile extends Component {
             lastname: '',
             email: '',
             phone: '',
+            addressBook: '',
+            province: '',
+            district: '',
+            address: '',
+            tole: '',
+            zipCode: '',
             img: '',
+            password: '',
+            currentPassword: '',
+            currentPasswordHidden: true,
+            passwordHidden: true,
             userId: '',
             config: {
                 headers: {
@@ -20,6 +34,14 @@ class EditProfile extends Component {
             }
         };
         this.submitUpdate = this.submitUpdate.bind(this)
+    }
+    toggleShow = this.toggleShow.bind(this);
+    toggleShow() {
+        this.setState({ currentPasswordHidden: !this.state.currentPasswordHidden });
+    }
+    togglePassword = this.togglePassword.bind(this);
+    togglePassword() {
+        this.setState({ passwordHidden: !this.state.passwordHidden });
     }
 
     componentWillMount() {
@@ -48,6 +70,11 @@ class EditProfile extends Component {
                     lastname: data.lastName,
                     email: data.email,
                     phone: data.phone,
+                    address: data.addressBook.address,
+                    district: data.addressBook.district,
+                    province: data.addressBook.province,
+                    tole: data.addressBook.tole,
+                    zipCode: data.addressBook.zipCode,
                     userId: data.userId
                 })
             }).catch((err) => {
@@ -63,12 +90,20 @@ class EditProfile extends Component {
         data.append('lastname', this.state.lastname)
         data.append('email', this.state.email)
         data.append('phone', this.state.phone)
+        data.append('currentPassword', this.state.currentPassword)
+        data.append('password', this.state.password)
+        data.append('province', this.state.province)
+        data.append('district', this.state.district)
+        data.append('address', this.state.address)
+        data.append('tole', this.state.tole)
+        data.append('zipCode', this.state.zipCode)
         data.append('img', this.state.img)
 
         axios.put(`http://localhost:90/user/profile/update/${this.state.userId}`, data, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("user updated successfully");
+                localStorage.setItem("token", response.data.token);
             }).catch((err) => {
                 console.log(err.response)
                 alert("error updating user");
@@ -95,7 +130,7 @@ class EditProfile extends Component {
                                     <div className="padding">
                                         <div className="row container d-flex justify-content-center">
                                             <div className="col-12">
-                                                <div className="card user-card-full profileCard">
+                                                <div className="card user-card-full profilecard">
                                                     <div className="row m-l-0 m-r-0">
 
                                                         <div className="col-sm-12">
@@ -125,8 +160,82 @@ class EditProfile extends Component {
                                                                         <input id="form_name" type="file" name="img" class="form-control" onChange={this.fileHandler} />
                                                                         <label> </label>
                                                                     </div>
+                                                                    {/* password */}
+                                                                    <div className="row rowPassword">
+                                                                        <h5 className="m-b-20 p-b-5 b-b-default f-w-600">Update Password</h5>
 
+                                                                        <div className="form-floating mb-2 input_right_icon">
+                                                                            <input type={this.state.currentPasswordHidden ? 'password' : 'text'} className="form-control form_control_input inputPassword" id="floatingPassword" placeholder="Password" name="currentPassword"
+                                                                                data-testid="password-input" value={this.state.currentPassword} onChange={this.changeHandler} />
+                                                                            <i id="input_form_right_icon" className="form_right_icon"
+                                                                                onClick={this.toggleShow}>
+                                                                                {this.state.currentPasswordHidden ? < i className="fas fa-eye-slash icon_change"></i> : < i className="fas fa-eye icon_change"></i>}
+                                                                            </i>
+                                                                            <label id="password" htmlFor="floatingPassword" className="labelPassword">Current Password</label>
+                                                                        </div>
+                                                                        <div className="form-floating mb-2 input_right_icon">
+                                                                            <input type={this.state.passwordHidden ? 'password' : 'text'} className="form-control form_control_input" id="floatingPassword" placeholder="Password" name="password"
+                                                                                data-testid="password-input" value={this.state.password} onChange={this.changeHandler} />
+                                                                            <i id="input_form_right_icon" className="form_right_icon"
+                                                                                onClick={this.togglePassword}>
+                                                                                {this.state.passwordHidden ? < i className="fas fa-eye-slash icon_change"></i> : < i className="fas fa-eye icon_change"></i>}
+                                                                            </i>
+                                                                            <label id="password" htmlFor="floatingPassword" className="labelPassword">New Password</label>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
+                                                                {/* Address row */}
+                                                                <div className="row addressRow">
+                                                                    <h5 className="m-b-20 p-b-5 b-b-default f-w-600">My Address</h5>
+                                                                    <div className="row g-2">
+                                                                        <div className="form-floating mb-2 col-md-12 provinceDropdown">
+                                                                            <select className="form-select" id="floatingProvince" aria-label="Floating label select example"
+                                                                                value={this.state.province}
+                                                                                name="province" onChange={this.changeHandler}>
+
+                                                                                {provinces.map(option =>
+                                                                                    <option key={option.label} value={option.value}>
+                                                                                        {option.label}
+                                                                                    </option>)
+                                                                                }
+
+                                                                            </select>
+                                                                            <label htmlFor="floatingProvince" className="editDistrictLabel">Province</label>
+                                                                        </div>
+
+                                                                        <div className="form-floating mb-2 col-md-12 provinceDropdown">
+                                                                            <select className="form-select" id="floatingDistrict" aria-label="Floating label select example"
+                                                                                value={this.state.district}
+                                                                                name="district" onChange={this.changeHandler}>
+
+                                                                                {districts.map(option =>
+                                                                                    < option key={option.label} value={option.value} >
+                                                                                        {option.label}
+                                                                                    </option>
+                                                                                )}
+
+                                                                            </select>
+                                                                            <label htmlFor="floatingDistrict" className="editDistrictLabel">District</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row profileRow">
+                                                                    <div className="col-sm-4">
+                                                                        <p className="m-b-10">Address</p>
+                                                                        <input id="form_name" type="text" name="address" class="form-control" value={this.state.address} onChange={this.changeHandler} />
+                                                                    </div>
+                                                                    <div className="col-sm-4">
+                                                                        <p className="m-b-10">Tole</p>
+                                                                        <input id="form_name" type="text" name="tole" class="form-control" value={this.state.tole} onChange={this.changeHandler} />
+                                                                    </div>
+                                                                    <div className="col-sm-4">
+                                                                        <p className="m-b-10">ZIP Code</p>
+                                                                        <input id="form_name" type="text" name="zipCode" class="form-control" value={this.state.zipCode} onChange={this.changeHandler} />
+                                                                    </div>
+                                                                </div>
+
+
+                                                                {/*  */}
                                                                 <div className="row">
                                                                     <div className="col-sm-4">
                                                                         <button type="submit" value="update" className="m-b-6 buttonSaveChanges" onClick={this.submitUpdate}>SAVE CHANGES</button>
@@ -136,6 +245,7 @@ class EditProfile extends Component {
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
