@@ -129,7 +129,7 @@ class LaptopCategory extends Component {
 
                                         <a href ={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
                                             <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
                                             </div>
                                             <div className="GadgetNameCategory">
                                                 <p className="GadgetName">

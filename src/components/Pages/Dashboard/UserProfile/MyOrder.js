@@ -10,9 +10,12 @@ class MyOrder extends Component {
 
 
     render() {
-        var order = <>
-            <Sidebar> </Sidebar>
+            
+        return (
+            <>
             <div class="container">
+            <Sidebar> </Sidebar>
+            
                 <div class="table-wrap">
                     <table class="table table-responsive table-borderless">
                         <thead>
@@ -46,8 +49,6 @@ class MyOrder extends Component {
             </div>
 
         </>
-        return (
-            order
         )
     }
 }

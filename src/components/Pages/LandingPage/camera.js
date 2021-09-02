@@ -129,7 +129,7 @@ class CameraCategory extends Component {
 
                                         <a href ={"/product/gadget/cameradetails/" + g._id} className="col-6 cameraCat">
                                             <div className="catGadgetImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetImages} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
                                             </div>
                                             <div className="CameraNameCategory">
                                                 <p className="CameraName">&nbsp;

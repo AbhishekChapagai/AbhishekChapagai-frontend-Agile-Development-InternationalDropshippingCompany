@@ -32,21 +32,20 @@ class Sidebar extends Component {
         var sidebar =
         <>
         <div className="mainUser">
-            <div className="container">
                 <div className="row">
                     <div className="sidebarCat col-xl-2 col-lg-2 col-md-3 col-sm-12">
                         <div className="sidebar">
                             <p className="helloUser">Hello, {this.state.firstName}</p>
                             <p className="manageAccount">Manage your account</p>
-                            <Link to="/user/profile"><a className="active">My Profile</a></Link>
-                            <Link to="/user/address"><a href="#address" className="sidebara">My Address</a></Link>
-                            <Link to="/user/myorder"><a className="sidebara">My Order</a></Link>
+                            <Link to="/user/profile"><a className="active">MY PROFILE</a></Link>
+                            <Link to="/user/address"><a href="#address" className="sidebara">MY ADDRESS</a></Link>
+                            <Link to="/user/myorder"><a className="sidebara">MY ORDER</a></Link>
                            
                         </div>
                     </div>
                     
                 </div>
-            </div>
+           
         </div>
         
     </>
