@@ -20,7 +20,7 @@ class Sidebar extends Component {
                 const data = response.data
                 this.setState({
                     firstName: data.firstName,
-                    
+
                 })
             }).catch((err) => {
                 console.log(err);
@@ -43,14 +43,13 @@ class Sidebar extends Component {
                            
                         </div>
                     </div>
-                    
                 </div>
            
         </div>
         
     </>
         return (
-           sidebar
+            sidebar
         )
     }
 }
