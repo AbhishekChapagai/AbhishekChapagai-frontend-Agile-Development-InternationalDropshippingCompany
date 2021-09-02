@@ -3,9 +3,9 @@ import axios from "axios";
 let config = {
   // replace this key with yours
   publicKey: myKey.publicTestKey,
-  // productIdentity: "0000",
-  // productName: "Dhuwani",
-  // productUrl: "http://localhost:3000/",
+  productIdentity: "0000",
+  productName: "Dhuwani",
+  productUrl: "http://localhost:3000/",
   eventHandler: {
     onSuccess(payload) {
       // hit merchant api for initiating verfication
