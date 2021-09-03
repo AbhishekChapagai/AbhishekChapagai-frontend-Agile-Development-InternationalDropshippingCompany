@@ -2,12 +2,25 @@
 /* SIDEBAR */
 .mainUser{
     width: 100%;
-    background-color: #ededed;
+    margin-bottom: 60px;
+}
+.mainUserAddress{
+    width: 100%;
+    margin-bottom: 105px;
 }
 .helloUser{
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: bold;
+}
+.verified{
+    background-color: rgb(7, 180, 7);
+    border-radius: 50px;
+    margin-top: -5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 5px;
 }
 .manageAccount{
     font-size: 14px;
@@ -19,12 +32,14 @@
     height: 100%;
     overflow: auto;
     text-align: center;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+
   }
   
   .sidebar a {
     display: block;
     color: #999999;
-    padding: 5px;
+    padding: 3px;
     text-align: center !important;
     text-decoration: none !important;
   }
@@ -47,7 +62,7 @@
   @media screen and (max-width: 900px) {
     .sidebar {
       width: 100%;
-      height: auto;
+      height: 100%;
       position: relative;
     }
     .sidebar a {float: left;}
@@ -72,13 +87,26 @@
 }
 .profileCard{
     margin-top: 10px;
-    box-shadow: 0 0 0 0 white;
+    border: 0px solid white;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     padding: 30px;
+    /* height: 100%; */
 }
 .addressCard{
     margin-top: 10px;
-    box-shadow: 0 0 0 0 white;
-
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    border: 0px solid white;
+}
+.addressEdit{
+    background-color: #1c96c5;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+.addressEdit:hover{
+    background-color: #075d80;
 }
 .m-r-0 {
     margin-right: 0px
@@ -88,14 +116,10 @@
     margin-left: 0px
 }
 
-.user-card-full .user-profile img{
-    border-radius: 0%;
-    height: 100%;
-}
-
-
 .user-profile {
     padding: 20px 0;
+    height: 250px;
+    /* background-color: #1c96c5; */
 }
 .btnChangePhoto{
     text-align: center;
@@ -113,10 +137,6 @@
 
 .m-b-25 {
     margin-bottom: 25px
-}
-
-.img-radius {
-    border-radius: 5px
 }
 
 h6 {
@@ -163,6 +183,22 @@ h6 {
     font-family: 'Roboto', sans-serif;
     border-radius: 2px;
     cursor: pointer
+}
+.m-b-6:hover{
+    background-color: #075d80;
+}
+.m-b-7 {
+    text-align: center;
+    padding: 5px;
+    background-color: #1cc533;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 2px;
+    cursor: pointer
+}
+.m-b-7:hover{
+    background-color: #148823;
 }
 .buttonSaveChanges{
     text-align: center;
@@ -211,25 +247,48 @@ h6 {
     text-align: center;
 }
 .f-w-600 {
-    font-weight: 600
+    font-weight: 600;
 }
 
 .m-b-20 {
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .m-t-40 {
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 .p-b-5 {
-    padding-bottom: 5px !important
+    padding-bottom: 5px !important;
 }
 
 .m-b-10 {
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 .m-t-40 {
-    margin-top: 20px
+    margin-top: 20px;
+}
+.avatar{
+    width: 100% !important;
+    height:  100%!important;
+    border-radius: 1% !important;
+}
+/* Edit profile */
+.editDistrictLabel{
+    margin-left: 5px !important;
+}
+.provinceDropdown{
+    padding-left: 12px;
+}
+.addressRow{
+    margin-top: -100px;
+}
+/* Change password */
+.labelPassword{
+    margin-left: 10px;
+}
+.inputPassword{
+    width: 100%;
 }

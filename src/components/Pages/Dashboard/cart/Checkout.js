@@ -108,13 +108,13 @@ class Checkout extends Component {
             billingprovince: this.state.billingprovince,
             userid: this.state.userid,
             paymentmethod: this.state.paymentmethod,
-            myproduct: this.state.gadgetcart.map(e => ({ productname: e.productname, productid: e.productid }))
+            myproduct: this.state.gadgetcart.map(e => ({ productid: e.productid, productname: e.productname, productquantity: e.quantity }))
         }
         axios.post(`http://localhost:90/mycheckout/insert/`, data, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("Checkout successfull, thank you!")
-                window.location.href = "/cart"
+                window.location.href = "/user/myorder"
             })
             .catch((err) => {
                 console.log(err.response)
@@ -479,7 +479,7 @@ class Checkout extends Component {
 
                                     <div class="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <button class="btn btn-primary btn-lg btn-block button-chkout" type="submit"
-                                            disabled={paymentmethod === "khalti"} > Continue to checkout</button>
+                                            disabled={paymentmethod === "khalti"}  > Continue to checkout</button>
                                     </div>
                                 </div>
                             </form>
