@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // wrap
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "../Pages/LoginRegister/Login";
 import Register from "../Pages/LoginRegister/Register";
@@ -28,6 +29,7 @@ import SimpleRating from '../Pages/Dashboard/Details/rating';
 import AdminDashboard from '../Pages/AdminDashboard/index';
 import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
 import AddUser from '../Pages/AdminDashboard/User/AddUser';
+import EditUser from '../Pages/AdminDashboard/User/EditUser';
 import Acer from '../Pages/ProductBrowsing/LaptopFilter/Acer';
 import Dell from '../Pages/ProductBrowsing/LaptopFilter/Dell';
 import Asus from '../Pages/ProductBrowsing/LaptopFilter/Asus';
@@ -38,7 +40,8 @@ import Apple from '../Pages/ProductBrowsing/LaptopFilter/Apple';
 import MSI from '../Pages/ProductBrowsing/LaptopFilter/MSI';
 import Aorus from '../Pages/ProductBrowsing/LaptopFilter/Aorus';
 import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
-
+import Footer from '../Footer/Footer';
+import AddProduct from '../Pages/AdminDashboard/Product/AddProduct/AddProduct';
 
 require('dotenv').config();
 
@@ -117,8 +120,10 @@ function App() {
       <Route exact path="/admin/dashboard" component={AdminDashboard} />
       <Route exact path="/user/rating" component={HoverRating} />
       <Route exact path="/admin/dashboard/user/add" component={AddUser} />
-      
+      <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
+      <Route exact path="/admin/dashboard/product/add" component={AddProduct} />
 
+      <Footer />
     </>
 
   )
