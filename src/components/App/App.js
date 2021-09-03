@@ -41,6 +41,7 @@ import MSI from '../Pages/ProductBrowsing/LaptopFilter/MSI';
 import Aorus from '../Pages/ProductBrowsing/LaptopFilter/Aorus';
 import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
 import Footer from '../Footer/Footer';
+import AddProduct from '../Pages/AdminDashboard/Product/AddProduct/AddProduct';
 
 require('dotenv').config();
 
@@ -120,6 +121,7 @@ function App() {
       <Route exact path="/user/rating" component={HoverRating} />
       <Route exact path="/admin/dashboard/user/add" component={AddUser} />
       <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
+      <Route exact path="/admin/dashboard/product/add" component={AddProduct} />
 
       <Footer />
     </>
