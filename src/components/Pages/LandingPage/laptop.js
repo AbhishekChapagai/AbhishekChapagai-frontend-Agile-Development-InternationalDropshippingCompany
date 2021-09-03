@@ -63,6 +63,7 @@ class LaptopCategory extends Component {
           settings: {
             slidesToShow: 3,
             slidesToScroll: 1,
+
             infinite: true,
             dots: false
           }
@@ -159,6 +160,7 @@ class LaptopCategory extends Component {
       </>
     )
   }
+
 
 }
 
