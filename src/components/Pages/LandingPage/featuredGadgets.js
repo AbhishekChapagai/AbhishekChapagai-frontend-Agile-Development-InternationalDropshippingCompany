@@ -134,8 +134,8 @@ class Featured extends Component {
                                             <div className="GadgetNameCategory">
                                                 <p className="GadgetName">
                                                     {
-                                                        g.gadgetname
-                                                    } {g.laptop.laptopModel} / {g.laptop.laptopRam} RAM / {g.laptop.laptopSize} / {g.laptop.laptopGraphic}/ {g.laptop.laptopProcessor} <br></br>
+                                              g.gadgetname ? (g.gadgetname) : ("Name")
+                                            } {g.laptop.laptopModel ? (g.laptop.laptopModel) : ("Model")} / {g.laptop.laptopRam ? (g.laptop.laptopRam) : ("RAM")} RAM / {g.laptop.laptopSize ? (g.laptop.laptopSize) : ("Size")} / {g.laptop.laptopGraphic ? (g.laptop.laptopGraphic) : ("Graphic")} / {g.laptop.laptopProcessor ? (g.laptop.laptopProcessor) : ("Processor")} <br></br>
 
                                                 </p>
                                                 <p className="ratingGadget">RATING</p>
