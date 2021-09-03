@@ -129,42 +129,40 @@ class Men extends Component {
                                          <a href={"/product/cosmetic/cosmeticdetails/" + c._id} className="col-6 cosmeticCat"> 
                                             {/* <a href={"/product/cosmetic/cosmeticdetails/" + c._id}> */}
                                             <div className="catCosmeticImage">
-                                                <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
+                                          <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
                                             </div>
                                             <div className="CosmeticNameCategory">
                                                 <p className="CosmeticName">&nbsp;
                                                     {
-                                                        c.cosmeticname
+                                              c.cosmeticname ? (c.cosmeticname) : ("Cosmetic Name")
                                                     }  {
-                                                      c.cosmeticmodel
+                                              c.cosmeticmodel ? (c.cosmeticmodel) : ("Cosmetic Model")
                                                   }<br></br>
 
                                                 </p>
                                                 <p className="CosmeticType">&nbsp;
                                                     {
-                                                        c.cosmetictype
+                                              c.cosmetictype ? (c.cosmetictype) : ("Cosmetic Type")
                                                     }
 
                                                 </p>
                                                 <p className="cosmeticRating">RATING</p>
                                                 <p className="CosmeticPrice">NPR&nbsp;
                                                     {
-                                                        c.cosmeticprice
+                                              c.cosmeticprice ? (c.cosmeticprice) : ("Cosmetic Price")
                                                     }
 
                                                 </p>
                                                 
 
-                                                {/* <div className="landingCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div> */}
                                             </div>
-                                            {/* </a> */}
+                                           
                                         </a>
 
                                     )
                                 })
                             }
                         </Slider>
-                        {/* </div> */}
                     </div>
                 </div>
               
