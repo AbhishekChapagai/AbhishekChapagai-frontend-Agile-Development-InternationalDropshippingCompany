@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // wrap
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "../Pages/LoginRegister/Login";
 import Register from "../Pages/LoginRegister/Register";
@@ -28,6 +29,7 @@ import SimpleRating from '../Pages/Dashboard/Details/rating';
 import AdminDashboard from '../Pages/AdminDashboard/index';
 import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
 import AddUser from '../Pages/AdminDashboard/User/AddUser';
+import EditUser from '../Pages/AdminDashboard/User/EditUser';
 import Acer from '../Pages/ProductBrowsing/LaptopFilter/Acer';
 import Dell from '../Pages/ProductBrowsing/LaptopFilter/Dell';
 import Asus from '../Pages/ProductBrowsing/LaptopFilter/Asus';
@@ -38,7 +40,9 @@ import Apple from '../Pages/ProductBrowsing/LaptopFilter/Apple';
 import MSI from '../Pages/ProductBrowsing/LaptopFilter/MSI';
 import Aorus from '../Pages/ProductBrowsing/LaptopFilter/Aorus';
 import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
-
+import Footer from '../Footer/Footer';
+import AddProduct from '../Pages/AdminDashboard/Product/AddProduct/AddProduct';
+import NotFoundPage from '../Pages/NotFound/NotFoundPage';
 
 require('dotenv').config();
 
@@ -88,37 +92,41 @@ function App() {
   const DefaultContainer = () => (
     <>
       <Header />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/user/product/request" component={ProductRequest} />
-      <Route exact path="/product/gadgets" component={Gadgets} />
-      <Route exact path="/product/laptop" component={Laptop} />
-      <Route exact path="/product/camera" component={Camera} />
-      <Route exact path="/laptop/acer" component={Acer} />
-      <Route exact path="/laptop/dell" component={Dell} />
-      <Route exact path="/laptop/asus" component={Asus} />
-      <Route exact path="/laptop/hp" component={Hp} />
-      <Route exact path="/laptop/lenovo" component={Lenovo} />
-      <Route exact path="/laptop/razer" component={Razer} />
-      <Route exact path="/laptop/apple" component={Apple} />
-      <Route exact path="/laptop/msi" component={MSI} />
-      <Route exact path="/laptop/aorus" component={Aorus} />
-      <Route exact path="/laptop/microsoft" component={Microsoft} />
-      <Route exact path="/user/profile" component={Profile} />
-      <Route exact path="/user/address" component={Address} />
-      <Route exact path="/user/edit" component={EditProfile} />
-      <Route exact path="/user/myorder" component={MyOrder} />
-      <Route exact path="/product/cosmetics" component={Cosmetics} />
-      <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
-      <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
-      <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
-      <Route exact path="/cart" component={Cart} />
-      <Route exact path="/checkout" component={Checkout} />
-      <Route exact path="/rating" component={SimpleRating} />
-      <Route exact path="/admin/dashboard" component={AdminDashboard} />
-      <Route exact path="/user/rating" component={HoverRating} />
-      <Route exact path="/admin/dashboard/user/add" component={AddUser} />
-      
-
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/user/product/request" component={ProductRequest} />
+        <Route exact path="/product/gadgets" component={Gadgets} />
+        <Route exact path="/product/laptop" component={Laptop} />
+        <Route exact path="/product/camera" component={Camera} />
+        <Route exact path="/laptop/acer" component={Acer} />
+        <Route exact path="/laptop/dell" component={Dell} />
+        <Route exact path="/laptop/asus" component={Asus} />
+        <Route exact path="/laptop/hp" component={Hp} />
+        <Route exact path="/laptop/lenovo" component={Lenovo} />
+        <Route exact path="/laptop/razer" component={Razer} />
+        <Route exact path="/laptop/apple" component={Apple} />
+        <Route exact path="/laptop/msi" component={MSI} />
+        <Route exact path="/laptop/aorus" component={Aorus} />
+        <Route exact path="/laptop/microsoft" component={Microsoft} />
+        <Route exact path="/user/profile" component={Profile} />
+        <Route exact path="/user/address" component={Address} />
+        <Route exact path="/user/edit" component={EditProfile} />
+        <Route exact path="/user/myorder" component={MyOrder} />
+        <Route exact path="/product/cosmetics" component={Cosmetics} />
+        <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
+        <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
+        <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/rating" component={SimpleRating} />
+        <Route exact path="/admin/dashboard" component={AdminDashboard} />
+        <Route exact path="/user/rating" component={HoverRating} />
+        <Route exact path="/admin/dashboard/user/add" component={AddUser} />
+        <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
+        <Route exact path="/admin/dashboard/product/add" component={AddProduct} />
+        <Route path="*" component={() => <NotFoundPage />} />
+      </Switch>
+      <Footer />
     </>
 
   )
