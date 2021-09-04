@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { districts, provinces } from '../../List/AddressList';
 import { accountStatus_list, userTypes, verified_list } from '../../List/StatusList';
+import { Redirect } from 'react-router';
 toast.configure();
 
 export class EditUser extends Component {
@@ -88,6 +89,14 @@ export class EditUser extends Component {
     }
 
     render() {
+        if (localStorage.getItem('token')) {
+            if (localStorage.getItem('userType') === "User") {
+                return <Redirect to='/' />
+            }
+        }
+        else {
+            return <Redirect to='/login' />
+        }
         return (
             <div className="EditUser mb-3" >
                 <div className="container req_left_container">
