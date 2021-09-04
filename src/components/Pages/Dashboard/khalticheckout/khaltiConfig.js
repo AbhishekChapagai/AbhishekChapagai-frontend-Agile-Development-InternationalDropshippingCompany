@@ -1,10 +1,11 @@
 import myKey from "./khaltiKey";
 import axios from "axios";
+
 let config = {
   // replace this key with yours
   publicKey: myKey.publicTestKey,
   productIdentity: "0000",
-  productName: "Dhuwani",
+  productName: "oo",
   productUrl: "http://localhost:3000/",
   eventHandler: {
     onSuccess(payload) {
@@ -12,7 +13,8 @@ let config = {
       console.log(payload);
       let data = {
         token: payload.token,
-        amount: payload.amount,
+        totalamounttax: payload.amount,
+        billingaddress: payload.user,
         paymentmethod: "khalti",
         userid: localStorage.getItem("userid"),
       };
@@ -23,7 +25,7 @@ let config = {
 
       axios
         .post(
-          `http://localhost:90/mycheckout/insert/`, data, config
+          "https://khalti.com/api/v2/payment/verify/", data, config
         )
         .then((response) => {
           console.log(response.data);
