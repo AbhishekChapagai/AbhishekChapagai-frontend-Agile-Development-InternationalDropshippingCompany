@@ -135,7 +135,7 @@ class Featured extends Component {
                         <p className="GadgetName">
                           {
                             g.gadgetname ? (g.gadgetname) : ("Name")
-                          } {g.laptop.laptopModel ? (g.laptop.laptopModel) : ("Model")} / {g.laptop.laptopRam ? (g.laptop.laptopRam) : ("RAM")} RAM / {g.laptop.laptopSize ? (g.laptop.laptopSize) : ("Size")} / {g.laptop.laptopGraphic ? (g.laptop.laptopGraphic) : ("Graphic")} / {g.laptop.laptopProcessor ? (g.laptop.laptopProcessor) : ("Processor")} <br></br>
+                          } {g.laptop ? (g.laptop.laptopModel) : ("Model")} / {g.laptop ? (g.laptop.laptopRam) : ("RAM")} RAM / {g.laptop ? (g.laptop.laptopSize) : ("Size")} / {g.laptop ? (g.laptop.laptopGraphic) : ("Graphic")} / {g.laptop ? (g.laptop.laptopProcessor) : ("Processor")} <br></br>
 
                         </p>
                         <p className="ratingGadget">RATING</p>
@@ -154,6 +154,7 @@ class Featured extends Component {
               {/* </div> */}
             </Slider>
           </div>
+
         </div>
 
       </>

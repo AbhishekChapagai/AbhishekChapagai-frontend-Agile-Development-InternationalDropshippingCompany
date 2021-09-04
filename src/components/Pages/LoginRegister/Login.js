@@ -6,15 +6,19 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 toast.configure();
 
+const initialState = {
+    emailError: "",
+    passwordError: ""
+}
+
 class Login extends Component {
     state = {
         email: "",
         password: "",
-        passwordHidden: true
+        passwordHidden: true,
     }
 
     toggleShow = this.toggleShow.bind(this);
-
     toggleShow() {
         this.setState({ passwordHidden: !this.state.passwordHidden });
     }
@@ -27,39 +31,60 @@ class Login extends Component {
 
     submitLogin = (e) => {
         e.preventDefault();
-        localStorage.clear();
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, this.state)
-            .then((response) => {
-                console.log(response);
-                console.log(response.data.token);
-                this.setState({
-                    success: response.data.success
 
+        const isValid = this.validate();
+
+        if (isValid) {
+            // clear form
+            this.setState(initialState);
+
+            localStorage.clear();
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, this.state)
+                .then((response) => {
+                    this.setState({
+                        success: response.data.success,
+                    })
+                    localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("userType", response.data.userType);
+                    localStorage.setItem("userid", response.data.userid);
+                    localStorage.setItem("verified", response.data.verified);
                 })
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("userType", response.data.userType);
-                localStorage.setItem("userid", response.data.userid);
-                localStorage.setItem("verified", response.data.verified);
+                .catch((err) => {
+                    console.log(err.response)
+                    this.setState({
+                        success: err.response.data.success
+                    })
 
-                console.log(response.data.userid)
-
-            })
-            .catch((err) => {
-                console.log(err.response)
-                this.setState({
-                    success: err.response.data.success
+                    toast.error('Invalid Email or Password!!!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 })
+        }
+    }
 
-                toast.error('Invalid Email or Password!!!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            })
+    validate = () => {
+        let emailError = "";
+        let passwordError = "";
+
+        if (!this.state.email.includes("@")) {
+            emailError = "Invalid email!!!"
+        }
+
+        if (!this.state.password) {
+            passwordError = "Password required!!!"
+        }
+
+        if (emailError || passwordError) {
+            this.setState({ emailError, passwordError });
+            return false;
+        }
+        return true;
     }
 
     render() {
@@ -101,7 +126,10 @@ class Login extends Component {
                                             data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
                                         <label id="email" htmlFor="floatingInput">Email address</label>
                                         {this.state.email && !(/\S+@\S+\.\S+/).test(this.state.email) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
-
+                                        {/* <p className="help is-danger">{this.state.emailError}</p> */}
+                                        <span className="error_msg">
+                                            {this.state.emailError}
+                                        </span>
                                     </div>
 
                                     <div className="form-floating mb-2 input_right_icon">
@@ -112,7 +140,12 @@ class Login extends Component {
                                             {this.state.passwordHidden ? < i className="fas fa-eye-slash icon_change"></i> : < i className="fas fa-eye icon_change"></i>}
                                         </i>
                                         <label id="password" htmlFor="floatingPassword">Password</label>
+                                        {/* <p className="help is-danger">{this.state.passwordError}</p> */}
+
                                     </div>
+                                    <span className="error_msg">
+                                        {this.state.passwordError}
+                                    </span>
 
                                     <p className="l_form_forgot">
                                         <a className="l_link" href="/login/forgot/password"> Forgot Password?</a>
@@ -136,13 +169,13 @@ class Login extends Component {
                     <div className="l_left_bottom">
                         <span> &copy; 2021 dhuwani | Kathmandu, Nepal</span>
                     </div>
-                </div>
+                </div >
 
                 {/* right side */}
-                <div className="l_right_side col-4">
+                < div className="l_right_side col-4" >
                     {/* <img src={test} /> */}
-                    <p className="img"> Right Side. Image Sections </p>
-                </div>
+                    < p className="img" > Right Side.Image Sections </p >
+                </div >
 
             </div >
         );

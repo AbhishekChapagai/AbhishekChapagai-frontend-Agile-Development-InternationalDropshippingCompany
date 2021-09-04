@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import CosmeticForm from './CosmeticForm';
 import CameraForm from './Gadget/CameraForm';
 import LaptopForm from './Gadget/LaptopForm';
@@ -44,6 +45,15 @@ export default class AddProduct extends Component {
     }
 
     render() {
+
+        if (localStorage.getItem('token')) {
+            if (localStorage.getItem('userType') === "User") {
+                return <Redirect to='/' />
+            }
+        }
+        else {
+            return <Redirect to='/login' />
+        }
 
         if (this.state.productType === "Cosmetic") {
             var display = <>

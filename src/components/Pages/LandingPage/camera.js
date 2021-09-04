@@ -136,8 +136,7 @@ class CameraCategory extends Component {
                           {
                             g.gadgetname ? (g.gadgetname) : ("Name")
 
-                          } {g.camera.cameraModel ? (g.camera.cameraModel) : ("Model")} / {g.camera.cameraResolution ? (g.camera.cameraResolution) : ("Resolution")}/ {g.camera.cameraSensorType ? (g.camera.cameraSensorType) : ("Sensor")} / {g.camera.cameraConnectivity ? (g.camera.cameraConnectivity) : ("Connectivity")} / {g.camera.cameraBatteryCapacity ? (g.camera.cameraBatteryCapacity) : ("Battery")}<br></br>
-
+                          } {g.camera ? (g.camera.cameraModel) : ("Model")} / {g.camera ? (g.camera.cameraResolution) : ("Resolution")}/ {g.camera ? (g.camera.cameraSensorType) : ("Sensor")} / {g.camera ? (g.camera.cameraConnectivity) : ("Connectivity")} / {g.camera ? (g.camera.cameraBatteryCapacity) : ("Battery")}<br></br>
 
                         </p>
 

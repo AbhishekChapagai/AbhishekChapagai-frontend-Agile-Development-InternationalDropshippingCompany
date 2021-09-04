@@ -1,9 +1,18 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import { Redirect } from 'react-router';
 import { toast } from 'react-toastify';
 import { districts, provinces } from '../../List/AddressList';
 import { userTypes } from '../../List/StatusList';
 toast.configure();
+
+const initialState = {
+    emailError: "",
+    passwordError: "",
+    firstError: "",
+    lastError: "",
+    userTypeError: ""
+}
 
 export default class AddUser extends Component {
     state = {
@@ -37,43 +46,100 @@ export default class AddUser extends Component {
 
     submitData = (e) => {
         e.preventDefault();
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/admin/user/add`, this.state, this.state.config)
-            .then((response) => {
-                console.log(response.data.success);
-                this.setState({
-                    success: response.data.success
+
+        const isValid = this.validate();
+
+        if (isValid) {
+            console.log(this.state);
+            // clear form
+            this.setState(initialState);
+
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/admin/user/add`, this.state, this.state.config)
+                .then((response) => {
+                    console.log(response.data.success);
+                    this.setState({
+                        success: response.data.success
+                    })
+
+                    toast.success('User added.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 })
+                .catch((err) => {
+                    console.log(err.response);
 
-                toast.success('User added.', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            })
-            .catch((err) => {
-                console.log(err.response);
+                    this.setState({
+                        success: err.response.data.success
+                    })
 
-                this.setState({
-                    success: err.response.data.success
+                    toast.error('Failed to add user!!!', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 })
+        }
+    }
 
-                toast.error('Failed to add user!!!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            })
+    validate = () => {
+        let emailError = "";
+        let passwordError = "";
+        let firstError = "";
+        let lastError = "";
+        let userTypeError = "";
+
+        if (!this.state.email.includes("@")) {
+            emailError = "Invalid email!!!"
+        }
+
+        if (!this.state.password) {
+            passwordError = "Required!!!"
+        }
+        else if (this.state.password.length < 8) {
+            passwordError = "Password must be minimum of 8 letters"
+        }
+
+        if (!this.state.firstname) {
+            firstError = "Required!!!"
+        }
+
+        if (!this.state.lastname) {
+            lastError = "Required!!!"
+        }
+
+        if (!this.state.userType) {
+            userTypeError = "Required!!!"
+        }
+
+
+        if (emailError || passwordError || firstError || lastError || userTypeError) {
+            this.setState({ emailError, passwordError, firstError, lastError, userTypeError });
+            return false;
+        }
+        return true;
     }
 
     render() {
+
+        if (localStorage.getItem('token')) {
+            if (localStorage.getItem('userType') === "User") {
+                return <Redirect to='/' />
+            }
+        }
+        else {
+            return <Redirect to='/login' />
+        }
+
         return (
             <div className="AddUser mb-3" >
                 <div className="container req_left_container">
@@ -96,6 +162,9 @@ export default class AddUser extends Component {
                                             <input type="text" className="form-control" id="floatingInputFirst" placeholder="First Name" name="firstname"
                                                 value={this.state.firstname} data-testid="" onChange={this.changeHandler} />
                                             <label id="firstname" htmlFor="floatingInputFirst">First Name*</label>
+                                            <span className="error_msg">
+                                                {this.state.firstError}
+                                            </span>
                                         </div>
                                     </div>
 
@@ -104,6 +173,9 @@ export default class AddUser extends Component {
                                             <input type="text" className="form-control" id="floatingInputLast" placeholder="Last Name" name="lastname"
                                                 value={this.state.lastname} data-testid="" onChange={this.changeHandler} />
                                             <label id="lastname" htmlFor="floatingInputLast">Last Name*</label>
+                                            <span className="error_msg">
+                                                {this.state.lastError}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +185,9 @@ export default class AddUser extends Component {
                                         value={this.state.email} data-testid="email-input" value={this.state.email} onChange={this.changeHandler} />
                                     <label id="email" htmlFor="floatingInputEmail">Email address*</label>
                                     {this.state.email && !(/\S+@\S+\.\S+/).test(this.state.email) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
-
+                                    <span className="error_msg">
+                                        {this.state.emailError}
+                                    </span>
                                 </div>
 
                                 <div className="form-floating mb-2 input_right_icon">
@@ -125,6 +199,9 @@ export default class AddUser extends Component {
                                     </i>
                                     <label id="password" htmlFor="floatingPassword">Password*</label>
                                 </div>
+                                <span className="error_msg">
+                                    {this.state.passwordError}
+                                </span>
 
                                 <div className="col-md-12">
                                     <div className="form-floating mb-2">
@@ -217,6 +294,9 @@ export default class AddUser extends Component {
                                         }
                                     </select>
                                     <label htmlFor="floatingUserType">User Type*</label>
+                                    <span className="error_msg">
+                                        {this.state.userTypeError}
+                                    </span>
                                 </div>
 
                                 <span className="p-1 ">* = Required Field.</span>
