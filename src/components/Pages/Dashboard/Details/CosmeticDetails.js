@@ -124,7 +124,7 @@ class CosmeticDetails extends Component {
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
                                                     <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
 
-                                                 
+
                                                 </div>
                                             </div>
 

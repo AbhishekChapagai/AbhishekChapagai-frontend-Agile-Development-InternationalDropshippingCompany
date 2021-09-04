@@ -67,33 +67,33 @@ class Profile extends Component {
 
                                                             {/* <img src={"http://localhost:90/userImg/" + this.state.img} className="img-radius" alt="User-Profile-Image" /> */}
                                                         </div>
-                                                    
+
                                                         <div className="col-sm-7">
 
                                                             <div className="card-block">
 
                                                                 <div className="row">
                                                                     <div className="col-sm-6" >
-                                                                        <p className="m-b-10">Firstname</p>
+                                                                        <p id="firstname" className="m-b-10">Firstname</p>
                                                                         <p className="text-muted">{this.state.firstName}</p>
                                                                     </div>
                                                                     <div className="col-sm-6">
-                                                                        <p className="m-b-10">Lastname</p>
+                                                                        <p id="lastname" className="m-b-10">Lastname</p>
                                                                         <p className="text-muted">{this.state.lastName}</p>
                                                                     </div>
                                                                     <div className="col-sm-6">
-                                                                        <p className="m-b-10">Email</p>
+                                                                        <p id="email" className="m-b-10">Email</p>
                                                                         <p className="text-muted">{this.state.email}</p>
                                                                     </div>
                                                                     <div className="col-sm-6">
-                                                                        <p className="m-b-10">Phone</p>
+                                                                        <p id="phone" className="m-b-10">Phone</p>
                                                                         <p className="text-muted">{this.state.phone}</p>
                                                                     </div>
                                                                     <div className="col-12 col-sm-6">
                                                                         <br></br>
-                                                                        <Link to='/user/edit'><div className="m-b-6"><i className="fas fa-user-edit"></i> EDIT PROFILE</div></Link>
+                                                                        <Link to='/user/edit' id="edit-profilebtn"><div className="m-b-6"><i className="fas fa-user-edit"></i> EDIT PROFILE</div></Link>
                                                                     </div>
-                                                                
+
                                                                 </div>
                                                             </div>
                                                         </div>

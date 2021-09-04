@@ -129,6 +129,7 @@ class ContextCart extends Component {
               <h3 value={this.state.totalamounttax = totalamounttax} onChange={this.changeHandler}>
                 Total amount incl. tax: <span > nrs.{totalamounttax}/- </span>
               </h3>
+              <a href="/"><button class="button">Continue Shopping</button></a>
               <a href="/checkout"><button class="button">CheckOut</button></a>
               <button class="button-clear" onClick={this.removeItem} >Clear Cart</button>
             </div>
