@@ -140,7 +140,7 @@ function Table({ columns, data }) {
                     autoHeight
                     autoHeightMin={0}
                     autoHeightMax={1000}
-                    renderThumbHorizontal={props => <div {...props} className="thumb-horizontal" />} >
+                >
                     <table className="table_border" {...getTableProps()} >
 
                         <thead className="table_title">
