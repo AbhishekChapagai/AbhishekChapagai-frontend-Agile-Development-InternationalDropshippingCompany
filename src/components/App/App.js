@@ -18,6 +18,7 @@ import Auth from '../Auth/Auth'
 import 'react-toastify/dist/ReactToastify.css';
 import Profile from '../Pages/Dashboard/UserProfile/userProfile';
 import Address from '../Pages/Dashboard/UserProfile/address';
+import AddReview from '../Pages/Dashboard/UserProfile/AddReview';
 import EditProfile from '../Pages/Dashboard/UserProfile/profileEdit';
 import MyOrder from '../Pages/Dashboard/UserProfile/MyOrder';
 import Cart from '../Pages/Dashboard/cart/ContextCart';
@@ -28,6 +29,7 @@ import ForgotPassword from '../Pages/LoginRegister/ForgotPassword';
 import SimpleRating from '../Pages/Dashboard/Details/rating';
 import AdminDashboard from '../Pages/AdminDashboard/index';
 import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
+import ProgressBar from '../Pages/Dashboard/UserProfile/ProgressBar'
 import AddUser from '../Pages/AdminDashboard/User/AddUser';
 import EditUser from '../Pages/AdminDashboard/User/EditUser';
 import Acer from '../Pages/ProductBrowsing/LaptopFilter/Acer';
@@ -43,6 +45,7 @@ import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
 import Footer from '../Footer/Footer';
 import AddProduct from '../Pages/AdminDashboard/Product/AddProduct/AddProduct';
 import NotFoundPage from '../Pages/NotFound/NotFoundPage';
+
 
 require('dotenv').config();
 
@@ -124,6 +127,7 @@ function App() {
         <Route exact path="/admin/dashboard/user/add" component={AddUser} />
         <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
         <Route exact path="/admin/dashboard/product/add" component={AddProduct} />
+        <Route exact path="/user/myorder/rating/:id" component={AddReview} />
         <Route path="*" component={() => <NotFoundPage />} />
       </Switch>
       <Footer />
