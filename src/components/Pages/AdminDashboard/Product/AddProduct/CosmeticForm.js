@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { toast } from 'react-toastify';
-import { cosmeticGenders, cosmeticTypes, featured } from '../../../List/ProductList';
+import { cosmeticGenders, cosmeticTypes, featured, gadgetBrandNames } from '../../../List/ProductList';
 toast.configure();
 
 export default class CosmeticForm extends Component {
@@ -13,6 +13,7 @@ export default class CosmeticForm extends Component {
         cosmeticmodel: "",
         cosmeticdescription: "",
         featured: "",
+        brandName: "",
         cosmeticImages: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -45,6 +46,7 @@ export default class CosmeticForm extends Component {
         data.append('cosmeticmodel', states.cosmeticmodel)
         data.append('cosmeticdescription', states.cosmeticdescription)
         data.append('featured', states.featured)
+        data.append('brandName', states.brandName)
 
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/cosmetic/insert`, data, this.state.config)
             .then((response) => {
@@ -181,6 +183,22 @@ export default class CosmeticForm extends Component {
                                 <input type="text" className="form-control" id="floatingCModel" placeholder="Cosmetic Model" name="cosmeticmodel"
                                     value={this.state.cosmeticmodel} data-testid="" onChange={this.changeHandler} />
                                 <label id="cosmeticmodel" htmlFor="floatingCModel">Cosmetic Model*</label>
+                            </div>
+                        </div>
+
+                        <div className="col-sm-6 col-md-4">
+                            <div className="form-floating mb-2">
+                                <select className="form-select" id="floatingBrand" aria-label="Floating label select example"
+                                    value={this.state.brandName}
+                                    name="brandName" onChange={this.changeHandler} >
+
+                                    {gadgetBrandNames.map(option =>
+                                        <option key={option.label} value={option.value}>
+                                            {option.label}
+                                        </option>)
+                                    }
+                                </select>
+                                <label htmlFor="floatingBrand">Brand*</label>
                             </div>
                         </div>
 

@@ -118,6 +118,15 @@ class Register extends Component {
 
 
     render() {
+        if (localStorage.getItem('token')) {
+            if (localStorage.getItem('userType') === "User") {
+                return <Redirect to='/' />
+            }
+            else {
+                return <Redirect to='/admin/dashboard' />
+            }
+        }
+
         if (this.state.success === true) {
             return <Redirect to="/login" />
         }

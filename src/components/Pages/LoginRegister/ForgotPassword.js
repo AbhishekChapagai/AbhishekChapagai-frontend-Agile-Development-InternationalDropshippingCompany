@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import './fp.css';
 toast.configure();
@@ -88,6 +88,15 @@ export default class ForgotPassword extends Component {
 
 
     render() {
+        if (localStorage.getItem('token')) {
+            if (localStorage.getItem('userType') === "User") {
+                return <Redirect to='/' />
+            }
+            else {
+                return <Redirect to='/admin/dashboard' />
+            }
+        }
+
         return (
             <div className="ForgotPassword">
                 {/* fp = ForgotPassword */}
