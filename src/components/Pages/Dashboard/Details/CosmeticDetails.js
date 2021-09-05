@@ -44,7 +44,12 @@ class CosmeticDetails extends Component {
             })
     }
     Addtocart() {
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
+        const data = {
+            userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname,
+            productprice: this.state.productprice, producttype: this.state.producttype,
+            productimage: this.state.cosmetics[0].cosmeticImages[0].imageName
+        }
+        console.log(this.state.cosmetics[0].cosmeticImages[0].imageName)
         axios.post(`http://localhost:90/mycart/insert/`, data)
 
             .then((response) => {

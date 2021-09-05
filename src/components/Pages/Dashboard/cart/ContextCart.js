@@ -3,6 +3,7 @@ import Items from "./Items";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import axios from "axios";
 import "./cart.css";
+import emptycart from '../../../../assets/images/emptycart.jpg';
 
 class ContextCart extends Component {
 
@@ -94,8 +95,10 @@ class ContextCart extends Component {
                 <Scrollbars autoHeight
                   autoHeightMin={150}
                   autoHeightMax={1000} className="cart-items-container">
-                  <h1>Your cart is Empty</h1>
-                  <p>Please go to product page to view and add products. Thank You!</p>
+                  <h1 style={{ textAlign: "center" }}>Your cart is Empty</h1>
+                  <p style={{ textAlign: "center" }}>Please go to product page to view and add products. Thank You!</p>
+                  <a className="emptycart" href="/"><img src={emptycart} /></a> <br /><br />
+                  <p style={{ textAlign: "center" }}><strong><a href="/">Click to Shop Now!</a></strong></p>
                 </Scrollbars>
               </div>
             </div>
@@ -115,7 +118,7 @@ class ContextCart extends Component {
               <div className="cart-items-container">
                 <Scrollbars autoHeight
                   autoHeightMin={100}
-                  autoHeightMax={1000} className="cart-items-container">
+                  autoHeightMax={400} className="cart-items-container">
 
                   <Items></Items>
 

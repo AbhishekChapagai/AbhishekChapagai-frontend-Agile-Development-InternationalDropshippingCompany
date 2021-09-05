@@ -21,10 +21,10 @@
   width: 90%;
   background: linear-gradient(
     103.49deg,
-    #e4f0f2 -40.13%,
-    #c2cacc 130.84%
+    #ffffff -40.13%,
+    #ffffff 130.84%
   );
-  box-shadow: rgba(0, 0, 0, 0.08) 0rem 0.4rem 1.2rem;
+  box-shadow: rgba(0, 0, 0, 0.08) 0rem -0.4rem 3.2rem;
   border-radius: 0.5rem;
   margin: auto;
   display: grid;
@@ -38,6 +38,13 @@
 
 .cart-items-container {
   width: 90%;
+}
+
+.cart-items-container .emptycart{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
 }
 
 .items-info {

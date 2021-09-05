@@ -41,15 +41,16 @@ class CameraDetails extends Component {
     }
     Addtocart() {
 
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity,  productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
+        const data = {
+            userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname,
+            productprice: this.state.productprice, producttype: this.state.producttype,
+            productimage: this.state.gadgets[0].gadgetImages[0].imageName
+        }
         axios.post(`http://localhost:90/mycart/insert/`, data)
 
 
             .then((response) => {
                 console.log(response.data)
-                this.setState({
-                    gadgets: response.data.data
-                })
 
                 toast.success('Product added to cart!', {
                     position: "bottom-right",
@@ -125,7 +126,7 @@ class CameraDetails extends Component {
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
                                                     <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
 
-                                                   
+
                                                 </div>
                                             </div>
 
