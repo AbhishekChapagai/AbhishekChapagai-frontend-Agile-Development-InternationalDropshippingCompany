@@ -56,8 +56,20 @@ export default class CartList extends Component {
         return (
             <>
                 <div className="items-info">
-                    <div className="product-img">
-                        <img src={"http://localhost:90/mycart/" + this.state.cart.productimage} alt="img" />
+                    <div className="product-img">{
+                        this.state.cart.producttype === "Perfume" ?
+                            (<img src={"http://localhost:90/cosmetic/" + this.state.cart.productimage} alt="img" />) :
+
+                            this.state.cart.producttype === "Nailpolish" ?
+                                (<img src={"http://localhost:90/cosmetic/" + this.state.cart.productimage} alt="img" />) :
+
+                                this.state.cart.producttype === "Lotion" ?
+                                    (<img src={"http://localhost:90/cosmetic/" + this.state.cart.productimage} alt="img" />) :
+
+                                    this.state.cart.producttype === "Camera" ?
+                                        (<img src={"http://localhost:90/gadget/" + this.state.cart.productimage} alt="img" />) :
+                                        <img src={"http://localhost:90/gadget/" + this.state.cart.productimage} alt="img" />
+                    }
                     </div>
 
                     <div className="title">
