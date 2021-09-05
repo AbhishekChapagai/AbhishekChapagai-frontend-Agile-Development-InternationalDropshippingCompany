@@ -52,7 +52,7 @@ class Address extends Component {
                                     <p className="manageAccount">Manage your account</p>
                                     <Link to="/user/profile"><a>MY PROFILE</a></Link>
                                     <Link to="/user/address"><a class="active">MY ADDRESS</a></Link>
-                                    <Link><a href="#order">MY ORDER</a></Link>
+                                    <Link to="/user/myorder"><a className="sidebara">MY ORDER</a></Link>
                                 </div>
                             </div>
 

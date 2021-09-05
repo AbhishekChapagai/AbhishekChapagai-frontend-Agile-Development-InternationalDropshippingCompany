@@ -300,6 +300,7 @@ class CameraDetails extends Component {
             }
 
             </div>
+            <Review></Review>
             <Questions dataFromParent={this.state.id}> </Questions>
         </>
 
