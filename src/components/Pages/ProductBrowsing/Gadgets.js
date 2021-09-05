@@ -36,19 +36,19 @@ class gadgets extends Component {
         return (
             <div className="showGadgets">
                 <div className="gadgetsBand">
-                <NavDropdown title="Product Type" id="collasible-nav-dropdown">
-                      <LinkContainer exact to="/product/camera">
-                        <NavDropdown.Item >
-                          Camera
-                        </NavDropdown.Item>
-                      </LinkContainer>
+                    <NavDropdown title="Product Type" id="collasible-nav-dropdown">
+                        <LinkContainer exact to="/product/camera">
+                            <NavDropdown.Item >
+                                Camera
+                            </NavDropdown.Item>
+                        </LinkContainer>
 
-                      <LinkContainer exact to="/product/laptop">
-                        <NavDropdown.Item>
-                          Laptop
-                        </NavDropdown.Item>
-                      </LinkContainer>
-                    </NavDropdown> 
+                        <LinkContainer exact to="/product/laptop">
+                            <NavDropdown.Item>
+                                Laptop
+                            </NavDropdown.Item>
+                        </LinkContainer>
+                    </NavDropdown>
                 </div>
 
 
@@ -62,7 +62,7 @@ class gadgets extends Component {
                                     {
                                         g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
                                             <div className="catGadgetsImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src="{${process.env.REACT_APP_BACKEND_URL}/gadget/ + g.gadgetImages}" alt="img" />
                                             </div>
                                             <div className="GadgetsNameCategory">
                                                 <p className="GadgetsName">&nbsp;

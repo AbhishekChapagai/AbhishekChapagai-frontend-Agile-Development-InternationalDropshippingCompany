@@ -45,6 +45,15 @@ import Microsoft from '../Pages/ProductBrowsing/LaptopFilter/Microsoft';
 import Footer from '../Footer/Footer';
 import AddProduct from '../Pages/AdminDashboard/Product/AddProduct/AddProduct';
 import NotFoundPage from '../Pages/NotFound/NotFoundPage';
+import MenCosmetics from '../Pages/ProductBrowsing/Men';
+import Creed from '../Pages/ProductBrowsing/CosmeticFilter/Creed';
+import HugoBoss from '../Pages/ProductBrowsing/CosmeticFilter/HugoBoss';
+import VictoriaSecret from '../Pages/ProductBrowsing/CosmeticFilter/Victoria Secret';
+import Dior from '../Pages/ProductBrowsing/CosmeticFilter/Dior';
+import Women from '../Pages/ProductBrowsing/Women';
+import Perfume from '../Pages/ProductBrowsing/CosmeticFilter/Perfume';
+import Nailpolish from '../Pages/ProductBrowsing/CosmeticFilter/Nail Polish';
+import Lotion from '../Pages/ProductBrowsing/CosmeticFilter/Lotion';
 
 
 require('dotenv').config();
@@ -131,6 +140,47 @@ function App() {
         <Route path="*" component={() => <NotFoundPage />} />
       </Switch>
       <Footer />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/user/product/request" component={ProductRequest} />
+      <Route exact path="/product/gadgets" component={Gadgets} />
+      <Route exact path="/product/laptop" component={Laptop} />
+      <Route exact path="/product/camera" component={Camera} />
+      <Route exact path="/laptop/acer" component={Acer} />
+      <Route exact path="/laptop/dell" component={Dell} />
+      <Route exact path="/laptop/asus" component={Asus} />
+      <Route exact path="/laptop/hp" component={Hp} />
+      <Route exact path="/laptop/lenovo" component={Lenovo} />
+      <Route exact path="/laptop/razer" component={Razer} />
+      <Route exact path="/laptop/apple" component={Apple} />
+      <Route exact path="/laptop/msi" component={MSI} />
+      <Route exact path="/laptop/aorus" component={Aorus} />
+      <Route exact path="/laptop/microsoft" component={Microsoft} />
+      <Route exact path="/user/profile" component={Profile} />
+      <Route exact path="/user/address" component={Address} />
+      <Route exact path="/user/edit" component={EditProfile} />
+      <Route exact path="/user/myorder" component={MyOrder} />
+      <Route exact path="/product/cosmetics" component={Cosmetics} />
+      <Route exact path="/cosmetic/men" component={MenCosmetics} />
+      <Route exact path="/product/women" component={Women} />
+      <Route exact path="/cosmetic/creed" component={Creed} />
+      <Route exact path="/cosmetic/hugo" component={HugoBoss} />
+      <Route exact path="/cosmetic/victoria" component={VictoriaSecret} />
+      <Route exact path="/cosmetic/dior" component={Dior} />
+      <Route exact path="/cosmetic/perfume" component={Perfume} />
+      <Route exact path="/cosmetic/nailpolish" component={Nailpolish} />
+      <Route exact path="/cosmetic/lotion" component={Lotion} />
+      <Route exact path="/cosmetic/women" component={Camera} />
+      <Route exact path="/product/gadget/laptopdetails/:id" component={LaptopDetails} />
+      <Route exact path="/product/gadget/cameradetails/:id" component={CameraDetails} />
+      <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
+      <Route exact path="/cart" component={Cart} />
+      <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/rating" component={SimpleRating} />
+      <Route exact path="/admin/dashboard" component={AdminDashboard} />
+      <Route exact path="/user/rating" component={HoverRating} />
+      <Route exact path="/admin/dashboard/user/add" component={AddUser} />
+      
+
     </>
 
   )

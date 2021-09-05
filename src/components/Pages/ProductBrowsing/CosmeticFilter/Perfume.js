@@ -1,34 +1,32 @@
 import axios from "axios";
 import { Component } from "react";
-import { Row, Col, Card, CardGroup } from 'react-bootstrap';
-import '../../infoflipcard/styles.css'
-import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
-import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
 
-class cosmetics extends Component {
-
+class Perfume extends Component{
     state = {
-        cosmetics: [],
-
-    }
-    componentDidMount() {
-        axios.get("http://localhost:90/cosmetic/showall", this.state)
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    cosmetics: response.data.data
-                })
+        cosmetic: [],
+        config: {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        },
+      }
+    
+      componentDidMount() {
+        axios.get("http://localhost:90/cosmetic/perfume", this.state)
+          .then((response) => {
+            console.log(response)
+            this.setState({
+              cosmetic: response.data.data
             })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }
-
-
-    render() {
+          })
+          .catch((err) => {
+            console.log(err.response)
+          })
+      }
+    
+      render() {
         return (
             <>
 
@@ -36,22 +34,37 @@ class cosmetics extends Component {
                     <div className="showCosmetics">
                         <div className="cosmeticsBand">
                         <NavDropdown title="Product Type" id="collasible-nav-dropdown">
-                      <LinkContainer exact to="/cosmetic/men">
+                      <LinkContainer exact to="/product/men">
                         <NavDropdown.Item >
                           Men
                         </NavDropdown.Item>
                       </LinkContainer>
 
-                      <LinkContainer exact to="/cosmetic/women">
+                      <LinkContainer exact to="/product/women">
                         <NavDropdown.Item>
                           Women
                         </NavDropdown.Item>
                       </LinkContainer>
                     </NavDropdown> 
                         </div>
+                        <div className="cosmeticFilter">
+                        <div className="cosmeticName">
+                          <h>Filter By Brand</h>
+                        <a href={"/cosmetic/creed"}>Creed</a>
+                        <a href={"/cosmetic/hugo"}>Hugo Boss</a>
+                        <a href={"/cosmetic/victoria"}>Victoria Secret</a>
+                        <a href={"/cosmetic/dior"}>Dior</a>
+                          </div>
+                          <div className="cosmeticType">
+                          <h>Filter By Type</h>
+                        <a href={"/cosmetic/nailpolish"}>Nail Polish</a>
+                        <a href={"/cosmetic/lotion"}>Lotion</a>
+                          </div>
+                    </div>
+
                         <div className="mainCatCosmetics">
                             {
-                                this.state.cosmetics.map((c) => {
+                                this.state.cosmetic.map((c) => {
                                     return (
 
                                         <div className="cosmeticsCat">
@@ -93,4 +106,5 @@ class cosmetics extends Component {
     }
 
 }
-export default cosmetics;
+
+export default Perfume
