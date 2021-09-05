@@ -107,8 +107,7 @@ class Checkout extends Component {
             billingdistrict: this.state.billingdistrict,
             billingprovince: this.state.billingprovince,
             userid: this.state.userid,
-            paymentmethod: this.state.paymentmethod,
-            myproduct: this.state.gadgetcart.map(e => ({ productid: e.productid, productname: e.productname, productquantity: e.quantity }))
+            myproduct: this.state.gadgetcart.map(e => ({ productid: e.productid, productname: e.productname, productquantity: e.quantity, paymentmethod: this.state.paymentmethod }))
         }
         axios.post(`http://localhost:90/mycheckout/insert/`, data, this.state.config)
             .then((response) => {

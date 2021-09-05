@@ -58,7 +58,9 @@ class Questions extends Component {
 
 
     render() {
+
         var Questions = <>
+
             <div className="container mt-5 mb-5">
                 <div className="row">
                     <div className="col-md-12">
@@ -68,16 +70,18 @@ class Questions extends Component {
                             </div>
                             <div className="card-div-2">
                                 <div className="px-1">
-                                    <div className="Question_text"><input type="text" className="form-control" name="askQuestion" placeholder="Have a question?" value={this.state.askQuestion} {...this.state.firstName} onChange={this.changeHandler} /><button onClick={this.submitData}>Ask Questions</button></div>
+                                    <div className="Question_text"><input type="text" className="form-control" name="askQuestion" placeholder="Have a question?" value={this.state.askQuestion} {...this.state.firstName} onChange={this.changeHandler} />
+                                    <button onClick={this.submitData}>Ask Questions</button></div>
                                 </div>
-
                             </div>
                             <div class="card question-card p-3">
                                 <p>Other User Questions</p>
                                 {this.state.questions.map((q) => {
                                     return (
+
                                         <>
                                             {q.answer ?
+
                                                 <>
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="user d-flex flex-row align-items-center"> {<i class="fas fa-question-circle"></i>}
@@ -105,7 +109,7 @@ class Questions extends Component {
                                                         <small class=" username_ques"> {q.firstName} {q.lastName}</small>
                                                     </div>
                                                     <div className="question_border">
-                                                        
+
                                                     </div>
                                                 </>
                                             }

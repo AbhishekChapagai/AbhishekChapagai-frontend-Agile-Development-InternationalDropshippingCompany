@@ -3,64 +3,95 @@ import axios from "axios";
 import './Order.css'
 import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import HorizontalLabelPositionBelowStepper from 'react-bootstrap/ProgressBar'
 
 
 class MyOrder extends Component {
+    state = {
+        mycheckout: [],
+        config: {
+            headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
+        }
+    }
 
+    componentDidMount() {
+        axios.get("http://localhost:90/mycheckout/myorder", this.state.config)
+            .then((response) => {
+                console.log(response)
+                this.setState({
+                    mycheckout: response.data.data
+                })
+            }).catch((err) => {
+                console.log(err);
+            })
+    }
 
 
     render() {
-
         var order = <>
             <div className="mainUser">
                 <div className="container">
                     <div className="row">
                         <Sidebar></Sidebar>
-
                         <div className="cardSection col-xl-10 col-lg-10 col-md-9 col-sm-12 ">
                             <div className="page-content page-container" id="page-content">
                                 <div className="padding">
-
                                     <div className="row container d-flex justify-content-center">
                                         <div className="col-12">
                                             <div className="card user-card-full profileCard">
-                                                <div className="row m-l-0 m-r-0">
-                                                    <div class="container">
-                                                        <div class="table-wrap">
-                                                            <table class="table table-responsive table-borderless">
-                                                                <thead>
-                                                                    <th>&nbsp;</th>
-                                                                    <th>Product</th>
-                                                                    <th>Quantity</th>
-                                                                    <th>Price</th>
-                                                                    <th>Review</th>
+                                                <div class="container-fluid mt-100">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="card myorder-card">
+                                                                <div class="card-body">
+                                                                    <div class="active-member">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-xs mb-0">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Product</th>
+                                                                                        <th>Quantity</th>
+                                                                                        <th>Status</th>
+                                                                                        <th>Payment</th>
+                                                                                        <th>Review</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                < tbody >
+                                                                                    {
+                                                                                        this.state.mycheckout.map((p) => {
+                                                                                            return (<>
+                                                                                                {
+                                                                                                    p.productinfo.myproduct.map((rating) => {
+                                                                                                        return (<>
+                                                                                                            <tr>
+                                                                                                                <td>{rating.productname}</td>
+                                                                                                                <td>{rating.productquantity}</td>
+                                                                                                                <td>
+                                                                                                                    {rating.status}
+                                                                                                                </td>
+                                                                                                                <td> {rating.paymentmethod}</td>
+                                                                                                                <td><Link to={"/user/myorder/rating/" + rating.productid} >Details</Link></td>
+                                                                                                            </tr>
+                                                                                                        </>
 
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr class="align-middle alert border-bottom" >
+                                                                                                        )
+                                                                                                    })
+                                                                                                }
+                                                                                            </>
+                                                                                            )
+                                                                                        })
+                                                                                    }
+                                                                                </tbody>
 
-
-                                                                        <td class="text-center"> <img class="pic" src="https://www.freepnglogos.com/uploads/shoes-png/dance-shoes-png-transparent-dance-shoes-images-5.png" alt="" /> </td>
-                                                                        <td>
-                                                                            <div>
-                                                                                <p class="m-0 fw-bold">Sneakers Shoes 2020 For Men</p>
-                                                                                <p class="m-0 text-muted">Fugiat Voluptates quasi nemo,ipsa perferencis</p>
-                                                                            </div>
-                                                                        </td>
-
-                                                                        <td class="d-"> 2 </td>
-                                                                        <td> $89.98 </td>
-                                                                        <td> review </td>
-                                                                    </tr>
-
-
-                                                                </tbody>
-                                                            </table>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -70,11 +101,12 @@ class MyOrder extends Component {
                 </div>
             </div>
 
+
         </>
-         return (
+        return (
             order
         )
-        
+
     }
 }
 

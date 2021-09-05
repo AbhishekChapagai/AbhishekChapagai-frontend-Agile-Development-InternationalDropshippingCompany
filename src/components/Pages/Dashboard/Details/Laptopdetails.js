@@ -39,7 +39,6 @@ class LaptopDetails extends Component {
 
                     gadgets: response.data.data
                 })
-                console.log(response.data.data[0].gadgetImages)
             })
             .catch((err) => {
                 console.log(err.response)
@@ -47,7 +46,7 @@ class LaptopDetails extends Component {
     }
     Addtocart() {
 
-        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice,  producttype: this.state.producttype }
+        const data = { userid: this.state.userid, productid: this.state.id, quantity: this.state.quantity, productname: this.state.productname, productprice: this.state.productprice, producttype: this.state.producttype }
         axios.post(`http://localhost:90/mycart/insert/`, data)
 
 
@@ -128,9 +127,9 @@ class LaptopDetails extends Component {
                                                     <div>
 
 
-                                                    <div className="btn-minus" onClick={this.itemMinus}><i className="glyphicon glyphicon-minus"></i><i class="fas fa-minus"></i></div>
-                                                    <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                    <div className="btn-plus" onClick={this.itemPlus}>< i className="bi bi-plus"></i><i class="fas fa-plus quantity-plus"></i></div>
+                                                        <div className="btn-minus" onClick={this.itemMinus}><i className="glyphicon glyphicon-minus"></i><i class="fas fa-minus"></i></div>
+                                                        <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
+                                                        <div className="btn-plus" onClick={this.itemPlus}>< i className="bi bi-plus"></i><i class="fas fa-plus quantity-plus"></i></div>
 
 
                                                     </div>
@@ -150,7 +149,7 @@ class LaptopDetails extends Component {
                                 <div id="module" class="container additional-des">
                                     <h3>Summary</h3>
                                     <p class="collapse" id="collapseExample" aria-expanded="false">
-                                        {l.gaadgetdescription}
+                                        {l.gadgetdescription}
                                     </p>
                                     <a class="showmore" role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                     </a>
@@ -168,10 +167,10 @@ class LaptopDetails extends Component {
                                             <div class="col">Weight (kg)  :</div>
                                         </div>
                                         <div class="col ">
-                                            <div class="col ">{l.laptop.laptopBrand}</div>
-                                            <div class="col">{l.laptopModel}</div>
-                                            <div class="col">{l.laptopDimension}</div>
-                                            <div class="col">{l.laptopWeight}</div>
+                                            <div class="col ">{l.brandName}</div>
+                                            <div class="col">{l.laptop.laptopModel}</div>
+                                            <div class="col">{l.laptop.laptopDimension}</div>
+                                            <div class="col">{l.laptop.laptopWeight}</div>
                                         </div>
                                     </div>
                                     <div class="row product-row">
@@ -183,8 +182,8 @@ class LaptopDetails extends Component {
                                             <div class="col">Resolution  :</div>
                                         </div>
                                         <div class="col">
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopResolution}</div>
+                                            <div class="col">{l.laptop.laptopSize}</div>
+                                            <div class="col">{l.laptop.laptopResolution}</div>
                                         </div>
                                     </div>
                                     <div class="row product-row">
@@ -196,8 +195,8 @@ class LaptopDetails extends Component {
                                             <div class="col">Base Clock Speed  :</div>
                                         </div>
                                         <div class="col">
-                                            <div class="col">{l.laptopProcessor}</div>
-                                            <div class="col">{l.laptopBaseClock}</div>
+                                            <div class="col">{l.laptop.laptopProcessor}</div>
+                                            <div class="col">{l.laptop.laptopBaseClock}</div>
                                         </div>
                                     </div>
                                     <div class="row product-row">
@@ -208,9 +207,9 @@ class LaptopDetails extends Component {
                                             <div class="col">RAM  :</div>
 
 
-                                    </div>
-                                    <div class="col">
-                                        <div class="col">{l.laptop.laptopRam}</div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="col">{l.laptop.laptopRam}</div>
 
 
                                         </div>
@@ -225,9 +224,9 @@ class LaptopDetails extends Component {
                                             <div class="col">Dedicated Graphics  :</div>
                                         </div>
                                         <div class="col">
-                                            <div class="col">{l.laptopGraphic}</div>
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
+                                            <div class="col">{l.laptop.laptopGraphic}</div>
+                                            <div class="col">{l.laptop.laptopDedicatedGraphicMemory}</div>
+                                            <div class="col">{l.laptop.laptopDedicatedGraphic}</div>
                                         </div>
                                     </div>
                                     <div class="row product-row">
@@ -239,8 +238,8 @@ class LaptopDetails extends Component {
                                             <div class="col">SSD  :</div>
                                         </div>
                                         <div class="col">
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
+                                            <div class="col">{l.laptop.laptopHarddisk}</div>
+                                            <div class="col">{l.laptop.laptopSSD}</div>
                                         </div>
                                     </div>
                                     <div class="row product-row">
@@ -256,12 +255,12 @@ class LaptopDetails extends Component {
                                             <div class="col">RJ45 (LAN)  :</div>
                                         </div>
                                         <div class="col">
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
-                                            <div class="col">{l.laptopSize}</div>
+                                            <div class="col">{l.laptop.laptopNoOfUSBPorts}</div>
+                                            <div class="col">{l.laptop.laptopUSBPorts}</div>
+                                            <div class="col">{l.laptop.laptopHDMIPorts}</div>
+                                            <div class="col">{l.laptop.laptopMultiCardSlot}</div>
+                                            <div class="col">{l.laptop.laptopHeadphone}</div>
+                                            <div class="col">{l.laptop.laptopJack}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -274,7 +273,7 @@ class LaptopDetails extends Component {
 
             </div>
 
-            <Review></Review>
+            <Review dataFromParent={this.state.id}></Review>
             <Questions dataFromParent={this.state.id}> </Questions>
 
         </>
