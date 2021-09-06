@@ -207,7 +207,7 @@ export default class CosmeticForm extends Component {
                             <hr />
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-12 col-sm-6">
                             <div className="form-group file_uploader">
                                 <input id="cosmeticImages" type="file" name="cosmeticImages" className="form-control gadget_image_uploader"
                                     onChange={this.fileHandler} multiple />

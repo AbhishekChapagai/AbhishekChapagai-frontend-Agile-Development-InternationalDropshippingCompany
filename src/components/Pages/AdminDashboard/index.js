@@ -4,6 +4,9 @@ import './style.css';
 import UserTable from './User/UserTable';
 
 import { Redirect } from "react-router-dom"; // wrap
+import ProductRequested from './Product/ProductRequested/ProductRequested';
+import OrderTable from './Product/Order/OrderTable';
+import AdTable from './Ad/AdTable';
 
 export default class index extends Component {
 
@@ -25,6 +28,15 @@ export default class index extends Component {
                     </div>
                     <div className="user_table">
                         <UserTable />
+                    </div>
+                    <div className="product_req_table">
+                        <ProductRequested />
+                    </div>
+                    <div className="order_table">
+                        <OrderTable />
+                    </div>
+                    <div className="ad_table">
+                        <AdTable />
                     </div>
                 </div>
             </div>

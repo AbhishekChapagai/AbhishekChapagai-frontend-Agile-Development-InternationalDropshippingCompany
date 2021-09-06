@@ -54,6 +54,9 @@ import Women from '../Pages/ProductBrowsing/Women';
 import Perfume from '../Pages/ProductBrowsing/CosmeticFilter/Perfume';
 import Nailpolish from '../Pages/ProductBrowsing/CosmeticFilter/Nail Polish';
 import Lotion from '../Pages/ProductBrowsing/CosmeticFilter/Lotion';
+import EditPRDetails from '../Pages/AdminDashboard/Product/ProductRequested/EditPRDetails';
+import AddAd from '../Pages/AdminDashboard/Ad/AddAd';
+import EditOrder from '../Pages/AdminDashboard/Product/Order/EditOrder';
 
 
 require('dotenv').config();
@@ -136,6 +139,9 @@ function App() {
         <Route exact path="/admin/dashboard/user/add" component={AddUser} />
         <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
         <Route exact path="/admin/dashboard/product/add" component={AddProduct} />
+        <Route exact path="/admin/dashboard/product/request/details/:id" component={EditPRDetails} />
+        <Route exact path="/admin/dashboard/ad/add/" component={AddAd} />
+        <Route exact path="/admin/dashboard/order/edit/:id" component={EditOrder} />
         <Route exact path="/user/myorder/rating/:id" component={AddReview} />
         <Route path="*" component={() => <NotFoundPage />} />
       </Switch>

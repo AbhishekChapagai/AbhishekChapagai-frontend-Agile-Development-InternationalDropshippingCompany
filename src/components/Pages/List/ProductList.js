@@ -164,5 +164,71 @@ const gadgetBrandNames = [
     }
 ]
 
+const productTypes = [
+    {
+        id: "0",
+        label: "Select Product Types",
+    },
+    {
+        id: "1",
+        label: "Gadget",
+        value: 'Gadget',
+    },
+    {
+        id: "2",
+        label: "Cosmetic",
+        value: 'Cosmetic',
+    }
+]
 
-export { featured, cosmeticTypes, cosmeticGenders, gadgetTypes, gadgetBrandNames, yesNo, trueFalse }
+const prStatus = [
+    {
+        id: "0",
+        label: "Select Product Request Status",
+    },
+    {
+        id: "1",
+        label: "Pending",
+        value: 'Pending',
+    },
+    {
+        id: "2",
+        label: "Approve",
+        value: 'Approved',
+    },
+    {
+        id: "3",
+        label: "Disapprove",
+        value: 'Disapproved',
+    }
+]
+
+const productStatus = [
+    {
+        id: "0",
+        label: "Select Product Status",
+    },
+    {
+        id: "1",
+        label: "Pending",
+        value: 'Pending',
+    },
+    {
+        id: "2",
+        label: "Shipped",
+        value: 'Shipped',
+    },
+    {
+        id: "3",
+        label: "Delivered",
+        value: 'Delivered',
+    },
+    {
+        id: "3",
+        label: "Cancelled",
+        value: 'Cancelled',
+    }
+]
+
+
+export { featured, cosmeticTypes, cosmeticGenders, gadgetTypes, gadgetBrandNames, yesNo, trueFalse, productTypes, prStatus, productStatus }

@@ -172,6 +172,10 @@ a.dropdown-item:hover{
     margin-right: 10px;
 }
 
+.nav_profile_icon .MuiAvatar-colorDefault{
+    background-color: #1c96c5;
+}
+
 .nav_profile_detatil {
     font-size: 12px;
 }
