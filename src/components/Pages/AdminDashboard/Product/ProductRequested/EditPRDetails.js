@@ -33,7 +33,6 @@ export default class EditPRDetails extends Component {
             .then((response) => {
                 const data = response.data.data[0]
                 // console.log(data.addressBook.province)
-                console.log(data);
                 this.setState({
                     firstname: data.firstname,
                     lastname: data.lastname,

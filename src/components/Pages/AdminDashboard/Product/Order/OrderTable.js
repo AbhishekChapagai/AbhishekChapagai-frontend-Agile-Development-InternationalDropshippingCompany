@@ -43,7 +43,7 @@ export default function OrderTable() {
                 accessor: "_id",
                 Cell: ({ cell: { value } }) => (
                     <div className="">
-                        <Link to={"/admin/dashboard/order/detials" + value}> <button className="btn view_btn">View Details</button></Link>
+                        <Link to={"/admin/dashboard/order/edit/" + value}> <button className="btn view_btn">View Details</button></Link>
                     </div >
                 )
             },
