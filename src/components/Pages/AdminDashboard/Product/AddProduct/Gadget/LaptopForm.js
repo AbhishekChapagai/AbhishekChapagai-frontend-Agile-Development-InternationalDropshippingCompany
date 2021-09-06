@@ -248,7 +248,7 @@ export default class LaptopForm extends Component {
                             <h2>Image (Max 5)</h2>
                             <hr />
                         </div>
-                        <div className="col-6">
+                        <div className="col-12 col-md-6">
                             <div className="form-group file_uploader">
                                 <input id="gadgetImages" type="file" name="gadgetImages" className="form-control gadget_image_uploader"
                                     onChange={this.fileHandler} multiple />

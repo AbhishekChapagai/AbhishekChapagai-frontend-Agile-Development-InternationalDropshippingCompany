@@ -311,7 +311,7 @@ export default class GadgetForm extends Component {
                             <hr />
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-12 col-sm-6">
                             <div className="form-group file_uploader">
                                 <input id="gadgetImages" type="file" name="gadgetImages" className="form-control gadget_image_uploader"
                                     onChange={this.fileHandler} multiple />
