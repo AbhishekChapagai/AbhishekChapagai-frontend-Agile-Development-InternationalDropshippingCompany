@@ -2,11 +2,10 @@ import axios from "axios";
 import { Component } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import './ProductBrowsing.css'
+import '../../ProductBrowsing/ProductBrowsing.css'
 
 
-class LaptopBrowsing extends Component {
-
+class Nikon extends Component {
     state = {
         gadget: [],
         config: {
@@ -17,7 +16,7 @@ class LaptopBrowsing extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/gadget/laptop", this.state)
+        axios.get("http://localhost:90/camera/nikon", this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -29,12 +28,12 @@ class LaptopBrowsing extends Component {
             })
 
     }
-    render() {
 
+    render() {
         return (
             <div className="container showGadgets">
                 <div className="row cBand">
-                    <NavDropdown title="Product Type" id="collasible-nav-dropdown" className="NavDropdown">
+                    <NavDropdown title="Product Type" id="collasible-nav-dropdown" className="col-sm-2 NavDropdown">
                         <LinkContainer exact to="/product/camera" className="linkContainer">
                             <NavDropdown.Item >
                                 Camera
@@ -52,23 +51,16 @@ class LaptopBrowsing extends Component {
                     <div className="gadgetsFilter col-sm-2">
                         <p>Filter By Brand</p>
 
-                        <a href={"/laptop/acer"}>Acer</a><br></br>
-                        <a href={"/laptop/dell"}>Dell</a><br></br>
-                        <a href={"/laptop/asus"}>Asus</a><br></br>
-                        <a href={"/laptop/hp"}>Hp</a><br></br>
-                        <a href={"/laptop/razer"}>Razer</a><br></br>
-                        <a href={"/laptop/lenovo"}>Lenovo</a><br></br>
-                        <a href={"/laptop/apple"}>Apple</a><br></br>
-                        <a href={"/laptop/msi"}>MSI</a><br></br>
-                        <a href={"/laptop/aorus"}>Aorus</a><br></br>
-                        <a href={"/laptop/microsoft"}>Microsoft</a><br></br>
+                        <a href={"/camera/canon"}>Canon</a><br></br>
+                        <a href={"/camera/nikon"}>Nikon</a><br></br>
+                        <a href={"/camera/sony"}>Sony</a><br></br>
+                        <a href={"/camera/gopro"}>GoPro</a><br></br>
 
                     </div>
 
-
                     <div className="col-sm-10 mainCatGadgets">
                         <div className="h2Filter">
-                            <h2>Browse Laptops</h2>
+                            <h2>Nikon Cameras</h2>
                         </div>
                         {
                             this.state.gadget.map((g) => {
@@ -77,19 +69,20 @@ class LaptopBrowsing extends Component {
 
                                     <div className="gadgetsCat">
 
-                                        <a href={"/product/gadget/laptopdetails/" + g._id}>
-                                            <div className="catGadgetsImage">
-                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
-                                            </div>
+                                        <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
+                                            <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
+                                        </div>
                                             <div className="GadgetsNameCategory">
-                                                <p className="GadgetName">
+                                                <p className="CameraName">&nbsp;
                                                     {
                                                         g.gadgetname ? (g.gadgetname) : ("Name")
-                                                    } {g.laptop.laptopModel ? (g.laptop.laptopModel) : ("Model")} / {g.laptop.laptopRam ? (g.laptop.laptopRam) : ("RAM")} RAM / {g.laptop.laptopSize ? (g.laptop.laptopSize) : ("Size")} / {g.laptop.laptopGraphic ? (g.laptop.laptopGraphic) : ("Graphic")} / {g.laptop.laptopProcessor ? (g.laptop.laptopProcessor) : ("Processor")} <br></br>
+
+                                                    } {g.camera ? (g.camera.cameraModel) : ("Model")} / {g.camera ? (g.camera.cameraResolution) : ("Resolution")}/ {g.camera ? (g.camera.cameraSensorType) : ("Sensor")} / {g.camera ? (g.camera.cameraConnectivity) : ("Connectivity")} / {g.camera ? (g.camera.cameraBatteryCapacity) : ("Battery")}<br></br>
 
                                                 </p>
-                                                <p className="ratingGadget">RATING</p>
-                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
+
+                                                <p className="ratingCamera">RATING</p>
+                                                <p className="CameraPrice">&nbsp;Rs&nbsp;
                                                     {
                                                         g.gadgetprice ? (g.gadgetprice) : ("Price")
                                                     }
@@ -107,8 +100,11 @@ class LaptopBrowsing extends Component {
                 </div>
 
             </div>
+
+
         )
+
     }
 
 }
-export default LaptopBrowsing
+export default Nikon

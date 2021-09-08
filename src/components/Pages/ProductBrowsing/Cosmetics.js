@@ -36,14 +36,14 @@ class cosmetics extends Component {
 
                 <div className="container sCosmetics">
                     <div className="cBand">
-                        <NavDropdown title="Filter Cosmetic" id="collasible-nav-dropdown" className="NavDropdown">
+                        <NavDropdown title="Filter Cosmetic By Gender" id="collasible-nav-dropdown" className="NavDropdown">
                             <LinkContainer exact to="/cosmetic/men" className="linkContainer">
                                 <NavDropdown.Item >
                                     Men
                                 </NavDropdown.Item>
                             </LinkContainer>
 
-                            <LinkContainer exact to="/cosmetic/women">
+                            <LinkContainer exact to="/cosmetic/women" className="linkContainer">
                                 <NavDropdown.Item>
                                     Women
                                 </NavDropdown.Item>
@@ -62,7 +62,7 @@ class cosmetics extends Component {
                                                     <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
                                                 </div>
                                                 <div className="CosmeticsNameCategory">
-                                                    <p className="CosmeticsName">&nbsp;
+                                                    <p className="CosmeticName">&nbsp;
                                                         {
                                                             c.cosmeticname ? (c.cosmeticname) : ("Cosmetic Name")
                                                         }  {
@@ -73,6 +73,8 @@ class cosmetics extends Component {
                                                     <p className="CosmeticType">&nbsp;
                                                         {
                                                             c.cosmetictype ? (c.cosmetictype) : ("Cosmetic Type")
+                                                        } / {
+                                                            c.cosmeticgender ? (c.cosmeticgender) : ("Cosmetic Type")
                                                         }
 
                                                     </p>
@@ -87,7 +89,7 @@ class cosmetics extends Component {
                                                 </div></a>)
 
                                         }
-                                        
+
                                     </div>
 
 

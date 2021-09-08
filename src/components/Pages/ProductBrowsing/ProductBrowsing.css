@@ -1,40 +1,72 @@
 /* Cosmetic category CSS */
-.NavDropdown{
+.NavDropdown .nav-link{
     margin-left: 15px;
-    color: black !important;
+    color: rgba(0, 0, 0, 1) !important;
+
+    
 }
 .linkContainer{
-    color: black;
+    color: rgba(0, 0, 0, 1) !important;
 }
 .sCosmetics{
     width: 100%;
-    /* background-color: #075d80; */
     padding: 20px;
     margin-top: 20px;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     }
 .cBand{
+    margin-bottom: 20px;
 }
 .cosmeticFilter{
-    width: 100%;
-    height: fit-content;
+    border-right: 1px solid rgb(231, 231, 231);
     display: block;
     padding-left: 3%;
+    margin-bottom: 10px;
 }
 
 .cosmeticType{
-    display: grid;
     width: fit-content;
-    padding-left: 82%;
+}
+.cosmeticName p{
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+.cosmeticName a{
+    font-size: 13px;
+    color: rgb(168, 168, 168);
+    font-family: 'Lato', sans-serif;
+}
+.cosmeticName a:hover{
+    color: #1c96c5;
 }
 
+.cosmeticFilterType{
+    margin-top: 10px;
+}
+.cosmeticFilterType p{
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+.cosmeticFilterType a{
+    font-size: 13px;
+    color: rgb(168, 168, 168);
+    font-family: 'Lato', sans-serif;
+}
+.cosmeticFilterType a:hover{
+    color: #1c96c5;
+}
 .CatCosmetics{
     width: 100%;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
 }
-
+.h2Filter{
+    width: 100%;
+    margin-bottom: 20px;
+}
 .cCat{
     width: 230px !important;
     height: 40.1vh;
@@ -44,7 +76,6 @@
 .cCat:hover{
     transform: translateY(-3.5px);
     transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
 }
 .CosmeticsImage{
     width: 100%;
@@ -83,81 +114,59 @@
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
 }
-
-.cosmeticsCart{
-    width: 153px;
-    height: 40px;
-    padding: 10px;
-    border-radius: 7px;
-    background-color: #1c96c5;
-    color: white;
-    margin-left: 50px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 20%;
-}
-.cosmeticsCart:hover{
-    background-color: #f7f7f7;
-    color: #1c96c5;
+.mainCatCosmetics{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 }
 
 /* Gadget category CSS */
-.displayGadgets{
-    width: 100%;
-    height: 75vh;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: #e1e2e6;
-}
+
 .showGadgets{
     width: 100%;
-    height: 68.2vh;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 .gadgetsBand{
-    width:13%;
-    height: 65px;
-    padding: 20px;
-    text-align: center;   
+    margin-bottom: 20px;
 }
 
 .gadgetsFilter{
-    width: 100%;
-    height: fit-content;
-    display: grid;
-    padding-left: 3%;
-}
-
-.txtGadgets{
-    font-size: 19px;
-    word-spacing: 5px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-} 
-
-.mainCatGadgets{
-    background-color: white;    
-    width: 100%;
-    height: 60.5vh;
-    padding: 30px;
-    padding-left: 7%;
+    border-right: 1px solid rgb(231, 231, 231);
     display: block;
+    padding-left: 3%;
+    margin-bottom: 10px;
+}
+.gadgetsFilter p{
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+.gadgetsFilter a{
+    font-size: 13px;
+    color: rgb(168, 168, 168);
+    font-family: 'Lato', sans-serif;
+}
+.gadgetsFilter a:hover{
+    color: #1c96c5;
+}
+.mainCatGadgets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     
 }
 
 .gadgetsCat{
-    width: 270px;
+    width: 240px !important;
     height: 50.1vh;
-    float: left;
-    margin: 2%;
-    border: double;
-    border-color: #1c96c5;
+    text-decoration: none;
+    margin-top: 10px;
 }
 .gadgetsCat:hover{
     transform: translateY(-3.5px);
     transition: 0.2s;
-    box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
 }
 .catGadgetsImage{
     width: 100%;
@@ -170,36 +179,29 @@
     height: 100%;
 }
 .GadgetsNameCategory{
-    height: 113px;
-    background-color: white;
-    padding: 10px;
+    padding: 5px;
 }
 .GadgetsName{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-}
-.GadgetsPrice{
-    text-align: center;
-    font-size: 13px;
-    font-family: 'Roboto', sans-serif;
-} 
-.gadgetsCart{
-    width: 153px;
-    height: 40px;
-    padding: 10px;
-    border-radius: 7px;
-    background-color: #1c96c5;
-    color: white;
-    margin-left: 50px;
+    font-size: 16px;
+    height: 10vh;
+    color: black;
+    font-family: 'Lato', sans-serif;
     cursor: pointer;
+}
+.ratingGadget{
+    color: orange;
+    margin-top: -8px;
+}
+.GadgetPrice{
+    font-size: 18px;
+    color: black;
     font-weight: bold;
-}
-.gadgetsCart:hover{
-    background-color: #f7f7f7;
-    color: #1c96c5;
-}
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    margin-left: -3px;   
+} 
+
+
 
 /* Dropdown */
 .dropdown-item {

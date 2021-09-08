@@ -2,15 +2,11 @@ import axios from "axios";
 import { Component } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 import '../../infoflipcard/styles.css'
 import '../ProductBrowsing/ProductBrowsing.css'
-// import { price, gadgettype } from "./CheckBox/Data";
 import { Link } from "react-router-dom";
-import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
-import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
-import { Checkbox } from "@material-ui/core";
-import CheckBox from "./CheckBox";
+import './ProductBrowsing.css'
+
 
 class gadgets extends Component {
 
@@ -34,16 +30,16 @@ class gadgets extends Component {
 
     render() {
         return (
-            <div className="showGadgets">
+            <div className="container showGadgets">
                 <div className="gadgetsBand">
-                    <NavDropdown title="Product Type" id="collasible-nav-dropdown">
-                        <LinkContainer exact to="/product/camera">
+                    <NavDropdown title="Filter Gadget By Type" id="collasible-nav-dropdown " className="NavDropdown">
+                        <LinkContainer exact to="/product/camera" className="linkContainer">
                             <NavDropdown.Item >
                                 Camera
                             </NavDropdown.Item>
                         </LinkContainer>
 
-                        <LinkContainer exact to="/product/laptop">
+                        <LinkContainer exact to="/product/laptop" className="linkContainer">
                             <NavDropdown.Item>
                                 Laptop
                             </NavDropdown.Item>
@@ -62,19 +58,19 @@ class gadgets extends Component {
                                     {
                                         g.gadgettype === "Laptop" ? (<a href={"/product/gadget/laptopdetails/" + g._id}>
                                             <div className="catGadgetsImage">
-                                                <img src="{${process.env.REACT_APP_BACKEND_URL}/gadget/ + g.gadgetImages}" alt="img" />
+                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
                                             </div>
                                             <div className="GadgetsNameCategory">
-                                                <p className="GadgetsName">&nbsp;
-
+                                                <p className="GadgetName">
                                                     {
-                                                        g.gadgetname
-                                                    }<br></br>
+                                                        g.gadgetname ? (g.gadgetname) : ("Name")
+                                                    } {g.laptop.laptopModel ? (g.laptop.laptopModel) : ("Model")} / {g.laptop.laptopRam ? (g.laptop.laptopRam) : ("RAM")} RAM / {g.laptop.laptopSize ? (g.laptop.laptopSize) : ("Size")} / {g.laptop.laptopGraphic ? (g.laptop.laptopGraphic) : ("Graphic")} / {g.laptop.laptopProcessor ? (g.laptop.laptopProcessor) : ("Processor")} <br></br>
 
                                                 </p>
-                                                <p className="GadgetsPrice">&nbsp;Rs&nbsp;
+                                                <p className="ratingGadget">RATING</p>
+                                                <p className="GadgetPrice">&nbsp;Rs&nbsp;
                                                     {
-                                                        g.gadgetprice
+                                                        g.gadgetprice ? (g.gadgetprice) : ("Price")
                                                     }
 
                                                 </p>
@@ -83,18 +79,21 @@ class gadgets extends Component {
 
 
                                             <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
-                                                <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
                                             </div>
                                                 <div className="GadgetsNameCategory">
-                                                    <p className="GadgetsName">&nbsp;
+                                                    <p className="CameraName">&nbsp;
                                                         {
-                                                            g.gadgetname
-                                                        }<br></br>
+                                                            g.gadgetname ? (g.gadgetname) : ("Name")
+
+                                                        } {g.camera ? (g.camera.cameraModel) : ("Model")} / {g.camera ? (g.camera.cameraResolution) : ("Resolution")}/ {g.camera ? (g.camera.cameraSensorType) : ("Sensor")} / {g.camera ? (g.camera.cameraConnectivity) : ("Connectivity")} / {g.camera ? (g.camera.cameraBatteryCapacity) : ("Battery")}<br></br>
 
                                                     </p>
-                                                    <p className="GadgetsPrice">&nbsp;Rs&nbsp;
+
+                                                    <p className="ratingGadget">RATING</p>
+                                                    <p className="GadgetPrice">&nbsp;Rs&nbsp;
                                                         {
-                                                            g.gadgetprice
+                                                            g.gadgetprice ? (g.gadgetprice) : ("Price")
                                                         }
 
                                                     </p>
@@ -102,7 +101,6 @@ class gadgets extends Component {
                                                 </div></a>
 
                                     }
-                                    <div className="gadgetscart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
 
                                 </div>
                             )

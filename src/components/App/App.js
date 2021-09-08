@@ -58,6 +58,10 @@ import EditPRDetails from '../Pages/AdminDashboard/Product/ProductRequested/Edit
 import AddAd from '../Pages/AdminDashboard/Ad/AddAd';
 import EditOrder from '../Pages/AdminDashboard/Product/Order/EditOrder';
 import Men from '../Pages/LandingPage/forMen';
+import Nikon from '../Pages/ProductBrowsing/CameraFilter/nikon';
+import Canon from '../Pages/ProductBrowsing/CameraFilter/canon';
+import Gopro from '../Pages/ProductBrowsing/CameraFilter/gopro';
+import Sony from '../Pages/ProductBrowsing/CameraFilter/sony';
 
 
 require('dotenv').config();
@@ -145,8 +149,10 @@ function App() {
         <Route exact path="/admin/dashboard/order/edit/:id" component={EditOrder} />
         <Route exact path="/user/myorder/rating/:id" component={AddReview} />
         <Route exact path="/cosmetic/men" component={MenCosmetics} />
+        <Route exact path="/cosmetic/women" component={Women} />
 
         <Route exact path="/product/women" component={Women} />
+        <Route exact path="/product/men" component={MenCosmetics} />
         <Route exact path="/cosmetic/creed" component={Creed} />
         <Route exact path="/cosmetic/hugo" component={HugoBoss} />
         <Route exact path="/cosmetic/victoria" component={VictoriaSecret} />
@@ -155,6 +161,10 @@ function App() {
         <Route exact path="/cosmetic/nailpolish" component={Nailpolish} />
         <Route exact path="/cosmetic/lotion" component={Lotion} />
         <Route exact path="/cosmetic/camera" component={Camera} />
+        <Route exact path="/camera/nikon" component={Nikon} />
+        <Route exact path="/camera/sony" component={Sony} />
+        <Route exact path="/camera/gopro" component={Gopro} />
+        <Route exact path="/camera/canon" component={Canon} />
 
         <Route path="*" component={() => <NotFoundPage />} />
       </Switch>

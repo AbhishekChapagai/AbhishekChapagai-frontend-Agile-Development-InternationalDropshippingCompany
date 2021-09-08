@@ -65,15 +65,7 @@ class CosmeticCategory extends Component {
             dots: false
           }
         },
-        {
-          breakpoint: 785,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: false
-          }
-        },
+        
         {
           breakpoint: 1024,
           settings: {
@@ -93,7 +85,7 @@ class CosmeticCategory extends Component {
           }
         },
         {
-          breakpoint: 640,
+          breakpoint: 768,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -142,6 +134,8 @@ class CosmeticCategory extends Component {
                         <p className="CosmeticType">&nbsp;
                           {
                             c.cosmetictype ? (c.cosmetictype) : ("Cosmetic Type")
+                          } / {
+                            c.cosmeticgender ? (c.cosmeticgender) : ("Cosmetic Type")
                           }
 
                         </p>
