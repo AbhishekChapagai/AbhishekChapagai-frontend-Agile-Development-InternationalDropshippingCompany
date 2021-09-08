@@ -137,6 +137,16 @@ function App() {
         <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
         <Route exact path="/admin/dashboard/product/add" component={AddProduct} />
         <Route exact path="/user/myorder/rating/:id" component={AddReview} />
+        <Route exact path="/cosmetic/men" component={MenCosmetics} />
+        <Route exact path="/product/women" component={Women} />
+        <Route exact path="/cosmetic/creed" component={Creed} />
+        <Route exact path="/cosmetic/hugo" component={HugoBoss} />
+        <Route exact path="/cosmetic/victoria" component={VictoriaSecret} />
+        <Route exact path="/cosmetic/dior" component={Dior} />
+        <Route exact path="/cosmetic/perfume" component={Perfume} />
+        <Route exact path="/cosmetic/nailpolish" component={Nailpolish} />
+        <Route exact path="/cosmetic/lotion" component={Lotion} />
+        <Route exact path="/cosmetic/women" component={Women} />
         <Route path="*" component={() => <NotFoundPage />} />
       </Switch>
       <Footer />
