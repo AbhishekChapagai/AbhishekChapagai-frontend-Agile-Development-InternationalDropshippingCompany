@@ -31,63 +31,75 @@ class CameraBrowsing extends Component {
 
     render() {
         return (
-            <div className="showGadgets">
-                <div className="cosmeticsBand">
-                    <NavDropdown title="Product Type" id="collasible-nav-dropdown">
-                        <LinkContainer exact to="/product/camera">
+            <div className="container showGadgets">
+                <div className="row cBand">
+                    <NavDropdown title="Product Type" id="collasible-nav-dropdown" className="col-sm-2 NavDropdown">
+                        <LinkContainer exact to="/product/camera" className="linkContainer">
                             <NavDropdown.Item >
                                 Camera
                             </NavDropdown.Item>
                         </LinkContainer>
 
-                        <LinkContainer exact to="/product/laptop">
+                        <LinkContainer exact to="/product/laptop" className="linkContainer">
                             <NavDropdown.Item>
                                 Laptop
                             </NavDropdown.Item>
                         </LinkContainer>
                     </NavDropdown>
                 </div>
+                <div className="row mainCategoryGadget">
+                    <div className="gadgetsFilter col-sm-2">
+                        <p>Filter By Brand</p>
+
+                        <a href={"/camera/canon"}>Canon</a><br></br>
+                        <a href={"/camera/nikon"}>Nikon</a><br></br>
+                        <a href={"/camera/sony"}>Sony</a><br></br>
+                        <a href={"/camera/gopro"}>GoPro</a><br></br>
+
+                    </div>
+
+                    <div className="col-sm-10 mainCatGadgets">
+                        <div className="h2Filter">
+                            <h2>Browse Cameras</h2>
+                        </div>
+                        {
+                            this.state.gadget.map((g) => {
+                                return (
 
 
-                <div className="mainCatGadgets">
-                    {
-                        this.state.gadget.map((g) => {
-                            return (
+                                    <div className="gadgetsCat">
 
+                                        <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
+                                            <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
+                                        </div>
+                                            <div className="GadgetsNameCategory">
+                                                <p className="CameraName">&nbsp;
+                                                    {
+                                                        g.gadgetname ? (g.gadgetname) : ("Name")
 
-                                <div className="gadgetsCat">
+                                                    } {g.camera ? (g.camera.cameraModel) : ("Model")} / {g.camera ? (g.camera.cameraResolution) : ("Resolution")}/ {g.camera ? (g.camera.cameraSensorType) : ("Sensor")} / {g.camera ? (g.camera.cameraConnectivity) : ("Connectivity")} / {g.camera ? (g.camera.cameraBatteryCapacity) : ("Battery")}<br></br>
 
-                                    <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
-                                        <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+                                                </p>
+
+                                                <p className="ratingCamera">RATING</p>
+                                                <p className="CameraPrice">&nbsp;Rs&nbsp;
+                                                    {
+                                                        g.gadgetprice ? (g.gadgetprice) : ("Price")
+                                                    }
+
+                                                </p>
+
+                                            </div></a>
+
                                     </div>
-                                        <div className="GadgetsNameCategory">
-                                            <p className="GadgetsName">&nbsp;
-                                                {
-                                                    g.gadgetname
-                                                }<br></br>
+                                )
+                            })
+                        }
 
-                                            </p>
-                                            <p className="GadgetsPrice">&nbsp;Rs&nbsp;
-                                                {
-                                                    g.gadgetprice
-                                                }
-
-                                            </p>
-
-                                        </div></a>
-
-
-                                    <div className="gadgetscart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-
-                                </div>
-                            )
-                        })
-                    }
-
+                    </div>
                 </div>
+
             </div>
-
-
         )
 
     }

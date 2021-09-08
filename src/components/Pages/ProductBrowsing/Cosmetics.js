@@ -1,12 +1,13 @@
 import axios from "axios";
 import { Component } from "react";
-import { Row, Col, Card, CardGroup } from 'react-bootstrap';
-import '../../infoflipcard/styles.css'
+// import { Row, Col, Card, CardGroup } from 'react-bootstrap';
+// import '../../infoflipcard/styles.css'
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import Flippy, { FrontSide, BackSide } from "../../infoflipcard";
-import { FlippyStyle, DefaultCardContents } from '../../infoflipcard/infoflipcardelements'
+import './ProductBrowsing.css'
+
+
 
 class cosmetics extends Component {
 
@@ -32,61 +33,72 @@ class cosmetics extends Component {
         return (
             <>
 
-            
-                    <div className="showCosmetics">
-                        <div className="cosmeticsBand">
-                        <NavDropdown title="Product Type" id="collasible-nav-dropdown">
-                      <LinkContainer exact to="/cosmetic/men">
-                        <NavDropdown.Item >
-                          Men
-                        </NavDropdown.Item>
-                      </LinkContainer>
 
-                      <LinkContainer exact to="/cosmetic/women">
-                        <NavDropdown.Item>
-                          Women
-                        </NavDropdown.Item>
-                      </LinkContainer>
-                    </NavDropdown> 
-                        </div>
-                        <div className="mainCatCosmetics">
-                            {
-                                this.state.cosmetics.map((c) => {
-                                    return (
+                <div className="container sCosmetics">
+                    <div className="cBand">
+                        <NavDropdown title="Filter Cosmetic By Gender" id="collasible-nav-dropdown" className="NavDropdown">
+                            <LinkContainer exact to="/cosmetic/men" className="linkContainer">
+                                <NavDropdown.Item >
+                                    Men
+                                </NavDropdown.Item>
+                            </LinkContainer>
 
-                                        <div className="cosmeticsCat">
-                                            {
-                                                (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
-                                                    <div className="catCosmeticsImage">
-                                                        <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
-                                                    </div>
-                                                    <div className="COsmeticsNameCategory">
-                                                        <p className="CosmeticsName">&nbsp;
-                                                            {
-                                                                c.cosmeticname
-                                                            }<br></br>
-
-                                                        </p>
-                                                        <p className="CosmeticsPrice">&nbsp;Rs&nbsp;
-                                                            {
-                                                                c.cosmeticprice
-                                                            }
-
-                                                        </p>
-
-                                                    </div></a>) 
-                                                 
-                                            }
-                                            <div className="cosmeticsCart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-                                        </div>
-
-
-                                    )
-                                })
-                            }
-                        </div>
-
+                            <LinkContainer exact to="/cosmetic/women" className="linkContainer">
+                                <NavDropdown.Item>
+                                    Women
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                        </NavDropdown>
                     </div>
+                    <div className="CatCosmetics">
+                        {
+                            this.state.cosmetics.map((c) => {
+                                return (
+
+                                    <div className="cCat">
+                                        {
+                                            (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
+                                                <div className="CosmeticsImage">
+                                                    <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
+                                                </div>
+                                                <div className="CosmeticsNameCategory">
+                                                    <p className="CosmeticName">&nbsp;
+                                                        {
+                                                            c.cosmeticname ? (c.cosmeticname) : ("Cosmetic Name")
+                                                        }  {
+                                                            c.cosmeticmodel ? (c.cosmeticmodel) : ("Cosmetic Model")
+                                                        }<br></br>
+
+                                                    </p>
+                                                    <p className="CosmeticType">&nbsp;
+                                                        {
+                                                            c.cosmetictype ? (c.cosmetictype) : ("Cosmetic Type")
+                                                        } / {
+                                                            c.cosmeticgender ? (c.cosmeticgender) : ("Cosmetic Type")
+                                                        }
+
+                                                    </p>
+                                                    <p className="cosmeticRating">RATING</p>
+                                                    <p className="CosmeticPrice">NPR&nbsp;
+                                                        {
+                                                            c.cosmeticprice ? (c.cosmeticprice) : ("Cosmetic Price")
+                                                        }
+
+                                                    </p>
+
+                                                </div></a>)
+
+                                        }
+
+                                    </div>
+
+
+                                )
+                            })
+                        }
+                    </div>
+
+                </div>
             </>
         )
 

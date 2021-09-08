@@ -32,75 +32,81 @@ class Hp extends Component{
 
         return(
             <>
-            <div className="showGadgets">
-                <div className="gadgetsBand">
-                    <NavDropdown title="Product Type" id="collasible-nav-dropdown">
-                        <LinkContainer exact to="/product/camera">
-                            <NavDropdown.Item >
-                                Camera
-                            </NavDropdown.Item>
-                        </LinkContainer>
+                <div className="container showGadgets">
+                    <div className="row cBand">
+                        <NavDropdown title="Product Type" id="collasible-nav-dropdown" className="NavDropdown">
+                            <LinkContainer exact to="/product/camera" className="linkContainer">
+                                <NavDropdown.Item >
+                                    Camera
+                                </NavDropdown.Item>
+                            </LinkContainer>
 
-                        <LinkContainer exact to="/product/laptop">
-                            <NavDropdown.Item>
-                                Laptop
-                            </NavDropdown.Item>
-                        </LinkContainer>
-                    </NavDropdown>
-                </div>
+                            <LinkContainer exact to="/product/laptop" className="linkContainer">
+                                <NavDropdown.Item>
+                                    Laptop
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                        </NavDropdown>
+                    </div>
+                    <div className="row mainCategoryGadget">
+                        <div className="gadgetsFilter col-sm-2">
+                            <p>Filter By Brand</p>
 
-                <div className="gadgetsFilter">
-                    <h>Filter By Name</h>
-                <a href={"/laptop/acer"}>Acer</a>   
-                <a href={"/laptop/dell"}>Dell</a>
-                <a href={"/laptop/asus"}>Asus</a>
-                <a href={"/laptop/razer"}>Razer</a>
-                <a href={"/laptop/lenovo"}>Lenovo</a>
-                <a href={"/laptop/apple"}>Apple</a>
-                <a href={"/laptop/msi"}>MSI</a>
-                <a href={"/laptop/aorus"}>Aorus</a>
-                <a href={"/laptop/microsoft"}>Microsoft</a>
-                </div>
+                            <a href={"/laptop/acer"}>Acer</a><br></br>
+                            <a href={"/laptop/dell"}>Dell</a><br></br>
+                            <a href={"/laptop/asus"}>Asus</a><br></br>
+                            <a href={"/laptop/hp"}>Hp</a><br></br>
+                            <a href={"/laptop/razer"}>Razer</a><br></br>
+                            <a href={"/laptop/lenovo"}>Lenovo</a><br></br>
+                            <a href={"/laptop/apple"}>Apple</a><br></br>
+                            <a href={"/laptop/msi"}>MSI</a><br></br>
+                            <a href={"/laptop/aorus"}>Aorus</a><br></br>
+                            <a href={"/laptop/microsoft"}>Microsoft</a><br></br>
+
+                        </div>
 
 
-                <div className="mainCatGadgets">
-                    {
-                        this.state.gadget.map((g) => {
-                            return (
-                              
-                                <div className="gadgetsCat">
+                        <div className="col-sm-10 mainCatGadgets">
+                            <div className="h2Filter">
+                                <h2>HP Laptops</h2>
+                            </div>
+                            {
+                                this.state.gadget.map((g) => {
+                                    return (
 
-                                    <a href={"/product/gadget/laptopdetails/" + g._id}>
-                                        <div className="catGadgetsImage">
-                                            <img src={"http://localhost:90/gadget/" + g.gadgetimage} alt="img" />
+
+                                        <div className="gadgetsCat">
+
+                                            <a href={"/product/gadget/laptopdetails/" + g._id}>
+                                                <div className="catGadgetsImage">
+                                                    <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
+                                                </div>
+                                                <div className="GadgetsNameCategory">
+                                                    <p className="GadgetName">
+                                                        {
+                                                            g.gadgetname ? (g.gadgetname) : ("Name")
+                                                        } {g.laptop.laptopModel ? (g.laptop.laptopModel) : ("Model")} / {g.laptop.laptopRam ? (g.laptop.laptopRam) : ("RAM")} RAM / {g.laptop.laptopSize ? (g.laptop.laptopSize) : ("Size")} / {g.laptop.laptopGraphic ? (g.laptop.laptopGraphic) : ("Graphic")} / {g.laptop.laptopProcessor ? (g.laptop.laptopProcessor) : ("Processor")} <br></br>
+
+                                                    </p>
+                                                    <p className="ratingGadget">RATING</p>
+                                                    <p className="GadgetPrice">&nbsp;Rs&nbsp;
+                                                        {
+                                                            g.gadgetprice ? (g.gadgetprice) : ("Price")
+                                                        }
+
+                                                    </p>
+
+                                                </div></a>
+
                                         </div>
-                                        <div className="GadgetsNameCategory">
-                                            <p className="GadgetsName">&nbsp;
+                                    )
+                                })
+                            }
 
-                                                {
-                                                    g.gadgetname
-                                                }<br></br>
-
-                                            </p>
-                                            <p className="GadgetsPrice">&nbsp;Rs&nbsp;
-                                                {
-                                                    g.gadgetprice
-                                                }
-
-                                            </p>
-
-                                        </div></a>
-
-
-                                    <div className="gadgetscart"><i class="fas fa-shopping-cart">&nbsp;</i> ADD TO CART</div>
-
-                                </div>
-                            )
-                        })
-                    }
+                        </div>
+                    </div>
 
                 </div>
-            </div>
             </>
         )
     }
