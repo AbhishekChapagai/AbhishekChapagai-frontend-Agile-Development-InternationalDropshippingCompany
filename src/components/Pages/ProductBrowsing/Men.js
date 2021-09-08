@@ -2,6 +2,8 @@ import axios from "axios";
 import { Component } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import './ProductBrowsing.css'
+
 
 class MenCosmetics extends Component{
 
@@ -32,8 +34,8 @@ class MenCosmetics extends Component{
             <>
 
             
-                    <div className="showCosmetics">
-                        <div className="cosmeticsBand">
+                    <div className="container sCosmetics">
+                        <div className="cBand">
                         <NavDropdown title="Product Type" id="collasible-nav-dropdown">
                       <LinkContainer exact to="/product/men">
                         <NavDropdown.Item >
@@ -73,21 +75,30 @@ class MenCosmetics extends Component{
                                             {
                                                 (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
                                                     <div className="catCosmeticsImage">
-                                                        <img src={"http://localhost:90/cosmetic/" + c.cosmeticimage} alt="img" />
+                                              <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
                                                     </div>
                                                     <div className="COsmeticsNameCategory">
-                                                        <p className="CosmeticsName">&nbsp;
-                                                            {
-                                                                c.cosmeticname
-                                                            }<br></br>
+                                              <p className="CosmeticsName">&nbsp;
+                                                {
+                                                  c.cosmeticname ? (c.cosmeticname) : ("Cosmetic Name")
+                                                }  {
+                                                  c.cosmeticmodel ? (c.cosmeticmodel) : ("Cosmetic Model")
+                                                }<br></br>
 
-                                                        </p>
-                                                        <p className="CosmeticsPrice">&nbsp;Rs&nbsp;
-                                                            {
-                                                                c.cosmeticprice
-                                                            }
+                                              </p>
+                                              <p className="CosmeticType">&nbsp;
+                                                {
+                                                  c.cosmetictype ? (c.cosmetictype) : ("Cosmetic Type")
+                                                }
 
-                                                        </p>
+                                              </p>
+                                              <p className="cosmeticRating">RATING</p>
+                                              <p className="CosmeticPrice">NPR&nbsp;
+                                                {
+                                                  c.cosmeticprice ? (c.cosmeticprice) : ("Cosmetic Price")
+                                                }
+
+                                              </p>
 
                                                     </div></a>) 
                                                  

@@ -1,73 +1,52 @@
 /* Cosmetic category CSS */
-.displayCosmetics{
-    width: 100%;
-    height: 75vh;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: #e1e2e6;
-    ;
+.NavDropdown{
+    margin-left: 15px;
+    color: black !important;
 }
-.showCosmetics{
-   
+.linkContainer{
+    color: black;
+}
+.sCosmetics{
     width: 100%;
-    height: 68.2vh;
+    /* background-color: #075d80; */
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     }
-.cosmeticsBand{
-    width:13%;
-    height: 65px;
-    padding: 20px;
-    text-align: center;    
+.cBand{
 }
-.txtCosmetics{
-    font-size: 19px;
-    word-spacing: 5px;
-    font-weight: bolder;
-    float: left;
-    font-family: 'Roboto', sans-serif;
-    
-} 
-
 .cosmeticFilter{
     width: 100%;
     height: fit-content;
     display: block;
     padding-left: 3%;
 }
-.cosmeticName{
-    display: grid;
-    width: fit-content;
-    float: left;
-}
+
 .cosmeticType{
     display: grid;
     width: fit-content;
     padding-left: 82%;
 }
 
-.mainCatCosmetics{
-    background-color: white;    
+.CatCosmetics{
     width: 100%;
-    height: 60.5vh;
-    padding: 30px;
-    padding-left: 7%;
-    display: block;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.cosmeticsCat{
-    width: 270px;
-    height: 50.1vh;
-    float: left;
-    margin: 2%;
-    border: double;
-    border-color: #1c96c5;
+.cCat{
+    width: 230px !important;
+    height: 40.1vh;
+    text-decoration: none;
+    margin-left: 5px;
 }
-.cosmeticsCat:hover{
+.cCat:hover{
     transform: translateY(-3.5px);
     transition: 0.2s;
     box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
 }
-.catCosmeticsImage{
+.CosmeticsImage{
     width: 100%;
     height: 60%;
     align-items: center;
@@ -75,23 +54,28 @@
 
 }
 
-.catCosmeticsImage img{
+.CosmeticsImage img{
     width: 100%;
     height: 100%;
     cursor: pointer;
 }
 .CosmeticsNameCategory{
-    height: 153px;
-    background-color: white;
-    padding: 10px;
-    justify-content: center;
+    height: 110px;
+    padding: 5px;
 }
 .CosmeticsName{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: black;
+    font-family: 'Lato', sans-serif;
     cursor: pointer;
+    margin-bottom: 0px;
+}
+.CosmeticType{
+    font-size: 13px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    color: black;
+    margin-bottom: 10px;
 }
 .CosmeticsPrice{
     text-align: center;

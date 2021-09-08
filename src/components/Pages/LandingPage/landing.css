@@ -57,7 +57,7 @@
 }
 .showCosmetic{
     border-radius: 3px;
-    }
+ }
 .cosmeticBand{
     padding: 5px;
     text-align: center;}
@@ -109,7 +109,6 @@
     /* text-align: center; */
 }
 .CosmeticName{
-
     font-size: 16px;
     color: black;
     font-family: 'Lato', sans-serif;
