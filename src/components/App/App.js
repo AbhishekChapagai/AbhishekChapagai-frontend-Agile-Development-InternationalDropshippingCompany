@@ -146,7 +146,7 @@ function App() {
         <Route exact path="/cosmetic/perfume" component={Perfume} />
         <Route exact path="/cosmetic/nailpolish" component={Nailpolish} />
         <Route exact path="/cosmetic/lotion" component={Lotion} />
-        <Route exact path="/cosmetic/women" component={Women} />
+        <Route exact path="/cosmetic/camera" component={Camera} />
         <Route path="*" component={() => <NotFoundPage />} />
       </Switch>
       <Footer />
