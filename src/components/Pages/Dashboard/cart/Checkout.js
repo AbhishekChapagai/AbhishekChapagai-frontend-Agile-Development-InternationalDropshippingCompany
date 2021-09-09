@@ -110,7 +110,7 @@ class Checkout extends Component {
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/mycheckout/insert/`, data, this.state.config)
             .then((response) => {
                 console.log(response)
-                alert("Checkout successfull, thank you!")
+                //alert("Checkout successfull, thank you!")
                 window.location.href = "/user/myorder"
             })
             .catch((err) => {
@@ -317,7 +317,7 @@ class Checkout extends Component {
 
                     <div class="row">
                         <div class="col-md-12 order-md-1">
-                            <form id="checkoutform" class="needs-validation" onSubmit={this.submitData} novalidate>
+                           
 
                                 <hr className="mb-4" />
                                 <div className="custom-control custom-checkbox">
@@ -329,6 +329,7 @@ class Checkout extends Component {
                                 <hr className="mb-4" />
 
                                 <h4 className="mb-3"><b>Billing Address</b></h4>
+                                <form id="checkoutform" class="needs-validation" onSubmit={this.submitData} novalidate>
                                 <div className="row">
                                     <div className="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <input type="text" className="form-control" id="FirstName2" placeholder="firstname" name="billingfirstname"
@@ -425,7 +426,7 @@ class Checkout extends Component {
 
                                     <div className="col-md-6 mb-3 form-floating mb-2 checkout-label">
                                         <button className="btn btn-primary btn-lg btn-block button-chkout" type="submit"
-                                            id="btnCash" disabled={paymentmethod === "khalti"}  > Continue to checkout</button>
+                                            id="btnCash"  > Continue to checkout</button>
                                     </div>
                                 </div>
                             </form>
