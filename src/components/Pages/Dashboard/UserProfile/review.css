@@ -73,3 +73,18 @@ label.star:before {
     content: '☆';
     font-family: FontAwesome
 }
+.submit-rev {
+    background-color: #1c96c5;
+    color: #fff;
+    font-weight: 600;
+    padding: 1.2em 1.5em;
+    text-transform: UPPERCASE;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-top: 20px;
+    -webkit-transition: background .3s ease;
+            transition: background .3s ease; }
+    .add-to-cart:hover  {
+      background-color: #075d80;
+      color: #fff;
+}

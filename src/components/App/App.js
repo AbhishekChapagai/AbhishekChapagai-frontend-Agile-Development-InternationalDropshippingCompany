@@ -26,10 +26,7 @@ import Checkout from '../Pages/Dashboard/cart/Checkout';
 import VerifyEmail from '../Auth/VerifyEmail';
 import EmailVerified from '../Auth/EmailVerified';
 import ForgotPassword from '../Pages/LoginRegister/ForgotPassword';
-import SimpleRating from '../Pages/Dashboard/Details/rating';
 import AdminDashboard from '../Pages/AdminDashboard/index';
-import HoverRating from '../Pages/Dashboard/UserProfile/AddReview'
-import ProgressBar from '../Pages/Dashboard/UserProfile/ProgressBar'
 import AddUser from '../Pages/AdminDashboard/User/AddUser';
 import EditUser from '../Pages/AdminDashboard/User/EditUser';
 import Acer from '../Pages/ProductBrowsing/LaptopFilter/Acer';
@@ -138,9 +135,8 @@ function App() {
         <Route exact path="/product/cosmetic/cosmeticdetails/:id" component={CosmeticDetails} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/rating" component={SimpleRating} />
         <Route exact path="/admin/dashboard" component={AdminDashboard} />
-        <Route exact path="/user/rating" component={HoverRating} />
+    
         <Route exact path="/admin/dashboard/user/add" component={AddUser} />
         <Route exact path="/admin/dashboard/user/details/:id" component={EditUser} />
         <Route exact path="/admin/dashboard/product/add" component={AddProduct} />

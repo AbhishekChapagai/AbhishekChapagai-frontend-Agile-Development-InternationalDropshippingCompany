@@ -3,9 +3,7 @@ import axios from "axios";
 import './profileEdit.css'
 import './review.css';
 import Sidebar from './Sidebar';
-import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
 import { toast } from 'react-toastify';
 toast.configure();
 
@@ -13,7 +11,10 @@ class AddReview extends Component {
     state = {
         productId: this.props.match.params.id,
         rating: '',
-        review: [],
+        reviews: [],
+        reviews1: [],
+        gadgetImage: [],
+        cosmeticImage: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         }
@@ -29,9 +30,13 @@ class AddReview extends Component {
 
         axios.get(`http://localhost:90/productone/addreview/${this.state.productId}`)
             .then((response) => {
-                console.log(response)
+                console.log(response.data.data[0])
+                const data = response.data.data[0]
+
                 this.setState({
-                    reviews: response.data.data
+                    reviews: data.productInfo1[0],
+                    reviews1: data.productInfo2[0],
+
                 })
             })
             .catch((err) => {
@@ -105,19 +110,37 @@ class AddReview extends Component {
                                         <div className="col-12">
                                             <div className="card user-card-full profileCard">
                                                 <div className="wrapper row row m-l-0 m-r-0">
-                                                    <div className=" product-img">
-                                                        <img className="pic col-md-6" src="https://www.freepnglogos.com/uploads/shoes-png/dance-shoes-png-transparent-dance-shoes-images-5.png" alt="" />
-
-                                                        Sneakers Shoes 2020 For Men
-
-                                                    </div>
+                                                    {this.state.reviews ?
+                                                        (
+                                                            <div className=" product-img">
+                                                                {this.state.reviews.gadgetImages ?
+                                                                    (<img className="pic col-md-6" src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + this.state.reviews.gadgetImages[0].imageName} alt="" />) : ("")}
+                                                                {this.state.reviews.gadgetname}
+                                                            </div>
+                                                        )
+                                                        :
+                                                        (""
+                                                        )
+                                                    }
+                                                    {this.state.reviews1 ?
+                                                        (
+                                                            <div className=" product-img">
+                                                                {this.state.reviews1.cosmeticImages ?
+                                                                    (<img className="pic col-md-6" src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + this.state.reviews1.cosmeticImages[0].imageName} alt="" />) : ("")}
+                                                                {this.state.reviews1.cosmeticname}
+                                                            </div>
+                                                        )
+                                                        :
+                                                        (
+                                                            ""
+                                                        )
+                                                    }
                                                     <Rating
                                                         name='rating'
                                                         emptySymbol={<img src='../star-empty.png' className='icon' alt='empty star' />}
                                                         fullSymbol={<img src='../star-full.png' className='icon' alt='filled star' />}
                                                         onChange={this.changeHandler}
                                                         value={this.state.rating} />
-
 
                                                     <form>
                                                         <div className="revew-des">Review Description <br /></div>
@@ -127,8 +150,7 @@ class AddReview extends Component {
                                                             <div className="form-group files review-input"><label className="my-auto">Upload Your File </label> <input id="file-review" type="file" className="form-control" onChange={this.fileHandler} multiple /></div>
                                                         </div>
 
-                                                        <button onClick={this.submitData}>submit</button>
-
+                                                        <button className="submit-rev btn-default" onClick={this.submitData}>submit</button>
                                                     </form>
 
 

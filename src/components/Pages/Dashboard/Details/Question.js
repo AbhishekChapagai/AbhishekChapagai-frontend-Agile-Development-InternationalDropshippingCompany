@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { Component } from 'react';
 import './Question.css';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 class Questions extends Component {
     state = {
@@ -9,7 +11,7 @@ class Questions extends Component {
         firstName: '',
         lastName: '',
         askQuestion: '',
-        answer:'',
+        answer: '',
         questions: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -59,78 +61,152 @@ class Questions extends Component {
 
 
     render() {
+        if (localStorage.getItem('token')) {
+            if (localStorage.getItem('userType') === "User") {
+                var Questions = <>
 
-        var Questions = <>
-
-            <div className="container mt-5 mb-5">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card_questions">
-                            <div className="card-div d-flex flex-column">
-                                <h3 className="font-weight-bold">Questions About this product</h3>
-                            </div>
-                            <div className="card-div-2">
-                                <div className="px-1">
-                                    <div className="Question_text"><input type="text" className="form-control" name="askQuestion" placeholder="Have a question?" value={this.state.askQuestion} {...this.state.firstName} onChange={this.changeHandler} />
-                                    <button onClick={this.submitData}>Ask Questions</button></div>
-                                </div>
-                            </div>
-                            <div className="card question-card p-3">
-                                <p>Other User Questions</p>
-                                {
-                                   
-                                }
-                                {this.state.questions.map((q) => {
-                                    return (
-
-                                        <>
+                    <div className="container mt-5 mb-5">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card_questions">
+                                    <div className="card-div d-flex flex-column">
+                                        <h3 className="font-weight-bold">Questions About this product</h3>
+                                    </div>
+                                    <div className="card-div-2">
+                                        <div className="px-1">
+                                            <div className="Question_text"><input type="text" className="form-control" name="askQuestion" placeholder="Have a question?" value={this.state.askQuestion} {...this.state.firstName} onChange={this.changeHandler} />
+                                                <button onClick={this.submitData}>Ask Questions</button></div>
+                                        </div>
+                                    </div>
+                                    <div className="card question-card p-3">
+                                        <p>Other User Questions</p>
                                         {
-                                            
+
                                         }
-                                            {q.answer ?
-
+                                        {this.state.questions.map((q) => {
+                                            return (
                                                 <>
-                                                    <div className="d-flex justify-content-between align-items-center">
-                                                        <div className="user d-flex flex-row align-items-center"> {<i className="fas fa-question-circle"></i>}
-                                                            <span> <small className=" ques">{q.askQuestion}</small></span> </div>
-                                                    </div>
-                                                    <div >
-                                                        <small className=" username_ques"> {q.firstName}{q.lastName}</small>
-                                                    </div>
+                                                    {q.answer ?
 
-                                                    <div className="d-flex justify-content-between align-items-center">
-                                                        <div className="user d-flex flex-row align-items-center"> <i className="fab fa-autoprefixer"></i>
-                                                            <span> <small className="font-weight-bold ques">{q.answer}</small></span> </div>
-                                                    </div>
-                                                    <div className="question_border">
-                                                        <small className="username_ques "></small>
-                                                    </div>
-                                                </>
-                                                :
-                                                <>
-                                                    <div className="d-flex justify-content-between align-items-center">
-                                                        <div className="user d-flex flex-row align-items-center"> <i className="fas fa-question-circle"></i>
-                                                            <span> <small className=" ques">{q.askQuestion}</small></span> </div>
-                                                    </div>
-                                                    <div >
-                                                        <small className=" username_ques"> {q.firstName} {q.lastName}</small>
-                                                    </div>
-                                                    <div className="question_border">
+                                                        <>
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <div className="user d-flex flex-row align-items-center"> {<i className="fas fa-question-circle"></i>}
+                                                                    <span> <small className=" ques">{q.askQuestion}</small></span> </div>
+                                                            </div>
+                                                            <Popup trigger={<button> Trigger</button>} position="right center">
+                                                                <div><input type="text"></input></div>
+                                                            </Popup>
+                                                            <div >
+                                                                <small className=" username_ques"> {q.firstName} {q.lastName}</small>
+                                                            </div>
 
-                                                    </div>
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <div className="user d-flex flex-row align-items-center"> <i className="fab fa-autoprefixer"></i>
+                                                                    <span> <small className="font-weight-bold ques">{q.answer}</small></span> </div>
+                                                            </div>
+
+                                                            <div className="question_border">
+                                                                <small className="username_ques ">Replied by Dhuwani Staff</small>
+                                                            </div>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <div className="user d-flex flex-row align-items-center"> <i className="fas fa-question-circle"></i>
+                                                                    <span> <small className=" ques">{q.askQuestion}</small></span> </div>
+                                                            </div>
+                                                            <div >
+                                                                <small className=" username_ques"> {q.firstName} {q.lastName}</small>
+                                                            </div>
+                                                            <div className="question_border">
+
+                                                            </div>
+                                                        </>
+                                                    }
                                                 </>
-                                            }
-                                        </>
-                                    )
-                                })}
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
 
-        </>
+                </>
+            }
+            else {
+                var Questions = <>
+
+                    <div className="container mt-5 mb-5">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="card_questions">
+                                    <div className="card-div d-flex flex-column">
+                                        <h3 className="font-weight-bold">Questions About this product</h3>
+                                    </div>
+                                    <div className="card-div-2">
+                                        <div className="px-1">
+                                            <div className="Question_text"><input type="text" className="form-control" name="askQuestion" placeholder="Have a question?" value={this.state.askQuestion} {...this.state.firstName} onChange={this.changeHandler} />
+                                                <button onClick={this.submitData}>Ask Questions</button></div>
+                                        </div>
+                                    </div>
+                                    <div className="card question-card p-3">
+                                        <p>Other User Questions</p>
+                                        {
+
+                                        }
+                                        {this.state.questions.map((q) => {
+                                            return (
+                                                <>
+                                                    {q.answer ?
+
+                                                        <>
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <div className="user d-flex flex-row align-items-center"> {<i className="fas fa-question-circle"></i>}
+                                                                    <span> <small className=" ques">{q.askQuestion}</small></span> </div>
+                                                            </div>
+                                                            <div >
+                                                                <small className=" username_ques"> {q.firstName} {q.lastName}</small>
+                                                                ffffffffffffffff
+                                                            </div>
+
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <div className="user d-flex flex-row align-items-center"> <i className="fab fa-autoprefixer"></i>
+                                                                    <span> <small className="font-weight-bold ques">{q.answer}</small></span> </div>
+                                                            </div>
+                                                            <div className="question_border">
+                                                                <small className="username_ques ">Replied by Dhuwani Staff</small>
+                                                            </div>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <div className="d-flex justify-content-between align-items-center">
+                                                                <div className="user d-flex flex-row align-items-center"> <i className="fas fa-question-circle"></i>
+                                                                    <span> <small className=" ques">{q.askQuestion}</small></span> </div>
+                                                            </div>
+                                                            <div >
+                                                                <small className=" username_ques"> {q.firstName} {q.lastName}</small>
+                                                            </div>
+                                                            <div className="question_border">
+
+                                                            </div>
+                                                        </>
+                                                    }
+                                                </>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </>
+            }
+        }
+
 
         return (
             Questions
