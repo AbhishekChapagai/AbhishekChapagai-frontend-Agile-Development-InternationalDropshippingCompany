@@ -61,7 +61,7 @@ class EditProfile extends Component {
     }
 
     getuserdata = () => {
-        axios.get("http://localhost:90/user/token/decode", this.state.config)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/token/decode`, this.state.config)
             .then((response) => {
                 const data = response.data
                 this.setState({
@@ -98,7 +98,7 @@ class EditProfile extends Component {
         data.append('zipCode', this.state.zipCode)
         data.append('img', this.state.img)
 
-        axios.put(`http://localhost:90/user/profile/update/${this.state.userId}`, data, this.state.config)
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/user/profile/update/${this.state.userId}`, data, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("user updated successfully");

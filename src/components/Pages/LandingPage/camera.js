@@ -18,7 +18,7 @@ class CameraCategory extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:90/camera/five", this.state)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/camera/five`, this.state)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -129,7 +129,7 @@ class CameraCategory extends Component {
 
                     <a href={"/product/gadget/cameradetails/" + g._id} className="col-6 cameraCat">
                       <div className="catGadgetImage">
-                        <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
                       </div>
                       <div className="CameraNameCategory">
                         <p className="CameraName">&nbsp;

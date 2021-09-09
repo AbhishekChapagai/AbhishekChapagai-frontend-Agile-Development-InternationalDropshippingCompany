@@ -60,7 +60,7 @@ class Checkout extends Component {
     }
 
     getuserdata = () => {
-        axios.get("http://localhost:90/user/token/decode", this.state.config)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/token/decode`, this.state.config)
             .then((response) => {
                 console.log(response)
                 const data = response.data
@@ -78,7 +78,7 @@ class Checkout extends Component {
     }
 
     mytotalamount = () => {
-        axios.get(`http://localhost:90/mycart/showall`, this.state.config)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/mycart/showall`, this.state.config)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -107,7 +107,7 @@ class Checkout extends Component {
             userid: this.state.userid,
             myproduct: this.state.gadgetcart.map(e => ({ productid: e.productid, productname: e.productname, productquantity: e.quantity, paymentmethod: this.state.paymentmethod }))
         }
-        axios.post(`http://localhost:90/mycheckout/insert/`, data, this.state.config)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/mycheckout/insert/`, data, this.state.config)
             .then((response) => {
                 console.log(response)
                 alert("Checkout successfull, thank you!")
@@ -117,7 +117,7 @@ class Checkout extends Component {
                 console.log(err.response)
             })
 
-        axios.delete('http://localhost:90/remove/mycart', this.state.config)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/remove/mycart`, this.state.config)
             .then((response) => {
                 console.log(response)
             })

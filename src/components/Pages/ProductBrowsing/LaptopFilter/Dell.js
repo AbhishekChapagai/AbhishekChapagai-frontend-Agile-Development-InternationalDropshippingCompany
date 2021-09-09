@@ -15,7 +15,7 @@ class Dell extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/laptop/dell", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/laptop/dell`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({

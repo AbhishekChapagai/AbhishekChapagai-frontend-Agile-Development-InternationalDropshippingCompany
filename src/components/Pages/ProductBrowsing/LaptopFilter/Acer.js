@@ -15,7 +15,7 @@ class Acer extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/laptop/acer", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/laptop/acer`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({

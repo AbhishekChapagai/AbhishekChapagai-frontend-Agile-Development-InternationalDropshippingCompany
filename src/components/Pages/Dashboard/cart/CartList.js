@@ -42,7 +42,7 @@ export default class CartList extends Component {
 
     updateQty = () => {
         const cartId = this.state.cart._id
-        axios.put(`http://localhost:90/quantity/update/${cartId}`, this.state)
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}/quantity/update/${cartId}`, this.state)
             .then((response) => {
                 console.log(response)
             })
@@ -58,17 +58,17 @@ export default class CartList extends Component {
                 <div className="items-info">
                     <div className="product-img">{
                         this.state.cart.producttype === "Perfume" ?
-                            (<img src={"http://localhost:90/cosmetic/" + this.state.cart.productimage} alt="img" />) :
+                            (<img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + this.state.cart.productimage} alt="img" />) :
 
                             this.state.cart.producttype === "Nailpolish" ?
-                                (<img src={"http://localhost:90/cosmetic/" + this.state.cart.productimage} alt="img" />) :
+                                (<img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + this.state.cart.productimage} alt="img" />) :
 
                                 this.state.cart.producttype === "Lotion" ?
-                                    (<img src={"http://localhost:90/cosmetic/" + this.state.cart.productimage} alt="img" />) :
+                                    (<img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + this.state.cart.productimage} alt="img" />) :
 
                                     this.state.cart.producttype === "Camera" ?
-                                        (<img src={"http://localhost:90/gadget/" + this.state.cart.productimage} alt="img" />) :
-                                        <img src={"http://localhost:90/gadget/" + this.state.cart.productimage} alt="img" />
+                                        (<img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + this.state.cart.productimage} alt="img" />) :
+                                        <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + this.state.cart.productimage} alt="img" />
                     }
                     </div>
 

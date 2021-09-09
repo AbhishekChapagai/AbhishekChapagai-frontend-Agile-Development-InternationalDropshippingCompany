@@ -18,7 +18,7 @@ class CosmeticCategory extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:90/cosmetic/women", this.state)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/cosmetic/women`, this.state)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -120,7 +120,7 @@ class CosmeticCategory extends Component {
                     <a href={"/product/cosmetic/cosmeticdetails/" + c._id} className="col-6 cosmeticCat">
                       {/* <a href={"/product/cosmetic/cosmeticdetails/" + c._id}> */}
                       <div className="catCosmeticImage">
-                        <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + c.cosmeticImages[0].imageName} alt="img" />
                       </div>
                       <div className="CosmeticNameCategory">
                         <p className="CosmeticName">&nbsp;

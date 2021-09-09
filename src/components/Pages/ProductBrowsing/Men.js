@@ -17,7 +17,7 @@ class MenCosmetics extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:90/cosmetic/men", this.state)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/cosmetic/men`, this.state)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -80,7 +80,7 @@ class MenCosmetics extends Component {
                       {
                         (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
                           <div className="CosmeticsImage">
-                            <img src={"http://localhost:90/cosmetic/" + c.cosmeticImages[0].imageName} alt="img" />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + c.cosmeticImages[0].imageName} alt="img" />
                           </div>
                           <div className="CosmeticsNameCategory">
                             <p className="CosmeticName">&nbsp;

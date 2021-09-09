@@ -14,7 +14,7 @@ class Aorus extends Component{
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/laptop/aorus", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/laptop/aorus`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({

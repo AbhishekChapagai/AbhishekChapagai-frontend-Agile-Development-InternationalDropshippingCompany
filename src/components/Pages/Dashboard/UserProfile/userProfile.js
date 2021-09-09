@@ -20,7 +20,7 @@ class Profile extends Component {
         }
     }
     componentDidMount() {
-        axios.get("http://localhost:90/user/token/decode", this.state.config)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/token/decode`, this.state.config)
             .then((response) => {
                 const data = response.data
                 this.setState({

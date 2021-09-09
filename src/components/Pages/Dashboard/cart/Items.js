@@ -22,7 +22,7 @@ class Items extends Component {
   }
 
   removeItem = (id) => {
-    axios.delete('http://localhost:90/delete/mycart/' + id)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/delete/mycart/` + id)
       .then((response) => {
         console.log(response)
       })
@@ -50,7 +50,7 @@ class Items extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:90/mycart/showall`, this.state.config)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/mycart/showall`, this.state.config)
       .then((response) => {
         console.log(response)
         this.setState({
