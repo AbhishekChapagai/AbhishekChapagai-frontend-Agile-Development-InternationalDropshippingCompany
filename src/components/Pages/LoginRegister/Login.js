@@ -4,6 +4,7 @@ import axios from "axios";
 // import test from "../../../assets/images/loginn.png"
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import loginImg from "../../../assets/loginRegister/login.png"
 toast.configure();
 
 const initialState = {
@@ -183,7 +184,7 @@ class Login extends Component {
                 {/* right side */}
                 < div className="l_right_side col-4" >
                     {/* <img src={test} /> */}
-                    < p className="img" > Right Side.Image Sections </p >
+                    < p className="lr_img_container" > <img className="lr_img" src={loginImg} alt="login" /></p >
                 </div >
 
             </div >

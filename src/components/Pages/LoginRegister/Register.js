@@ -3,6 +3,7 @@ import './LoginRegister.css';
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
+import registerImg from "../../../assets/loginRegister/signup.png"
 toast.configure();
 
 const initialState = {
@@ -240,7 +241,8 @@ class Register extends Component {
                 {/* right side */}
                 <div className="r_right_side col-4">
                     {/* <img src={test} /> */}
-                    <p className="img"> Right Side. Image Sections </p>
+                    < p className="lr_img_container" > <img className="lr_img" src={registerImg} alt="login" /></p >
+
                 </div>
 
             </div >
