@@ -38,14 +38,14 @@ class MyOrder extends Component {
                                     <div className="row container d-flex justify-content-center">
                                         <div className="col-12">
                                             <div className="card user-card-full profileCard">
-                                                <div class="container-fluid mt-100">
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="card myorder-card">
-                                                                <div class="card-body">
-                                                                    <div class="active-member">
-                                                                        <div class="table-responsive">
-                                                                            <table class="table table-xs mb-0">
+                                                <div className="container-fluid mt-100">
+                                                    <div className="row">
+                                                        <div className="col-lg-12">
+                                                            <div className="card myorder-card">
+                                                                <div className="card-body">
+                                                                    <div className="active-member">
+                                                                        <div className="table-responsive">
+                                                                            <table className="table table-xs mb-0">
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th>Product</th>

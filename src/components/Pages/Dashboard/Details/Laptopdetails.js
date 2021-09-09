@@ -101,48 +101,48 @@ class LaptopDetails extends Component {
 
     render() {
         var description = <>
-            <div class="container">
+            <div className="container">
                 {
                     this.state.gadgets.map((l) => {
                         return (
                             <div>
-                                <div class="details-card">
-                                    <div class="container-fliud">
-                                        <div class="wrapper row">
-                                            <div class="preview col-md-6">
+                                <div className="details-card">
+                                    <div className="container-fliud">
+                                        <div className="wrapper row">
+                                            <div className="preview col-md-6">
 
                                                 <ImageGallery items={images} />
                                             </div>
 
 
-                                            <div class="details col-md-6">
-                                                <h3 class="product-title" value={this.state.productname = l.gadgetname}{...this.state.producttype = l.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
-                                                <div class="rating">
-                                                    <div class="stars">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
+                                            <div className="details col-md-6">
+                                                <h3 className="product-title" value={this.state.productname = l.gadgetname}{...this.state.producttype = l.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{l.gadgetname}</h3>
+                                                <div className="rating">
+                                                    <div className="stars">
+                                                        <span className="fa fa-star checked"></span>
+                                                        <span className="fa fa-star checked"></span>
+                                                        <span className="fa fa-star checked"></span>
+                                                        <span className="fa fa-star"></span>
+                                                        <span className="fa fa-star"></span>
                                                     </div>
                                                 </div>
-                                                <div class="section" >
-                                                    <h6 class="title-attr"><small>Quantity</small></h6>
+                                                <div className="section" >
+                                                    <h6 className="title-attr"><small>Quantity</small></h6>
                                                     <div>
 
 
-                                                        <div className="btn-minus" onClick={this.itemMinus}><i className="glyphicon glyphicon-minus"></i><i class="fas fa-minus"></i></div>
+                                                        <div className="btn-minus" onClick={this.itemMinus}><i className="glyphicon glyphicon-minus"></i><i className="fas fa-minus"></i></div>
                                                         <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                        <div className="btn-plus" onClick={this.itemPlus}>< i className="bi bi-plus"></i><i class="fas fa-plus quantity-plus"></i></div>
+                                                        <div className="btn-plus" onClick={this.itemPlus}>< i className="bi bi-plus"></i><i className="fas fa-plus quantity-plus"></i></div>
 
 
                                                     </div>
                                                 </div>
 
-                                                <h4 class="price" value={this.state.productprice = l.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {l.gadgetprice}</span></h4>
-                                                <div class="action">
-                                                    <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
-                                                    <button class="like btn-default" type="button"><span class="wishlist fa fa-heart"></span></button>
+                                                <h4 className="price" value={this.state.productprice = l.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {l.gadgetprice}</span></h4>
+                                                <div className="action">
+                                                    <button className="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
+                                                    <button className="like btn-default" type="button"><span className="wishlist fa fa-heart"></span></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -150,121 +150,121 @@ class LaptopDetails extends Component {
                                     </div>
                                 </div>
 
-                                <div id="module" class="container additional-des">
+                                <div id="module" className="container additional-des">
                                     <h3>Summary</h3>
-                                    <p class="collapse" id="collapseExample" aria-expanded="false">
+                                    <p className="collapse" id="collapseExample" aria-expanded="false">
                                         {l.gadgetdescription}
                                     </p>
-                                    <a class="showmore" role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    <a className="showmore" role="button" className="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                     </a>
                                 </div>
-                                <div class="container product-details">
-                                    <a class="spec-title"> Additional Specification</a>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head">General </a>
+                                <div className="container product-details">
+                                    <a className="spec-title"> Additional Specification</a>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head">General </a>
                                         </div>
-                                        <div class="col product-col">
-                                            <div class="col ">Brand  :</div>
-                                            <div class="col">Model  :</div>
-                                            <div class="col">Dimensions (mm)  :</div>
-                                            <div class="col">Weight (kg)  :</div>
+                                        <div className="col product-col">
+                                            <div className="col ">Brand  :</div>
+                                            <div className="col">Model  :</div>
+                                            <div className="col">Dimensions (mm)  :</div>
+                                            <div className="col">Weight (kg)  :</div>
                                         </div>
-                                        <div class="col ">
-                                            <div class="col ">{l.brandName}</div>
-                                            <div class="col">{l.laptop.laptopModel}</div>
-                                            <div class="col">{l.laptop.laptopDimension}</div>
-                                            <div class="col">{l.laptop.laptopWeight}</div>
-                                        </div>
-                                    </div>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head"> Display </a>
-                                        </div>
-                                        <div class="col product-col">
-                                            <div class="col">Size  :</div>
-                                            <div class="col">Resolution  :</div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="col">{l.laptop.laptopSize}</div>
-                                            <div class="col">{l.laptop.laptopResolution}</div>
+                                        <div className="col ">
+                                            <div className="col ">{l.brandName}</div>
+                                            <div className="col">{l.laptop.laptopModel}</div>
+                                            <div className="col">{l.laptop.laptopDimension}</div>
+                                            <div className="col">{l.laptop.laptopWeight}</div>
                                         </div>
                                     </div>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head"> Processor </a>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head"> Display </a>
                                         </div>
-                                        <div class="col product-col">
-                                            <div class="col">Processor  :</div>
-                                            <div class="col">Base Clock Speed  :</div>
+                                        <div className="col product-col">
+                                            <div className="col">Size  :</div>
+                                            <div className="col">Resolution  :</div>
                                         </div>
-                                        <div class="col">
-                                            <div class="col">{l.laptop.laptopProcessor}</div>
-                                            <div class="col">{l.laptop.laptopBaseClock}</div>
+                                        <div className="col">
+                                            <div className="col">{l.laptop.laptopSize}</div>
+                                            <div className="col">{l.laptop.laptopResolution}</div>
                                         </div>
                                     </div>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head">   Memory </a>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head"> Processor </a>
                                         </div>
-                                        <div class="col product-col">
-                                            <div class="col">RAM  :</div>
+                                        <div className="col product-col">
+                                            <div className="col">Processor  :</div>
+                                            <div className="col">Base Clock Speed  :</div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="col">{l.laptop.laptopProcessor}</div>
+                                            <div className="col">{l.laptop.laptopBaseClock}</div>
+                                        </div>
+                                    </div>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head">   Memory </a>
+                                        </div>
+                                        <div className="col product-col">
+                                            <div className="col">RAM  :</div>
 
 
                                         </div>
-                                        <div class="col">
-                                            <div class="col">{l.laptop.laptopRam}</div>
+                                        <div className="col">
+                                            <div className="col">{l.laptop.laptopRam}</div>
 
 
                                         </div>
                                     </div>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head">  Graphics </a>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head">  Graphics </a>
                                         </div>
-                                        <div class="col product-col">
-                                            <div class="col ">Graphics Processor  :</div>
-                                            <div class="col">Dedicated Graphic Memory Type  :</div>
-                                            <div class="col">Dedicated Graphics  :</div>
+                                        <div className="col product-col">
+                                            <div className="col ">Graphics Processor  :</div>
+                                            <div className="col">Dedicated Graphic Memory Type  :</div>
+                                            <div className="col">Dedicated Graphics  :</div>
                                         </div>
-                                        <div class="col">
-                                            <div class="col">{l.laptop.laptopGraphic}</div>
-                                            <div class="col">{l.laptop.laptopDedicatedGraphicMemory}</div>
-                                            <div class="col">{l.laptop.laptopDedicatedGraphic}</div>
-                                        </div>
-                                    </div>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head">  Storage</a>
-                                        </div>
-                                        <div class="col product-col">
-                                            <div class="col">Hard disk  :</div>
-                                            <div class="col">SSD  :</div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="col">{l.laptop.laptopHarddisk}</div>
-                                            <div class="col">{l.laptop.laptopSSD}</div>
+                                        <div className="col">
+                                            <div className="col">{l.laptop.laptopGraphic}</div>
+                                            <div className="col">{l.laptop.laptopDedicatedGraphicMemory}</div>
+                                            <div className="col">{l.laptop.laptopDedicatedGraphic}</div>
                                         </div>
                                     </div>
-                                    <div class="row product-row">
-                                        <div class="col">
-                                            <a class="spec-head">Ports and slots </a>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head">  Storage</a>
                                         </div>
-                                        <div class="col product-col">
-                                            <div class="col">Number of USB Ports  :</div>
-                                            <div class="col">USB Ports  :</div>
-                                            <div class="col">HDMI Port  :</div>
-                                            <div class="col">Multi Card Slot  :</div>
-                                            <div class="col">Headphone and Mic Combo Jack  :</div>
-                                            <div class="col">RJ45 (LAN)  :</div>
+                                        <div className="col product-col">
+                                            <div className="col">Hard disk  :</div>
+                                            <div className="col">SSD  :</div>
                                         </div>
-                                        <div class="col">
-                                            <div class="col">{l.laptop.laptopNoOfUSBPorts}</div>
-                                            <div class="col">{l.laptop.laptopUSBPorts}</div>
-                                            <div class="col">{l.laptop.laptopHDMIPorts}</div>
-                                            <div class="col">{l.laptop.laptopMultiCardSlot}</div>
-                                            <div class="col">{l.laptop.laptopHeadphone}</div>
-                                            <div class="col">{l.laptop.laptopJack}</div>
+                                        <div className="col">
+                                            <div className="col">{l.laptop.laptopHarddisk}</div>
+                                            <div className="col">{l.laptop.laptopSSD}</div>
+                                        </div>
+                                    </div>
+                                    <div className="row product-row">
+                                        <div className="col">
+                                            <a className="spec-head">Ports and slots </a>
+                                        </div>
+                                        <div className="col product-col">
+                                            <div className="col">Number of USB Ports  :</div>
+                                            <div className="col">USB Ports  :</div>
+                                            <div className="col">HDMI Port  :</div>
+                                            <div className="col">Multi Card Slot  :</div>
+                                            <div className="col">Headphone and Mic Combo Jack  :</div>
+                                            <div className="col">RJ45 (LAN)  :</div>
+                                        </div>
+                                        <div className="col">
+                                            <div className="col">{l.laptop.laptopNoOfUSBPorts}</div>
+                                            <div className="col">{l.laptop.laptopUSBPorts}</div>
+                                            <div className="col">{l.laptop.laptopHDMIPorts}</div>
+                                            <div className="col">{l.laptop.laptopMultiCardSlot}</div>
+                                            <div className="col">{l.laptop.laptopHeadphone}</div>
+                                            <div className="col">{l.laptop.laptopJack}</div>
                                         </div>
                                     </div>
                                 </div>

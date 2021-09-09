@@ -9,6 +9,7 @@ class Questions extends Component {
         firstName: '',
         lastName: '',
         askQuestion: '',
+        answer:'',
         questions: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -24,7 +25,7 @@ class Questions extends Component {
     submitData = (e) => {
 
         e.preventDefault();
-        const question_data = { productId: this.state.productId, firstName: this.state.firstName, lastName: this.state.lastName, askQuestion: this.state.askQuestion }
+        const question_data = { productId: this.state.productId, firstName: this.state.firstName, lastName: this.state.lastName, askQuestion: this.state.askQuestion, answer: this.state.answer }
         axios.post("http://localhost:90/question/ask", question_data, this.state.config)
             .then((response) => {
                 window.location.href = ""
@@ -74,39 +75,45 @@ class Questions extends Component {
                                     <button onClick={this.submitData}>Ask Questions</button></div>
                                 </div>
                             </div>
-                            <div class="card question-card p-3">
+                            <div className="card question-card p-3">
                                 <p>Other User Questions</p>
+                                {
+                                   
+                                }
                                 {this.state.questions.map((q) => {
                                     return (
 
                                         <>
+                                        {
+                                            
+                                        }
                                             {q.answer ?
 
                                                 <>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="user d-flex flex-row align-items-center"> {<i class="fas fa-question-circle"></i>}
-                                                            <span> <small class=" ques">{q.askQuestion}</small></span> </div>
+                                                    <div className="d-flex justify-content-between align-items-center">
+                                                        <div className="user d-flex flex-row align-items-center"> {<i className="fas fa-question-circle"></i>}
+                                                            <span> <small className=" ques">{q.askQuestion}</small></span> </div>
                                                     </div>
                                                     <div >
-                                                        <small class=" username_ques"> {q.firstName}{q.lastName}</small>
+                                                        <small className=" username_ques"> {q.firstName}{q.lastName}</small>
                                                     </div>
 
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="user d-flex flex-row align-items-center"> <i class="fab fa-autoprefixer"></i>
-                                                            <span> <small class="font-weight-bold ques">{q.answer}</small></span> </div>
+                                                    <div className="d-flex justify-content-between align-items-center">
+                                                        <div className="user d-flex flex-row align-items-center"> <i className="fab fa-autoprefixer"></i>
+                                                            <span> <small className="font-weight-bold ques">{q.answer}</small></span> </div>
                                                     </div>
                                                     <div className="question_border">
-                                                        <small class="username_ques "></small>
+                                                        <small className="username_ques "></small>
                                                     </div>
                                                 </>
                                                 :
                                                 <>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <div class="user d-flex flex-row align-items-center"> <i class="fas fa-question-circle"></i>
-                                                            <span> <small class=" ques">{q.askQuestion}</small></span> </div>
+                                                    <div className="d-flex justify-content-between align-items-center">
+                                                        <div className="user d-flex flex-row align-items-center"> <i className="fas fa-question-circle"></i>
+                                                            <span> <small className=" ques">{q.askQuestion}</small></span> </div>
                                                     </div>
                                                     <div >
-                                                        <small class=" username_ques"> {q.firstName} {q.lastName}</small>
+                                                        <small className=" username_ques"> {q.firstName} {q.lastName}</small>
                                                     </div>
                                                     <div className="question_border">
 

@@ -99,41 +99,41 @@ class CameraDetails extends Component {
                     return (
 
                         <div>
-                            <div class="details-card">
-                                <div class="container-fliud">
-                                    <div class="wrapper row">
-                                        <div class="preview col-md-6">
+                            <div className="details-card">
+                                <div className="container-fliud">
+                                    <div className="wrapper row">
+                                        <div className="preview col-md-6">
 
                                             <ImageGallery items={images} />
                                         </div>
 
-                                        <div class="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.gadgetname}{...this.state.producttype = c.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
-                                            <div class="rating">
-                                                <div class="stars">
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
+                                        <div className="details col-md-6">
+                                            <h3 className="product-title" value={this.state.productname = c.gadgetname}{...this.state.producttype = c.gadgettype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.gadgetname}</h3>
+                                            <div className="rating">
+                                                <div className="stars">
+                                                    <span className="fa fa-star checked"></span>
+                                                    <span className="fa fa-star checked"></span>
+                                                    <span className="fa fa-star checked"></span>
+                                                    <span className="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                 </div>
                                             </div>
-                                            <div class="section" >
-                                                <h6 class="title-attr"><small>Quantity</small></h6>
+                                            <div className="section" >
+                                                <h6 className="title-attr"><small>Quantity</small></h6>
                                                 <div>
 
-                                                    <div className="btn-minus" onClick={this.itemMinus}><i class="fas fa-minus"></i></div>
+                                                    <div className="btn-minus" onClick={this.itemMinus}><i className="fas fa-minus"></i></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                    <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
+                                                    <div className="btn-plus" onClick={this.itemPlus}><i className="fas fa-plus quantity-plus"></i></div>
 
 
                                                 </div>
                                             </div>
 
-                                            <h4 class="price" value={this.state.productprice = c.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {c.gadgetprice}</span></h4>
-                                            <div class="action">
-                                                <button class="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
-                                                <button class="like btn-default" type="button"><span class="wishlist fa fa-heart"></span></button>
+                                            <h4 className="price" value={this.state.productprice = c.gadgetprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {c.gadgetprice}</span></h4>
+                                            <div className="action">
+                                                <button className="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
+                                                <button className="like btn-default" type="button"><span className="wishlist fa fa-heart"></span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -301,7 +301,7 @@ class CameraDetails extends Component {
             }
 
             </div>
-            <Review></Review>
+            <Review dataFromParent={this.state.id}></Review>
             <Questions dataFromParent={this.state.id}> </Questions>
         </>
 

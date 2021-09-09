@@ -139,25 +139,25 @@ class EditProfile extends Component {
                                                                 <div className="row profileRow">
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Firstname</p>
-                                                                        <input data-testid="firstname-input" id="form_name" type="text" name="firstname" class="form-control" value={this.state.firstname} onChange={this.changeHandler} />
+                                                                        <input data-testid="firstname-input" id="form_name" type="text" name="firstname" className="form-control" value={this.state.firstname} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Lastname</p>
-                                                                        <input data-testid="lastname-input" id="form_name" type="text" name="lastname" class="form-control" value={this.state.lastname} onChange={this.changeHandler} />
+                                                                        <input data-testid="lastname-input" id="form_name" type="text" name="lastname" className="form-control" value={this.state.lastname} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Email</p>
-                                                                        <input data-testid="email-input" id="form_name" type="email" name="email" class="form-control" value={this.state.email} onChange={this.changeHandler} />
+                                                                        <input data-testid="email-input" id="form_name" type="email" name="email" className="form-control" value={this.state.email} onChange={this.changeHandler} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="row profileRow2">
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Phone number</p>
-                                                                        <input data-testid="phone-input" id="form_name" type="text" name="phone" class="form-control" value={this.state.phone} onChange={this.changeHandler} />
+                                                                        <input data-testid="phone-input" id="form_name" type="text" name="phone" className="form-control" value={this.state.phone} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Profile Picture</p>
-                                                                        <input data-testid="image-input" id="form_name" type="file" name="img" class="form-control" onChange={this.fileHandler} />
+                                                                        <input data-testid="image-input" id="form_name" type="file" name="img" className="form-control" onChange={this.fileHandler} />
                                                                         <label> </label>
                                                                     </div>
                                                                     {/* password */}
@@ -219,18 +219,18 @@ class EditProfile extends Component {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row profileRow">
+                                                                <div className="row profileRow">
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Address</p>
-                                                                        <input data-testid="address-input" id="form_name" type="text" name="address" class="form-control" value={this.state.address} onChange={this.changeHandler} />
+                                                                        <input data-testid="address-input" id="form_name" type="text" name="address" className="form-control" value={this.state.address} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">Tole</p>
-                                                                        <input data-testid="tole-input" id="form_name" type="text" name="tole" class="form-control" value={this.state.tole} onChange={this.changeHandler} />
+                                                                        <input data-testid="tole-input" id="form_name" type="text" name="tole" className="form-control" value={this.state.tole} onChange={this.changeHandler} />
                                                                     </div>
                                                                     <div className="col-sm-4">
                                                                         <p className="m-b-10">ZIP Code</p>
-                                                                        <input data-testid="zip-input" id="form_name" type="text" name="zipCode" class="form-control" value={this.state.zipCode} onChange={this.changeHandler} />
+                                                                        <input data-testid="zip-input" id="form_name" type="text" name="zipCode" className="form-control" value={this.state.zipCode} onChange={this.changeHandler} />
                                                                     </div>
                                                                 </div>
 
