@@ -14,7 +14,7 @@ class Microsoft extends Component{
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/laptop/microsoft", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/laptop/microsoft`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({

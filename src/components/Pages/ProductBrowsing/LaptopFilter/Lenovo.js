@@ -15,7 +15,7 @@ class Lenovo extends Component{
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/laptop/lenovo", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/laptop/lenovo`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({

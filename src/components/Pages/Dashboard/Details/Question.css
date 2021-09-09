@@ -44,18 +44,37 @@
     margin-left: 10px;
     margin-bottom: 1px;
     color: black;
+    font-size: 24px;
     
 }
 
 .username_ques{
-  font-size: 10px;
+  font-size: 15px;
   margin-left: 22px;  
   font-weight: bold;
-  color: gray;
+  color: black;
 }
 .question_border{
     border-bottom: 1px solid #eff0f5;
 }
 .question-card{
     margin-top: -50px;
+}
+.trigger-rep{
+    width: 100px;
+    float: right;
+    font-size: 15px;
+}
+
+.Ques-title{
+    font-size: 100px;
+    font-weight: 300;
+    
+}
+.ques-icon{
+    font-size: 30px;
+    color: #1c96c5;
+}
+.input-reply{
+    width: 300px;
 }

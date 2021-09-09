@@ -193,7 +193,21 @@ class Header extends Component {
                 <LinkContainer exact to="/admin/dashboard/product/add">
                   <Nav.Link>Add Product</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/product" >
+                  <NavDropdown title="Product" id="collasible-nav-dropdown">
+                    <LinkContainer exact to="/product/cosmetics">
+                      <NavDropdown.Item >
+                        Cosmetic
+                      </NavDropdown.Item>
+                    </LinkContainer>
 
+                    <LinkContainer exact to="/product/gadgets">
+                      <NavDropdown.Item>
+                        Gadget
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+                </LinkContainer>
                 <LinkContainer exact to="/cart" className="mobile_show">
                   <Nav.Link>Cart</Nav.Link>
                 </LinkContainer>

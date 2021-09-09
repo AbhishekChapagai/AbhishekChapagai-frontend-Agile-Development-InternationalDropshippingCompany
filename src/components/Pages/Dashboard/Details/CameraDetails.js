@@ -25,7 +25,7 @@ class CameraDetails extends Component {
         gadgets: [],
     }
     componentDidMount() {
-        axios.get(`http://localhost:90/gadget/one/` + this.state.id)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/gadget/one/` + this.state.id)
             .then((response) => {
                 for (var i = 0; i < response.data.data[0].gadgetImages.length; i++) {
                     const image = response.data.data[0].gadgetImages[i].imageName
@@ -46,7 +46,7 @@ class CameraDetails extends Component {
             productprice: this.state.productprice, producttype: this.state.producttype,
             productimage: this.state.gadgets[0].gadgetImages[0].imageName
         }
-        axios.post(`http://localhost:90/mycart/insert/`, data)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/mycart/insert/`, data)
 
 
             .then((response) => {
@@ -291,23 +291,16 @@ class CameraDetails extends Component {
 
                                     </div>
                                 </div>
-
-
                             </div>
 
                         </div>
                     )
                 })
             }
-
             </div>
             <Review dataFromParent={this.state.id}></Review>
             <Questions dataFromParent={this.state.id}> </Questions>
         </>
-
-
-
-
 
         return (
             description

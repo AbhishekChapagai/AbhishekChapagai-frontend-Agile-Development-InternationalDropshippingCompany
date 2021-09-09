@@ -17,7 +17,7 @@ class Canon extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/camera/canon", this.state)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/camera/canon`, this.state)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -71,7 +71,7 @@ class Canon extends Component {
                                     <div className="gadgetsCat">
 
                                         <a href={"/product/gadget/cameradetails/" + g._id}><div className="catGadgetsImage">
-                                            <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
+                                            <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
                                         </div>
                                             <div className="GadgetsNameCategory">
                                                 <p className="CameraName">&nbsp;

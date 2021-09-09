@@ -18,7 +18,7 @@ class LaptopCategory extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:90/gadget/five", this.state)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/gadget/five`, this.state)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -130,7 +130,7 @@ class LaptopCategory extends Component {
 
                     <a href={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
                       <div className="catGadgetImage">
-                        <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
                       </div>
                       <div className="GadgetNameCategory">
                         <p className="GadgetName">

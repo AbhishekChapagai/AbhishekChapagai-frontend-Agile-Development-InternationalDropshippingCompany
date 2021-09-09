@@ -26,7 +26,7 @@ class CosmeticDetails extends Component {
 
     }
     componentDidMount() {
-        axios.get(`http://localhost:90/cosmetic/one/` + this.state.id)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/cosmetic/one/` + this.state.id)
             .then((response) => {
 
                 for (var i = 0; i < response.data.data[0].cosmeticImages.length; i++) {
@@ -50,7 +50,7 @@ class CosmeticDetails extends Component {
             productimage: this.state.cosmetics[0].cosmeticImages[0].imageName
         }
         console.log(this.state.cosmetics[0].cosmeticImages[0].imageName)
-        axios.post(`http://localhost:90/mycart/insert/`, data)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/mycart/insert/`, data)
 
             .then((response) => {
                 console.log("successful")

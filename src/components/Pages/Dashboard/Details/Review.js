@@ -20,7 +20,7 @@ class Review extends Component {
     }
     componentDidMount() {
 
-        axios.get(`http://localhost:90/productone/review/${this.state.productId}`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/productone/review/${this.state.productId}`)
             .then((response) => {
                 console.log(response)
                 this.setState({

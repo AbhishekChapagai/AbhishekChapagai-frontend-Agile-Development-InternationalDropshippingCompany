@@ -28,7 +28,7 @@ class LaptopDetails extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:90/gadget/one/` + this.state.id)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/gadget/one/` + this.state.id)
             .then((response) => {
 
                 for (var i = 0; i < response.data.data[0].gadgetImages.length; i++) {
@@ -51,7 +51,7 @@ class LaptopDetails extends Component {
             productprice: this.state.productprice, producttype: this.state.producttype,
             productimage: this.state.gadgets[0].gadgetImages[0].imageName
         }
-        axios.post(`http://localhost:90/mycart/insert/`, data)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/mycart/insert/`, data)
 
 
             .then((response) => {

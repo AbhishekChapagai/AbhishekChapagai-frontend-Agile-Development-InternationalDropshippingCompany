@@ -14,7 +14,7 @@ class MyOrder extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:90/mycheckout/myorder", this.state.config)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/mycheckout/myorder`, this.state.config)
             .then((response) => {
                 console.log(response)
                 this.setState({

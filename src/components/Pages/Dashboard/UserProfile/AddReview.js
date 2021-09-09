@@ -28,7 +28,7 @@ class AddReview extends Component {
     }
     componentDidMount() {
 
-        axios.get(`http://localhost:90/productone/addreview/${this.state.productId}`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/productone/addreview/${this.state.productId}`)
             .then((response) => {
                 console.log(response.data.data[0])
                 const data = response.data.data[0]
@@ -59,7 +59,7 @@ class AddReview extends Component {
         data.append('review', stateData.review)
         data.append('rating', stateData.rating)
 
-        axios.post("http://localhost:90/product/review/", data, this.state.config)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/product/review/`, data, this.state.config)
             .then((response) => {
                 console.log(response)
                 window.location.href = ""

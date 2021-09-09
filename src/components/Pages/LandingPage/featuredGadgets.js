@@ -18,7 +18,7 @@ class Featured extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:90/gadget/featured", this.state)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/gadget/featured`, this.state)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -129,7 +129,7 @@ class Featured extends Component {
 
                     <a href={"/product/gadget/laptopdetails/" + g._id} className="col-sm-3 gadgetCat">
                       <div className="catGadgetImage">
-                        <img src={"http://localhost:90/gadget/" + g.gadgetImages[0].imageName} alt="img" />
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
                       </div>
                       <div className="GadgetNameCategory">
                         <p className="GadgetName">

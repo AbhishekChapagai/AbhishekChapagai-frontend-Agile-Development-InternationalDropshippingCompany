@@ -27,7 +27,7 @@ class ContextCart extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:90/mycart/showall`, this.state.config)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/mycart/showall`, this.state.config)
       .then((response) => {
         console.log(response)
         this.setState({
@@ -47,7 +47,7 @@ class ContextCart extends Component {
   }
 
   removeItem = (id) => {
-    axios.delete('http://localhost:90/remove/mycart', this.state.config)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/remove/mycart`, this.state.config)
       .then((response) => {
         console.log(response)
       })
