@@ -161,7 +161,7 @@ class Login extends Component {
                                         <a className="l_link" href="/login/forgot/password"> Forgot Password?</a>
                                     </p>
 
-                                    <button type="submit" id="register-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>Login</button>
+                                    <button type="submit" id="login-btn" className="btn btn_primary_color btn-md btn-block mb-2" onClick={this.submitLogin}>Login</button>
                                 </form>
 
 
