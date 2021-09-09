@@ -46,7 +46,6 @@ class EditProfile extends Component {
 
     componentWillMount() {
         this.getuserdata();
-        console.log(this.state.headers)
     }
 
     changeHandler = (e) => {

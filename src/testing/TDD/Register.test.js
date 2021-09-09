@@ -14,10 +14,6 @@ describe('render the views of registration page', () => {
     })
     test("render the title of registration page", () => {
         expect(wrapper.find('h2').text()).toContain(' Join dhuwani')
-
-        // const {getByText} = render(<Register/>);
-        // const linkElement = getByText('Join Dhuwani');
-        // expect(linkElement).toBeInTheDocument();
     });
 
     test('render the FirstName label of registration form', () => {

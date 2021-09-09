@@ -11,7 +11,7 @@ class Checkout extends Component {
         super()
         this.state = {
             userid: localStorage.getItem("userid"),
-            paymentmethod: "khalti",
+            paymentmethod: "cash",
 
             productinfo: {
                 totalamount: "",
@@ -369,7 +369,7 @@ class Checkout extends Component {
                                             value={this.state.billingemail}
                                             data-testid="billingemail-input" onChange={this.changeHandler} required />
                                         <label id="billingemail" htmlFor="floatingInput">Email</label>
-                                        {this.state.billingemail && !(/\S+@\S+\.\S+/).test(this.state.billingaddress.billingemail) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
+                                        {this.state.billingemail && !(/\S+@\S+\.\S+/).test(this.state.billingemail) && <span className="error" data-testid="error-msg">Please enter a valid email.</span>}
 
                                     </div>
                                 </div>
