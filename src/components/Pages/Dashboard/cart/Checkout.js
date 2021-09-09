@@ -315,9 +315,9 @@ class Checkout extends Component {
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="col-md-12 order-md-1">
-                            <form className="needs-validation" onSubmit={this.submitData} novalidate>
+                    <div class="row">
+                        <div class="col-md-12 order-md-1">
+                            <form id="checkoutform" class="needs-validation" onSubmit={this.submitData} novalidate>
 
                                 <hr className="mb-4" />
                                 <div className="custom-control custom-checkbox">
