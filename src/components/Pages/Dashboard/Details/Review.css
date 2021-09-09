@@ -42,13 +42,7 @@ a:hover {
     font-size: 15px
 }
 
-.profile-pic {
-    width: 90px;
-    height: 90px;
-    border-radius: 100%;
-    margin-left: 20px;
-    float: left;
-}
+
 
 .review-pic {
     width: 100px;
@@ -64,6 +58,19 @@ a:hover {
     width: 100px;
     height: 25px;
 }
+.review_border{
+    border-bottom: 1px solid #eff0f5;
+}
+.rev-prof {
+     width: 100px;
+    height: 100px;
+    /* border-radius: 100%;
+    margin-right: 30px; */
+    float: left; 
+    font-size: 200px !important;
+}
+
+
 
 
 

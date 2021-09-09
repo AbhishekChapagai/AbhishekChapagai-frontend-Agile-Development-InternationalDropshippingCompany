@@ -106,12 +106,12 @@ class CosmeticDetails extends Component {
                             <div className="details-card">
                                 <div className="container-fliud">
                                     <div className="wrapper row">
-                                        <div class="preview col-md-6">
+                                        <div className="preview col-md-6">
                                             <ImageGallery items={cimages} />
                                         </div>
 
                                         <div className="details col-md-6">
-                                            <h3 class="product-title" value={this.state.productname = c.cosmeticname}{...this.state.producttype = c.cosmetictype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
+                                            <h3 className="product-title" value={this.state.productname = c.cosmeticname}{...this.state.producttype = c.cosmetictype} onChange={e => { this.setState({ productname: e.target.value }) }}>{c.cosmeticname}</h3>
                                             <div className="rating">
                                                 <div className="stars">
                                                     <span className="fa fa-star checked"></span>
@@ -125,15 +125,15 @@ class CosmeticDetails extends Component {
                                                 <h6 className="title-attr"><small>Quantity</small></h6>
                                                 <div>
 
-                                                    <div className="btn-minus" onClick={this.itemMinus}><i class="fas fa-minus"></i></div>
+                                                    <div className="btn-minus" onClick={this.itemMinus}><i className="fas fa-minus"></i></div>
                                                     <input value={this.state.quantity} onChange={e => { this.setState({ quantity: e.target.value }) }} disabled />
-                                                    <div className="btn-plus" onClick={this.itemPlus}><i class="fas fa-plus quantity-plus"></i></div>
+                                                    <div className="btn-plus" onClick={this.itemPlus}><i className="fas fa-plus quantity-plus"></i></div>
 
 
                                                 </div>
                                             </div>
 
-                                            <h4 class="price" value={this.state.productprice = c.cosmeticprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {c.cosmeticprice}</span></h4>
+                                            <h4 className="price" value={this.state.productprice = c.cosmeticprice} onChange={e => { this.setState({ productprice: e.target.value }) }}>current price: <span>Rs {c.cosmeticprice}</span></h4>
                                             <div className="action">
                                                 <button className="add-to-cart  btn-default" type="button" onClick={this.Addtocart}>add to cart</button>
                                                 <button className="like btn-default" type="button"><span className="wishlist fa fa-heart"></span></button>
@@ -164,6 +164,7 @@ class CosmeticDetails extends Component {
             }
 
             </div>
+            <Review dataFromParent={this.state.id}></Review>
             <Questions dataFromParent={this.state.id}> </Questions>
 
         </>
