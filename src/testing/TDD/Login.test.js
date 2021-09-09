@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { shallow } from 'enzyme';
 
-describe('render the views of registration page', () => {
+describe('render the views of login page', () => {
 
     let wrapper;
     beforeEach(() => {
@@ -25,15 +25,15 @@ describe('render the views of registration page', () => {
         expect(linkElement).toBeInTheDocument();
     });
 
-    test('render the Email label of registration form', () => {
+    test('render the Email label of login form', () => {
         expect(wrapper.find("#email").text()).toBe("Email address");
     })
 
-    test('render the Password label of registration form', () => {
+    test('render the Password label of login form', () => {
         expect(wrapper.find("#password").text()).toBe("Password");
     })
 
-    test('render the Button label of registration form', () => {
+    test('render the Button label of login form', () => {
         expect(wrapper.find("#register-btn").text()).toBe("Login");
     })
 
