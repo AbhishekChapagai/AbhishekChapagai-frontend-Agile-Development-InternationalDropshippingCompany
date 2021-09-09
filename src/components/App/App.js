@@ -57,7 +57,6 @@ import Lotion from '../Pages/ProductBrowsing/CosmeticFilter/Lotion';
 import EditPRDetails from '../Pages/AdminDashboard/Product/ProductRequested/EditPRDetails';
 import AddAd from '../Pages/AdminDashboard/Ad/AddAd';
 import EditOrder from '../Pages/AdminDashboard/Product/Order/EditOrder';
-import Men from '../Pages/LandingPage/forMen';
 import Nikon from '../Pages/ProductBrowsing/CameraFilter/nikon';
 import Canon from '../Pages/ProductBrowsing/CameraFilter/canon';
 import Gopro from '../Pages/ProductBrowsing/CameraFilter/gopro';

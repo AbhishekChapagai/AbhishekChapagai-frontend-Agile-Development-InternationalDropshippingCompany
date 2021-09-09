@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from 'react-router-dom'
 import './profileEdit.css'
 import { districts, provinces } from '../../List/AddressList';
-import Footer from '../../../Footer/Footer'
 
 
 

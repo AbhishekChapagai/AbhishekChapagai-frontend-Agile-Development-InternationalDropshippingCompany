@@ -3,9 +3,7 @@ import axios from "axios";
 import './profileEdit.css'
 import './review.css';
 import Sidebar from './Sidebar';
-import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
 import { toast } from 'react-toastify';
 toast.configure();
 
