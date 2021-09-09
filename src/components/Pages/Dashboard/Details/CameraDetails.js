@@ -176,10 +176,10 @@ class CameraDetails extends Component {
                                     </div>
                                     <div className="col ">
                                         <div className="col "></div>
-                                        <div className="col">{c.cameraResolution}</div>
-                                        <div className="col">{c.cameraSalesPackage}</div>
-                                        <div className="col">{c.cameraDimensions}</div>
-                                        <div className="col">{c.cameraWeight}</div>
+                                        <div className="col">{c.camera.cameraResolution}</div>
+                                        <div className="col">{c.camera.cameraSalesPackage}</div>
+                                        <div className="col">{c.camera.cameraDimensions}</div>
+                                        <div className="col">{c.camera.cameraWeight}</div>
                                     </div>
                                 </div>
                                 <div className="row product-row">
@@ -191,8 +191,8 @@ class CameraDetails extends Component {
                                         <div className="col">Lens Focal Length  :</div>
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraLensType}</div>
-                                        <div className="col">{c.cameraLensFocalLength}</div>
+                                        <div className="col">{c.camera.cameraLensType}</div>
+                                        <div className="col">{c.camera.cameraLensFocalLength}</div>
                                     </div>
                                 </div>
                                 <div className="row product-row">
@@ -205,9 +205,9 @@ class CameraDetails extends Component {
                                         <div className="col">Sensor Size  :</div>
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraSensorType}</div>
-                                        <div className="col">{c.cameraSensorFormat}</div>
-                                        <div className="col">{c.cameraSensorSize}</div>
+                                        <div className="col">{c.camera.cameraSensorType}</div>
+                                        <div className="col">{c.camera.cameraSensorFormat}</div>
+                                        <div className="col">{c.camera.cameraSensorSize}</div>
                                     </div>
                                 </div>
                                 <div className="row product-row">
@@ -222,9 +222,9 @@ class CameraDetails extends Component {
 
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraScreenSize}</div>
-                                        <div className="col">{c.cameraDisplayType}</div>
-                                        <div className="col">{c.cameraDisplayResolution}</div>
+                                        <div className="col">{c.camera.cameraScreenSize}</div>
+                                        <div className="col">{c.camera.cameraDisplayType}</div>
+                                        <div className="col">{c.camera.cameraDisplayResolution}</div>
 
                                     </div>
                                 </div>
@@ -238,8 +238,8 @@ class CameraDetails extends Component {
 
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraMemoryCardType}</div>
-                                        <div className="col">{c.cameraConnectivity}</div>
+                                        <div className="col">{c.camera.cameraMemoryCardType}</div>
+                                        <div className="col">{c.camera.cameraConnectivity}</div>
 
                                     </div>
                                 </div>
@@ -256,12 +256,12 @@ class CameraDetails extends Component {
                                         <div className="col">Video Resolution Details  :</div>
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraConnectivity}</div>
-                                        <div className="col">{c.cameraHDRSupport}</div>
-                                        <div className="col">{c.cameraImageFormats}</div>
-                                        <div className="col">{c.cameraSupportedAudioFormats}</div>
-                                        <div className="col">{c.cameraVideoResolution}</div>
-                                        <div className="col">{c.cameraVideoResolutionDetails}</div>
+                                        <div className="col">{c.camera.cameraConnectivity}</div>
+                                        <div className="col">{c.camera.cameraHDRSupport}</div>
+                                        <div className="col">{c.camera.cameraImageFormats}</div>
+                                        <div className="col">{c.camera.cameraSupportedAudioFormats}</div>
+                                        <div className="col">{c.camera.cameraVideoResolution}</div>
+                                        <div className="col">{c.camera.cameraVideoResolutionDetails}</div>
                                     </div>
                                 </div>
                                 <div className="row product-row">
@@ -275,9 +275,9 @@ class CameraDetails extends Component {
 
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraBatteryType}</div>
-                                        <div className="col">{c.cameraBatteryCapacity}</div>
-                                        <div className="col">{c.cameraNoOfShots}</div>
+                                        <div className="col">{c.camera.cameraBatteryType}</div>
+                                        <div className="col">{c.camera.cameraBatteryCapacity}</div>
+                                        <div className="col">{c.camera.cameraNoOfShots}</div>
 
                                     </div>
                                 </div>
@@ -294,11 +294,11 @@ class CameraDetails extends Component {
 
                                     </div>
                                     <div className="col">
-                                        <div className="col">{c.cameraMicrophone}</div>
-                                        <div className="col">{c.cameraTripodSocket}</div>
-                                        <div className="col">{c.cameraHeadphoneJack}</div>
-                                        <div className="col">{c.cameraUSBConnectivity}</div>
-                                        <div className="col">{c.cameraPictBridgeSupport}</div>
+                                        <div className="col">{c.camera.cameraMicrophone}</div>
+                                        <div className="col">{c.camera.cameraTripodSocket}</div>
+                                        <div className="col">{c.camera.cameraHeadphoneJack}</div>
+                                        <div className="col">{c.camera.cameraUSBConnectivity}</div>
+                                        <div className="col">{c.camera.cameraPictBridgeSupport}</div>
 
                                     </div>
                                 </div>
