@@ -78,14 +78,25 @@ class CameraDetails extends Component {
     }
 
     itemPlus = () => {
-        this.setState({ quantity: parseInt(this.state.quantity) + parseInt(1) });
+        const plus = this.state.quantity;
+
+        if (plus < 5) {
+            this.setState({
+                quantity: parseInt(this.state.quantity) + parseInt(1)
+            });
+        }
+        else {
+            alert("Maximum quantity reached!")
+        }
     }
 
     itemMinus = () => {
         const minus = this.state.quantity;
 
         if (minus > 1) {
-            this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
+            this.setState({
+                quantity: parseInt(this.state.quantity) - parseInt(1)
+            });
         }
         else {
             alert("Minimum quantity reached!")

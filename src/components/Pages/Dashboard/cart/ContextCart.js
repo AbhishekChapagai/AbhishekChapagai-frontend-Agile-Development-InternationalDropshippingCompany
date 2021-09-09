@@ -7,16 +7,8 @@ import emptycart from '../../../../assets/images/emptycart.jpg';
 
 class ContextCart extends Component {
 
-  constructor(props) {
-    super(props);
-    // this.mytotalamount = this.mytotalamount.bind(this);
-  }
-
   state = {
     userid: localStorage.getItem("userid"),
-    // totalamount: '',
-    // totalamounttax: '',
-    // itemcount: '',
     gadgetcart: [],
     tax: 10,
     config: {
@@ -57,21 +49,6 @@ class ContextCart extends Component {
 
     window.location.reload(false);
   }
-
-  // mytotalamount() {
-  //   const data = {
-  //     userid: this.state.userid, itemcount: this.state.itemcount, totalamount: this.state.totalamount,
-  //     totalamounttax: this.state.totalamounttax
-  //   }
-  //   axios.post(`http://localhost:90/mytotalamount/insert/`, data)
-
-  //     .then((response) => {
-  //       console.log("successful")
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
 
   render() {
 
