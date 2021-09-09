@@ -243,8 +243,8 @@ const cosmeticBrand = [
     },
     {
         id: "2",
-        label: "Cred",
-        value: 'Cred',
+        label: "Creed",
+        value: 'Creed',
     },
     {
         id: "3",
