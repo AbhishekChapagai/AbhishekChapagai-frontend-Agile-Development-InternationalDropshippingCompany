@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Footer from '../../../Footer/Footer';
 
 class Address extends Component {
-    state={
+    state = {
         firstname: '',
         lastname: '',
         email: '',
@@ -24,20 +24,20 @@ class Address extends Component {
     }
     componentDidMount() {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/token/decode`, this.state.config)
-          .then((response) => {
-            const data = response.data
-            this.setState({
-              firstName: data.firstName,
-              lastName: data.lastName,
-              email: data.email,
-              phone: data.phone,
-              addressBook: data.addressBook,
-              img: data.img
+            .then((response) => {
+                const data = response.data
+                this.setState({
+                    firstName: data.firstName,
+                    lastName: data.lastName,
+                    email: data.email,
+                    phone: data.phone,
+                    addressBook: data.addressBook,
+                    img: data.img
+                })
+            }).catch((err) => {
+                console.log(err);
             })
-          }).catch((err) => {
-            console.log(err);
-          })
-      }
+    }
 
     render() {
         return (
@@ -47,7 +47,7 @@ class Address extends Component {
                         <div className="row">
                             <div className="sidebarCat col-xl-2 col-lg-2 col-md-3 col-sm-12">
                                 <div class="sidebar">
-                                <p className="helloUser">Hello, {this.state.firstName}</p>
+                                    <p className="helloUser">Hello, {this.state.firstName}</p>
                                     <p className="verified"><i class="fas fa-check"></i> Verified Account</p>
                                     <p className="manageAccount">Manage your account</p>
                                     <Link to="/user/profile"><a>MY PROFILE</a></Link>
@@ -64,36 +64,36 @@ class Address extends Component {
                                             <div class="col-12">
                                                 <div class="card user-card-full addressCard">
                                                     <div class="row m-l-0 m-r-0">
-                                                    
+
                                                         <div class="col-sm-12">
                                                             <div class="card-block">
                                                                 <h5 class="m-b-20 p-b-5 b-b-default f-w-600">My address</h5>
                                                                 <div class="row">
                                                                     <div class="col-sm-3">
                                                                         <p class="m-b-9">Province</p>
-                                                                        <p class="text-unmuted">{this.state.addressBook.province?(this.state.addressBook.province):("Province")}</p>
+                                                                        <p class="text-unmuted">{this.state.addressBook.province ? (this.state.addressBook.province) : ("Province")}</p>
                                                                     </div>
                                                                     <div class="col-sm-3">
                                                                         <p class="m-b-9">District</p>
-                                                                        <p class="text-unmuted">{this.state.addressBook.district?(this.state.addressBook.district):("District")}</p>
+                                                                        <p class="text-unmuted">{this.state.addressBook.district ? (this.state.addressBook.district) : ("District")}</p>
                                                                     </div>
                                                                     <div class="col-sm-3">
                                                                         <p class="m-b-9">Address</p>
-                                                                        <p class="text-unmuted">{this.state.addressBook.address?(this.state.addressBook.address):("Address")}</p>
+                                                                        <p class="text-unmuted">{this.state.addressBook.address ? (this.state.addressBook.address) : ("Address")}</p>
                                                                     </div>
                                                                     <div class="col-sm-3">
-                                                                    <p class="m-b-9">Tole</p>
-                                                                    <p class="text-unmuted">{this.state.addressBook.tole?(this.state.addressBook.tole):("Tole")}</p>
+                                                                        <p class="m-b-9">Tole</p>
+                                                                        <p class="text-unmuted">{this.state.addressBook.tole ? (this.state.addressBook.tole) : ("Tole")}</p>
                                                                     </div>
 
                                                                 </div>
                                                                 <div class="row">
-                                                                <div class="col-sm-3">
-                                                                    <p class="m-b-9">ZIP Code</p>
-                                                                    <p class="text-unmuted">{this.state.addressBook.zipCode?(this.state.addressBook.zipCode):("ZIP Code")}</p>
+                                                                    <div class="col-sm-3">
+                                                                        <p class="m-b-9">ZIP Code</p>
+                                                                        <p class="text-unmuted">{this.state.addressBook.zipCode ? (this.state.addressBook.zipCode) : ("ZIP Code")}</p>
                                                                     </div>
                                                                     <div class="col-12 col-sm-6">
-                                                                    <Link to='/user/edit'> <div className="addressEdit">EDIT ADDRESS</div></Link>
+                                                                        <Link to='/user/edit'> <div className="addressEdit">EDIT ADDRESS</div></Link>
                                                                     </div>
                                                                 </div>
 
@@ -109,7 +109,6 @@ class Address extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer></Footer>
             </>
         )
     }
