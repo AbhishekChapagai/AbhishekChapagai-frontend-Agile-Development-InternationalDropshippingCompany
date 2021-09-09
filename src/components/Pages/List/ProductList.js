@@ -179,6 +179,11 @@ const gadgetBrandNames = [
     },
     {
         id: "14",
+        label: "Asus",
+        value: 'Asus',
+    },
+    {
+        id: "15",
         label: "Other",
         value: 'Other',
     },
