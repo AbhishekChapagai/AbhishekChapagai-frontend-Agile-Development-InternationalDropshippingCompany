@@ -231,4 +231,33 @@ const productStatus = [
 ]
 
 
-export { featured, cosmeticTypes, cosmeticGenders, gadgetTypes, gadgetBrandNames, yesNo, trueFalse, productTypes, prStatus, productStatus }
+const cosmeticBrand = [
+    {
+        id: "0",
+        label: "Select Cosmetic Names",
+    },
+    {
+        id: "1",
+        label: "Dior",
+        value: 'Dior',
+    },
+    {
+        id: "2",
+        label: "Cred",
+        value: 'Cred',
+    },
+    {
+        id: "3",
+        label: "Hugo Boss",
+        value: 'Hugo Boss',
+    },
+    {
+        id: "4",
+        label: "Victoria Secret",
+        value: 'Victoria Secret',
+    }
+
+]
+
+
+export { featured, cosmeticTypes, cosmeticGenders, gadgetTypes, gadgetBrandNames, yesNo, trueFalse, productTypes, prStatus, productStatus, cosmeticBrand }

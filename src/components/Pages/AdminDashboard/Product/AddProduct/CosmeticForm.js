@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { toast } from 'react-toastify';
-import { cosmeticGenders, cosmeticTypes, featured, gadgetBrandNames } from '../../../List/ProductList';
+import { cosmeticBrand, cosmeticGenders, cosmeticTypes, featured } from '../../../List/ProductList';
 toast.configure();
 
 export default class CosmeticForm extends Component {
@@ -192,7 +192,7 @@ export default class CosmeticForm extends Component {
                                     value={this.state.brandName}
                                     name="brandName" onChange={this.changeHandler} >
 
-                                    {gadgetBrandNames.map(option =>
+                                    {cosmeticBrand.map(option =>
                                         <option key={option.label} value={option.value}>
                                             {option.label}
                                         </option>)
