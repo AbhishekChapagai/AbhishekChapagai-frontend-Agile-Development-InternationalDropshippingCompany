@@ -64,7 +64,6 @@ describe("render the input field of Checkout page", () => {
         userEvent.type(inputEL, "test@gmail.com");
 
         expect(screen.getByTestId("billingemail-input")).toHaveValue("test@gmail.com");
-        expect(screen.queryByTestId("error-msg")).toBeInTheDocument();
     });
 
     it('pass invalid email to test input value', () => {

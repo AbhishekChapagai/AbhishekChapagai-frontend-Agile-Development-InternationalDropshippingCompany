@@ -329,16 +329,9 @@
   background-color: green;
 }
 
-.button-khalti {
-  background: url("../../../../assets/images/khalti.png");
-  background-size: 48px;
-  background-repeat: no-repeat;
-  color: #5c2b90;
-  border-color: #5c2b90;
-}
 
-.button-khalti:hover {
-  background-color: rgb(172, 59, 172);
+.button-shopping:hover {
+  background-color: green;
 }
 
 .button-khalti :disabled,

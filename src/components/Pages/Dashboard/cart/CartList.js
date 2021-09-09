@@ -25,7 +25,7 @@ export default class CartList extends Component {
             });
         }
         else {
-            { alert("Maximum quantity reached!") }
+            alert("Maximum quantity reached!")
         }
     }
 
@@ -36,7 +36,7 @@ export default class CartList extends Component {
             this.setState({ quantity: parseInt(this.state.quantity) - parseInt(1) });
         }
         else {
-            { alert("Minimum quantity reached!") }
+            alert("Minimum quantity reached!")
         }
     }
 
