@@ -159,9 +159,29 @@ const gadgetBrandNames = [
     },
     {
         id: "10",
+        label: "Canon",
+        value: 'Canon',
+    },
+    {
+        id: "11",
+        label: "Nikon",
+        value: 'Nikon',
+    },
+    {
+        id: "12",
+        label: "Sony",
+        value: 'Sony',
+    },
+    {
+        id: "13",
+        label: "GoPro",
+        value: 'GoPro',
+    },
+    {
+        id: "14",
         label: "Other",
         value: 'Other',
-    }
+    },
 ]
 
 const productTypes = [
