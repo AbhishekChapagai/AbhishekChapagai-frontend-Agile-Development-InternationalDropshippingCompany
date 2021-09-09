@@ -3,7 +3,7 @@ import { Component } from "react";
 // import { Row, Col, Card, CardGroup } from 'react-bootstrap';
 // import '../../infoflipcard/styles.css'
 import { Link } from "react-router-dom";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import './ProductBrowsing.css'
 

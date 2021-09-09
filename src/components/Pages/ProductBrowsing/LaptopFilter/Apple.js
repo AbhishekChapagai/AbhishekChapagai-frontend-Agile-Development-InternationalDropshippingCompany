@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 class Apple extends Component {
