@@ -130,7 +130,8 @@ class LaptopCategory extends Component {
 
                     <a href={"/product/gadget/laptopdetails/" + g._id} className="col-6 gadgetCat">
                       <div className="catGadgetImage">
-                        <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
+                        {/* <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" /> */}
+                        <img src="https://images.unsplash.com/photo-1542039375-28138150cc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80" alt="img" />
                       </div>
                       <div className="GadgetNameCategory">
                         <p className="GadgetName">

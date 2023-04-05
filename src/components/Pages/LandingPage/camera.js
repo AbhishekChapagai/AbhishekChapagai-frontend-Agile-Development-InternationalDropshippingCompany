@@ -129,7 +129,8 @@ class CameraCategory extends Component {
 
                     <a href={"/product/gadget/cameradetails/" + g._id} className="col-6 cameraCat">
                       <div className="catGadgetImage">
-                        <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" />
+                        {/* <img src={`${process.env.REACT_APP_BACKEND_URL}/gadget/` + g.gadgetImages[0].imageName} alt="img" /> */}
+                        <img src="https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="img" />
                       </div>
                       <div className="CameraNameCategory">
                         <p className="CameraName">&nbsp;

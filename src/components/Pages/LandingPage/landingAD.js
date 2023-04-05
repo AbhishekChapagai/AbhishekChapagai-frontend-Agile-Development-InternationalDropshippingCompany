@@ -49,7 +49,8 @@ class LandingAD extends Component {
                                 this.state.landingAD.map((l) => {
                                     return (    
                                             <div className="imagead1">
-                                                <img src={`${process.env.REACT_APP_BACKEND_URL}/landingAD/` + l.landingimage} alt="img" />
+                                                {/* <img src={`${process.env.REACT_APP_BACKEND_URL}/landingAD/` + l.landingimage} alt="img" /> */}
+                                                <img src="https://www.macobserver.com/wp-content/uploads/2020/11/M1-MacBook-Pro-MacBook-Air-on-sale-2048x1075.png" alt="img" />
                                             </div>
                                     )
                                 })

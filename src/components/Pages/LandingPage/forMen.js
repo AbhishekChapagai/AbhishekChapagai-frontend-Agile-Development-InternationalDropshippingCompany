@@ -130,7 +130,8 @@ class Men extends Component {
                     <a href={"/product/cosmetic/cosmeticdetails/" + c._id} className="col-6 cosmeticCat">
                       {/* <a href={"/product/cosmetic/cosmeticdetails/" + c._id}> */}
                       <div className="catCosmeticImage">
-                        <img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + c.cosmeticImages[0].imageName} alt="img" />
+                        {/* <img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + c.cosmeticImages[0].imageName} alt="img" /> */}
+                        <img src="https://media.istockphoto.com/id/887360960/photo/mens-suits-on-hangers-in-different-colors.jpg?b=1&s=170667a&w=0&k=20&c=Y4R9o1OstKZ4oKfpbI3pIBM7kWyXVjx69_wZZCZKfug=" alt="img" />
                       </div>
                       <div className="CosmeticNameCategory">
                         <p className="CosmeticName">&nbsp;
