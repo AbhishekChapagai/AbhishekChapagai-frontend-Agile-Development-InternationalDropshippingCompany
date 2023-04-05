@@ -13,12 +13,12 @@ class Footer extends Component {
                             <div class="col-sm-12 col-md-6">
                                 <h6>About</h6>
                                 <p class="text-justify">Dhuwani.com
-                                is Nepal's first Internatonal Dropshipping Company allowing consumers to get
-                                hands on branded cosmetic products from Dior, Chanel, Louis Vuitton etc. and gadgets
-                                like laptops and cameras that are not available in Nepali market. With the help of dhuwani
-                                 user can not only browse products from our site but can also make a request for a 
-                                 product (Cosmetics, Laptops and Cameras) to be 
-                                imported for them. Happy Shopping !</p>
+                                    is Nepal's first Internatonal Dropshipping Company allowing consumers to get
+                                    hands on branded cosmetic products from Dior, Chanel, Louis Vuitton etc. and gadgets
+                                    like laptops and cameras that are not available in Nepali market. With the help of dhuwani
+                                    user can not only browse products from our site but can also make a request for a
+                                    product (Cosmetics, Laptops and Cameras) to be
+                                    imported for them. Happy Shopping !</p>
                             </div>
 
                             <div class="col-xs-6 col-md-3">
@@ -27,7 +27,7 @@ class Footer extends Component {
                                     <li><a href="/about">About Us</a></li>
                                     <li><a href="/">Contact Us</a></li>
                                     <li><a href="/">Privacy Policy</a></li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -37,8 +37,8 @@ class Footer extends Component {
                         <div class="row">
                             <div class="col-md-8 col-sm-6 col-xs-12">
                                 <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by&nbsp;
-                                <a href="#">dhuwani.com</a>.
-                                 </p>
+                                    <a href="#">dhuwani.com</a>.
+                                </p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-12">
                                 <ul class="social-icons">
