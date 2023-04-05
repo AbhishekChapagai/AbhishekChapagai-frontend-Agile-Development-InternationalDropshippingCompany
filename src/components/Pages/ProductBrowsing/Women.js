@@ -75,7 +75,9 @@ class Women extends Component {
                       {
                         (<a href={"/product/cosmetic/cosmeticdetails/" + c._id}>
                           <div className="CosmeticsImage">
-                            <img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + c.cosmeticImages[0].imageName} alt="img" />
+                            {/* <img src={`${process.env.REACT_APP_BACKEND_URL}/cosmetic/` + c.cosmeticImages[0].imageName} alt="img" /> */}
+                            <img src="https://media.istockphoto.com/id/688948854/photo/details-of-bright-beautiful-pastel-tones-dress-collection-in-show-room.jpg?b=1&s=170667a&w=0&k=20&c=jDwVTZPcCG3TMVPzxQPiyp4F3xcRNyXiHvSQDSuoMOQ=" alt="img" />
+
                           </div>
                           <div className="CosmeticsNameCategory">
                             <p className="CosmeticName">&nbsp;

@@ -166,7 +166,7 @@ class LaptopDetails extends Component {
                                     <p className="collapse" id="collapseExample" aria-expanded="false">
                                         {l.gadgetdescription}
                                     </p>
-                                    <a className="showmore" role="button" className="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    <a className="showmore collapsed" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                     </a>
                                 </div>
                                 <div className="container product-details">
