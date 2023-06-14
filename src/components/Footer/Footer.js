@@ -18,7 +18,7 @@ class Footer extends Component {
                                     like laptops and cameras that are not available in Nepali market. With the help of dhuwani
                                     user can not only browse products from our site but can also make a request for a
                                     product (Cosmetics, Laptops and Cameras) to be
-                                    imported for them. Happy Shopping !</p>
+                                    imported for them. Happy Shopping </p>
                             </div>
 
                             <div class="col-xs-6 col-md-3">
